@@ -52,3 +52,6 @@ endif
 " this is for waf builds
 let &efm = "%-GBuild finished successfully %.%#," . &efm
 
+" for rsense
+let g:rsenseHome = "/opt/rsense-0.2"
+
