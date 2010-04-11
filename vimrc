@@ -1,8 +1,4 @@
-if v:progname != 'gvim'
-  set background=dark
-else
-  colorscheme zenburn
-endif
+colorscheme torte
 filetype plugin on
 filetype indent on
 syntax enable
