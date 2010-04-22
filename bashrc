@@ -67,3 +67,7 @@ RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
 PATH="$PATH:$RIPDIR/active/bin"
 export RIPDIR RUBYLIB PATH
 # -- end rip config -- #
+
+# per-machine stuff
+[ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
+
