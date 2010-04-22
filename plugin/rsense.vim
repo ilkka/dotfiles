@@ -4,12 +4,20 @@ endif
 let g:loaded_rsense = 1
 
 if !exists('g:rsenseHome')
-    let g:rsenseHome = "~/src/rsense"
+    let g:rsenseHome = expand("~/src/rsense")
 endif
 
 if !exists('g:rsenseUseOmniFunc')
     let g:rsenseUseOmniFunc = 0
 endif
+
+" Check vimproc.
+let s:is_vimproc = exists('*vimproc#system')
+
+function! s:system(str, ...)"{{{
+  return s:is_vimproc ? (a:0 == 0 ? vimproc#system(a:str) : vimproc#system(a:str, join(a:000)))
+        \: (a:0 == 0 ? system(a:str) : system(a:str, join(a:000)))
+endfunction"}}}
 
 function! RSenseComplete(findstart, base)
     if a:findstart
@@ -20,25 +28,37 @@ function! RSenseComplete(findstart, base)
         let file = tempname()
         call writefile(buf, file)
 
-        let command = printf('ruby %s/bin/rsense code-completion --file=%s --location=%s:%s --prefix=%s', g:rsenseHome, file, line('.'), col('.') - 1, a:base)
-        let result = split(system(command), "\n")
+        let rsense = shellescape(g:rsenseHome . '/bin/rsense')
+        let file_opt = shellescape('--file=' . file)
+        let prefix_opt = shellescape('--prefix=' . a:base)
+        let command = printf('ruby %s code-completion %s --location=%s:%s %s',
+                             \ rsense,
+                             \ file_opt,
+                             \ line('.'),
+                             \ col('.') - 1,
+                             \ prefix_opt)
+        let result = split(s:system(command), "\n")
         let completions = []
         for item in result
-            call add(completions, split(item, ' ')[1])
+            if item =~ '^completion: '
+                call add(completions, split(item, ' ')[1])
+            endif
         endfor
         return completions
     endif
 endfunction
 
 function! RSenseVersion()
-    return system(printf('ruby %s/bin/rsense version', g:rsenseHome))
+    let rsense = shellescape(g:rsenseHome . '/bin/rsense')
+    return s:system(printf('ruby %s version', rsense))
 endfunction
 
 function! SetupRSense()
     if g:rsenseUseOmniFunc
         setlocal omnifunc=RSenseComplete
+    else
+        setlocal completefunc=RSenseComplete
     endif
-    setlocal completefunc=RSenseComplete
 endfunction
 
 autocmd FileType ruby call SetupRSense()
