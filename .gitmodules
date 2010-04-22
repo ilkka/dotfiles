@@ -1,0 +1,3 @@
+[submodule "stow/snipmate.vim"]
+	path = stow/snipmate.vim
+	url = git://github.com/wayneeseguin/snipmate.vim.git
