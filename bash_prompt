@@ -25,7 +25,8 @@ if [ "$color_prompt" = yes ]; then
 fi
 unset color_prompt force_color_prompt
 
-PROMPT_COMMAND='RET=$?;'
+# set PROMPT_COMMAND to 1) store retval 2) output current ruby
+PROMPT_COMMAND='RET=$?; printf "%*s\r" $COLUMNS "["$(~/.rvm/bin/rvm-prompt)"]"'
 RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
 RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$bldgrn\]☺"; else echo -ne "\[$bldred\]☹"; fi; echo -ne "\[$txtrst\]";)'
 #GIT_SKULL='$(if git status 2>/dev/null|grep -q "added to commit" 2>/dev/null; then echo -ne " \[$bldred\][☠]\[$txtrst\]"; fi)'
