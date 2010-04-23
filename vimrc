@@ -49,5 +49,5 @@ endif
 let &efm = "%-GBuild finished successfully %.%#," . &efm
 
 " for rsense
-let g:rsenseHome = "/opt/rsense-0.2"
+let g:rsenseHome = $RSENSE_HOME
 
