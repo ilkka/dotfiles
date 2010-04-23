@@ -8,7 +8,6 @@ set modeline
 set incsearch
 set hlsearch
 set wildmenu
-set number
 set scrolloff=2
 set cinoptions=(0
 
