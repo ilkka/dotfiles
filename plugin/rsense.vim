@@ -31,12 +31,14 @@ function! RSenseComplete(findstart, base)
         let rsense = shellescape(g:rsenseHome . '/bin/rsense')
         let file_opt = shellescape('--file=' . file)
         let prefix_opt = shellescape('--prefix=' . a:base)
-        let command = printf('ruby %s code-completion %s --location=%s:%s %s',
+	let gempath_opt = shellescape('--gem-path=' . $GEM_PATH)
+        let command = printf('ruby %s code-completion %s --location=%s:%s %s %s',
                              \ rsense,
                              \ file_opt,
                              \ line('.'),
                              \ col('.') - 1,
-                             \ prefix_opt)
+                             \ prefix_opt,
+	                     \ gempath_opt)
         let result = split(s:system(command), "\n")
         let completions = []
         for item in result
