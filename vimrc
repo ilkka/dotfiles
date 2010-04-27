@@ -23,6 +23,7 @@ let g:Tlist_Show_Menu=1
 let g:Tlist_GainFocus_On_ToggleOpen=1
 let g:Tlist_Show_One_File=1
 let g:Tlist_Use_Right_Window=1
+let g:Tlist_Close_On_Select=1
 
 nnoremap <silent> <F7> :NERDTreeToggle<CR>
 
