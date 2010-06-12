@@ -2,6 +2,11 @@ colorscheme torte
 filetype plugin on
 filetype indent on
 syntax enable
+
+if has("macunix")
+	set guifont=Monaco:h12
+end
+
 set backspace=2
 set ruler
 set modeline
