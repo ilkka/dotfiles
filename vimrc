@@ -1,4 +1,4 @@
-colorscheme torte
+colorscheme inkpot
 filetype plugin on
 filetype indent on
 syntax enable
