@@ -3,7 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+if [[ -n "$PS1" ]]; then
 
 [ -s $HOME/.bashfiles/bash_colors ] && . $HOME/.bashfiles/bash_colors
 
@@ -61,3 +61,4 @@ export RIPDIR RUBYLIB PATH
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
+fi
