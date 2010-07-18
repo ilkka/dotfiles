@@ -1,4 +1,8 @@
-colorscheme inkpot
+if v:progname=='gvim'
+	colorscheme inkpot
+else
+	colorscheme zenburn
+endif
 filetype plugin on
 filetype indent on
 syntax enable
