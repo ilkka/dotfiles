@@ -1,0 +1,18 @@
+[submodule "bundle\\vim-snipmate"]
+	path = bundle\\vim-snipmate
+	url = git://github.com/wayneeseguin/snipmate.vim
+[submodule "bundle\\vim-cucumber"]
+	path = bundle\\vim-cucumber
+	url = git://github.com/tpope/vim-cucumber.git
+[submodule "bundle\\nerdtree"]
+	path = bundle\\nerdtree
+	url = http://github.com/scrooloose/nerdtree.git
+[submodule "bundle\\vcscommand"]
+	path = bundle\\vcscommand
+	url = git://repo.or.cz/vcscommand
+[submodule "bundle\\vim-git"]
+	path = bundle\\vim-git
+	url = http://github.com/tpope/vim-git.git
+[submodule "bundle\\vim-fugitive"]
+	path = bundle\\vim-fugitive
+	url = http://github.com/tpope/vim-fugitive.git
