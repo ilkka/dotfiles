@@ -1,10 +1,16 @@
+" call pathogen
+filetype off
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 if v:progname=='gvim'
 	colorscheme inkpot
 else
 	colorscheme zenburn
 endif
-filetype plugin on
-filetype indent on
+" not needed/wanted with pathogen?
+"filetype plugin on
+"filetype indent on
 syntax enable
 
 if has("macunix")
