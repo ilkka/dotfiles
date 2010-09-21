@@ -5,7 +5,9 @@
 # If not running interactively, don't do anything
 if [[ -n "$PS1" ]]; then
 
-[ -s $HOME/.bashfiles/bash_colors ] && . $HOME/.bashfiles/bash_colors
+# try to extrapolate the dir this file is in
+CFGDIR=$(dirname $(readlink -f $HOME/.bashrc))
+[ -s $CFGDIR/bash_colors ] && . $CFGDIR/bash_colors
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -25,15 +27,15 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-[ -s $HOME/.bashfiles/bash_prompt ] && . $HOME/.bashfiles/bash_prompt
+[ -s $CFGDIR/bash_prompt ] && . $CFGDIR/bash_prompt
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bashfiles/bash_aliases ]; then
-    . ~/.bashfiles/bash_aliases
+if [ -f $CFGDIR/bash_aliases ]; then
+    . $CFGDIR/bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -50,13 +52,6 @@ fi
 
 ### own bin into path
 [ -d $HOME/bin ] && export PATH=$HOME/bin:$PATH
-
-# -- start rip config -- #
-RIPDIR=$HOME/.rip
-RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-PATH="$PATH:$RIPDIR/active/bin"
-export RIPDIR RUBYLIB PATH
-# -- end rip config -- #
 
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
