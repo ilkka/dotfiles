@@ -6,7 +6,7 @@
 if [[ -n "$PS1" ]]; then
 
 # try to extrapolate the dir this file is in
-CFGDIR=$(dirname $(readlink -f $HOME/.bashrc))
+CFGDIR=$HOME/.bashfiles
 [ -s $CFGDIR/bash_colors ] && . $CFGDIR/bash_colors
 
 # don't put duplicate lines in the history. See bash(1) for more options
