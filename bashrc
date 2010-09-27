@@ -51,7 +51,10 @@ if test -s $HOME/.rvm/scripts/rvm; then
 fi
 
 ### own bin into path
-[ -d $HOME/bin ] && export PATH=$HOME/bin:$PATH
+[ -d $HOME/bin -o -L $HOME/bin ] && export PATH=$HOME/bin:$PATH
+
+### own manpath into path
+[ -d $HOME/share/man -o -L $HOME/share/man ] && export MANPATH=$HOME/share/man:$MANPATH
 
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
