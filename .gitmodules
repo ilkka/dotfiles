@@ -16,3 +16,6 @@
 [submodule "bundle/vim-taglist"]
 	path = bundle/vim-taglist
 	url = http://github.com/clones/vim-taglist.git
+[submodule "bundle/vcscommand"]
+	path = bundle/vcscommand
+	url = http://repo.or.cz/r/vcscommand.git
