@@ -16,3 +16,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-taglist"]
+	path = bundle/vim-taglist
+	url = http://github.com/clones/vim-taglist.git
