@@ -45,6 +45,10 @@ map <Leader>se :setlocal spell spelllang=en_gb<CR>
 map <Leader>sf :setlocal spell spelllang=fi_fi<CR>
 map <Leader>sn :setlocal nospell<CR>
 
+map <Leader>ff :FufFile<CR>
+map <Leader>fb :FufBuffer<CR>
+map <Leader>fd :FufDir<CR>
+
 let g:alternateExtensions_CC = "hh"
 let g:alternateExtensions_HH = "cc"
 
