@@ -40,7 +40,7 @@ nnoremap <silent> <F7> :NERDTreeToggle<CR>
 
 let OmniCpp_MayCompleteScope=1
 let OmniCpp_SelectFirstItem=2
-set completeopt=menuone
+set completeopt=menuone,preview,longest
 
 map <Leader>se :setlocal spell spelllang=en_gb<CR>
 map <Leader>sf :setlocal spell spelllang=fi_fi<CR>
