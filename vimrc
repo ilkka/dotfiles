@@ -6,7 +6,7 @@ call pathogen#runtime_append_all_bundles()
 if v:progname=='gvim'
 	colorscheme inkpot
 else
-	colorscheme zenburn
+	colorscheme default
 endif
 " not needed/wanted with pathogen?
 "filetype plugin on
