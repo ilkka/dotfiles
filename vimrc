@@ -9,9 +9,7 @@ if v:progname=='gvim'
 else
 	colorscheme default
 endif
-" not needed/wanted with pathogen?
-"filetype plugin on
-"filetype indent on
+
 syntax enable
 
 if has("macunix")
@@ -57,6 +55,8 @@ if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   " define autocommands here
   autocmd FileType python setlocal sw=4 sts=4 et
+  autocmd FileType python compiler pyunit
+  autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
   autocmd FileType ruby,eruby,yaml setlocal sw=2 sts=2 et
   autocmd FileType html,xhtml setlocal sw=2 sts=2 et
   autocmd FileType cpp setlocal sw=4 sts=4 et
