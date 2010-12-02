@@ -72,3 +72,11 @@ let &efm = "%-GBuild finished successfully %.%#," . &efm
 " for rsense
 let g:rsenseHome = $RSENSE_HOME
 
+" for trac
+let g:tracServerList = {}
+
+" local defs, LEAVE THIS LAST
+if filereadable($HOME.".vimrc-local")
+	so $HOME/.vimrc-local
+endif
+
