@@ -4,7 +4,7 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
-if v:progname=='gvim'
+if $TERM=='xterm-256color' || v:progname=='gvim'
 	colorscheme inkpot
 else
 	colorscheme default
