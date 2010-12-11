@@ -25,3 +25,6 @@
 [submodule "bundle/vim-trac"]
 	path = bundle/vim-trac
 	url = https://github.com/mjbrownie/Trac.vim.git
+[submodule "bundle/vim-inkpot"]
+	path = bundle/vim-inkpot
+	url = https://github.com/ciaranm/inkpot.git
