@@ -50,6 +50,7 @@ map <Leader>fd :FufDir<CR>
 
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
+map <Leader>gd :Gdiff<CR>
 
 let g:alternateExtensions_CC = "hh"
 let g:alternateExtensions_HH = "cc"
