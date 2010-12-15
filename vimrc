@@ -76,7 +76,7 @@ let g:rsenseHome = $RSENSE_HOME
 let g:tracServerList = {}
 
 " local defs, LEAVE THIS LAST
-if filereadable($HOME.".vimrc-local")
+if filereadable($HOME."/.vimrc-local")
 	so $HOME/.vimrc-local
 endif
 
