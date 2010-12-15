@@ -48,6 +48,9 @@ map <Leader>ff :FufFile<CR>
 map <Leader>fb :FufBuffer<CR>
 map <Leader>fd :FufDir<CR>
 
+map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit<CR>
+
 let g:alternateExtensions_CC = "hh"
 let g:alternateExtensions_HH = "cc"
 
