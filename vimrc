@@ -35,6 +35,7 @@ let g:Tlist_Use_Right_Window=1
 let g:Tlist_Close_On_Select=1
 
 nnoremap <silent> <F7> :NERDTreeToggle<CR>
+let g:NERDTreeQuitOnOpen=1
 
 let OmniCpp_MayCompleteScope=1
 let OmniCpp_SelectFirstItem=2
