@@ -28,3 +28,6 @@
 [submodule "bundle/vim-inkpot"]
 	path = bundle/vim-inkpot
 	url = https://github.com/ciaranm/inkpot.git
+[submodule "bundle/vim-nerdcommenter"]
+	path = bundle/vim-nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
