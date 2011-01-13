@@ -5,7 +5,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case $(echo "$TERM"|sed 's/-bce$//') in
-    xterm|xterm-color|xterm-256color|screen) color_prompt=yes;;
+    xterm|xterm-color|xterm-256color|screen|screen-256color) color_prompt=yes;;
 esac
 
 if [ -n "$force_color_prompt" ]; then
