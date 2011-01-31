@@ -68,7 +68,8 @@ if !exists("autocommands_loaded")
   autocmd FileType php setlocal sw=2 sts=2 et
   autocmd FileType xml setlocal sw=2 sts=2 et
   autocmd FileType docbk setlocal sw=2 sts=2 et
-  autocmd FileType mail,markdown,rst setlocal textwidth=78
+  autocmd FileType mail,rst,markdown setlocal textwidth=78
+  autocmd BufNewFile,BufRead *.email setlocal filetype=mail
 endif
 
 " this is for waf builds
