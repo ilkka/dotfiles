@@ -25,11 +25,11 @@ if [ "$color_prompt" = yes ]; then
 fi
 unset color_prompt force_color_prompt
 
-# set PROMPT_COMMAND to 1) store retval 2) output current ruby
-if [ -f $HOME/.rvm/bin/rvm-prompt ]; then
-PROMPT_COMMAND='RET=$?; printf "%*s\r" $COLUMNS "["$(~/.rvm/bin/rvm-prompt)"]"'
-else
+# set PROMPT_COMMAND to 1) store retval 
 PROMPT_COMMAND='RET=$?'
+# 2) output current ruby
+if [ -f $HOME/.rvm/bin/rvm-prompt ]; then
+PROMPT_COMMAND=$PROMPT_COMMAND'; printf "%*s\r" $COLUMNS "["$(~/.rvm/bin/rvm-prompt)"]"'
 fi
 
 RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
