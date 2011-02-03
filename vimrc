@@ -70,6 +70,7 @@ if !exists("autocommands_loaded")
   autocmd FileType docbk setlocal sw=2 sts=2 et
   autocmd FileType mail,rst,markdown setlocal textwidth=78
   autocmd BufNewFile,BufRead *.email setlocal filetype=mail
+  autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
 endif
 
 " this is for waf builds
