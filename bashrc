@@ -51,9 +51,9 @@ if test -s $HOME/.rvm/scripts/rvm; then
 fi
 
 ### show dirty/stashed/untracked states with __git_ps1
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
+#export GIT_PS1_SHOWDIRTYSTATE=1
+#export GIT_PS1_SHOWSTASHSTATE=1
+#export GIT_PS1_SHOWUNTRACKEDFILES=1
 
 ### own bin into path
 [ -d $HOME/bin -o -L $HOME/bin ] && export PATH=$HOME/bin:$PATH
