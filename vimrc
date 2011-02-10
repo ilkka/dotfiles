@@ -82,6 +82,9 @@ let g:rsenseHome = $RSENSE_HOME
 " for trac
 let g:tracServerList = {}
 
+" for vim-rspec
+let g:RspecBin = "rspec"
+
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")
 	so $HOME/.vimrc-local
