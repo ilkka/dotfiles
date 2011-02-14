@@ -37,3 +37,6 @@
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec
 	url = https://github.com/taq/vim-rspec.git
+[submodule "bundle/vim-autotag"]
+	path = bundle/vim-autotag
+	url = https://github.com/vim-scripts/AutoTag.git
