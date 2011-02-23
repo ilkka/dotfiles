@@ -48,6 +48,9 @@ map <Leader>sn :setlocal nospell<CR>
 map <Leader>ff :FufFile<CR>
 map <Leader>fb :FufBuffer<CR>
 map <Leader>fd :FufDir<CR>
+map <Leader>ft :FufTag<CR>
+map <Leader>fl :FufLine<CR>
+map <Leader>fq :FufQuickfix<CR>
 
 map <Leader>gs :Gstatus<CR>
 map <Leader>gc :Gcommit<CR>
