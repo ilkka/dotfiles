@@ -6,6 +6,8 @@ filetype plugin indent on
 
 if $TERM=='xterm-256color' || v:progname=='gvim' || v:progname=='rgvim'
 	colorscheme inkpot
+elseif has("macunix")
+	colorscheme macvim
 else
 	colorscheme default
 endif
