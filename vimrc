@@ -18,6 +18,8 @@ if has("macunix")
 	set guifont=Monaco:h12
 end
 
+let mapleader = ","
+
 set backspace=2
 set ruler
 set modeline
