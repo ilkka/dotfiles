@@ -46,7 +46,8 @@ set ttyfast
 set ruler
 set backspace=2
 set laststatus=2
-set number
+" only one or the other of these is supposed to be set at one time
+"set number
 set relativenumber
 
 set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
@@ -216,8 +217,6 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.email setlocal filetype=mail
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
   autocmd BufNewFile,BufRead *.qml setlocal filetype=qml sw=4 sts=4 et
-  " always relative numbers
-  autocmd FileType * setlocal relativenumber
 endif
 
 " this is for waf builds
