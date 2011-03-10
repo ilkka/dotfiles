@@ -196,7 +196,7 @@ map <Leader>fq :FufQuickfix<CR>
 " Fugitive options
 map <Leader>gw :Gwrite<CR>
 map <Leader>gs :Gstatus<CR>
-map <Leader>gc :Gcommit<CR>
+map <Leader>gc :Gcommit -v<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gD :Gdiff!<CR>
 
