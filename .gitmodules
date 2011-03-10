@@ -48,55 +48,55 @@
 	url = https://github.com/vim-scripts/grep.vim.git
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
+	url = https://github.com/tpope/vim-rails.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-haml"]
 	path = bundle/vim-haml
-	url = git://github.com/tpope/vim-haml.git
+	url = https://github.com/tpope/vim-haml.git
 [submodule "bundle/vim-speeddating"]
 	path = bundle/vim-speeddating
-	url = git://github.com/tpope/vim-speeddating.git
+	url = https://github.com/tpope/vim-speeddating.git
 [submodule "bundle/vim-yankring"]
 	path = bundle/vim-yankring
-	url = git://github.com/chrismetcalf/vim-yankring.git
+	url = https://github.com/chrismetcalf/vim-yankring.git
 [submodule "bundle/vim-endwise"]
 	path = bundle/vim-endwise
-	url = git://github.com/tpope/vim-endwise.git
+	url = https://github.com/tpope/vim-endwise.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-todo"]
 	path = bundle/vim-todo
-	url = git://github.com/codegram/vim-todo.git
+	url = https://github.com/codegram/vim-todo.git
 [submodule "bundle/vim-numberlock"]
 	path = bundle/vim-numberlock
-	url = git://github.com/codegram/vim-numberlock.git
+	url = https://github.com/codegram/vim-numberlock.git
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
-	url = git://github.com/Townk/vim-autoclose.git
+	url = https://github.com/Townk/vim-autoclose.git
 [submodule "bundle/sparkup"]
 	path = bundle/sparkup
-	url = git://github.com/rstacruz/sparkup.git
+	url = https://github.com/rstacruz/sparkup.git
 [submodule "bundle/vim-autocorrect"]
 	path = bundle/vim-autocorrect
-	url = git://github.com/panozzaj/vim-autocorrect.git
+	url = https://github.com/panozzaj/vim-autocorrect.git
 [submodule "bundle/vim-peepopen"]
 	path = bundle/vim-peepopen
-	url = git://github.com/shemerey/vim-peepopen.git
+	url = https://github.com/shemerey/vim-peepopen.git
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
-	url = git://github.com/sjl/gundo.vim.git
+	url = https://github.com/sjl/gundo.vim.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/vim-css-color"]
 	path = bundle/vim-css-color
-	url = git://github.com/skammer/vim-css-color.git
+	url = https://github.com/skammer/vim-css-color.git
 [submodule "bundle/Gist.vim"]
 	path = bundle/Gist.vim
-	url = git://github.com/vim-scripts/Gist.vim.git
+	url = https://github.com/vim-scripts/Gist.vim.git
