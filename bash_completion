@@ -1,0 +1,16 @@
+# vim: filetype=sh sw=4 sts=4 et
+DIR=$(readlink -f $(dirname $0))
+COMPLETION_DIR=$DIR/completion
+if [[ -d $COMPLETION_DIR && -r $COMPLETION_DIR && -x $COMPLETION_DIR ]]; then
+    for d in $(LC_ALL=C command ls "$COMPLETION_DIR"); do
+        d=$COMPLETION_DIR/$d
+        if [[ -d $d && -r $d && -x $d ]]; then
+            for i in $(LC_ALL=C command ls "$d"); do
+                i=$d/$i
+                [[ ${i##*/} == @(*.bash|*.sh) \
+                    && ( -f $i || -h $i ) && -r $i ]] \
+                    && . $i
+            done
+        fi
+    done
+fi
