@@ -138,7 +138,8 @@ nmap <leader>D :bufdo bd<CR>
 
 " Saving and buffer stuff
 " :wqa! Quit saving
-nmap <leader>q :wqa!<CR>
+nmap <leader>Q :wqa!<CR>
+nmap <leader>q :wq!<CR>
 nmap <leader>w :w!<CR>
 nmap <leader><Esc> :q!<CR>
 
