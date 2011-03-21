@@ -103,3 +103,6 @@
 [submodule "bundle/maven2.vim"]
 	path = bundle/maven2.vim
 	url = https://github.com/vim-scripts/maven2.vim.git
+[submodule "bundle/confluencewiki.vim"]
+	path = bundle/confluencewiki.vim
+	url = https://github.com/vim-scripts/confluencewiki.vim.git
