@@ -106,3 +106,6 @@
 [submodule "bundle/confluencewiki.vim"]
 	path = bundle/confluencewiki.vim
 	url = https://github.com/vim-scripts/confluencewiki.vim.git
+[submodule "bundle/JSON.vim"]
+	path = bundle/JSON.vim
+	url = https://github.com/vim-scripts/JSON.vim.git
