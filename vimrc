@@ -221,6 +221,11 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
 endif
 
+augroup BWCCreateDir
+	au!
+	autocmd BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h")) | execute "silent! !mkdir -p %:h" | redraw! | endif
+augroup END
+
 " this is for waf builds
 let &efm = "%-GBuild finished successfully %.%#," . &efm
 
