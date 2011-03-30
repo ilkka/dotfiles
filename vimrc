@@ -164,6 +164,10 @@ set pastetoggle=<F2>
 map <C-v> "+gP<CR>
 vmap <C-c> "+y
 
+" Q formats marked text or current paragraph
+vmap Q gq
+nmap Q gqap
+
 " PeepOpen
 map <leader>o <Plug>PeepOpen
 
