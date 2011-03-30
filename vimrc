@@ -197,6 +197,7 @@ map <Leader>fd :FufDir<CR>
 map <Leader>ft :FufTag<CR>
 map <Leader>fl :FufLine<CR>
 map <Leader>fq :FufQuickfix<CR>
+map <Leader>fr :FufRenewCache<CR>
 
 " Fugitive options
 map <Leader>gw :Gwrite<CR>
