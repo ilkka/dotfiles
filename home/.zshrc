@@ -3,7 +3,7 @@ export ZSH=$HOME/.homesick/repos/ilkka/oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="robbyrussell"
+export ZSH_THEME="saga"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
