@@ -36,7 +36,7 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 function battery_charge() {
-	echo $($ZSH/tools/battery_charge.py) 2>/dev/null
+	echo $($ZSH/tools/battery_level.py) 2>/dev/null
 }
 
 RPROMPT='$(battery_charge)'
