@@ -20,4 +20,12 @@ plugins=(brew bundler command-not-found deb debian gem git github osx pip rails3
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# let's really really try to force 256 color modes
+case $TERM in
+(xterm)
+	export TERM=xterm-256color
+	;;
+(screen)
+	export TERM=screen-256color
+	;;
+esac
