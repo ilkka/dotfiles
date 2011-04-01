@@ -14,8 +14,19 @@ function box_name {
     [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
 }
 
+function rvm_prompt_info {
+	if [[ -x $HOME/.rvm/bin/rvm-prompt ]]
+	then
+		r=$($HOME/.rvm.bin/rvm-prompt)
+		if [[ -n $r ]]
+		then
+			echo ' using %{$fg_bold[green]%}$r%{$reset_color%}'
+		fi
+	fi
+}
+
 PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(box_name)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(box_name)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(rvm_prompt_info)$(hg_prompt_info)$(git_prompt_info)
 $(virtualenv_info)$ '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
@@ -24,7 +35,3 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-if [[ -x $HOME/.rvm/bin/rvm-prompt ]]
-then
-	RPROMPT='%{$fg_bold[green]%}[%{$reset_color%}$($HOME/.rvm/bin/rvm-prompt)%{$fg_bold[green]%}]%{$reset_color%}'
-fi
