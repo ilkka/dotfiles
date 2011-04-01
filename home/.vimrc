@@ -224,6 +224,7 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
   autocmd BufNewFile,BufRead *.qml setlocal filetype=qml sw=4 sts=4 et
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
+  autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
 endif
 
 augroup BWCCreateDir
