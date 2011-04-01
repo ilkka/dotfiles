@@ -26,5 +26,5 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 if [[ -x $HOME/.rvm/bin/rvm-prompt ]]
 then
-	RPROMPT='$($HOME/.rvm/bin/rvm-prompt)'
+	RPROMPT='%{$fg_bold[green]%}[%{$reset_color%}$($HOME/.rvm/bin/rvm-prompt)%{$fg_bold[green]%}]%{$reset_color%}'
 fi
