@@ -24,3 +24,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+if [[ -x $HOME/.rvm/bin/rvm-prompt ]]
+then
+	RPROMPT='$($HOME/.rvm/bin/rvm-prompt)'
+fi
