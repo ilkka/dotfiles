@@ -1,5 +1,5 @@
 # vim: filetype=sh sw=4 sts=4 et
-COMPLETION_DIR=$HOME/.bashfiles/completion
+COMPLETION_DIR=$HOME/.bash_completion.d
 if [[ -d $COMPLETION_DIR && -r $COMPLETION_DIR && -x $COMPLETION_DIR ]]; then
     for d in $(LC_ALL=C command ls "$COMPLETION_DIR"); do
         d=$COMPLETION_DIR/$d
