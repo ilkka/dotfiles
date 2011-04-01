@@ -20,7 +20,7 @@ function rvm_prompt_info {
 		r=$($HOME/.rvm/bin/rvm-prompt)
 		if [[ -n $r ]]
 		then
-			echo " using %{$fg_bold[green]%}$r%{$reset_color%}"
+			echo " using %{$fg[green]%}$r%{$reset_color%}"
 		fi
 	fi
 }
