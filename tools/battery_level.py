@@ -1,18 +1,33 @@
 #!/usr/bin/env python
 # coding=UTF-8
 
-import math, subprocess
+import math, subprocess, os, glob
 
-p = subprocess.Popen(["ioreg", "-rc", "AppleSmartBattery"], stdout=subprocess.PIPE)
-output = p.communicate()[0]
+def get_charge_linux():
+    b_max = 0
+    b_cur = 0
+    for b in glob.glob("/sys/class/power_supply/BAT*"):
+        b_max += int(open(os.path.join(b, "charge_full"), 'r').read().strip())
+        b_cur += int(open(os.path.join(b, "charge_now"), 'r').read().strip())
+    return b_cur / b_max
 
-o_max = [l for l in output.splitlines() if 'MaxCapacity' in l][0]
-o_cur = [l for l in output.splitlines() if 'CurrentCapacity' in l][0]
+def get_charge_mac():
+    p = subprocess.Popen(["ioreg", "-rc", "AppleSmartBattery"], stdout=subprocess.PIPE)
+    output = p.communicate()[0]
 
-b_max = float(o_max.rpartition('=')[-1].strip())
-b_cur = float(o_cur.rpartition('=')[-1].strip())
+    o_max = [l for l in output.splitlines() if 'MaxCapacity' in l][0]
+    o_cur = [l for l in output.splitlines() if 'CurrentCapacity' in l][0]
 
-charge = b_cur / b_max
+    b_max = float(o_max.rpartition('=')[-1].strip())
+    b_cur = float(o_cur.rpartition('=')[-1].strip())
+
+    return b_cur / b_max
+
+if os.sys.platform.count('linux') > 0:
+    charge = get_charge_linux()
+else:
+    charge = get_charge_mac()
+
 charge_threshold = int(math.ceil(10 * charge))
 
 # Output
