@@ -7,8 +7,8 @@ def get_charge_linux():
     b_max = 0
     b_cur = 0
     for b in glob.glob("/sys/class/power_supply/BAT*"):
-        b_max += int(open(os.path.join(b, "charge_full"), 'r').read().strip())
-        b_cur += int(open(os.path.join(b, "charge_now"), 'r').read().strip())
+        b_max += float(open(os.path.join(b, "charge_full"), 'r').read().strip())
+        b_cur += float(open(os.path.join(b, "charge_now"), 'r').read().strip())
     return b_cur / b_max
 
 def get_charge_mac():
