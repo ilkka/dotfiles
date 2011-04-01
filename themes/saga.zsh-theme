@@ -17,7 +17,7 @@ function box_name {
 function rvm_prompt_info {
 	if [[ -x $HOME/.rvm/bin/rvm-prompt ]]
 	then
-		r=$($HOME/.rvm.bin/rvm-prompt)
+		r=$($HOME/.rvm/bin/rvm-prompt)
 		if [[ -n $r ]]
 		then
 			echo ' using %{$fg_bold[green]%}$r%{$reset_color%}'
