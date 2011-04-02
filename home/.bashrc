@@ -5,9 +5,7 @@
 # If not running interactively, don't do anything
 if [[ -n "$PS1" ]]; then
 
-# try to extrapolate the dir this file is in
-CFGDIR=$HOME/.bashfiles
-[ -s $CFGDIR/bash_colors ] && . $CFGDIR/bash_colors
+[ -s $HOME/.bash_colors ] && . $HOME/.bash_colors
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -27,15 +25,15 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-[ -s $CFGDIR/bash_prompt ] && . $CFGDIR/bash_prompt
+[ -s $HOME/.bash_prompt ] && . $HOME/.bash_prompt
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f $CFGDIR/bash_aliases ]; then
-    . $CFGDIR/bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
