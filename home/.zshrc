@@ -16,7 +16,7 @@ export ZSH_THEME="saga"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew bundler command-not-found deb debian gem git github osx pip rails3 ruby ssh-agent vagrant)
+plugins=(brew bundler deb debian gem git github osx pip rails3 ruby ssh-agent vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
