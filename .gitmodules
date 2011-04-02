@@ -1,0 +1,3 @@
+[submodule "plugins/git-flow-completion"]
+	path = plugins/git-flow-completion
+	url = https://github.com/bobthecow/git-flow-completion.git
