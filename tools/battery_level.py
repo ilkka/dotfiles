@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # coding=UTF-8
 
-import math, subprocess, os, glob
+import math, subprocess, os, glob, sys
+
+class NoBatteryError(Exception):
+    pass
 
 def get_charge_linux():
     b_max = 0
@@ -9,7 +12,10 @@ def get_charge_linux():
     for b in glob.glob("/sys/class/power_supply/BAT*"):
         b_max += float(open(os.path.join(b, "charge_full"), 'r').read().strip())
         b_cur += float(open(os.path.join(b, "charge_now"), 'r').read().strip())
-    return b_cur / b_max
+    try:
+        return b_cur / b_max
+    except ZeroDivisionError:
+        raise NoBatteryError()
 
 def get_charge_mac():
     p = subprocess.Popen(["ioreg", "-rc", "AppleSmartBattery"], stdout=subprocess.PIPE)
@@ -23,10 +29,13 @@ def get_charge_mac():
 
     return b_cur / b_max
 
-if os.sys.platform.count('linux') > 0:
-    charge = get_charge_linux()
-else:
-    charge = get_charge_mac()
+try:
+    if os.sys.platform.count('linux') > 0:
+        charge = get_charge_linux()
+    else:
+        charge = get_charge_mac()
+except NoBatteryError:
+    sys.exit(0)
 
 charge_threshold = int(math.ceil(10 * charge))
 
@@ -37,7 +46,6 @@ filled = int(math.ceil(charge_threshold * (total_slots / 10.0))) * u'▸'
 empty = (total_slots - len(filled)) * u'▹'
 
 out = (filled + empty).encode('utf-8')
-import sys
 
 color_green = '%{[32m%}'
 color_yellow = '%{[1;33m%}'
