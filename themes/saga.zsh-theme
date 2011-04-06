@@ -38,8 +38,8 @@ function exit_status_indicator
 }
 
 function prompt_char {
-	git branch >/dev/null 2>/dev/null && echo '±' && return
-	hg root >/dev/null 2>/dev/null && echo '☿' && return
+	git branch >/dev/null 2>/dev/null && echo "%{$fg_bold[green]%}±%{$reset_color%}" && return
+	hg root >/dev/null 2>/dev/null && echo "%{$fg_bold[green]%}☿%{$reset_color%}" && return
 	echo '𝄞'
 }
 
