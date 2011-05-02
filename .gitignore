@@ -5,3 +5,4 @@ custom/*
 !custom/example.zsh
 *.un~
 .DS_Store
+cache

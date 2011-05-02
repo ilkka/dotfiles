@@ -12,6 +12,14 @@ if [[ -d $ZSH/lib ]]; then
 	done
 fi
 
+# Add all defined plugins to fpath
+plugin=${plugin:=()}
+for plugin ($plugins) fpath=($ZSH/plugins/$plugin $fpath)
+
+# Load and run compinit
+autoload -U compinit
+compinit -i
+
 # Load all of your custom configurations from custom/
 if [[ -d $ZSH/custom ]]; then
 	for config_file in $ZSH/custom/*.zsh
@@ -20,12 +28,20 @@ if [[ -d $ZSH/custom ]]; then
 	done
 fi
 
-# Load all of the plugins that were defined in ~/.zshrc
-plugin=${plugin:=()}
-for plugin ($plugins) source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-
 # Load the theme
-source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+# Check for updates on initial load...
+if [ "$ZSH_THEME" = "random" ]
+then
+  themes=($ZSH/themes/*zsh-theme)
+  N=${#themes[@]}
+  ((N=RANDOM%N))
+  RANDOM_THEME=${themes[$N]}
+  source "$RANDOM_THEME"
+  echo "[oh-my-zsh] Random theme '$RANDOM_THEME' loaded..."
+else
+  source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+fi
+
 
 # Check for updates on initial load...
 if [ "$DISABLE_AUTO_UPDATE" = "true" ]
