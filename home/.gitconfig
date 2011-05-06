@@ -1,0 +1,78 @@
+[user]
+	name = "Ilkka Laukkanen"
+	# override per machine in $GIT_AUTHOR_EMAIL or per repo
+	email = "ilkka.s.laukkanen@gmail.com"
+
+[color]
+	ui = auto
+	wtf = true
+
+[color "branch"]
+	current = green reverse
+	local = green
+	remote = yellow
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	func = green bold
+	old = red bold
+	new = green bold
+	commit = magenta
+	whitespace = white bold reverse
+
+[color "grep"]
+	filename = magenta bold
+	function = green bold
+	linenumber = yellow
+	match = green reverse
+	separator = magenta
+
+[color "status"]
+	header = cyan
+	added = green bold
+	changed = magenta
+	untracked = red bold
+	branch = green reverse
+	nobranch = red bold reverse
+
+[push]
+	default = tracking
+
+[wtf]
+	all = true
+	long = true
+
+[wtf "show"]
+	relations = true
+
+[core]
+	pager = less -FRSX
+	excludesfile = ~/.gitignore_global
+
+[diff]
+	tool = meld
+
+[merge]
+	summary = true
+	tool = meld
+
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[alias]
+	st = status
+	up = fetch --all --prune
+	ci = commit -v
+	co = checkout
+	ff = merge --ff-only
+	nf = merge --no-ff
+	wc = whatchanged
+	au = add --update
+	showconflict = !gitk --left-right HEAD...MERGE_HEAD
+	prune-all = !git remote | xargs -n 1 git remote prune
+	greplog = log -U1 -G
+	lol = log --graph --decorate --pretty=format:'%C(magenta)%h%C(reset)%C(bold yellow)%d%C(reset) %s %C(green)%an %C(bold black)%cr%C(reset)' --abbrev-commit --date=relative
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; vim `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
