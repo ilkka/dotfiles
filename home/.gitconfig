@@ -76,3 +76,5 @@
 	lol = log --graph --decorate --pretty=format:'%C(magenta)%h%C(reset)%C(bold yellow)%d%C(reset) %s %C(green)%an %C(bold black)%cr%C(reset)' --abbrev-commit --date=relative
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; vim `f`"
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
+	serve = daemon --reuseaddr --base-path=. --export-all --verbose
+
