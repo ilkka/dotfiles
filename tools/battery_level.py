@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=UTF-8
 
-import math, subprocess, os, glob, sys
+import math, subprocess, os, glob, sys, os.path
 
 class NoBatteryError(Exception):
     pass
@@ -10,8 +10,12 @@ def get_charge_linux():
     b_max = 0
     b_cur = 0
     for b in glob.glob("/sys/class/power_supply/BAT*"):
-        b_max += float(open(os.path.join(b, "charge_full"), 'r').read().strip())
-        b_cur += float(open(os.path.join(b, "charge_now"), 'r').read().strip())
+        if os.path.exists(os.path.join(b, "charge_full")):
+            b_max += float(open(os.path.join(b, "charge_full"), 'r').read().strip())
+            b_cur += float(open(os.path.join(b, "charge_now"), 'r').read().strip())
+        elif os.path.exists(os.path.join(b, "energy_full")):
+            b_max += float(open(os.path.join(b, "energy_full"), 'r').read().strip())
+            b_cur += float(open(os.path.join(b, "energy_now"), 'r').read().strip())
     try:
         return b_cur / b_max
     except ZeroDivisionError:
