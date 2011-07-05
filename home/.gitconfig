@@ -55,7 +55,11 @@
 
 [merge]
 	summary = true
-	tool = meld
+	tool = threesome
+
+[mergetool "threesome"]
+	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+	trustExitCode = true
 
 [rerere]
 	enabled = true
