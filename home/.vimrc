@@ -206,6 +206,24 @@ map <Leader>gc :Gcommit -v<CR>
 map <Leader>gd :Gdiff<CR>
 map <Leader>gD :Gdiff!<CR>
 
+" Remap VCSCommand commands because nerdcomment uses <Leader>c
+noremap <Leader>ka VCSAdd
+noremap <Leader>kn VCSAnnotate
+noremap <Leader>kN VCSAnnotate!
+noremap <Leader>kc VCSCommit
+noremap <Leader>kD VCSDelete
+noremap <Leader>kd VCSDiff
+noremap <Leader>kg VCSGotoOriginal
+noremap <Leader>kG VCSGotoOriginal!
+noremap <Leader>ki VCSInfo
+noremap <Leader>kl VCSLog
+noremap <Leader>kL VCSLock
+noremap <Leader>kr VCSReview
+noremap <Leader>ks VCSStatus
+noremap <Leader>ku VCSUpdate
+noremap <Leader>kU VCSUnlock
+noremap <Leader>kv VCSVimDiff
+
 " Autocommands
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
