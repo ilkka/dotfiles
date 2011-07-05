@@ -207,22 +207,7 @@ map <Leader>gd :Gdiff<CR>
 map <Leader>gD :Gdiff!<CR>
 
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
-nmap <Leader>ka <Plug>VCSAdd
-nmap <Leader>kn <Plug>VCSAnnotate
-nmap <Leader>kN <Plug>VCSAnnotate!
-nmap <Leader>kc <Plug>VCSCommit
-nmap <Leader>kD <Plug>VCSDelete
-nmap <Leader>kd <Plug>VCSDiff
-nmap <Leader>kg <Plug>VCSGotoOriginal
-nmap <Leader>kG <Plug>VCSGotoOriginal!
-nmap <Leader>ki <Plug>VCSInfo
-nmap <Leader>kl <Plug>VCSLog
-nmap <Leader>kL <Plug>VCSLock
-nmap <Leader>kr <Plug>VCSReview
-nmap <Leader>ks <Plug>VCSStatus
-nmap <Leader>ku <Plug>VCSUpdate
-nmap <Leader>kU <Plug>VCSUnlock
-nmap <Leader>kv <Plug>VCSVimDiff
+let g:VCSCommandMapPrefix='<Leader>k'
 
 " Autocommands
 if !exists("autocommands_loaded")
