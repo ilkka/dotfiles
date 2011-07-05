@@ -244,3 +244,6 @@
 [submodule "home/.vim/bundle/Rainbow-Parenthesis.git"]
 	path = home/.vim/bundle/Rainbow-Parenthesis.git
 	url = https://github.com/vim-scripts/Rainbow-Parenthesis.git
+[submodule "home/.vim/bundle/threesome"]
+	path = home/.vim/bundle/threesome
+	url = https://github.com/sjl/threesome.vim.git
