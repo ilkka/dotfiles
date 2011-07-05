@@ -207,22 +207,22 @@ map <Leader>gd :Gdiff<CR>
 map <Leader>gD :Gdiff!<CR>
 
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
-noremap <Leader>ka :VCSAdd<CR>
-noremap <Leader>kn :VCSAnnotate<CR>
-noremap <Leader>kN :VCSAnnotate!<CR>
-noremap <Leader>kc :VCSCommit<CR>
-noremap <Leader>kD :VCSDelete<CR>
-noremap <Leader>kd :VCSDiff<CR>
-noremap <Leader>kg :VCSGotoOriginal<CR>
-noremap <Leader>kG :VCSGotoOriginal!<CR>
-noremap <Leader>ki :VCSInfo<CR>
-noremap <Leader>kl :VCSLog<CR>
-noremap <Leader>kL :VCSLock<CR>
-noremap <Leader>kr :VCSReview<CR>
-noremap <Leader>ks :VCSStatus<CR>
-noremap <Leader>ku :VCSUpdate<CR>
-noremap <Leader>kU :VCSUnlock<CR>
-noremap <Leader>kv :VCSVimDiff<CR>
+nmap <Leader>ka <Plug>VCSAdd
+nmap <Leader>kn <Plug>VCSAnnotate
+nmap <Leader>kN <Plug>VCSAnnotate!
+nmap <Leader>kc <Plug>VCSCommit
+nmap <Leader>kD <Plug>VCSDelete
+nmap <Leader>kd <Plug>VCSDiff
+nmap <Leader>kg <Plug>VCSGotoOriginal
+nmap <Leader>kG <Plug>VCSGotoOriginal!
+nmap <Leader>ki <Plug>VCSInfo
+nmap <Leader>kl <Plug>VCSLog
+nmap <Leader>kL <Plug>VCSLock
+nmap <Leader>kr <Plug>VCSReview
+nmap <Leader>ks <Plug>VCSStatus
+nmap <Leader>ku <Plug>VCSUpdate
+nmap <Leader>kU <Plug>VCSUnlock
+nmap <Leader>kv <Plug>VCSVimDiff
 
 " Autocommands
 if !exists("autocommands_loaded")
