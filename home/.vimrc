@@ -294,5 +294,9 @@ endif
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
+" Map Ctrl-l to Ctrl-] because the latter is apparently impossible to
+" type on a mac with a keyboard that requires alt for ].
+map <C-l> <C-]>
+
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
