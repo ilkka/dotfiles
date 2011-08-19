@@ -11,11 +11,17 @@ def get_charge_linux():
     b_cur = 0
     for b in glob.glob("/sys/class/power_supply/BAT*"):
         if os.path.exists(os.path.join(b, "charge_full")):
-            b_max += float(open(os.path.join(b, "charge_full"), 'r').read().strip())
-            b_cur += float(open(os.path.join(b, "charge_now"), 'r').read().strip())
+            try:
+                b_max += float(open(os.path.join(b, "charge_full"), 'r').read().strip())
+                b_cur += float(open(os.path.join(b, "charge_now"), 'r').read().strip())
+            except IOError:
+                pass # sometimes these files are unreadable in some situations
         elif os.path.exists(os.path.join(b, "energy_full")):
-            b_max += float(open(os.path.join(b, "energy_full"), 'r').read().strip())
-            b_cur += float(open(os.path.join(b, "energy_now"), 'r').read().strip())
+            try:
+                b_max += float(open(os.path.join(b, "energy_full"), 'r').read().strip())
+                b_cur += float(open(os.path.join(b, "energy_now"), 'r').read().strip())
+            except IOError:
+                pass
     try:
         return b_cur / b_max
     except ZeroDivisionError:
