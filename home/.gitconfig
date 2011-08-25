@@ -83,5 +83,6 @@
 	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
 	serve = daemon --reuseaddr --base-path=. --export-all --verbose
 	br = branch -avv
-	out = "!b=${$(git symbolic-ref HEAD)%%refs/heads/%};git ll origin/$b..$b"
-	in = "!b=${$(git symbolic-ref HEAD)%%refs/heads/%};git ll $b..origin/$b"
+	current-branch = "!r=$(git symbolic-ref HEAD);echo ${r##refs/heads/}"
+	out = "!b=$(git current-branch);git ll origin/$b..$b"
+	in = "!b=$(git current-branch);git ll $b..origin/$b"
