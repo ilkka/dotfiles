@@ -215,7 +215,7 @@ if !exists("autocommands_loaded")
   " define autocommands here
   autocmd FileType python setlocal sw=4 sts=4 et
   autocmd FileType python compiler pyunit
-  autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
+  "autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
   autocmd FileType ruby,eruby,yaml,cucumber setlocal sw=2 sts=2 et
   autocmd FileType html,xhtml setlocal sw=2 sts=2 et
   autocmd FileType cpp setlocal sw=4 sts=4 et
