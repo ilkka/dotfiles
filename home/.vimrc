@@ -161,7 +161,7 @@ set iskeyword-=_
 
 " EXTERNAL COPY / PASTE "
 set pastetoggle=<F2>
-map <C-v> "+gP<CR>
+map <C-y> "+gP<CR>
 vmap <C-c> "+y
 
 " Q formats marked text or current paragraph
