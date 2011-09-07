@@ -213,7 +213,7 @@ let g:VCSCommandMapPrefix='<Leader>k'
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   " define autocommands here
-  autocmd FileType python setlocal sw=4 sts=4 et
+  autocmd FileType python setlocal sw=4 sts=4 et textwidth=0
   autocmd FileType python compiler pyunit
   autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
   autocmd FileType ruby,eruby,yaml,cucumber setlocal sw=2 sts=2 et
