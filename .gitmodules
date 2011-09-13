@@ -253,3 +253,6 @@
 [submodule "home/.vim/bundle/vim-clojure"]
 	path = home/.vim/bundle/vim-clojure
 	url = https://github.com/vim-scripts/VimClojure.git
+[submodule "home/.vim/bundle/vim-scala"]
+	path = home/.vim/bundle/vim-scala
+	url = https://github.com/vim-scripts/scala.vim.git
