@@ -1,9 +1,65 @@
-" call pathogen
+set nocompatible
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin indent on
 
+" setup vundle
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" Configure bundles
+Bundle 'vim-scripts/Align'
+Bundle 'vim-scripts/AutoTag'
+Bundle 'wincent/Command-T'
+Bundle 'vim-scripts/FuzzyFinder'
+Bundle 'vim-scripts/Gist.vim'
+Bundle 'vim-scripts/JSON.vim'
+Bundle 'vim-scripts/L9'
+Bundle 'vim-scripts/MediaWiki-folding-and-syntax-highlight'
+Bundle 'vim-scripts/Rainbow-Parenthesis'
+Bundle 'vim-scripts/TWiki-Syntax'
+Bundle 'mjbrownie/Trac.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/asciidoc.vim'
+Bundle 'vim-scripts/confluencewiki.vim'
+Bundle 'vim-scripts/grep.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'ciaranm/inkpot'
+Bundle 'vim-scripts/maven2.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'wayneeseguin/snipmate.vim'
+Bundle 'rstacruz/sparkup'
+Bundle 'scrooloose/syntastic'
+Bundle 'godlygeek/tabular'
+Bundle 'sjl/threesome.vim'
+Bundle 'http://repo.or.cz/r/vcscommand.git'
+Bundle 'Townk/vim-autoclose'
+Bundle 'panozzaj/vim-autocorrect'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'tpope/vim-markdown'
+Bundle 'codegram/vim-numberlock'
+Bundle 'shemerey/vim-peepopen'
+Bundle 'tpope/vim-rails'
+Bundle 'taq/vim-rspec'
+Bundle 'vim-scripts/scala.vim'
+Bundle 'tpope/vim-speeddating'
+Bundle 'wavded/vim-stylus'
+Bundle 'tpope/vim-surround'
+Bundle 'clones/vim-taglist'
+Bundle 'codegram/vim-todo'
+Bundle 'chrismetcalf/vim-yankring'
+
+filetype plugin indent on
 syntax enable
 
 " GUI "
@@ -24,8 +80,6 @@ if has("macunix")
 endif
 
 let mapleader = ","
-
-set nocompatible
 
 set modelines=5
 set modeline
