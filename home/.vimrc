@@ -5,11 +5,14 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+" setup VAM too, woo
+set rtp+=~/.vim/bundle/vim-addon-manager
+
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
 
-" Configure bundles
+" Configure vundle bundles
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'wincent/Command-T'
@@ -59,9 +62,9 @@ Bundle 'clones/vim-taglist'
 Bundle 'codegram/vim-todo'
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tomtom/tlib_vim'
-Bundle 'vim-scripts/vim-addon-mw-utils'
-Bundle 'vim-scripts/vim-addon-actions'
-Bundle 'MarcWeber/vim-addon-sbt'
+
+" Configure VAM stuff
+call vam#ActivateAddons(['vim-addon-sbt'])
 
 filetype plugin indent on
 syntax enable
