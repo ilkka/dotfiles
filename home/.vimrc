@@ -58,6 +58,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'clones/vim-taglist'
 Bundle 'codegram/vim-todo'
 Bundle 'chrismetcalf/vim-yankring'
+Bundle 'vim-scripts/vim-addon-mw-utils'
+Bundle 'vim-scripts/vim-addon-actions'
 Bundle 'MarcWeber/vim-addon-sbt'
 
 filetype plugin indent on
