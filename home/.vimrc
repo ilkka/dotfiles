@@ -278,7 +278,7 @@ if !exists("autocommands_loaded")
   autocmd FileType python compiler pyunit
   autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
   autocmd FileType ruby,eruby,yaml,cucumber setlocal sw=2 sts=2 et
-  autocmd FileType html,xhtml setlocal sw=2 sts=2 et
+  autocmd FileType html,xhtml setlocal sw=2 sts=2 et textwidth=0
   autocmd FileType cpp setlocal sw=4 sts=4 et
   autocmd FileType php setlocal sw=2 sts=2 et
   autocmd FileType xml setlocal sw=2 sts=2 et
@@ -289,6 +289,7 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.qml setlocal filetype=qml sw=4 sts=4 et
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
+  autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
 endif
 
 augroup BWCCreateDir
