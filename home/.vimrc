@@ -62,7 +62,7 @@ Bundle 'clones/vim-taglist'
 Bundle 'codegram/vim-todo'
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tomtom/tlib_vim'
-Bundle 'vim-scripts/html-improved-indentation'
+Bundle 'vim-scripts/JavaScript-Indent'
 
 " Configure VAM stuff
 call vam#ActivateAddons(['vim-addon-sbt'])
