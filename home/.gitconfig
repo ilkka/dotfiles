@@ -1,7 +1,6 @@
 [user]
 	name = "Ilkka Laukkanen"
-	# override per machine in $GIT_AUTHOR_EMAIL or per repo
-	email = "ilkka.s.laukkanen@gmail.com"
+	# set email per machine in $GIT_AUTHOR_EMAIL or per repo
 
 [color]
 	ui = auto
