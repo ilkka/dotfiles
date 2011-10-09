@@ -3,5 +3,3 @@
 # other build products.
 *~
 .*.swp
-*.pro.user
-*.qmlproject.user
