@@ -110,7 +110,7 @@ set backspace=2
 set laststatus=2
 " only one or the other of these is supposed to be set at one time
 "set number
-if version >= 730
+if version >= 703
 	set relativenumber
 endif
 
@@ -150,7 +150,7 @@ nnoremap <leader><space> :noh<cr>
 set wrap
 set textwidth=79
 set formatoptions=tcqn
-if version >= 730
+if version >= 703
 	set colorcolumn=80
 endif
 
