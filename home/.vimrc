@@ -110,7 +110,9 @@ set backspace=2
 set laststatus=2
 " only one or the other of these is supposed to be set at one time
 "set number
-set relativenumber
+if version >= 730
+	set relativenumber
+endif
 
 set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
 "              | | | | |  |   |      |  |     |    |
@@ -148,7 +150,9 @@ nnoremap <leader><space> :noh<cr>
 set wrap
 set textwidth=79
 set formatoptions=tcqn
-set colorcolumn=80
+if version >= 730
+	set colorcolumn=80
+endif
 
 " Show invisible characters
 " set list
