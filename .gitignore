@@ -6,3 +6,4 @@ custom/*
 *.un~
 .DS_Store
 cache
+*.swp

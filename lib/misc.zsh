@@ -11,7 +11,7 @@ setopt long_list_jobs
 
 ## pager
 export PAGER='less -R'
-export LC_CTYPE=en_US.UTF-8
+export LC_CTYPE=$LANG
 
 ## pretty man pages
 function pman() {
