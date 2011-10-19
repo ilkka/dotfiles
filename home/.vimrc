@@ -103,10 +103,10 @@ set ruler
 set backspace=2
 set laststatus=2
 " only one or the other of these is supposed to be set at one time
-"set number
-if version >= 703
-	set relativenumber
-endif
+set number
+"if version >= 703
+"	set relativenumber
+"endif
 
 set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
 "              | | | | |  |   |      |  |     |    |
