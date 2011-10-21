@@ -2,7 +2,7 @@ set nocompatible
 filetype off
 
 " setup vundle
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/vundle
 call vundle#rc()
 
 " let Vundle manage Vundle
