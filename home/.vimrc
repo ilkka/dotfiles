@@ -355,4 +355,5 @@ nnoremap <F5> :GundoToggle<CR>
 
 " Make ctrlp not manage the working directory
 let g:ctrlp_working_path_mode = 0
-
+" Make ctrlp not find dotfiles
+let g:ctrlp_dotfiles = 0
