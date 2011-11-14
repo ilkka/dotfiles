@@ -12,7 +12,7 @@ Bundle 'gmarik/vundle'
 " Configure vundle bundles
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/AutoTag'
-Bundle 'vim-scripts/Gist.vim'
+"Bundle 'vim-scripts/Gist.vim'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'vim-scripts/MediaWiki-folding-and-syntax-highlight'
 Bundle 'vim-scripts/Rainbow-Parenthesis'
