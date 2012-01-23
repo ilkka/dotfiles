@@ -58,6 +58,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'kien/ctrlp.vim'
 Bundle 'briancollins/vim-jst'
+Bundle 'vim-scripts/javacomplete'
 
 filetype plugin indent on
 syntax enable
@@ -282,6 +283,9 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
   autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
+  autocmd FileType coffee setlocal sw=2 sts=2 et tw=0
+  autocmd FileType java setlocal sw=4 sts=4 et omnifunc=javacomplete#Complete
+  autocmd FileType c setlocal sw=4 sts=4 et
 endif
 
 augroup BWCCreateDir
@@ -291,6 +295,9 @@ augroup END
 
 " this is for waf builds
 let &efm = "%-GBuild finished successfully %.%#," . &efm
+
+" this is for ant
+let &efm = "%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#," . &efm
 
 " for rsense
 let g:rsenseHome = $RSENSE_HOME
