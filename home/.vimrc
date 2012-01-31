@@ -279,6 +279,7 @@ if !exists("autocommands_loaded")
   autocmd FileType mail,rst,markdown setlocal textwidth=78
   autocmd BufNewFile,BufRead *.email setlocal filetype=mail
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+  autocmd BufNewFile,BufRead Guardfile setlocal filetype=ruby
   autocmd BufNewFile,BufRead *.qml setlocal filetype=qml sw=4 sts=4 et
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
