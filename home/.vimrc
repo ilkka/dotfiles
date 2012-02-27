@@ -59,6 +59,7 @@ Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'kien/ctrlp.vim'
 Bundle 'briancollins/vim-jst'
 Bundle 'vim-scripts/javacomplete'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on
 syntax enable
