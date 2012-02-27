@@ -330,7 +330,9 @@ endif
 " colorscheme twilight
 " colorscheme mustang
 " colorscheme clouds_midnight
-colorscheme molokai
+" colorscheme molokai
+colorscheme solarized
+" set background=dark " do I want to do this? dunno.
 
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")
