@@ -268,15 +268,8 @@ let g:VCSCommandMapPrefix='<Leader>k'
 if !exists("autocommands_loaded")
   let autocommands_loaded = 1
   " define autocommands here
-  autocmd FileType python setlocal sw=4 sts=4 et textwidth=0
   autocmd FileType python compiler pyunit
   autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
-  autocmd FileType ruby,eruby,yaml,cucumber setlocal sw=2 sts=2 et
-  autocmd FileType html,xhtml setlocal sw=2 sts=2 et textwidth=0
-  autocmd FileType cpp setlocal sw=4 sts=4 et
-  autocmd FileType php setlocal sw=2 sts=2 et
-  autocmd FileType xml setlocal sw=2 sts=2 et
-  autocmd FileType docbk setlocal sw=2 sts=2 et
   autocmd FileType mail,rst,markdown setlocal textwidth=78
   autocmd BufNewFile,BufRead *.email setlocal filetype=mail
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
@@ -285,9 +278,7 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
   autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
-  autocmd FileType coffee setlocal sw=2 sts=2 et tw=0
   autocmd FileType java setlocal sw=4 sts=4 et omnifunc=javacomplete#Complete
-  autocmd FileType c setlocal sw=4 sts=4 et
 endif
 
 augroup BWCCreateDir
@@ -370,3 +361,6 @@ nnoremap <F5> :GundoToggle<CR>
 let g:ctrlp_working_path_mode = 0
 " Make ctrlp not find dotfiles
 let g:ctrlp_dotfiles = 0
+
+" I want 2 space indentation dammit
+set sw=2 sts=2 et
