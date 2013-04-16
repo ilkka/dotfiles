@@ -248,13 +248,13 @@ map <Leader>sf :setlocal spell spelllang=fi_fi<CR>
 map <Leader>sn :setlocal nospell<CR>
 
 " FuzzyFinder options
-map <Leader>ff :FufFile<CR>
-map <Leader>fb :FufBuffer<CR>
-map <Leader>fd :FufDir<CR>
-map <Leader>ft :FufTag<CR>
-map <Leader>fl :FufLine<CR>
-map <Leader>fq :FufQuickfix<CR>
-map <Leader>fr :FufRenewCache<CR>
+"map <Leader>ff :FufFile<CR>
+"map <Leader>fb :FufBuffer<CR>
+"map <Leader>fd :FufDir<CR>
+"map <Leader>ft :FufTag<CR>
+"map <Leader>fl :FufLine<CR>
+"map <Leader>fq :FufQuickfix<CR>
+"map <Leader>fr :FufRenewCache<CR>
 
 " Fugitive options
 map <Leader>gw :Gwrite<CR>
@@ -323,8 +323,8 @@ endif
 " colorscheme twilight
 " colorscheme mustang
 " colorscheme clouds_midnight
-" colorscheme molokai
-colorscheme solarized
+colorscheme molokai
+" colorscheme solarized
 set background=dark " do I want to do this? dunno.
 
 " local defs, LEAVE THIS LAST
@@ -363,6 +363,15 @@ nnoremap <F5> :GundoToggle<CR>
 let g:ctrlp_working_path_mode = 0
 " Make ctrlp not find dotfiles
 let g:ctrlp_dotfiles = 0
+
+" error format for sbt-quickfix plugin
+" (https://github.com/dscleaver/sbt-quickfix)
+set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-C\ %#[error]\ %m
+set errorformat+=,%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-C\ %#[warn]\ %m
+set errorformat+=,%-G%.%#
+
+noremap <silent> <Leader>ff :cf target/quickfix/sbt.quickfix<CR>
+noremap <silent> <Leader>fn :cn<CR>
 
 " I want 2 space indentation dammit
 set sw=2 sts=2 et
