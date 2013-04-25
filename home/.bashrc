@@ -67,6 +67,9 @@ fi
 ### rbenv shims and completion
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+### homeshick
+[ -e $HOME/.homeshick ] && alias homesick="$HOME/.homeshick"
+
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
