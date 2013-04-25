@@ -59,6 +59,14 @@ fi
 ### own manpath into path
 [ -d $HOME/share/man -o -L $HOME/share/man ] && export MANPATH=$HOME/share/man:$MANPATH
 
+### homebrew?
+if which brew > /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+### rbenv shims and completion
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
