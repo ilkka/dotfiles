@@ -281,6 +281,7 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
   autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
   autocmd FileType java setlocal sw=4 sts=4 et omnifunc=javacomplete#Complete
+  autocmd FileType scala setlocal tw=0
 endif
 
 augroup BWCCreateDir
