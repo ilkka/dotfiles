@@ -68,7 +68,10 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### homeshick
-[ -e $HOME/.homeshick ] && alias homesick="$HOME/.homeshick"
+if [ -e $HOME/.homeshick ]; then
+  alias homeshick="$HOME/.homeshick"
+  homeshick --quiet refresh
+fi
 
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
