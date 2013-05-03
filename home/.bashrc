@@ -70,7 +70,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### homeshick
 if [ -e $HOME/.homeshick ]; then
   alias homeshick="$HOME/.homeshick"
-  homeshick --quiet refresh
+  "$HOME/.homeshick" --quiet refresh
 fi
 
 ### be colorful on a mac
