@@ -73,6 +73,9 @@ if [ -e $HOME/.homeshick ]; then
   homeshick --quiet refresh
 fi
 
+### be colorful on a mac
+export CLICOLOR=true
+
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
