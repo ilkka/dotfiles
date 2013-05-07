@@ -60,8 +60,12 @@ fi
 [ -d $HOME/share/man -o -L $HOME/share/man ] && export MANPATH=$HOME/share/man:$MANPATH
 
 ### homebrew?
-if which brew > /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if which brew > /dev/null; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+   ]]
 fi
 
 ### rbenv path, shims and completion
