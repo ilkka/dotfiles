@@ -65,7 +65,6 @@ if which brew > /dev/null; then
     . $(brew --prefix)/etc/bash_completion
   fi
   [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-   ]]
 fi
 
 ### rbenv path, shims and completion
