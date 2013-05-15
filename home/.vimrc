@@ -62,6 +62,7 @@ Bundle 'vim-scripts/javacomplete'
 Bundle 'altercation/vim-colors-solarized'
 Bundle "Lokaltog/powerline"
 Bundle "scrooloose/syntastic"
+Bundle 'evidens/vim-twig'
 
 filetype plugin indent on
 syntax enable
