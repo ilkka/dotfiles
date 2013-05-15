@@ -66,6 +66,9 @@ Bundle "scrooloose/syntastic"
 filetype plugin indent on
 syntax enable
 
+" activate powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
 " GUI "
 if has("gui_running")
   set guioptions-=T " no toolbar set guioptions-=m " no menus
