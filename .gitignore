@@ -1,3 +1,11 @@
 .netrwhist
+locals.zsh
+log/.zsh_history
+projects.zsh
+custom/*
+!custom/example.zsh
+*.un~
+.DS_Store
+cache
 *.swp
 home/.vim/bundle
