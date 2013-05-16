@@ -1,3 +1,4 @@
+# vim: sw=8 sts=8 noet
 [user]
 	name = "Ilkka Laukkanen"
 	# set email per machine in $GIT_AUTHOR_EMAIL or per repo
@@ -58,6 +59,10 @@
 
 [mergetool "threesome"]
 	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+	trustExitCode = true
+
+[mergetool "splice"]
+	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
 	trustExitCode = true
 
 [rerere]
