@@ -1,3 +1,5 @@
 h1. Dotfiles
 
 All my wonderful dotfiles, rolled into one big beautiful whopper of a repo.
+
+I manage these with "Homeshick":https://github.com/andsens/homeshick and install them onto new machines with my "Bootstrap script":https://gist.github.com/ilkka/5508287.
