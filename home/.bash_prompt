@@ -1,0 +1,49 @@
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case $(echo "$TERM"|sed 's/-bce$//') in
+    xterm|xterm-color|xterm-256color|screen|screen-256color) color_prompt=yes;;
+esac
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+	usercolor=$bldgrn
+	cwdcolor=$bldblu
+fi
+unset color_prompt force_color_prompt
+
+# set PROMPT_COMMAND to 1) store retval 
+PROMPT_COMMAND='RET=$?'
+# 2) output current ruby
+if [ -f $HOME/.rvm/bin/rvm-prompt ]; then
+PROMPT_COMMAND=$PROMPT_COMMAND'; printf "%*s\r" $COLUMNS "["$(~/.rvm/bin/rvm-prompt)"]"'
+fi
+
+RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
+RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$bldgrn\];)"; else echo -ne "\[$bldred\]:("; fi; echo -ne "\[$txtrst\]";)'
+#GIT_SKULL='$(if git status 2>/dev/null|grep -q "added to commit" 2>/dev/null; then echo -ne " \[$bldred\][☠]\[$txtrst\]"; fi)'
+
+PS1="${debian_chroot:+($debian_chroot)}${usercolor}\u@\h${txtrst}:${cwdcolor}\w${txtrst}\$(__git_ps1 ' (%s)')${GIT_SKULL}\n${RET_VALUE} ${RET_SMILEY} \$ "
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
