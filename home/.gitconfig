@@ -55,7 +55,7 @@
 
 [merge]
 	summary = true
-	tool = threesome
+	tool = splice
 
 [mergetool "threesome"]
 	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
