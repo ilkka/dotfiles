@@ -40,7 +40,9 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
+if !exists("g:disable_fugitive")
+  Bundle 'tpope/vim-fugitive'
+endif
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-markdown'
@@ -108,22 +110,9 @@ set number
 "	set relativenumber
 "endif
 
-set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    + current
-"              | | | | |  |   |      |  |     |       column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax in
-"              | | | | |  |   |          square brackets
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the rbuffer
-"} 
+if !exists("g:disable_fugitive")
+  set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
+endif
 
 " Searching / moving
 nnoremap / /\v
@@ -260,12 +249,14 @@ map <Leader>sn :setlocal nospell<CR>
 "map <Leader>fq :FufQuickfix<CR>
 "map <Leader>fr :FufRenewCache<CR>
 
-" Fugitive options
-map <Leader>gw :Gwrite<CR>
-map <Leader>gs :Gstatus<CR>
-map <Leader>gc :Gcommit -v<CR>
-map <Leader>gd :Gdiff<CR>
-map <Leader>gD :Gdiff!<CR>
+if !exists("g:disable_fugitive")
+  " Fugitive options
+  map <Leader>gw :Gwrite<CR>
+  map <Leader>gs :Gstatus<CR>
+  map <Leader>gc :Gcommit -v<CR>
+  map <Leader>gd :Gdiff<CR>
+  map <Leader>gD :Gdiff!<CR>
+endif
 
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
 let g:VCSCommandMapPrefix='<Leader>k'
