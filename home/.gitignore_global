@@ -1,0 +1,6 @@
+# Keep mostly editor tempfiles here. Put *nothing* here that should be ignored
+# projectwide, whatever the environment: for example, object files or
+# other build products.
+*~
+.*.swp
+.DS_Store
