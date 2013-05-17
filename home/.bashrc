@@ -80,6 +80,9 @@ fi
 ### be colorful on a mac
 export CLICOLOR=true
 
+# Colors that fit nicer with my dark themes
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
