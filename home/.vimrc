@@ -82,6 +82,7 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA 
   set mouse=v
+  set guifont=Inconsolata\ for\ Powerline:h12
 endif
 
 let mapleader = ","
