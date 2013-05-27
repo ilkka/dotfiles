@@ -82,6 +82,7 @@ export CLICOLOR=true
 
 # Colors that fit nicer with my dark themes
 export LSCOLORS=GxFxCxDxBxegedabagaced
+[ -e $HOME/.dircolors ] && which dircolors >> /dev/null 2>&1 && eval $(dircolors $HOME/.dircolors)
 
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
