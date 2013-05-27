@@ -50,16 +50,8 @@
 	pager = less -FRSX
 	excludesfile = ~/.gitignore_global
 
-[diff]
-	tool = meld
-
 [merge]
 	summary = true
-	tool = splice
-
-[mergetool "threesome"]
-	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-	trustExitCode = true
 
 [mergetool "splice"]
 	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
@@ -89,3 +81,8 @@
 	current-branch = "!r=$(git symbolic-ref HEAD);echo ${r##refs/heads/}"
 	out = "!b=$(git current-branch);git ll origin/$b..$b"
 	in = "!b=$(git current-branch);git ll $b..origin/$b"
+	splicediff = difftool -t splice
+	spicemerge = mergetool -t splice
+	oddiff = difftool -t opendiff
+	odmerge = mergetool -t opendiff
+
