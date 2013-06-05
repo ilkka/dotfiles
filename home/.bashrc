@@ -87,6 +87,15 @@ export CLICOLOR=true
 export LSCOLORS=GxFxCxDxBxegedabagaced
 [ -e $HOME/.dircolors ] && which dircolors >> /dev/null 2>&1 && eval $(dircolors $HOME/.dircolors)
 
+# path etc in window name
+case "$TERM" in
+  xterm*)
+    export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+    ;;
+  *)
+    ;;
+esac
+
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
