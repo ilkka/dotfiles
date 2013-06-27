@@ -131,13 +131,7 @@ nnoremap <leader><space> :noh<cr>
 
 :nmap <Space> /
 
-" Handle long lines correctly
-set wrap
-set textwidth=79
 set formatoptions=tcqn
-if version >= 703
-	set colorcolumn=80
-endif
 
 " Show invisible characters
 " set list
@@ -278,7 +272,7 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
   autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
   autocmd FileType java setlocal sw=4 sts=4 et omnifunc=javacomplete#Complete
-  autocmd FileType scala setlocal tw=0
+  autocmd FileType text setlocal colorcolumn=80 wrap textwidth=79
 endif
 
 augroup BWCCreateDir
