@@ -62,7 +62,7 @@
 	autoupdate = true
 
 [alias]
-	st = status
+	st = status --short --branch
 	up = fetch --all --prune
 	ci = commit -v
 	co = checkout
