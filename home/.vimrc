@@ -275,6 +275,8 @@ if !exists("autocommands_loaded")
   autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
   autocmd FileType java setlocal sw=4 sts=4 et omnifunc=javacomplete#Complete
   autocmd FileType text setlocal colorcolumn=80 wrap textwidth=79
+  autocmd FocusLost * :set number
+  autocmd FocusGained * :set relativenumber
 endif
 
 augroup BWCCreateDir
