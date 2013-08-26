@@ -63,9 +63,11 @@ Bundle 'vim-scripts/maven2.vim'
 Bundle 'vim-scripts/MediaWiki-folding-and-syntax-highlight'
 Bundle 'vim-scripts/Rainbow-Parenthesis'
 Bundle 'vim-scripts/TWiki-Syntax'
-Bundle 'vim-scripts/VimClojure'
 Bundle 'wavded/vim-stylus'
 Bundle 'wayneeseguin/snipmate.vim'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
 
 filetype plugin indent on
 syntax enable
