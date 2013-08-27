@@ -68,6 +68,7 @@ Bundle 'wayneeseguin/snipmate.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
+Bundle 'kien/rainbow_parentheses'
 
 filetype plugin indent on
 syntax enable
@@ -369,3 +370,4 @@ noremap <silent> <Leader>fn :cn<CR>
 
 " I want 2 space indentation dammit
 set sw=2 sts=2 et
+
