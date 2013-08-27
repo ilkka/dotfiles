@@ -7,3 +7,9 @@
 [submodule "plugins/git-flow-completion/lib"]
 	path = plugins/git-flow-completion/lib
 	url = https://github.com/bobthecow/git-flow-completion.git
+[submodule "home/.emacs.d/better-defaults"]
+	path = home/.emacs.d/better-defaults
+	url = https://github.com/technomancy/better-defaults.git
+[submodule "home/.emacs.d/ido-hacks"]
+	path = home/.emacs.d/ido-hacks
+	url = https://github.com/scottjad/ido-hacks.git
