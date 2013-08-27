@@ -16,12 +16,12 @@
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(defvar prelude-packages
-  '(ack-and-a-half auctex clojure-mode coffee-mode deft expand-region
-                   gist groovy-mode haml-mode haskell-mode inf-ruby
-                   magit magithub markdown-mode paredit projectile python
-                   sass-mode rainbow-mode scss-mode solarized-theme
-                   volatile-highlights yaml-mode yari zenburn-theme smex)
+(defvar prelude-packages '(ack-and-a-half auctex clojure-mode
+  clojure-test-mode nrepl coffee-mode deft expand-region gist
+  groovy-mode haml-mode haskell-mode inf-ruby magit magithub
+  markdown-mode paredit projectile python sass-mode rainbow-mode
+  scss-mode solarized-theme volatile-highlights yaml-mode yari
+  zenburn-theme smex)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
