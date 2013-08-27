@@ -68,7 +68,7 @@ Bundle 'wayneeseguin/snipmate.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
-Bundle 'kien/rainbow_parentheses'
+Bundle 'kien/rainbow_parentheses.vim'
 
 filetype plugin indent on
 syntax enable
