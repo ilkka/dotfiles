@@ -41,8 +41,8 @@
 
 ;; set default theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/molokai-theme/")
-(load-theme 'molokai t)
 (setq molokai-theme-kit t)
+(load-theme 'molokai t)
 
 ;; replace regular M-x with smex
 (global-set-key (kbd "M-x") 'smex)
