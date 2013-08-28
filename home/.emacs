@@ -19,7 +19,7 @@
 (defvar prelude-packages '(ack-and-a-half auctex clojure-mode
   clojure-test-mode nrepl coffee-mode deft expand-region gist
   groovy-mode haml-mode haskell-mode inf-ruby magit magithub
-  markdown-mode paredit projectile python sass-mode rainbow-mode
+  markdown-mode paredit projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
   zenburn-theme smex auto-complete ac-nrepl)
   "A list of packages to ensure are installed at launch.")
@@ -71,6 +71,9 @@
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+
+;; always rainbow
+(global-rainbow-delimiters-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
