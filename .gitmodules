@@ -13,3 +13,6 @@
 [submodule "home/.emacs.d/ido-hacks"]
 	path = home/.emacs.d/ido-hacks
 	url = https://github.com/scottjad/ido-hacks.git
+[submodule "home/.emacs.d/molokai-theme"]
+	path = home/.emacs.d/molokai-theme
+	url = https://github.com/hbin/molokai-theme.git

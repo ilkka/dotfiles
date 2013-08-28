@@ -40,7 +40,9 @@
       (package-install p))))
 
 ;; set default theme
-(load-theme 'solarized-dark t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/molokai-theme/")
+(load-theme 'molokai t)
+(setq molokai-theme-kit t)
 
 ;; replace regular M-x with smex
 (global-set-key (kbd "M-x") 'smex)
@@ -49,8 +51,8 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; turn on autocomplete
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 (ac-config-default)
 
 ;; turn on ac-nrepl
