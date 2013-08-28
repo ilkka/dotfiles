@@ -21,7 +21,7 @@
   groovy-mode haml-mode haskell-mode inf-ruby magit magithub
   markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
-  zenburn-theme smex auto-complete ac-nrepl undo-tree)
+  zenburn-theme smex auto-complete ac-nrepl undo-tree win-switch)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -75,8 +75,11 @@
 ;; always rainbow
 (global-rainbow-delimiters-mode)
 
-;; change paredit to smartparens
+;; default smartparens config
 (require 'smartparens-config)
+
+;; win switch with meta-arrows
+(win-switch-setup-keys-arrow-meta)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
