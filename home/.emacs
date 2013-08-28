@@ -19,7 +19,7 @@
 (defvar prelude-packages '(ack-and-a-half auctex clojure-mode
   clojure-test-mode nrepl coffee-mode deft expand-region gist
   groovy-mode haml-mode haskell-mode inf-ruby magit magithub
-  markdown-mode paredit projectile python sass-mode rainbow-delimiters
+  markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
   zenburn-theme smex auto-complete ac-nrepl)
   "A list of packages to ensure are installed at launch.")
@@ -74,6 +74,10 @@
 
 ;; always rainbow
 (global-rainbow-delimiters-mode)
+
+;; change paredit to smartparens
+(require 'smartparens-config)
+(smartparens-global-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
