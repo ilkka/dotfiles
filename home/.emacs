@@ -86,7 +86,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:background "textColor" :foreground "textBackgroundColor"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#f8f8f0"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "Red"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "Orange"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "Green"))))
