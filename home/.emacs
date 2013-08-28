@@ -21,7 +21,7 @@
   groovy-mode haml-mode haskell-mode inf-ruby magit magithub
   markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
-  zenburn-theme smex auto-complete ac-nrepl)
+  zenburn-theme smex auto-complete ac-nrepl undo-tree)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -77,14 +77,14 @@
 
 ;; change paredit to smartparens
 (require 'smartparens-config)
-(smartparens-global-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ns-right-alternate-modifier (quote none)))
+ '(ns-right-alternate-modifier (quote none))
+ '(smartparens-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
