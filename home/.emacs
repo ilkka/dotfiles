@@ -14,6 +14,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (defvar prelude-packages '(ack-and-a-half auctex clojure-mode
@@ -21,7 +23,8 @@
   groovy-mode haml-mode haskell-mode inf-ruby magit magithub
   markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
-  zenburn-theme smex auto-complete ac-nrepl undo-tree win-switch)
+  zenburn-theme smex auto-complete ac-nrepl undo-tree win-switch
+  php-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -79,7 +82,7 @@
 (require 'smartparens-config)
 
 ;; win switch with meta-arrows
-(win-switch-setup-keys-arrow-meta)
+(win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
