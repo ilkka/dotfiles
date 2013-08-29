@@ -93,12 +93,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "#f8f8f0"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "Red"))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "Red"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "Magenta"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "Orange"))))
  '(rainbow-delimiters-depth-4-face ((t (:foreground "Green"))))
  '(rainbow-delimiters-depth-5-face ((t (:foreground "Cyan"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "Magenta"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "Blue"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "Yellow"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "Purple"))))
  '(rainbow-delimiters-depth-9-face ((t (:foreground "Brown")))))
