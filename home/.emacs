@@ -168,6 +168,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ack-and-a-half-executable (shell-command-to-string "$SHELL -i -c 'which ack'"))
  '(ns-right-alternate-modifier (quote none))
  '(smartparens-global-mode t))
 (custom-set-faces
