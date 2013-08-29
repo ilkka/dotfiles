@@ -79,7 +79,7 @@
 (require 'smartparens-config)
 
 ;; win switch with meta-arrows
-(win-switch-setup-keys-arrow-meta)
+(win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
