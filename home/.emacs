@@ -30,7 +30,7 @@
 (defun prelude-packages-installed-p ()
   (loop for p in prelude-packages
         when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+        finalsly (return t)))
 
 (unless (prelude-packages-installed-p)
   ;; check for new packages (package versions)
@@ -84,6 +84,9 @@
 ;; win switch with meta-arrows
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
+;; always undo tree mode
+(undo-tree-mode t)
+)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
