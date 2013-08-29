@@ -64,10 +64,10 @@ if which brew > /dev/null; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
-  [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+  [[ -s `brew --prefix`/etc/autojump.bash ]] && . `brew --prefix`/etc/autojump.bash
 else
   # not homebrew
-  [ -e /usr/share/autojump/autojump.sh ] && source /usr/share/autojump/autojump.sh
+  [ -e /usr/share/autojump/autojump.bash ] && source /usr/share/autojump/autojump.bash
 fi
 
 ### rbenv path, shims and completion
