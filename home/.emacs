@@ -30,7 +30,7 @@
 (defun prelude-packages-installed-p ()
   (loop for p in prelude-packages
         when (not (package-installed-p p)) do (return nil)
-        finalsly (return t)))
+        finally (return t)))
 
 (unless (prelude-packages-installed-p)
   ;; check for new packages (package versions)
