@@ -24,7 +24,7 @@
   markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
   zenburn-theme smex auto-complete ac-nrepl undo-tree win-switch
-  php-mode)
+  php-mode flx-ido projectile)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -160,16 +160,15 @@
 ;; win switch with meta-arrows
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
-;; always undo tree mode
-(undo-tree-mode t)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ack-and-a-half-executable (shell-command-to-string "$SHELL -i -c 'which ack'"))
+ '(global-undo-tree-mode t)
  '(ns-right-alternate-modifier (quote none))
+ '(projectile-global-mode t)
  '(smartparens-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
