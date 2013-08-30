@@ -123,15 +123,15 @@
 (define-key sp-keymap (kbd "M-F") 'sp-forward-symbol)
 (define-key sp-keymap (kbd "M-B") 'sp-backward-symbol)
 
-(define-key sp-keymap (kbd "H-t") 'sp-prefix-tag-object)
-(define-key sp-keymap (kbd "H-p") 'sp-prefix-pair-object)
-(define-key sp-keymap (kbd "H-s c") 'sp-convolute-sexp)
-(define-key sp-keymap (kbd "H-s a") 'sp-absorb-sexp)
-(define-key sp-keymap (kbd "H-s e") 'sp-emit-sexp)
-(define-key sp-keymap (kbd "H-s p") 'sp-add-to-previous-sexp)
-(define-key sp-keymap (kbd "H-s n") 'sp-add-to-next-sexp)
-(define-key sp-keymap (kbd "H-s j") 'sp-join-sexp)
-(define-key sp-keymap (kbd "H-s s") 'sp-split-sexp)
+(define-key sp-keymap (kbd "C-M-s t") 'sp-prefix-tag-object)
+(define-key sp-keymap (kbd "C-M-s p") 'sp-prefix-pair-object)
+(define-key sp-keymap (kbd "C-M-s c") 'sp-convolute-sexp)
+(define-key sp-keymap (kbd "C-M-s a") 'sp-absorb-sexp)
+(define-key sp-keymap (kbd "C-M-s e") 'sp-emit-sexp)
+(define-key sp-keymap (kbd "C-M-s p") 'sp-add-to-previous-sexp)
+(define-key sp-keymap (kbd "C-M-s n") 'sp-add-to-next-sexp)
+(define-key sp-keymap (kbd "C-M-s j") 'sp-join-sexp)
+(define-key sp-keymap (kbd "C-M-s s") 'sp-split-sexp)
 
 ;;;;;;;;;;;;;;;;;;
 ;; pair management
