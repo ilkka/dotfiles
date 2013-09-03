@@ -160,6 +160,10 @@
 ;; win switch with meta-arrows
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
+;; Magit key bindings
+(global-set-key (kbd "M-d s") 'magit-status)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
