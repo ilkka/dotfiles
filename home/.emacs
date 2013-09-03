@@ -161,7 +161,11 @@
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
 ;; Magit key bindings
-(global-set-key (kbd "C-c g") 'magit-status)
+(define-prefix-command 'my-magit-prefix)
+(global-set-key (kbd "C-c g") 'my-magit-prefix)
+(define-key my-magit-prefix (kbd "s") 'magit-status)
+(define-key my-magit-prefix (kbd "w") 'magit-blame-mode)
+(define-key my-magit-prefix (kbd "b") 'magit-branch-manager)
 
 
 (custom-set-variables
