@@ -166,7 +166,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ack-and-a-half-executable "\"/usr/local/bin/ack\"")
+ '(flx-ido-mode t)
  '(global-undo-tree-mode t)
+ '(ido-everywhere t)
+ '(ido-use-faces nil)
  '(ns-right-alternate-modifier (quote none))
  '(projectile-global-mode t)
  '(smartparens-global-mode t))
