@@ -102,4 +102,4 @@ esac
 fi
 
 # final insult: disable custom prompt for dumb shells.
-[ $TERM = "dumb" ] && export PS1='$ '
+[ $TERM = "dumb" ] && export PROMPT_COMMAND='' && export PS1='$ '
