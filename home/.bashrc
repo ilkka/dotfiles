@@ -100,3 +100,6 @@ esac
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
 
 fi
+
+# final insult: disable custom prompt for dumb shells.
+[ $TERM = "dumb" ] && export PROMPT_COMMAND='' && export PS1='$ '
