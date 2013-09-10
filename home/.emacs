@@ -24,7 +24,7 @@
   markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
   zenburn-theme smex auto-complete ac-nrepl undo-tree win-switch
-  php-mode flx-ido projectile)
+  php-mode flx-ido projectile scala-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
