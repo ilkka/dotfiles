@@ -181,7 +181,7 @@
  '(ns-right-alternate-modifier (quote none))
  '(projectile-global-mode t)
  '(smartparens-global-mode t)
- '(haskell-mode-hook '(turn-on-haskell-indent)))
+ '(haskell-mode-hook '(turn-on-haskell-indentation)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
