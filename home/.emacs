@@ -24,7 +24,7 @@
   markdown-mode smartparens projectile python sass-mode rainbow-delimiters
   scss-mode solarized-theme volatile-highlights yaml-mode yari
   zenburn-theme smex auto-complete ac-nrepl undo-tree win-switch
-  php-mode flx-ido projectile)
+  php-mode flx-ido projectile scala-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
@@ -180,7 +180,8 @@
  '(ido-use-faces nil)
  '(ns-right-alternate-modifier (quote none))
  '(projectile-global-mode t)
- '(smartparens-global-mode t))
+ '(smartparens-global-mode t)
+ '(haskell-mode-hook '(turn-on-haskell-indent)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
