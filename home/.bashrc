@@ -96,7 +96,7 @@ case "$TERM" in
     ;;
 esac
 
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && . "$HOME/.scm_breeze/scm_breeze.sh" ]
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && . "$HOME/.scm_breeze/scm_breeze.sh"
 
 # per-machine stuff
 [ -e $HOME/.bashrc_local ] && . $HOME/.bashrc_local
