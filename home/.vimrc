@@ -69,6 +69,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on
 syntax enable
