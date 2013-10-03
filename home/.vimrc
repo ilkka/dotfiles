@@ -2,7 +2,7 @@ set nocompatible
 
 " setup bundles
 set rtp+=~/.vim/bundle/neobundle
-call neobundle(expand('~/.vim/bundle/')
+call neobundle#rc(expand('~/.vim/bundle/')
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
