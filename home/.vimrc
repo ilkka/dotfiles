@@ -1,73 +1,81 @@
 set nocompatible
-filetype off
 
-" setup vundle
-set rtp+=~/.vim/vundle
-call vundle#rc()
+" setup bundles
+set rtp+=~/.vim/bundle/neobundle
+call neobundle(expand('~/.vim/bundle/')
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Configure vundle bundles
-Bundle "Lokaltog/powerline"
-Bundle "scrooloose/syntastic"
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'briancollins/vim-jst'
-Bundle 'chrismetcalf/vim-yankring'
-Bundle 'ciaranm/inkpot'
-Bundle 'clones/vim-taglist'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'evidens/vim-twig'
-Bundle 'godlygeek/tabular'
-Bundle 'http://repo.or.cz/r/vcscommand.git'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mfukar/robotframework-vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'mjbrownie/Trac.vim'
-Bundle 'panozzaj/vim-autocorrect'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'rstacruz/sparkup'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'shemerey/vim-peepopen'
-Bundle 'sjl/gundo.vim'
-Bundle 'sjl/splice.vim'
-Bundle 'tomtom/tlib_vim'
-Bundle 'Townk/vim-autoclose'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-endwise'
-if !exists("g:disable_fugitive")
-  Bundle 'tpope/vim-fugitive'
-endif
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/asciidoc.vim'
-Bundle 'vim-scripts/AutoTag'
-Bundle 'vim-scripts/confluencewiki.vim'
-Bundle 'vim-scripts/grep.vim'
-Bundle 'vim-scripts/JavaScript-Indent'
-Bundle 'vim-scripts/JSON.vim'
-Bundle 'wayneeseguin/snipmate.vim'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'dag/vim2hs'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'ujihisa/neco-ghc'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'pbrisbin/html-template-syntax'
+" Special setup for vimproc, need to compile native module
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
+
+" Configure bundles
+NeoBundle "Lokaltog/powerline"
+NeoBundle "scrooloose/syntastic"
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'briancollins/vim-jst'
+NeoBundle 'chrismetcalf/vim-yankring'
+NeoBundle 'ciaranm/inkpot'
+NeoBundle 'clones/vim-taglist'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'evidens/vim-twig'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'http://repo.or.cz/r/vcscommand.git'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'mfukar/robotframework-vim'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'mjbrownie/Trac.vim'
+NeoBundle 'panozzaj/vim-autocorrect'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'rstacruz/sparkup'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'shemerey/vim-peepopen'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'sjl/splice.vim'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-scripts/Align'
+NeoBundle 'vim-scripts/asciidoc.vim'
+NeoBundle 'vim-scripts/AutoTag'
+NeoBundle 'vim-scripts/confluencewiki.vim'
+NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'vim-scripts/JavaScript-Indent'
+NeoBundle 'vim-scripts/JSON.vim'
+NeoBundle 'wayneeseguin/snipmate.vim'
+NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-classpath'
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'pbrisbin/html-template-syntax'
 
 filetype plugin indent on
+
+" NeoBundle install check0
+NeoBundleCheck
+
 syntax enable
 
 " activate powerline
