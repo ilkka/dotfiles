@@ -8,4 +8,5 @@ custom/*
 .DS_Store
 cache
 *.swp
-home/.vim/bundle
+home/.vim/bundle/*
+!home/.vim/bundle/neobundle
