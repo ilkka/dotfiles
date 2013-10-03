@@ -1,6 +1,3 @@
-[submodule "home/.vim/vundle"]
-	path = home/.vim/vundle
-	url = https://github.com/gmarik/vundle
 [submodule "home/.bash_completion.d/git-flow-completion"]
 	path = home/.bash_completion.d/git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion.git
