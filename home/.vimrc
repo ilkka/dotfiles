@@ -70,6 +70,7 @@ NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 filetype plugin indent on
 
