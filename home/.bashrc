@@ -126,6 +126,9 @@ if [[ -n "$PS1" ]]; then
   pathadd /usr/local/bin
   pathadd /usr/local/sbin
 
+  # for heroku toolbelt
+  pathadd /usr/local/heroku/bin
+  
   # per-machine stuff
   if [[ -e $HOME/.bashrc_local ]]; then 
     source $HOME/.bashrc_local
