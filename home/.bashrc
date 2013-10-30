@@ -5,6 +5,12 @@
 # If not running interactively, don't do anything
 if [[ -n "$PS1" ]]; then
 
+  pathadd() {
+    if [[ -d "$1" ]] && [[ ":$PATH:" != *":$1:"* ]]; then
+      PATH="$1${PATH:+":$PATH"}"
+    fi
+  }
+
   if [[ -s $HOME/.bash_colors ]]; then
     source $HOME/.bash_colors
   fi
@@ -60,9 +66,7 @@ if [[ -n "$PS1" ]]; then
   #export GIT_PS1_SHOWUNTRACKEDFILES=1
 
   ### own bin into path
-  if [[ -d $HOME/bin || -L $HOME/bin ]]; then
-    export PATH=$HOME/bin:$PATH
-  fi
+  pathadd "$HOME/bin"
 
   ### own manpath into path
   if [[ -d $HOME/share/man || -L $HOME/share/man ]]; then
@@ -85,9 +89,8 @@ if [[ -n "$PS1" ]]; then
   fi
 
   ### rbenv path, shims and completion
-  if [[ -d "$HOME/.rbenv/bin" ]]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
-  fi
+  pathadd "$HOME/.rbenv/bin"
+
   if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
   fi
@@ -120,11 +123,13 @@ if [[ -n "$PS1" ]]; then
     source "$HOME/.scm_breeze/scm_breeze.sh"
   fi
 
+  pathadd /usr/local/bin
+  pathadd /usr/local/sbin
+
   # per-machine stuff
   if [[ -e $HOME/.bashrc_local ]]; then 
     source $HOME/.bashrc_local
   fi
-
 fi
 
 # final insult: disable custom prompt for dumb shells.
