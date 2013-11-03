@@ -129,6 +129,11 @@ if [[ -n "$PS1" ]]; then
   # for heroku toolbelt
   pathadd /usr/local/heroku/bin
   
+  # on OSX, fix the broken(?) LC_CTYPE setting
+  if [[ $(uname -s) = "Darwin" && $LC_CTYPE = "UTF-8" ]]; then
+    LC_CTYPE="en_US.UTF-8"
+  fi
+  
   # per-machine stuff
   if [[ -e $HOME/.bashrc_local ]]; then 
     source $HOME/.bashrc_local
