@@ -134,6 +134,11 @@ if [[ -n "$PS1" ]]; then
     LC_CTYPE="en_US.UTF-8"
   fi
   
+  # homeshick bootstrap
+  if [[ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]]; then
+    source $HOME/.homesick/repos/homeshick/homeshick.sh
+  fi
+  
   # per-machine stuff
   if [[ -e $HOME/.bashrc_local ]]; then 
     source $HOME/.bashrc_local
