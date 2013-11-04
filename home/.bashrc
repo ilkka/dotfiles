@@ -95,12 +95,6 @@ if [[ -n "$PS1" ]]; then
     eval "$(rbenv init -)"
   fi
 
-  ### homeshick
-  if [[ -e $HOME/.homeshick ]]; then
-    alias homeshick="$HOME/.homeshick"
-    "$HOME/.homeshick" --quiet refresh
-  fi
-
   ### be colorful on a mac
   export CLICOLOR=true
 
@@ -137,6 +131,7 @@ if [[ -n "$PS1" ]]; then
   # homeshick bootstrap
   if [[ -f $HOME/.homesick/repos/homeshick/homeshick.sh ]]; then
     source $HOME/.homesick/repos/homeshick/homeshick.sh
+    homeshick --quiet refresh
   fi
   
   # per-machine stuff
