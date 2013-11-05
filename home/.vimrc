@@ -71,6 +71,7 @@ NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'vim-scripts/paredit.vim'
 
 filetype plugin indent on
 
