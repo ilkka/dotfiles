@@ -309,9 +309,6 @@ let g:RspecBin = "rspec"
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'", '#{': '}'} 
 let g:AutoCloseProtectedRegions = ["Character"] 
 
-" Execute current buffer as ruby
-map <S-r> :w !ruby<CR>
-
 let my_home = expand("$HOME/")
 
 if filereadable(my_home . '.vim/bundle/vim-autocorrect/autocorrect.vim')
