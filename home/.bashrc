@@ -11,10 +11,6 @@ if [[ -n "$PS1" ]]; then
     fi
   }
 
-  if [[ -s $HOME/.bash_colors ]]; then
-    source $HOME/.bash_colors
-  fi
-
   # don't put duplicate lines in the history. See bash(1) for more options
   # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
   HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
