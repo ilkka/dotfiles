@@ -36,7 +36,6 @@ NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'mfukar/robotframework-vim'
-NeoBundle 'mileszs/ack.vim'
 NeoBundle 'mjbrownie/Trac.vim'
 NeoBundle 'panozzaj/vim-autocorrect'
 NeoBundle 'pbrisbin/html-template-syntax'
@@ -161,17 +160,6 @@ nnoremap k gk
 " Map ESC
 imap jj <ESC>
 nnoremap ; :
-
-" ACK
-" Use Ack instead of grep
-set grepprg=ack
-
-" ,a to Ack
-nnoremap <leader>a :Ack 
-
-" Rotating among results in an ack search
-"map <C-n> :cn<CR>
-"map <C-p> :cp<CR>
 
 " Splits  ,v to open a new vertical split and switch to it
 nnoremap <leader>v <C-w>v<C-w>l
@@ -469,6 +457,7 @@ nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=grep grep:.<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
