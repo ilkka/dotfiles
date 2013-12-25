@@ -1,8 +1,8 @@
 #!/bin/bash -ex
 
 # Paste this into ssh
-# curl -sL https://gist.github.com/ilkka/5508287/download | tar -xzO | /bin/bash -ex
-# When forking, you can get the URL from the download button.
+# curl -sL https://raw.github.com/ilkka/dotfiles/master/scripts/bootstrap.sh | tar -xzO | /bin/bash -ex
+# Remember to use the correct URL if forking.
 #
 # For OS X, install XCode and command line tools first.
 
