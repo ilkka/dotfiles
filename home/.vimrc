@@ -362,9 +362,6 @@ set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-C\ %#[error]\ 
 set errorformat+=,%W\ %#[warn]\ %#%f:%l:\ %m,%-Z\ %#[warn]\ %p^,%-C\ %#[warn]\ %m
 set errorformat+=,%-G%.%#
 
-noremap <silent> <Leader>ff :cf target/quickfix/sbt.quickfix<CR>
-noremap <silent> <Leader>fn :cn<CR>
-
 " --- start of neocomplcache setting block
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
