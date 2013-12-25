@@ -171,8 +171,8 @@ set grepprg=ack
 nnoremap <leader>a :Ack 
 
 " Rotating among results in an ack search
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+"map <C-n> :cn<CR>
+"map <C-p> :cp<CR>
 
 " Splits  ,v to open a new vertical split and switch to it
 nnoremap <leader>v <C-w>v<C-w>l
