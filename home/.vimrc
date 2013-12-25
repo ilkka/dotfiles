@@ -458,6 +458,10 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " --- end neocomplcache setting block
 
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")
 	so $HOME/.vimrc-local
