@@ -68,16 +68,6 @@ else
         $installtool install $installtoolflags python-pip exuberant-ctags
         PIP=pip
 fi
-$PIP install --user git+http://github.com/Lokaltog/powerline
-
-if [[ $platform == 'osx' ]]; then
-    POWERLINE=`find /usr/local/lib -path '*/site-packages/powerline'|tail -1`/bindings/bash/powerline.sh
-elif [[ $platform == 'linux' ]]; then
-    egrep -q .local/bin $HOME/.bashrc_local || echo '[ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc_local
-    POWERLINE=`find $HOME/.local -path '*/site-packages/powerline'|tail -1`/bindings/bash/powerline.sh
-fi
-
-egrep -q $POWERLINE $HOME/.bashrc_local || echo "[ -e $POWERLINE ] && . $POWERLINE" >> $HOME/.bashrc_local
 
 ### Install homeshick ###
 HOMESHICK_DIR=$HOME/.homesick/repos/homeshick
