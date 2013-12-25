@@ -72,6 +72,7 @@ NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'Shougo/unite.vim'
 
 filetype plugin indent on
 
