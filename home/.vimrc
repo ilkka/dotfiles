@@ -73,6 +73,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'airblade/vim-gitgutter'
 
 filetype plugin indent on
 
