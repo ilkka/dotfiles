@@ -17,7 +17,6 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " Configure bundles
-NeoBundle "Lokaltog/powerline"
 NeoBundle "scrooloose/syntastic"
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'briancollins/vim-jst'
@@ -79,9 +78,6 @@ filetype plugin indent on
 NeoBundleCheck
 
 syntax enable
-
-" activate powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " GUI "
 if has("gui_running")
