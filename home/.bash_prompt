@@ -24,8 +24,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	usercolor=$grn
-	cwdcolor=$blu
+	usercolor=$txtgrn
+	cwdcolor=$txtblu
 fi
 unset color_prompt force_color_prompt
 
@@ -37,7 +37,7 @@ if [ -f $HOME/.rvm/bin/rvm-prompt ]; then
 fi
 
 RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
-RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$grn\];)"; else echo -ne "\[$red\]:("; fi; echo -ne "\[$txtrst\]";)'
+RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$txtgrn\];)"; else echo -ne "\[$txtred\]:("; fi; echo -ne "\[$txtrst\]";)'
 #GIT_SKULL='$(if git status 2>/dev/null|grep -q "added to commit" 2>/dev/null; then echo -ne " \[$bldred\][☠]\[$txtrst\]"; fi)'
 
 PS1="${debian_chroot:+($debian_chroot)}${usercolor}\u@\h${txtrst}:${cwdcolor}\w${txtrst}\$(__git_ps1 ' (%s)')${GIT_SKULL}\n${RET_VALUE} ${RET_SMILEY} \$ "

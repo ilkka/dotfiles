@@ -103,7 +103,7 @@ if [[ -n "$PS1" ]]; then
   # path etc in window name
   case "$TERM" in
     xterm*)
-      export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+      export PROMPT_COMMAND=${PROMPT_COMMAND}';echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
       ;;
     *)
       ;;
