@@ -34,7 +34,6 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'http://repo.or.cz/r/vcscommand.git'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'mfukar/robotframework-vim'
 NeoBundle 'mileszs/ack.vim'
@@ -463,6 +462,26 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" unite
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")
