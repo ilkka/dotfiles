@@ -461,7 +461,3 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " --- end neocomplcache setting block
-
-" I want 2 space indentation dammit
-set sw=2 sts=2 et
-
