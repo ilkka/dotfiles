@@ -1,9 +1,6 @@
 [submodule "home/.bash_completion.d/git-flow-completion"]
 	path = home/.bash_completion.d/git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion.git
-[submodule "plugins/git-flow-completion/lib"]
-	path = plugins/git-flow-completion/lib
-	url = https://github.com/bobthecow/git-flow-completion.git
 [submodule "home/.emacs.d/better-defaults"]
 	path = home/.emacs.d/better-defaults
 	url = https://github.com/technomancy/better-defaults.git
