@@ -134,6 +134,10 @@ if [[ -n "$PS1" ]]; then
     homeshick --quiet refresh
   fi
   
+  if [[ -d $HOME/.local/bin ]]; then
+    PATH="$HOME/.local/bin:$PATH"
+  fi
+
   # per-machine stuff
   if [[ -e $HOME/.bashrc_local ]]; then 
     source $HOME/.bashrc_local
