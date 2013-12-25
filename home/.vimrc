@@ -71,6 +71,7 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'vim-scripts/paredit.vim'
+NeoBundle 'bling/vim-airline'
 
 filetype plugin indent on
 
@@ -322,11 +323,6 @@ endif
  colorscheme solarized
 set background=dark " do I want to do this? dunno.
 
-" local defs, LEAVE THIS LAST
-if filereadable($HOME."/.vimrc-local")
-	so $HOME/.vimrc-local
-endif
-
 " NOW SERIOUSLY
 set nobackup
 set nowritebackup
@@ -461,3 +457,8 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " --- end neocomplcache setting block
+
+" local defs, LEAVE THIS LAST
+if filereadable($HOME."/.vimrc-local")
+	so $HOME/.vimrc-local
+endif
