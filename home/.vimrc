@@ -322,8 +322,8 @@ endif
 " colorscheme twilight
 " colorscheme mustang
 " colorscheme clouds_midnight
-colorscheme molokai
-" colorscheme solarized
+"colorscheme molokai
+ colorscheme solarized
 set background=dark " do I want to do this? dunno.
 
 " local defs, LEAVE THIS LAST
