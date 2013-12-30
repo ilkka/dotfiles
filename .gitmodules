@@ -13,6 +13,6 @@
 [submodule "home/.scm_breeze"]
 	path = home/.scm_breeze
 	url = git://github.com/ndbroadbent/scm_breeze.git
-[submodule "home/.vim/bundle/neobundle"]
-	path = home/.vim/bundle/neobundle
+[submodule "home/.vim/bundle/neobundle.vim"]
+	path = home/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
