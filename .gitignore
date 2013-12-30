@@ -9,4 +9,4 @@ custom/*
 cache
 *.swp
 home/.vim/bundle/*
-!home/.vim/bundle/neobundle
+!home/.vim/bundle/neobundle.vim
