@@ -37,6 +37,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'mfukar/robotframework-vim'
 NeoBundle 'mjbrownie/Trac.vim'
+NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'panozzaj/vim-autocorrect'
 NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'rstacruz/sparkup'
@@ -44,6 +45,8 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'shemerey/vim-peepopen'
 NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/unite-help'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'sjl/splice.vim'
@@ -62,6 +65,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/asciidoc.vim'
@@ -450,13 +454,16 @@ let g:airline_powerline_fonts = 1
 " unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=grep grep:.<cr>
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=tag -start-insert tag/include<cr>
+nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=help -start-insert help<cr>
+nnoremap <leader>u :<C-u>Unite -no-split -buffer-name=quickfix -start-insert quickfix<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
