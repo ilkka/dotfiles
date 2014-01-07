@@ -62,22 +62,22 @@
 	autoupdate = true
 
 [alias]
-	st = status --short --branch
-	up = fetch --all --prune
-	ci = commit -v
-	co = checkout
-	ff = merge --ff-only
-	nf = merge --no-ff
-	wc = whatchanged
-	au = add --update
+	#st = status --short --branch
+	#up = fetch --all --prune
+	#ci = commit -v
+	#co = checkout
+	#ff = merge --ff-only
+	#nf = merge --no-ff
+	#wc = whatchanged
+	#au = add --update
 	showconflict = !gitk --left-right HEAD...MERGE_HEAD
 	prune-all = !git remote | xargs -n 1 git remote prune
-	ll = log --graph --decorate --pretty=format:'%C(magenta)%h%C(reset)%C(bold yellow)%d%C(reset) %s %C(green)%an %C(white)%cr%C(reset)' --abbrev-commit --date=relative
-	la = !git ll --all
-	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; vim `f`"
-	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
+	#ll = log --graph --decorate --pretty=format:'%C(magenta)%h%C(reset)%C(bold yellow)%d%C(reset) %s %C(green)%an %C(white)%cr%C(reset)' --abbrev-commit --date=relative
+	#la = !git ll --all
+	#edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; vim `f`"
+	#add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
 	serve = daemon --reuseaddr --base-path=. --export-all --verbose
-	br = branch -avv
+	#br = branch -avv
 	current-branch = "!r=$(git symbolic-ref HEAD);echo ${r##refs/heads/}"
 	out = "!b=$(git current-branch);git ll origin/$b..$b"
 	in = "!b=$(git current-branch);git ll $b..origin/$b"
@@ -85,4 +85,3 @@
 	spicemerge = mergetool -t splice
 	oddiff = difftool -t opendiff
 	odmerge = mergetool -t opendiff
-
