@@ -45,7 +45,7 @@ RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$txtgrn\];)"; else echo -ne 
 #GIT_SKULL='$(if git status 2>/dev/null|grep -q "added to commit" 2>/dev/null; then echo -ne " \[$bldred\][☠]\[$txtrst\]"; fi)'
 
 if [[ -n "$SSH_CLIENT" ]]; then
-	userhost='🔒\u@\h'
+	userhost='🔒 \u@\h'
 else
 	userhost='\u'
 fi
