@@ -44,7 +44,7 @@ RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
 RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$txtgrn\];)"; else echo -ne "\[$txtred\]:("; fi; echo -ne "\[$txtrst\]";)'
 #GIT_SKULL='$(if git status 2>/dev/null|grep -q "added to commit" 2>/dev/null; then echo -ne " \[$bldred\][☠]\[$txtrst\]"; fi)'
 
-if [[ -n "$SH_CLIENT" ]]; then
+if [[ -n "$SSH_CLIENT" ]]; then
 	userhost='\u@\h'
 else
 	userhost='\u'
