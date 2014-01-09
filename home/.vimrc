@@ -75,6 +75,7 @@ NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/paredit.vim'
+NeoBundle 'vim-scripts/sudo.vim'
 
 filetype plugin indent on
 
