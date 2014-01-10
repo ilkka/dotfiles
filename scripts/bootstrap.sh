@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 
 # Paste this into ssh
-# curl -sL https://raw.github.com/ilkka/dotfiles/master/scripts/bootstrap.sh | tar -xzO | /bin/bash -ex
+# curl -sL https://raw.github.com/ilkka/dotfiles/master/scripts/bootstrap.sh | /bin/bash -ex
 # Remember to use the correct URL if forking.
 #
 # For OS X, install XCode and command line tools first.
