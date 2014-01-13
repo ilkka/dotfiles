@@ -462,7 +462,7 @@ nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outl
 nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
 nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <leader>/ :<C-u>Unite -no-split -buffer-name=grep grep:.<cr>
-nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=tag -start-insert tag/include<cr>
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=tag -start-insert tag<cr>
 nnoremap <leader>h :<C-u>Unite -no-split -buffer-name=help -start-insert help<cr>
 nnoremap <leader>u :<C-u>Unite -no-split -buffer-name=quickfix -start-insert quickfix<cr>
 
