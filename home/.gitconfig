@@ -82,6 +82,6 @@
 	out = "!b=$(git current-branch);git ll origin/$b..$b"
 	in = "!b=$(git current-branch);git ll $b..origin/$b"
 	splicediff = difftool -t splice
-	spicemerge = mergetool -t splice
+	splicemerge = mergetool -t splice
 	oddiff = difftool -t opendiff
 	odmerge = mergetool -t opendiff
