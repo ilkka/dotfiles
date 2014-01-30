@@ -245,11 +245,11 @@ map <Leader>sn :setlocal nospell<CR>
 
 if !exists("g:disable_fugitive")
   " Fugitive options
-  map <Leader>gw :Gwrite<CR>
-  map <Leader>gs :Gstatus<CR>
-  map <Leader>gc :Gcommit -v<CR>
-  map <Leader>gd :Gdiff<CR>
-  map <Leader>gD :Gdiff!<CR>
+  "map <Leader>gw :Gwrite<CR>
+  "map <Leader>gs :Gstatus<CR>
+  "map <Leader>gc :Gcommit -v<CR>
+  "map <Leader>gd :Gdiff<CR>
+  "map <Leader>gD :Gdiff!<CR>
 endif
 
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
