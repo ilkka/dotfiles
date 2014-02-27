@@ -313,7 +313,8 @@ endif
 " colorscheme mustang
 " colorscheme clouds_midnight
 "colorscheme molokai
- colorscheme solarized
+let g:solarized_termcolors=256
+colorscheme solarized
 set background=dark " do I want to do this? dunno.
 
 " NOW SERIOUSLY
