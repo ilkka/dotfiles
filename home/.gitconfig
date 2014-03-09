@@ -93,3 +93,6 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
