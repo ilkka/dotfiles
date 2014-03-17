@@ -52,6 +52,9 @@ fi
 
 PS1="${debian_chroot:+($debian_chroot)}${usercolor}${userhost}${txtrst}:${cwdcolor}\w${txtrst}\$(__git_ps1 ' (%s)')${GIT_SKULL}\n${RET_VALUE} ${RET_SMILEY} \$ "
 
+# on tmux store the pwd for powerline
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
