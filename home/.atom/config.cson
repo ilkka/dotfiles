@@ -1,15 +1,16 @@
 'exception-reporting':
   'userId': 'cc1c270b-056b-ef4c-728d-f6641e9c930d'
 'release-notes':
-  'viewedVersion': '0.69.0'
+  'viewedVersion': '0.73.0'
 'welcome':
   'showOnStartup': false
 'metrics':
   'userId': '958f5c2d9376d905cff49fae871192e0e5c1cf45'
 'editor':
-  'fontSize': 13
   'softWrap': true
   'showInvisibles': true
+  'tabLength': 4
+  'fontSize': 14
 'core':
   'themes': [
     'atom-dark-ui'
