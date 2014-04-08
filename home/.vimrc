@@ -97,6 +97,7 @@ if has("gui_running")
 endif
 
 let mapleader = ","
+let maplocalleader = "\\"
 
 set modelines=5
 set modeline
