@@ -126,6 +126,11 @@ if !exists("g:disable_fugitive")
   set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
 endif
 
+" editing and sourcing vimrc
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>eV :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " Searching / moving
 nnoremap / /\v
 vnoremap / /\v
