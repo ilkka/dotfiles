@@ -262,9 +262,8 @@ endif
 let g:VCSCommandMapPrefix='<Leader>k'
 
 " Autocommands
-if !exists("autocommands_loaded")
-  let autocommands_loaded = 1
-  " define autocommands here
+augroup filetypes
+  autocmd!
   autocmd FileType python compiler pyunit
   autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
   autocmd FileType mail,rst,markdown setlocal textwidth=78
@@ -279,7 +278,7 @@ if !exists("autocommands_loaded")
   autocmd FileType text setlocal colorcolumn=80 wrap textwidth=79
   autocmd FocusLost * :set number
   autocmd FocusGained * :set relativenumber
-endif
+augroup END
 
 augroup BWCCreateDir
 	au!
@@ -434,11 +433,14 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup END
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
