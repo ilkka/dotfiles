@@ -261,21 +261,28 @@ endif
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
 let g:VCSCommandMapPrefix='<Leader>k'
 
+" by default fold by indent
+set foldmethod=indent
+
 " Autocommands
-augroup filetypes
+augroup filetype_python
   autocmd!
   autocmd FileType python compiler pyunit
   autocmd FileType python setlocal makeprg=${VIMHOME}/extras/run_all_python_tests_recursively.py
-  autocmd FileType mail,rst,markdown setlocal textwidth=78
   autocmd BufNewFile,BufRead *.email setlocal filetype=mail
   autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
   autocmd BufNewFile,BufRead Guardfile setlocal filetype=ruby
-  autocmd BufNewFile,BufRead *.qml setlocal filetype=qml sw=4 sts=4 et
+  autocmd BufNewFile,BufRead *.qml setlocal filetype=qml
   autocmd BufNewFile,BufRead *.json setlocal filetype=json
   autocmd BufNewFile,BufRead *.zsh-theme setlocal filetype=zsh
   autocmd BufNewFile,BufRead *.handlebars setlocal filetype=html
-  autocmd FileType java setlocal sw=4 sts=4 et omnifunc=javacomplete#Complete
-  autocmd FileType text setlocal colorcolumn=80 wrap textwidth=79
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  autocmd FileType text setlocal colorcolumn=80 wrap
+  autocmd FileType vim setlocal foldmethod=marker
+autgroup END
+
+augroup focuscmds
+  autocmd!
   autocmd FocusLost * :set number
   autocmd FocusGained * :set relativenumber
 augroup END
