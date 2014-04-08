@@ -279,7 +279,7 @@ augroup filetype_python
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
   autocmd FileType text setlocal colorcolumn=80 wrap
   autocmd FileType vim setlocal foldmethod=marker
-autgroup END
+augroup END
 
 augroup focuscmds
   autocmd!
