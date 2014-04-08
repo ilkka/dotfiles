@@ -161,6 +161,8 @@ inoremap <right> <nop>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap H g0
+nnoremap L g$
 
 " Map ESC
 inoremap jk <ESC>
