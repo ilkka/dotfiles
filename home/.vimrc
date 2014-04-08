@@ -138,7 +138,7 @@ nnoremap <leader><space> :noh<cr>
 " nnoremap <tab> %
 " vnoremap <tab> %
 
-:nmap <Space> /
+:nnoremap <Space> /
 
 set formatoptions=tcqn
 
@@ -162,7 +162,7 @@ nnoremap j gj
 nnoremap k gk
 
 " Map ESC
-imap jj <ESC>
+inoremap jk <ESC>
 nnoremap ; :
 
 " Splits  ,v to open a new vertical split and switch to it
@@ -176,15 +176,15 @@ nnoremap <C-l> <C-w>l
 " Switch between buffers
 noremap <tab> :bn<CR>
 noremap <S-tab> :bp<CR>
-nmap <leader>d :bd<CR>
-nmap <leader>D :bufdo bd<CR>
+nnoremap <leader>d :bd<CR>
+nnoremap <leader>D :bufdo bd<CR>
 
 " Saving and buffer stuff
 " :wqa! Quit saving
-nmap <leader>Q :wqa!<CR>
-nmap <leader>q :wq!<CR>
-nmap <leader>w :w!<CR>
-nmap <leader><Esc> :q!<CR>
+nnoremap <leader>Q :wqa!<CR>
+nnoremap <leader>q :wq!<CR>
+nnoremap <leader>w :w!<CR>
+nnoremap <leader><Esc> :q!<CR>
 
 " Tag list settings
 map <leader>l :TlistToggle <cr>
@@ -205,15 +205,15 @@ set iskeyword-=_
 
 " EXTERNAL COPY / PASTE "
 set pastetoggle=<F2>
-map <C-y> "+gP<CR>
-vmap <C-c> "+y
+noremap <C-y> "+gP<CR>
+vnoremap <C-c> "+y
 
 " Q formats marked text or current paragraph
-vmap Q gq
-nmap Q gqap
+vnoremap Q gq
+nnoremap Q gqap
 
 " PeepOpen
-map <leader>o <Plug>PeepOpen
+noremap <leader>o <Plug>PeepOpen
 
 " NERD tree settings
 let NERDTreeShowBookmarks = 1
@@ -222,7 +222,7 @@ let NERDTreeWinPos = "left"
 let NERDTreeHijackNetrw = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeWinSize = 50 
-map <leader>p :NERDTreeToggle<cr>
+noremap <leader>p :NERDTreeToggle<cr>
 
 " OmniCpp settings
 let OmniCpp_MayCompleteScope=1
@@ -230,26 +230,26 @@ let OmniCpp_SelectFirstItem=2
 set completeopt=menuone,preview,longest
 
 " spell settings
-map <Leader>se :setlocal spell spelllang=en_gb<CR>
-map <Leader>sf :setlocal spell spelllang=fi_fi<CR>
-map <Leader>sn :setlocal nospell<CR>
+noremap <Leader>se :setlocal spell spelllang=en_gb<CR>
+noremap <Leader>sf :setlocal spell spelllang=fi_fi<CR>
+noremap <Leader>sn :setlocal nospell<CR>
 
 " FuzzyFinder options
-"map <Leader>ff :FufFile<CR>
-"map <Leader>fb :FufBuffer<CR>
-"map <Leader>fd :FufDir<CR>
-"map <Leader>ft :FufTag<CR>
-"map <Leader>fl :FufLine<CR>
-"map <Leader>fq :FufQuickfix<CR>
-"map <Leader>fr :FufRenewCache<CR>
+"noremap <Leader>ff :FufFile<CR>
+"noremap <Leader>fb :FufBuffer<CR>
+"noremap <Leader>fd :FufDir<CR>
+"noremap <Leader>ft :FufTag<CR>
+"noremap <Leader>fl :FufLine<CR>
+"noremap <Leader>fq :FufQuickfix<CR>
+"noremap <Leader>fr :FufRenewCache<CR>
 
 if !exists("g:disable_fugitive")
   " Fugitive options
-  "map <Leader>gw :Gwrite<CR>
-  "map <Leader>gs :Gstatus<CR>
-  "map <Leader>gc :Gcommit -v<CR>
-  "map <Leader>gd :Gdiff<CR>
-  "map <Leader>gD :Gdiff!<CR>
+  "noremap <Leader>gw :Gwrite<CR>
+  "noremap <Leader>gs :Gstatus<CR>
+  "noremap <Leader>gc :Gcommit -v<CR>
+  "noremap <Leader>gd :Gdiff<CR>
+  "noremap <Leader>gD :Gdiff!<CR>
 endif
 
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
@@ -302,8 +302,8 @@ let g:AutoCloseProtectedRegions = ["Character"]
 let my_home = expand("$HOME/")
 
 if filereadable(my_home . '.vim/bundle/vim-autocorrect/autocorrect.vim')
-	map <Leader>aa :source ~/.vim/bundle/vim-autocorrect/autocorrect.vim
-	map <Leader>ac :abc
+	noremap <Leader>aa :source ~/.vim/bundle/vim-autocorrect/autocorrect.vim
+	noremap <Leader>ac :abc
 endif
 
 " colorscheme af
@@ -320,26 +320,25 @@ set background=dark " do I want to do this? dunno.
 " NOW SERIOUSLY
 set nobackup
 set nowritebackup
-set noswapfile
 
 " BLAAAME
-vmap <Leader>gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p<CR>
+vnoremap <Leader>gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p<CR>
 
 " Tabularize
 if exists(":Tab")
-  nmap <leader>a\| :Tab /\|<CR>
-  vmap <leader>a\| :Tab /\|<CR>
-  nmap <leader>a= :Tab /=<CR>
-  vmap <leader>a= :Tab /=<CR>
-  nmap <leader>a: :Tab /:\zs<CR>
-  vmap <leader>a: :Tab /:\zs<CR>
+  nnoremap <leader>a\| :Tab /\|<CR>
+  vnoremap <leader>a\| :Tab /\|<CR>
+  nnoremap <leader>a= :Tab /=<CR>
+  vnoremap <leader>a= :Tab /=<CR>
+  nnoremap <leader>a: :Tab /:\zs<CR>
+  vnoremap <leader>a: :Tab /:\zs<CR>
 endif
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 
 " Map Ctrl-i to Ctrl-] because the latter is apparently impossible to
 " type on a mac with a keyboard that requires alt for ].
-map <C-i> <C-]>
+noremap <C-i> <C-]>
 
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
@@ -473,8 +472,8 @@ function! s:unite_settings()
   " Play nice with supertab
   let b:SuperTabDisabled=1
   " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  inoremap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  inoremap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
 " local defs, LEAVE THIS LAST
