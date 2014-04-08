@@ -162,8 +162,6 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" inoremap <Esc> <nop>
-
 nnoremap j gj
 nnoremap k gk
 nnoremap H g0
@@ -171,7 +169,7 @@ nnoremap L g$
 
 " Map ESC
 inoremap jk <ESC>
-nnoremap ; :
+inoremap <Esc> <nop>
 
 " Splits  ,v to open a new vertical split and switch to it
 nnoremap <leader>v <C-w>v<C-w>l
