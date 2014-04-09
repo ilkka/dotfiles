@@ -1,7 +1,7 @@
 'exception-reporting':
   'userId': 'cc1c270b-056b-ef4c-728d-f6641e9c930d'
 'release-notes':
-  'viewedVersion': '0.73.0'
+  'viewedVersion': '0.78.0'
 'welcome':
   'showOnStartup': false
 'metrics':
@@ -10,7 +10,7 @@
   'softWrap': true
   'showInvisibles': true
   'tabLength': 4
-  'fontSize': 14
+  'fontSize': 13
 'core':
   'themes': [
     'atom-dark-ui'
@@ -22,3 +22,4 @@
     '.DS_Store'
   ]
   'disabledPackages': []
+'tree-view': {}
