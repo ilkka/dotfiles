@@ -134,6 +134,10 @@ if [[ -n "$PS1" ]]; then
     PATH="$HOME/.local/bin:$PATH"
   fi
 
+  if [[ -e $HOME/.pystartup ]]; then
+    export PYTHONSTARTUP=$HOME/.pystartup
+  fi
+  
   # per-machine stuff
   if [[ -e $HOME/.bashrc_local ]]; then 
     source $HOME/.bashrc_local
