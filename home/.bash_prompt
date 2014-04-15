@@ -37,11 +37,11 @@ unset color_prompt force_color_prompt
 # thanks!
 function generate_git_bar {
   git_status="$(env LC_MESSAGES=C git status 2> /dev/null)"
-  branch_pattern="^# On branch ([^${IFS}]*)"
-  detached_branch_pattern="# Not currently on any branch"
-  remote_pattern="# Your branch is (.*) of"
-  diverge_pattern="# Your branch and (.*) have diverged"
-  detached_at_pattern="^# HEAD detached at ([^${IFS}]*)"
+  branch_pattern="On branch ([^${IFS}]*)"
+  detached_branch_pattern="Not currently on any branch"
+  remote_pattern="Your branch is (.*) of"
+  diverge_pattern="Your branch and (.*) have diverged"
+  detached_at_pattern="HEAD detached at ([^${IFS}]*)"
 
   if [[ ${git_status}} =~ "Changed but not updated" ]]; then
     flags="${txtred}?" # Old git???
@@ -92,7 +92,7 @@ function generate_git_bar {
     flags="${txtrst}|${flags}"
   fi
 
-  hash=$(git rev-parse HEAD | head -c 7)
+  hash=$(git rev-parse HEAD|head -c 7)
 
   echo "${txtrst}(${branch}${txtrst}|${txtylw}${hash}${flags}${txtrst})"
 }
@@ -104,30 +104,40 @@ function stopped_jobs(){
   fi
 }
 
-# set PROMPT_COMMAND to 1) store retval 
-PROMPT_COMMAND='RET=$?'
+function prompt_func() {
+    # store retval from last command
+    RET=$?
 
-RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
-RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$txtgrn\];)"; else echo -ne "\[$txtred\]:("; fi; echo -ne "\[$txtrst\]";)'
-#GIT_SKULL='$(if git status 2>/dev/null|grep -q "added to commit" 2>/dev/null; then echo -ne " \[$bldred\][☠]\[$txtrst\]"; fi)'
+    RET_VALUE='$(echo $RET)' #Ret value not colorized - you can modify it.
+    RET_SMILEY='$(if [[ $RET -eq 0 ]]; then echo -ne "\[$txtgrn\];)"; else echo -ne "\[$txtred\]:("; fi; echo -ne "\[$txtrst\]";)'
 
-if [[ -n "$SSH_CLIENT" ]]; then
-	userhost='🔒 \u@\h'
-else
-	userhost='\u'
-fi
+    if [[ -n "$SSH_CLIENT" ]]; then
+        userhost='🔒 \u@\h'
+    else
+        userhost='\u'
+    fi
 
-PS1="${debian_chroot:+($debian_chroot)}${usercolor}${userhost}${txtrst}:${cwdcolor}\w${txtrst}\$(__git_ps1 ' (%s)')${GIT_SKULL}\n${RET_VALUE} ${RET_SMILEY} \$ "
+    git rev-parse --git-dir > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        gitstuff=" $(generate_git_bar)"
+    else
+        gitstuff=""
+    fi
 
-# on tmux store the pwd for powerline
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+    PS1="${debian_chroot:+($debian_chroot)}${usercolor}${userhost}${txtrst}:${cwdcolor}\w${txtrst}${gitstuff}$(stopped_jobs)\n${RET_VALUE} ${RET_SMILEY} \$ "
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+    # on tmux store the pwd for powerline
+    PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+    # If this is an xterm set the title to user@host:dir
+    case "$TERM" in
+        xterm*|rxvt*)
+            PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+            ;;
+        *)
+            ;;
+    esac
+}
+
+PROMPT_COMMAND=prompt_func
 
