@@ -100,15 +100,6 @@ if [[ -n "$PS1" ]]; then
     eval $(dircolors $HOME/.dircolors)
   fi
 
-  # path etc in window name
-  case "$TERM" in
-    xterm*)
-      export PROMPT_COMMAND=${PROMPT_COMMAND}';echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-      ;;
-    *)
-      ;;
-  esac
-
   if [[ -s "$HOME/.scm_breeze/scm_breeze.sh" ]]; then
     source "$HOME/.scm_breeze/scm_breeze.sh"
   fi
