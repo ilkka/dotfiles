@@ -33,6 +33,77 @@ if [ "$color_prompt" = yes ]; then
 fi
 unset color_prompt force_color_prompt
 
+# pilfered from https://github.com/epeli/vimconfig/blob/master/others/bashrc,
+# thanks!
+function generate_git_bar {
+  git_status="$(env LC_MESSAGES=C git status 2> /dev/null)"
+  branch_pattern="^# On branch ([^${IFS}]*)"
+  detached_branch_pattern="# Not currently on any branch"
+  remote_pattern="# Your branch is (.*) of"
+  diverge_pattern="# Your branch and (.*) have diverged"
+  detached_at_pattern="^# HEAD detached at ([^${IFS}]*)"
+
+  if [[ ${git_status}} =~ "Changed but not updated" ]]; then
+    flags="${txtred}?" # Old git???
+  fi
+
+  if [[ ${git_status}} =~ "Untracked files" ]]; then
+    flags="${flags}${txtred}!"
+  fi
+
+  if [[ ${git_status}} =~ "Changes not staged for commit" ]]; then
+    flags="${flags}${txtred}⚡"
+  fi
+
+  if [[ ${git_status}} =~ "Changes to be committed" ]]; then
+    flags="${flags}${txtred}√"
+  fi
+
+  if [[ ${git_status}} =~ "Unmerged paths" ]]; then
+    flags="${flags}${txtred}≈"
+  fi
+
+  if [ "$(git stash list)" ]; then
+    flags="${flags}${txtred}˷"
+  fi
+
+  if [[ ${git_status} =~ ${remote_pattern} ]]; then
+    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
+      flags="${flags}${txtylw}↑"
+    else
+      flags="${flags}${txtylw}↓"
+    fi
+  fi
+
+  if [[ ${git_status} =~ ${diverge_pattern} ]]; then
+    flags="${flags}${txtylw}↕"
+  fi
+
+  if [[ ${git_status} =~ ${branch_pattern} ]]; then
+    branch="${BLUE}${BASH_REMATCH[1]}"
+  elif [[ ${git_status} =~ ${detached_branch_pattern} ]]; then
+    branch="${txtred}NO BRANCH"
+  elif [[ ${git_status} =~ ${detached_at_pattern} ]]; then
+    branch="${txtred}${BASH_REMATCH[1]}"
+  fi
+
+
+  if [ "${flags}" ]; then
+    flags="${txtrst}|${flags}"
+  fi
+
+  hash=$(git rev-parse HEAD | head -c 7)
+
+  echo "${txtrst}(${branch}${txtrst}|${txtylw}${hash}${flags}${txtrst})"
+}
+
+# also pilfered from the same source as above
+function stopped_jobs(){
+  if [[ "$(jobs)" =~ "Stopped" ]]; then
+    echo "${txtrst}${txtred}⌚ "
+  fi
+}
+
 # set PROMPT_COMMAND to 1) store retval 
 PROMPT_COMMAND='RET=$?'
 
