@@ -3,6 +3,8 @@
 # other build products.
 *~
 .*.swp
+.*.swo
+.swp
 .DS_Store
 *.sublime-project
 *.sublime-workspace
