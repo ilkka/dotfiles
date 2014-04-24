@@ -59,14 +59,12 @@ if [[ $platform == 'osx' ]]; then
 fi
 
 ### Install packages with installtool ###
-$installtool install $installtoolflags tmux vim bash-completion
+$installtool install $installtoolflags tmux vim bash-completion fasd
 if [[ $platform = 'osx' ]]; then
         $installtool install $installtoolflags macvim python ctags
         echo 'export PATH="$PATH:/usr/local/share/python"' >> $HOME/.bashrc_local
-        PIP=/usr/local/bin/pip
 else
         $installtool install $installtoolflags python-pip exuberant-ctags
-        PIP=pip
 fi
 
 ### Install homeshick ###
