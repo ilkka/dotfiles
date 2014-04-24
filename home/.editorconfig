@@ -11,3 +11,5 @@ indent_size = 2
 [*.coffee]
 indent_size = 2
 
+[*.{yml,yaml}]
+indent_size = 2
