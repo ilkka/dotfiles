@@ -1,6 +1,14 @@
 # flyboy.zsh-theme
 # Adapted from sorin by ilkka@fastmail.fm
 
+if [[ -x $HOME/.zsh-custom/batterylevel.py ]]; then
+    BATTERYLEVEL=$HOME/.zsh-custom/batterylevel.py
+fi
+
+function battery_charge {
+    echo `$BATTERYLEVEL` 2> /dev/null
+}
+
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
   local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
@@ -16,7 +24,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   ZSH_THEME_GIT_PROMPT_DIRTY=""
   ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-  RPROMPT='${return_status}$(git_prompt_status)%{$reset_color%}'
+  RPROMPT='${return_status}$(git_prompt_status)%{$reset_color%}$(battery_charge)'
 
   ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
   ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
