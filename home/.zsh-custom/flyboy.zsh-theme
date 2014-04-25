@@ -6,7 +6,9 @@ if [[ -x $HOME/.zsh-custom/batterylevel.py ]]; then
 fi
 
 function battery_charge {
-    echo `$BATTERYLEVEL` 2> /dev/null
+    if [[ -n $BATTERYLEVEL ]]; then
+        echo " " `$BATTERYLEVEL` 2> /dev/null
+    fi
 }
 
 function stopped_jobs(){
