@@ -70,7 +70,7 @@ if [[ -n "$PS1" ]]; then
   fi
 
   ### homebrew?
-  if which brew > /dev/null; then
+  if which brew &> /dev/null; then
     if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
       source $(brew --prefix)/etc/bash_completion
     fi
@@ -87,7 +87,7 @@ if [[ -n "$PS1" ]]; then
   ### rbenv path, shims and completion
   pathadd "$HOME/.rbenv/bin"
 
-  if which rbenv > /dev/null; then
+  if which rbenv &> /dev/null; then
     eval "$(rbenv init -)"
   fi
 
