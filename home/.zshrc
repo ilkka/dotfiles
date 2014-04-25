@@ -81,3 +81,10 @@ export LANG=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# homeshick
+if [[ -d $HOME/.homesick/repos/homeshick ]] {
+    source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+    homeshick --quiet refresh
+}
+
