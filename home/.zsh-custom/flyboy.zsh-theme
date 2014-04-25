@@ -9,11 +9,17 @@ function battery_charge {
     echo `$BATTERYLEVEL` 2> /dev/null
 }
 
+function stopped_jobs(){
+  if [[ "$(jobs)" =~ "suspended" ]]; then
+    echo "%{$fg_bold[red]%}⌚ "
+  fi
+}
+
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
   local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
   
-  PROMPT='%{$fg[cyan]%}%c$(git_prompt_info) %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
+  PROMPT='%{$fg[cyan]%}%c$(git_prompt_info) %(!.%{$fg_bold[red]%}#.$(stopped_jobs)%{$fg_bold[green]%}❯)%{$reset_color%} '
 
   if [[ -n $SSH_CLIENT ]]; then
       PROMPT='%{$fg[yellow]%}%n%{$fg_bold[white]%}@%{$reset_color%}%{$fg[red]%}%m '$PROMPT
