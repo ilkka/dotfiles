@@ -41,7 +41,7 @@ NeoBundle 'mjbrownie/Trac.vim'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'panozzaj/vim-autocorrect'
 NeoBundle 'pbrisbin/html-template-syntax'
-NeoBundle 'rstacruz/sparkup'
+NeoBundle 'rstacruz/sparkup', {'rtp': 'vim'}
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'shemerey/vim-peepopen'
