@@ -1,0 +1,15 @@
+legit
+    ( branches
+    | graft [<branch>] <branch>
+    | harvest [<branch>] <branch>
+    | help
+    | install
+    | publish <branch>
+    | settings
+    | sprout [<branch>] <branch>
+    | switch <branch>
+    | sync [<branch>]
+    | unpublish <branch>);
+
+branch = ! git for-each-ref --format='%(refname:short)'
+
