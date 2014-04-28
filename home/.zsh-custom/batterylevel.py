@@ -1,16 +1,25 @@
 #!/usr/bin/env python
 # coding=UTF-8
 
-import math, subprocess
+import math, subprocess, sys
 
-p = subprocess.Popen(["ioreg", "-rc", "AppleSmartBattery"], stdout=subprocess.PIPE)
-output = p.communicate()[0]
+if sys.platform == 'linux' or sys.platform == 'linux2':
+  try:
+    b_max = float(file('/sys/class/power_supply/BAT0/energy_full').read().strip())
+    b_cur = float(file('/sys/class/power_supply/BAT0/energy_now').read().strip())
+  except IOError:
+    sys.exit(0)
+elif sys.platform == 'darwin':
+  p = subprocess.Popen(["ioreg", "-rc", "AppleSmartBattery"], stdout=subprocess.PIPE)
+  output = p.communicate()[0]
 
-o_max = [l for l in output.splitlines() if 'MaxCapacity' in l][0]
-o_cur = [l for l in output.splitlines() if 'CurrentCapacity' in l][0]
+  o_max = [l for l in output.splitlines() if 'MaxCapacity' in l][0]
+  o_cur = [l for l in output.splitlines() if 'CurrentCapacity' in l][0]
 
-b_max = float(o_max.rpartition('=')[-1].strip())
-b_cur = float(o_cur.rpartition('=')[-1].strip())
+  b_max = float(o_max.rpartition('=')[-1].strip())
+  b_cur = float(o_cur.rpartition('=')[-1].strip())
+else:
+  sys.exit(0)
 
 charge = b_cur / b_max
 charge_threshold = int(math.ceil(10 * charge))
