@@ -88,3 +88,7 @@ if [[ -d $HOME/.homesick/repos/homeshick ]] {
     homeshick --quiet refresh
 }
 
+# per site customizations
+if [[ -r $HOME/.zshrc-local ]] {
+    source "$HOME/.zshrc-local"
+}
