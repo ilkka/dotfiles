@@ -86,6 +86,13 @@ if [[ ! -e $HOME/.oh-my-zsh ]]; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
 
+### Install scm breeze ###
+if [[ ! -e $HOME/.scm_breeze ]]; then
+    git clone https://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
+else
+    (cd ~/.scm_breeze && git reset --hard HEAD && git checkout master && git pull)
+fi
+
 ### Deploy dotfiles ###
 repos="dotfiles"
 for r in $repos; do
