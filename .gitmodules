@@ -10,9 +10,6 @@
 [submodule "home/.emacs.d/molokai-theme"]
 	path = home/.emacs.d/molokai-theme
 	url = https://github.com/hbin/molokai-theme.git
-[submodule "home/.scm_breeze"]
-	path = home/.scm_breeze
-	url = https://github.com/ndbroadbent/scm_breeze.git
 [submodule "home/.vim/bundle/neobundle.vim"]
 	path = home/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
