@@ -59,7 +59,7 @@ if [[ $platform == 'osx' ]]; then
 fi
 
 ### Install packages with installtool ###
-$installtool install $installtoolflags tmux vim bash-completion fasd
+$installtool install $installtoolflags tmux emacs vim bash-completion fasd
 if [[ $platform = 'osx' ]]; then
         $installtool install $installtoolflags macvim python ctags
         echo 'export PATH="$PATH:/usr/local/share/python"' >> $HOME/.bashrc_local
@@ -91,6 +91,11 @@ if [[ ! -e $HOME/.scm_breeze ]]; then
     git clone https://github.com/ndbroadbent/scm_breeze.git ~/.scm_breeze
 else
     (cd ~/.scm_breeze && git reset --hard HEAD && git checkout master && git pull)
+fi
+
+### Install emacs-live ###
+if [[ ! -e $HOME/.emacs-live.el ]]; then
+    bash <(curl -fksSL https://raw.github.com/overtone/emacs-live/master/installer/install-emacs-live.sh)
 fi
 
 ### Deploy dotfiles ###
