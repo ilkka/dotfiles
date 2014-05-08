@@ -57,7 +57,7 @@ ZSH_TMUX_FIXTERM=true
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(compleat dircycle fabric fasd git gitfast git-extras lein npm osx tmux vagrant)
+plugins=(compleat dircycle fabric fasd gitfast git-extras lein npm osx tmux vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,6 +87,9 @@ if [[ -d $HOME/.homesick/repos/homeshick ]] {
     source "$HOME/.homesick/repos/homeshick/homeshick.sh"
     homeshick --quiet refresh
 }
+
+# scm breeze
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 # per site customizations
 if [[ -r $HOME/.zshrc-local ]] {
