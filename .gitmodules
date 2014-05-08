@@ -1,15 +1,6 @@
 [submodule "home/.bash_completion.d/git-flow-completion"]
 	path = home/.bash_completion.d/git-flow-completion
 	url = https://github.com/bobthecow/git-flow-completion.git
-[submodule "home/.emacs.d/better-defaults"]
-	path = home/.emacs.d/better-defaults
-	url = https://github.com/technomancy/better-defaults.git
-[submodule "home/.emacs.d/ido-hacks"]
-	path = home/.emacs.d/ido-hacks
-	url = https://github.com/scottjad/ido-hacks.git
-[submodule "home/.emacs.d/molokai-theme"]
-	path = home/.emacs.d/molokai-theme
-	url = https://github.com/hbin/molokai-theme.git
 [submodule "home/.vim/bundle/neobundle.vim"]
 	path = home/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
