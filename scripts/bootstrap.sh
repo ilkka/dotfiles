@@ -59,7 +59,7 @@ if [[ $platform == 'osx' ]]; then
 fi
 
 ### Install packages with installtool ###
-$installtool install $installtoolflags tmux emacs vim bash-completion fasd
+$installtool install $installtoolflags tmux emacs vim bash-completion fasd zsh
 if [[ $platform = 'osx' ]]; then
         $installtool install $installtoolflags macvim python ctags
         echo 'export PATH="$PATH:/usr/local/share/python"' >> $HOME/.bashrc_local
