@@ -91,8 +91,17 @@ cat <<EOF >> .ssh/known_hosts
 EOF
 
 ### Install oh-my-zsh ###
-if [[ ! -e $HOME/.oh-my-zsh ]]; then
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+#if [[ ! -e $HOME/.oh-my-zsh ]]; then
+#  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+#else
+#    (cd "$HOME/.oh-my-zsh" && git pull && git submodule update --init --recursive)
+#fi
+
+### Install prezto ###
+if [[ ! -e ${ZDOTDIR:-$HOME}/.zprezto ]]; then
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+else
+    (cd "${ZDOTDIR:-$HOME}/.zprezto}" && git pull && git submodule update --init --recursive)
 fi
 
 ### Install scm breeze ###
