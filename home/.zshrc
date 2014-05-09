@@ -20,3 +20,7 @@ fi
 if [[ -s $HOME/.scm_breeze/scm_breeze.sh ]]; then
     source "$HOME/.scm_breeze/scm_breeze.sh"
 fi
+
+if [[ -r $HOME/.zsh-custom/batterylevel.py ]]; then
+    export RPROMPT="$RPROMPT $(python $HOME/.zsh-custom/batterylevel.py)"
+fi
