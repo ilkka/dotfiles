@@ -4,15 +4,21 @@
 [submodule "home/.vim/bundle/neobundle.vim"]
 	path = home/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
-[submodule "home/.zprezto"]
-	path = home/.zprezto
+[submodule "git-flow-completion"]
+	path = git-flow-completion
+	url = https://github.com/bobthecow/git-flow-completion.git
+[submodule "neobundle.vim"]
+	path = neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git
+[submodule "prezto"]
+	path = prezto
 	url = https://github.com/sorin-ionescu/prezto.git
-[submodule "home/.oh-my-zsh"]
-	path = home/.oh-my-zsh
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "home/.scm_breeze"]
-	path = home/.scm_breeze
+[submodule "scm_breeze"]
+	path = scm_breeze
 	url = https://github.com/ndbroadbent/scm_breeze.git
 [submodule "emacs-live"]
-	path = home/.emacs.d
+	path = emacs-live
 	url = https://github.com/overtone/emacs-live.git
