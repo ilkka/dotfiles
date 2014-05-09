@@ -19,7 +19,7 @@ fi
 if [[ $platform == 'linux' ]]; then
     if [[ -n `which yum` ]]; then
         installtool='yum'
-    else if [[ -n `which apt-get` ]]; then
+    elif [[ -n `which apt-get` ]]; then
         installtool='apt-get'
     fi
     if [[ -n $installtool ]]; then
