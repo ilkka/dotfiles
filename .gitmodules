@@ -4,3 +4,12 @@
 [submodule "home/.vim/bundle/neobundle.vim"]
 	path = home/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
+[submodule "home/.zprezto"]
+	path = home/.zprezto
+	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "home/.oh-my-zsh"]
+	path = home/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "home/.scm_breeze"]
+	path = home/.scm_breeze
+	url = https://github.com/ndbroadbent/scm_breeze.git
