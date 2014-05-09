@@ -17,22 +17,28 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 if [[ $platform == 'linux' ]]; then
-    if [[ `whoami` == 'root' ]]; then
+    if [[ -n `which yum` ]]; then
+        installtool='yum'
+    else if [[ -n `which apt-get` ]]; then
         installtool='apt-get'
-    else
-        installtool='sudo apt-get'
     fi
-    installtoolflags='-y'
-    $installtool update
-    # need git and make to install rbenv
-    if `grep -q lucid /etc/apt/sources.list`; then
-      gitpkg='git-core'
-    else
-      gitpkg='git'
+    if [[ -n $installtool ]]; then
+        if [[ `whoami` != 'root' ]]; then
+            installtool="sudo $installtool"
+        fi
+        installtoolflags='-y'
+        $installtool update
+        # need git and make to install rbenv
+        if `grep -q lucid /etc/apt/sources.list`; then
+            gitpkg='git-core'
+        else
+            gitpkg='git'
+        fi
+        $installtool install $installtoolflags $gitpkg build-essential
     fi
-    $installtool install $installtoolflags $gitpkg build-essential
 elif [[ $platform == 'osx' ]]; then
     installtool='brew'
+    $installtool update
     # already have git
 fi
 
@@ -55,16 +61,17 @@ if [[ $platform == 'osx' ]]; then
     if ! which brew; then
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     fi
-    $installtool update
 fi
 
 ### Install packages with installtool ###
-$installtool install $installtoolflags tmux emacs vim bash-completion fasd zsh
-if [[ $platform = 'osx' ]]; then
+if [[ -n $installtool ]]; then
+    $installtool install $installtoolflags tmux emacs vim bash-completion fasd zsh
+    if [[ $platform = 'osx' ]]; then
         $installtool install $installtoolflags macvim python ctags
         echo 'export PATH="$PATH:/usr/local/share/python"' >> $HOME/.bashrc_local
-else
+    else
         $installtool install $installtoolflags python-pip exuberant-ctags
+    fi
 fi
 
 ### Install homeshick ###
