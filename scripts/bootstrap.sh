@@ -71,7 +71,7 @@ if [[ -n $installtool ]]; then
     if [[ $platform = 'osx' ]]; then
         $installtool install $installtoolflags macvim python ctags
         echo 'export PATH="$PATH:/usr/local/share/python"' >> $HOME/.bashrc_local
-    else
+    elif [[ ! $installtool =~ yum$ ]]; then
         $installtool install $installtoolflags python-pip exuberant-ctags
     fi
 fi
