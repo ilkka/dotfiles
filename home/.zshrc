@@ -17,3 +17,6 @@ if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
 fi
 
+if [[ -s $HOME/.scm_breeze/scm_breeze.sh ]]; then
+    source "$HOME/.scm_breeze/scm_breeze.sh"
+fi
