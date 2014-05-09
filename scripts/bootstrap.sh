@@ -27,7 +27,9 @@ if [[ $platform == 'linux' ]]; then
             installtool="sudo $installtool"
         fi
         installtoolflags='-y'
-        $installtool update
+        if [[ ! $installtool =~ yum$ ]]; then
+            $installtool update
+        fi
         # need git and make to install rbenv
         if `grep -q lucid /etc/apt/sources.list`; then
             gitpkg='git-core'
