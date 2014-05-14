@@ -12,7 +12,12 @@ elif [[ -s "${ZDOTDIR:-$HOME}/.homesick/repos/prezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.homesick/repos/prezto/init.zsh"
 fi
 
-# Customize to your needs...
+# on OSX, fix the broken(?) LC_CTYPE setting
+if [[ $(uname -s) = "Darwin" && $LC_CTYPE = "UTF-8" ]]; then
+    LC_CTYPE="en_US.UTF-8"
+fi
+
+# machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
 fi
