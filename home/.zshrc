@@ -28,6 +28,13 @@ if [[ -r $HOME/.zsh-custom/batterylevel.py ]]; then
     RPROMPT="$RPROMPT $(python $HOME/.zsh-custom/batterylevel.py)"
 fi
 
+# rbenv
+RBENV=$HOME/.rbenv
+if [[ -d $RBENV/bin ]]; then
+    PATH=$RBENV/bin:$PATH
+    eval "$(rbenv init -)"
+fi
+
 function stopped_jobs(){
   if [[ "$(jobs)" =~ "suspended" ]]; then
     echo "%{$fg_bold[red]%}⌚ "
