@@ -3,7 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+#   Ilkka Laukkanen <ilkka@fastmail.fm>
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -42,6 +42,10 @@ function stopped_jobs(){
 }
 
 RPROMPT="\$(stopped_jobs)$RPROMPT"
+
+if [[ -n "$SSH_CLIENT" ]]; then
+    PROMPT='%F{red}%n@%m '$PROMPT
+fi
 
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
