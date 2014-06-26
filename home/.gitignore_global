@@ -11,4 +11,7 @@
 .idea
 *.iml
 *.*.orig
+.classpath
+.settings
+.project
 
