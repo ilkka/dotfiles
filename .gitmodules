@@ -22,3 +22,6 @@
 [submodule "emacs-live"]
 	path = emacs-live
 	url = https://github.com/overtone/emacs-live.git
+[submodule "prelude"]
+	path = prelude
+	url = https://github.com/bbatsov/prelude.git
