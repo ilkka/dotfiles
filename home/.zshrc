@@ -31,7 +31,7 @@ fi
 # rbenv
 RBENV=$HOME/.rbenv
 if [[ -d $RBENV/bin ]]; then
-    PATH=$RBENV/bin:$PATH
+    PATH=$RBENV/bin:$RBENV/shims:$PATH
     eval "$(rbenv init -)"
 fi
 
