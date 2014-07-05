@@ -10,16 +10,15 @@
   'softWrap': true
   'showInvisibles': true
   'tabLength': 4
+  'fontFamily': 'Monaco for Powerline'
   'fontSize': 13
 'core':
-  'themes': [
-    'atom-dark-ui'
-    'atom-dark-syntax'
-  ]
   'ignoredNames': [
     '.git'
     '.svn'
     '.DS_Store'
   ]
-  'disabledPackages': []
+  'disabledPackages': [
+    'atom-jshint'
+  ]
 'tree-view': {}
