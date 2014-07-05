@@ -47,6 +47,11 @@ if [[ -n "$SSH_CLIENT" ]]; then
     PROMPT='%F{red}%n@%m '$PROMPT
 fi
 
+# cabal bin
+if [[ -d $HOME/.cabal/bin ]]; then
+    PATH="$HOME/.cabal/bin:$PATH"
+fi
+
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
