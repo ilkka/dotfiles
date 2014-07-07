@@ -47,9 +47,12 @@ if [[ -n "$SSH_CLIENT" ]]; then
     PROMPT='%F{red}%n@%m '$PROMPT
 fi
 
-# cabal bin
-if [[ -d $HOME/.cabal/bin ]]; then
-    PATH="$HOME/.cabal/bin:$PATH"
+# teamocil completion
+compctl -g '~/.teamocil/*(:t:r)' teamocil
+
+# cabal user bin
+if [[ -d $HOME/Library/Haskell/bin ]]; then
+    PATH="$HOME/Library/Haskell/bin:$PATH"
 fi
 
 # machine-local non-versioned stuff
