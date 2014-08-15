@@ -9,13 +9,41 @@
  */
 
 .tree-view {
-
+    font-family: 'Input Sans';
+    letter-spacing: -0.3px;
+    font-size: 11px;
+    background: #2e2f35 !important;
+    .entry.directory.status-modified > .header,
+    .entry.file.status-modified {
+        color: #ff6300;
+    }
+    .list-item {
+        //line-height: 20px !important;
+    }
+    .icon:before {
+        font-size: 1
+        opacity: .7;
+        //top: 0;
+    }
+    .header:before {
+        opacity: .7;
+        margin-right: 0 !important;
+    }
+    .list-group .selected:before, .list-tree .selected:before {
+        //height: 19px !important;
+    }
 }
 
 .editor {
+    font-family: 'Input Mono';
+    font-weight: 400;
 
-}
+    .invisible-character {
+        color: #282c48;
+    }
 
-.editor .cursor {
-
+    .cursor {
+        border-color: #ffbc91 !important;
+        border-width: 2px;
+    }
 }

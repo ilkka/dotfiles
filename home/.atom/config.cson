@@ -9,8 +9,7 @@
 'editor':
   'softWrap': true
   'showInvisibles': true
-  'tabLength': 4
-  'fontFamily': 'Monaco for Powerline'
+  'tabLength': 2
   'fontSize': 13
 'core':
   'ignoredNames': [
@@ -20,5 +19,9 @@
   ]
   'disabledPackages': [
     'atom-jshint'
+    'lambda-snippets'
+    'merge-conflicts'
   ]
 'tree-view': {}
+'ide-haskell':
+  'ghcModPath': '/Users/ilau/Library/Haskell/bin/ghc-mod'
