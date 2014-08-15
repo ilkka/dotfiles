@@ -25,7 +25,7 @@ if [[ -s $HOME/.scm_breeze/scm_breeze.sh ]]; then
 fi
 
 if [[ -r $HOME/.zsh-custom/batterylevel.py ]]; then
-    RPROMPT="$RPROMPT $(python $HOME/.zsh-custom/batterylevel.py)"
+    RPROMPT="$RPROMPT \$(python $HOME/.zsh-custom/batterylevel.py)"
 fi
 
 # rbenv
