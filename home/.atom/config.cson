@@ -22,6 +22,9 @@
     'lambda-snippets'
     'merge-conflicts'
   ]
+  'projectHome': '/Users/ilau/src'
 'tree-view': {}
 'ide-haskell':
   'ghcModPath': '/Users/ilau/Library/Haskell/bin/ghc-mod'
+'linter':
+  'showErrorInStatusBar': false
