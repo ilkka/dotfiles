@@ -50,9 +50,27 @@ fi
 # teamocil completion
 compctl -g '~/.teamocil/*(:t:r)' teamocil
 
+# compleat
+COMPLEAT_SETUP=/usr/local/share/compleat-1.0/compleat_setup
+if [[ -r $COMPLEAT_SETUP ]]; then
+  autoload -Uz compinit bashcompinit
+  compinit
+  bashcompinit
+  source $COMPLEAT_SETUP
+fi
+
 # cabal user bin
 if [[ -d $HOME/Library/Haskell/bin ]]; then
     PATH="$HOME/Library/Haskell/bin:$PATH"
+fi
+
+# own bin
+if [[ -d $HOME/bin ]]; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+if [[ -s `brew --prefix`/etc/autojump.sh ]]; then
+  source `brew --prefix`/etc/autojump.sh
 fi
 
 # machine-local non-versioned stuff
