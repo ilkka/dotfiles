@@ -27,6 +27,7 @@ NeoBundle 'clones/vim-taglist'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'docker/docker', {'rtp': 'contrib/syntax/vim'}
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'evidens/vim-twig'
@@ -127,9 +128,9 @@ if !exists("g:disable_fugitive")
 endif
 
 " editing and sourcing vimrc
-nnoremap <leader>ev :split $MYVIMRC<CR>
-nnoremap <leader>eV :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+"nnoremap <leader>ev :split $MYVIMRC<CR>
+"nnoremap <leader>eV :vsplit $MYVIMRC<CR>
+"nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Searching / moving
 nnoremap / /\v
@@ -263,6 +264,7 @@ let g:VCSCommandMapPrefix='<Leader>k'
 
 " by default fold by indent
 set foldmethod=indent
+set foldlevelstart=999
 
 " Autocommands
 augroup filetype_python
@@ -324,9 +326,9 @@ endif
 " colorscheme twilight
 " colorscheme mustang
 " colorscheme clouds_midnight
-"colorscheme molokai
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme molokai
+" let g:solarized_termcolors=256
+" colorscheme solarized
 set background=dark " do I want to do this? dunno.
 
 " NOW SERIOUSLY
@@ -470,7 +472,7 @@ let g:airline_powerline_fonts = 1
 " unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
+nnoremap <leader>F :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec<cr>
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
