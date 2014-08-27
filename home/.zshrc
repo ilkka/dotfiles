@@ -69,10 +69,6 @@ if [[ -d $HOME/bin ]]; then
   PATH="$HOME/bin:$PATH"
 fi
 
-if [[ -s `brew --prefix`/etc/autojump.sh ]]; then
-  source `brew --prefix`/etc/autojump.sh
-fi
-
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
