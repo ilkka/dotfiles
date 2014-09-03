@@ -67,12 +67,24 @@ fi
 
 ### Install packages with installtool ###
 if [[ -n $installtool ]]; then
-    $installtool install $installtoolflags tmux emacs vim bash-completion fasd zsh
+    $installtool install $installtoolflags tmux emacs vim bash-completion zsh
     if [[ $platform = 'osx' ]]; then
-        $installtool install $installtoolflags macvim python ctags
+        $installtool install $installtoolflags macvim python ctags fasd
         echo 'export PATH="$PATH:/usr/local/share/python"' >> $HOME/.bashrc_local
     elif [[ ! $installtool =~ yum$ ]]; then
         $installtool install $installtoolflags python-pip exuberant-ctags
+        tmpdir=$(mktemp -d)
+        if [[ ! -d "$tmpdir"/fasd ]]; then
+            git clone https://github.com/clvv/fasd.git "$tmpdir"/fasd
+        else
+            pushd "$tmpdir"/fasd
+            git reset --hard master && git clean -fxd && git pull origin master && git checkout master
+            popd
+        fi
+        if [[ `whoami` != 'root' ]]; then
+            pfx="sudo "
+        fi
+        $pfx make -C "$tmpdir"/fasd install
     fi
 fi
 
