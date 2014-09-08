@@ -1,4 +1,9 @@
-(load-theme 'solarized-dark t)
+;;(load-theme 'solarized-dark t)
+(color-theme-molokai)
+
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
