@@ -10,7 +10,9 @@
   'softWrap': true
   'showInvisibles': true
   'tabLength': 2
-  'fontSize': 13
+  'fontSize': 12
+  'invisibles': {}
+  'fontFamily': 'Input Mono'
 'core':
   'ignoredNames': [
     '.git'
@@ -21,10 +23,17 @@
     'atom-jshint'
     'lambda-snippets'
     'merge-conflicts'
+    'ide-haskell'
   ]
   'projectHome': '/Users/ilau/src'
 'tree-view': {}
 'ide-haskell':
-  'ghcModPath': '/Users/ilau/Library/Haskell/bin/ghc-mod'
+  'ghcModPath': '/Users/ilau/.cabal/bin/ghc-mod'
 'linter':
-  'showErrorInStatusBar': false
+  'showAllErrorsInStatusBar': true
+  'lintOnChangeInterval': 2000
+  'lintOnChange': false
+'linter-hlint':
+  'hlintExecutablePath': '/Users/ilau/.cabal/bin/hlint'
+'linter-scalac':
+  'scalacExecutablePath': '/usr/local/opt/scala210/bin/scalac'
