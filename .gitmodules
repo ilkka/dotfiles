@@ -22,3 +22,6 @@
 [submodule "prelude"]
 	path = prelude
 	url = https://github.com/bbatsov/prelude.git
+[submodule "nvm"]
+	path = nvm
+	url = https://github.com/creationix/nvm.git
