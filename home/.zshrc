@@ -69,6 +69,11 @@ if [[ -d $HOME/bin ]]; then
   PATH="$HOME/bin:$PATH"
 fi
 
+# nvm
+if [[ -r $HOME/.nvm/nvm.sh ]]; then
+  source "$HOME/.nvm/nvm.sh"
+fi
+
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
