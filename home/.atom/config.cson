@@ -10,9 +10,9 @@
   'softWrap': true
   'showInvisibles': true
   'tabLength': 2
-  'fontSize': 12
   'invisibles': {}
   'fontFamily': 'Input Mono'
+  'fontSize': 12
 'core':
   'ignoredNames': [
     '.git'
@@ -33,7 +33,12 @@
   'showAllErrorsInStatusBar': true
   'lintOnChangeInterval': 2000
   'lintOnChange': false
+  'lintOnEditorFocus': false
+  'showErrorInline': true
+  'showErrorInStatusBar': false
+  'showHighlighting': false
 'linter-hlint':
   'hlintExecutablePath': '/Users/ilau/.cabal/bin/hlint'
 'linter-scalac':
   'scalacExecutablePath': '/usr/local/opt/scala210/bin/scalac'
+'linter-jshint': {}
