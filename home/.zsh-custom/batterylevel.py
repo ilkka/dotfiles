@@ -3,24 +3,31 @@
 
 import math, subprocess, sys
 
+def readAppleProp(output, propname):
+  line = [l for l in output.splitlines() if propname in l][0]
+  return line.rpartition('=')[-1].strip()
+
 if sys.platform == 'linux' or sys.platform == 'linux2':
   try:
     b_max = float(file('/sys/class/power_supply/BAT0/energy_full').read().strip())
     b_cur = float(file('/sys/class/power_supply/BAT0/energy_now').read().strip())
+    b_show = True # always display
   except IOError:
     sys.exit(0)
 elif sys.platform == 'darwin':
   p = subprocess.Popen(["ioreg", "-rc", "AppleSmartBattery"], stdout=subprocess.PIPE)
   output = p.communicate()[0]
 
-  o_max = [l for l in output.splitlines() if 'MaxCapacity' in l][0]
-  o_cur = [l for l in output.splitlines() if 'CurrentCapacity' in l][0]
-
-  b_max = float(o_max.rpartition('=')[-1].strip())
-  b_cur = float(o_cur.rpartition('=')[-1].strip())
+  b_max = float(readAppleProp(output, 'MaxCapacity'))
+  b_cur = float(readAppleProp(output, 'CurrentCapacity'))
+  b_charge = True if readAppleProp(output, 'IsCharging') == 'Yes' else False
+  b_show = b_charge or (b_cur / b_max) < 0.5
 else:
   sys.exit(0)
 
+if not b_show:
+  sys.exit(0)
+  
 charge = b_cur / b_max
 charge_threshold = int(math.ceil(10 * charge))
 
@@ -45,4 +52,3 @@ color_out = (
 
 out = color_out + out + color_reset
 sys.stdout.write(out)
-
