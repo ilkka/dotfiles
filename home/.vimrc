@@ -1,5 +1,8 @@
 set nocompatible
 
+let mapleader = ","
+let maplocalleader = "\\"
+
 " setup bundles
 set rtp+=~/.vim/bundle/neobundle.vim
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -18,17 +21,11 @@ NeoBundle 'Shougo/vimproc', {
 
 " Configure bundles
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'briancollins/vim-jst'
-NeoBundle 'chrismetcalf/vim-yankring'
-NeoBundle 'ciaranm/inkpot'
 NeoBundle 'clones/vim-taglist'
-NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'docker/docker', {'rtp': 'contrib/syntax/vim'}
-NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'groenewege/vim-less'
@@ -37,11 +34,7 @@ NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'jsx/jsx.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'mfukar/robotframework-vim'
-NeoBundle 'mjbrownie/Trac.vim'
 NeoBundle 'osyo-manga/unite-quickfix'
-NeoBundle 'panozzaj/vim-autocorrect'
-NeoBundle 'pbrisbin/html-template-syntax'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim'}
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
@@ -72,14 +65,13 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/asciidoc.vim'
-NeoBundle 'vim-scripts/confluencewiki.vim'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'vim-scripts/YankRing.vim'
 
 filetype plugin indent on
 
@@ -99,9 +91,6 @@ if has("gui_running")
   set mouse=v
   set guifont=Inconsolata\ for\ Powerline:h12
 endif
-
-let mapleader = ","
-let maplocalleader = "\\"
 
 set modelines=5
 set modeline
@@ -226,13 +215,13 @@ nnoremap Q gqap
 noremap <leader>o <Plug>PeepOpen
 
 " NERD tree settings
-let NERDTreeShowBookmarks = 1
-let NERDChristmasTree = 1
-let NERDTreeWinPos = "left"
-let NERDTreeHijackNetrw = 1
-let NERDTreeQuitOnOpen = 1
-let NERDTreeWinSize = 50 
-noremap <leader>p :NERDTreeToggle<cr>
+"let NERDTreeShowBookmarks = 1
+"let NERDChristmasTree = 1
+"let NERDTreeWinPos = "left"
+"let NERDTreeHijackNetrw = 1
+"let NERDTreeQuitOnOpen = 1
+"let NERDTreeWinSize = 50 
+"noremap <leader>p :NERDTreeToggle<cr>
 
 " OmniCpp settings
 let OmniCpp_MayCompleteScope=1
@@ -255,11 +244,11 @@ noremap <Leader>sn :setlocal nospell<CR>
 
 if !exists("g:disable_fugitive")
   " Fugitive options
-  "noremap <Leader>gw :Gwrite<CR>
-  "noremap <Leader>gs :Gstatus<CR>
-  "noremap <Leader>gc :Gcommit -v<CR>
-  "noremap <Leader>gd :Gdiff<CR>
-  "noremap <Leader>gD :Gdiff!<CR>
+  noremap <Leader>gw :Gwrite<CR>
+  noremap <Leader>gs :Gstatus<CR>
+  noremap <Leader>gc :Gcommit -v<CR>
+  noremap <Leader>gd :Gdiff<CR>
+  noremap <Leader>gD :Gdiff!<CR>
 endif
 
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
