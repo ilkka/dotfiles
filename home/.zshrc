@@ -74,7 +74,27 @@ if [[ -r $HOME/.nvm/nvm.sh ]]; then
   source "$HOME/.nvm/nvm.sh"
 fi
 
+nvm_prompt_info() {
+  nvm_ver=$(nvm current)
+  if [[ $nvm_ver != 'system' ]]; then
+    echo -n "%B⬡ $nvm_ver%b"
+  fi
+}
+
+RPROMPT='$(nvm_prompt_info)'$RPROMPT
+
+# rename terminal.app tab
+function tabname {
+  printf "\e]1;$1\a"
+}
+
+# rename terminal.app win
+function winname {
+  printf "\e]2;$1\a"
+}
+
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
 fi
+
