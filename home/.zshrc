@@ -71,6 +71,7 @@ fi
 
 # nvm
 if [[ -r $HOME/.nvm/nvm.sh ]]; then
+  export NVM_DIR=$(cd -P $HOME/.nvm; pwd)
   source "$HOME/.nvm/nvm.sh"
 fi
 
