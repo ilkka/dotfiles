@@ -5,6 +5,11 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #   Ilkka Laukkanen <ilkka@fastmail.fm>
 
+# prezto loads nvm but this is required:
+if [[ -r $HOME/.nvm/nvm.sh ]]; then
+  export NVM_DIR=$(cd -P $HOME/.nvm; pwd)
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -67,12 +72,6 @@ fi
 # own bin
 if [[ -d $HOME/bin ]]; then
   PATH="$HOME/bin:$PATH"
-fi
-
-# nvm
-if [[ -r $HOME/.nvm/nvm.sh ]]; then
-  export NVM_DIR=$(cd -P $HOME/.nvm; pwd)
-  source "$HOME/.nvm/nvm.sh"
 fi
 
 nvm_prompt_info() {
