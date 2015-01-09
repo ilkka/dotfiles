@@ -1,4 +1,4 @@
-'global':
+'*':
   'exception-reporting':
     'userId': 'cc1c270b-056b-ef4c-728d-f6641e9c930d'
   'release-notes':
@@ -8,10 +8,12 @@
   'metrics':
     'userId': '958f5c2d9376d905cff49fae871192e0e5c1cf45'
   'editor':
-    'softWrap': true
-    'showInvisibles': true
     'fontFamily': 'Input Mono'
     'fontSize': 13
+    'showInvisibles': true
+    'softWrap': true
+    'invisibles': {}
+    'tabLength': 4
   'core':
     'ignoredNames': [
       '.git'
@@ -24,25 +26,21 @@
       'merge-conflicts'
       'ide-haskell'
     ]
-    'projectHome': '/Users/ilau/src'
     'themes': [
       'seti-ui'
       'seti-syntax'
     ]
+    'projectHome': '/Users/ilau/src'
   'ide-haskell':
     'ghcModPath': '/Users/ilau/.cabal/bin/ghc-mod'
   'linter':
-    'lintOnChangeInterval': 2000
     'lintOnChange': false
     'lintOnEditorFocus': false
-    'showErrorInline': true
     'showHighlighting': false
+    'lintOnChangeInterval': 2000
+    'showErrorInline': true
     'statusBar': 'None'
   'linter-hlint':
     'hlintExecutablePath': '/Users/ilau/.cabal/bin/hlint'
   'linter-scalac':
     'scalacExecutablePath': '/usr/local/opt/scala210/bin/scalac'
-'.js.regexp.source':
-  'editor': {}
-'.js.source':
-  'editor': {}
