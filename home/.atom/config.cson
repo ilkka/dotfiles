@@ -1,46 +1,50 @@
-'*':
-  'exception-reporting':
-    'userId': 'cc1c270b-056b-ef4c-728d-f6641e9c930d'
-  'release-notes':
-    'viewedVersion': '0.94.0'
-  'welcome':
-    'showOnStartup': false
-  'metrics':
-    'userId': '958f5c2d9376d905cff49fae871192e0e5c1cf45'
-  'editor':
-    'fontFamily': 'Input Mono'
-    'fontSize': 13
-    'showInvisibles': true
-    'softWrap': true
-    'invisibles': {}
-    'tabLength': 4
-  'core':
-    'ignoredNames': [
-      '.git'
-      '.svn'
-      '.DS_Store'
+"*":
+  "exception-reporting":
+    userId: "cc1c270b-056b-ef4c-728d-f6641e9c930d"
+  "release-notes":
+    viewedVersion: "0.94.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "958f5c2d9376d905cff49fae871192e0e5c1cf45"
+  editor:
+    fontFamily: "Input Mono"
+    fontSize: 14
+    showInvisibles: true
+    tabLength: 4
+    softWrap: true
+    invisibles: {}
+  core:
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
     ]
-    'disabledPackages': [
-      'atom-jshint'
-      'lambda-snippets'
-      'merge-conflicts'
-      'ide-haskell'
+    disabledPackages: [
+      "atom-jshint"
+      "lambda-snippets"
+      "merge-conflicts"
+      "ide-haskell"
     ]
-    'themes': [
-      'seti-ui'
-      'seti-syntax'
+    themes: [
+      "seti-ui"
+      "seti-monokai"
     ]
-    'projectHome': '/Users/ilau/src'
-  'ide-haskell':
-    'ghcModPath': '/Users/ilau/.cabal/bin/ghc-mod'
-  'linter':
-    'lintOnChange': false
-    'lintOnEditorFocus': false
-    'showHighlighting': false
-    'lintOnChangeInterval': 2000
-    'showErrorInline': true
-    'statusBar': 'None'
-  'linter-hlint':
-    'hlintExecutablePath': '/Users/ilau/.cabal/bin/hlint'
-  'linter-scalac':
-    'scalacExecutablePath': '/usr/local/opt/scala210/bin/scalac'
+    projectHome: "/Users/ilau/src"
+  "ide-haskell":
+    ghcModPath: "/Users/ilau/.cabal/bin/ghc-mod"
+  linter:
+    lintOnChange: false
+    lintOnEditorFocus: false
+    showHighlighting: false
+    lintOnChangeInterval: 2000
+    showErrorInline: true
+    statusBar: "None"
+  "linter-hlint":
+    hlintExecutablePath: "/Users/ilau/.cabal/bin/hlint"
+  "linter-scalac":
+    scalacExecutablePath: "/usr/local/opt/scala210/bin/scalac"
+  react:
+    jsxTagStartPattern: "(?x)((^|=|return)\\s*<([^!/?](?!.+?(</.+?>))))"
+    jsxComplexAttributePattern: "(?x)\\{ [^}\"']* $|\\( [^)\"']* $"
+    decreaseIndentForNextLinePattern: "(?x) />\\s*(,|;)?\\s*$ | ^\\s*\\S+.*</[-_\\.A-Za-z0-9]+>$"
