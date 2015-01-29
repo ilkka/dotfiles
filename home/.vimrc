@@ -5,7 +5,7 @@ let maplocalleader = "\\"
 
 " setup bundles
 set rtp+=~/.vim/bundle/neobundle.vim
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -74,6 +74,8 @@ NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/YankRing.vim'
+
+call neobundle#end()
 
 filetype plugin indent on
 
