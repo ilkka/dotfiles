@@ -100,6 +100,15 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 alias dcom=docker-compose
 alias dmac=docker-machine
 
+function dm {
+    if [[ -z $1 ]]; then
+        echo "Available machines:"
+        dmac ls
+    else
+        eval $(dmac env $1)
+    fi
+}
+
 function current_docker_machine {
     if [[ -n $DOCKER_CERT_PATH ]]; then
         echo -n "(dm:$(basename $DOCKER_CERT_PATH))"
