@@ -93,6 +93,21 @@ function winname {
   printf "\e]2;$1\a"
 }
 
+# extra completions stuff
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# docker stuff
+alias dcom=docker-compose
+alias dmac=docker-machine
+
+function current_docker_machine {
+    if [[ -n $DOCKER_CERT_PATH ]]; then
+        echo -n "(dm:$(basename $DOCKER_CERT_PATH))"
+    fi
+}
+
+RPROMPT='$(current_docker_machine)'$RPROMPT
+
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
