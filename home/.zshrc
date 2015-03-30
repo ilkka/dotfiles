@@ -105,6 +105,7 @@ function dm {
         echo "Available machines:"
         dmac ls
     else
+	dmac active $1
         eval $(dmac env $1)
     fi
 }
@@ -117,8 +118,14 @@ function current_docker_machine {
 
 RPROMPT='$(current_docker_machine)'$RPROMPT
 
+# extra git aliases
+alias gfap='git fetch --all --prune'
+alias gplr='git pull --rebase'
+
+# dammit
+alias vim=atom
+
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
     source "$HOME/.zshrc-local"
 fi
-

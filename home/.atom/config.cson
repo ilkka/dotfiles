@@ -23,19 +23,17 @@
     disabledPackages: [
       "atom-jshint"
       "lambda-snippets"
-      "merge-conflicts"
       "ide-haskell"
-    ]
-    themes: [
-      "seti-ui"
-      "seti-monokai"
+      "es-navigation"
     ]
     projectHome: "/Users/ilau/src"
+    themes: [
+      "one-dark-ui"
+      "one-dark-syntax"
+    ]
   "ide-haskell":
     ghcModPath: "/Users/ilau/.cabal/bin/ghc-mod"
   linter:
-    lintOnChange: false
-    lintOnEditorFocus: false
     showHighlighting: false
     lintOnChangeInterval: 2000
     showErrorInline: true
@@ -44,7 +42,9 @@
     hlintExecutablePath: "/Users/ilau/.cabal/bin/hlint"
   "linter-scalac":
     scalacExecutablePath: "/usr/local/opt/scala210/bin/scalac"
-  react:
-    jsxTagStartPattern: "(?x)((^|=|return)\\s*<([^!/?](?!.+?(</.+?>))))"
-    jsxComplexAttributePattern: "(?x)\\{ [^}\"']* $|\\( [^)\"']* $"
-    decreaseIndentForNextLinePattern: "(?x) />\\s*(,|;)?\\s*$ | ^\\s*\\S+.*</[-_\\.A-Za-z0-9]+>$"
+  react: {}
+  "custom-invisibles": {}
+  "autocomplete-plus": {}
+  "git-plus": {}
+  "linter-jscs":
+    harmony: true
