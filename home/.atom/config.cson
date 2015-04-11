@@ -25,6 +25,7 @@
       "lambda-snippets"
       "ide-haskell"
       "es-navigation"
+      "linter-jshint"
     ]
     projectHome: "/Users/ilau/src"
     themes: [
@@ -48,3 +49,4 @@
   "git-plus": {}
   "linter-jscs":
     harmony: true
+  "linter-jshint": {}

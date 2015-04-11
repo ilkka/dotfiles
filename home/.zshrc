@@ -100,30 +100,13 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 alias dcom=docker-compose
 alias dmac=docker-machine
 
-function dm {
-    if [[ -z $1 ]]; then
-        echo "Available machines:"
-        dmac ls
-    else
-	dmac active $1
-        eval $(dmac env $1)
-    fi
-}
-
-function current_docker_machine {
-    if [[ -n $DOCKER_CERT_PATH ]]; then
-        echo -n "(dm:$(basename $DOCKER_CERT_PATH))"
-    fi
-}
-
-RPROMPT='$(current_docker_machine)'$RPROMPT
+if [[ -e $HOME/.pystartup ]]; then
+    export PYTHONSTARTUP=$HOME/.pystartup
+fi
 
 # extra git aliases
 alias gfap='git fetch --all --prune'
 alias gplr='git pull --rebase'
-
-# dammit
-alias vim=atom
 
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
