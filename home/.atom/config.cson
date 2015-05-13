@@ -26,6 +26,8 @@
       "ide-haskell"
       "es-navigation"
       "linter-jshint"
+      "autocomplete"
+      "autocomplete-paths"
     ]
     projectHome: "/Users/ilau/src"
     themes: [
@@ -45,7 +47,9 @@
     scalacExecutablePath: "/usr/local/opt/scala210/bin/scalac"
   react: {}
   "custom-invisibles": {}
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    autoActivationDelay: 500
+    enableBuiltinProvider: false
   "git-plus": {}
   "linter-jscs":
     harmony: true
