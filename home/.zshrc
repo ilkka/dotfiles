@@ -25,7 +25,9 @@ if [[ $(uname -s) = "Darwin" && $LC_CTYPE = "UTF-8" ]]; then
     LC_CTYPE="en_US.UTF-8"
 fi
 
-if [[ -s $HOME/.scm_breeze/scm_breeze.sh ]]; then
+if [[ -n $(which scmpuff) ]]; then
+    eval "$(scmpuff init -s)"
+elif [[ -s $HOME/.scm_breeze/scm_breeze.sh ]]; then
     source "$HOME/.scm_breeze/scm_breeze.sh"
 fi
 
@@ -106,7 +108,6 @@ fi
 
 # extra git aliases
 alias gfap='git fetch --all --prune'
-alias gplr='git pull --rebase'
 
 # machine-local non-versioned stuff
 if [[ -s $HOME/.zshrc-local ]]; then
