@@ -1,7 +1,7 @@
 # vim: sw=8 sts=8 noet
 [user]
 	name = "Ilkka Laukkanen"
-	email = ilkka@fastmail.fm
+	email = ilkka@ilkka.io
 	# set email per machine in $GIT_AUTHOR_EMAIL or per repo
 
 [color]
@@ -102,4 +102,8 @@
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
 	required = true
