@@ -102,6 +102,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 alias dcom=docker-compose
 alias dmac=docker-machine
 
+function dme {
+    eval $(docker-machine env $1)
+}
+
 if [[ -e $HOME/.pystartup ]]; then
     export PYTHONSTARTUP=$HOME/.pystartup
 fi
