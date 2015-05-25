@@ -34,5 +34,10 @@ test -f /opt/boxen/env.sh && source /opt/boxen/env.sh
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
+# restore terminal cwd
+export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd;"
+
 # load scmpuff
 test -n $(which scmpuff) && eval "$(scmpuff init -s)"
+# docker-osx-dev
+export DOCKER_HOST=tcp://localhost:2375
