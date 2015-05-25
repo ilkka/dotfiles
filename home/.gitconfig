@@ -1,7 +1,7 @@
 # vim: sw=8 sts=8 noet
 [user]
 	name = "Ilkka Laukkanen"
-	email = ilkka@ilkka.io
+	email = ilkka.laukkanen@futurice.com
 	# set email per machine in $GIT_AUTHOR_EMAIL or per repo
 
 [color]
@@ -49,7 +49,7 @@
 
 [core]
 	pager = less -FRSX
-	excludesfile = ~/.gitignore_global
+	excludesfile = /opt/boxen/config/git/gitignore
 	editor = vim
 
 [merge]
@@ -107,3 +107,8 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+
+[hub]
+protocol = https
+
+[credential]
