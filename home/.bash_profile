@@ -39,5 +39,9 @@ export TODO="t"
 # https://github.com/xvzf/vcprompt
 #export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
 
+test -f $HOME/.homesick/repos/homeshick/homeshick.sh && source $HOME/.homesick/repos/homeshick/homeshick.sh
+
+test -f /opt/boxen/env.sh && source /opt/boxen/env.sh
+
 # Load Bash It
 source $BASH_IT/bash_it.sh
