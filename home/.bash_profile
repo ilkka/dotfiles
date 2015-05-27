@@ -23,13 +23,11 @@ export IRC_CLIENT='irssi'
 # Set this to the command you use for todo.txt-cli
 export TODO="t"
 
-# Set vcprompt executable path for scm advance info in prompt (demula theme)
-# https://github.com/xvzf/vcprompt
-export VCPROMPT_EXECUTABLE=/opt/boxen/homebrew/bin/vcprompt
-
+# homeshick
 test -f $HOME/.homesick/repos/homeshick/homeshick.sh && source $HOME/.homesick/repos/homeshick/homeshick.sh
 
-test -f /opt/boxen/env.sh && source /opt/boxen/env.sh
+# virtualenvwrapper
+test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvwrapper.sh
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
@@ -39,5 +37,26 @@ export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd;"
 
 # load scmpuff
 test -n $(which scmpuff) && eval "$(scmpuff init -s)"
+
+# fasd
+if [[ -n $(which fasd) ]]; then
+    fasd_cache="$HOME/.fasd-init-bash"
+    if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+      fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+    fi
+    source "$fasd_cache"
+    unset fasd_cache
+fi
+
+# my aliases
+alias ls='ls -Gh'
+alias ll='ls -lGh'
+alias l='ls -1AGh'
+
 # docker-osx-dev
-export DOCKER_HOST=tcp://localhost:2375
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/ilau/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+export NVM_DIR="/Users/ilau/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
