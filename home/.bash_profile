@@ -33,7 +33,14 @@ test -f /usr/local/bin/virtualenvwrapper.sh && source /usr/local/bin/virtualenvw
 source $BASH_IT/bash_it.sh
 
 # restore terminal cwd
-export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd;"
+if type update_terminal_cwd &>/dev/null; then
+    export PROMPT_COMMAND="$PROMPT_COMMAND;update_terminal_cwd;"
+else
+    function tab_title {
+        echo -n -e "\033]0;${PWD##*/}\007"
+    }
+    PROMPT_COMMAND="$PROMPT_COMMAND;tab_title"
+fi
 
 # load scmpuff
 test -n $(which scmpuff) && eval "$(scmpuff init -s)"
