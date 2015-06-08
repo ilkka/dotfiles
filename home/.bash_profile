@@ -67,3 +67,6 @@ export DOCKER_TLS_VERIFY=1
 
 export NVM_DIR="/Users/ilau/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+
