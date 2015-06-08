@@ -43,10 +43,10 @@ else
 fi
 
 # load scmpuff
-test -n $(which scmpuff) && eval "$(scmpuff init -s)"
+command -v scmpuff >/dev/null 2>&1 && eval "$(scmpuff init -s)"
 
 # fasd
-if [[ -n $(which fasd) ]]; then
+if command -v fasd >/dev/null 2>&1; then
     fasd_cache="$HOME/.fasd-init-bash"
     if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
       fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
