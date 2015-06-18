@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# fix locale
+export LC_ALL=en_US.UTF-8
+
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash_it
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='minimal'
+export BASH_IT_THEME='ilkka'
 
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@git.domain.com'
@@ -60,13 +63,24 @@ alias ls='ls -Gh'
 alias ll='ls -lGh'
 alias l='ls -1AGh'
 
-# docker-osx-dev
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/ilau/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 export NVM_DIR="/Users/ilau/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# rbenv
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 
+# docker machine support
+dkr () {
+    if [[ "$1" == "which" ]]; then
+        echo $(docker-machine active)
+        return
+    fi
+    if [[ "$1" == "use" ]]; then
+        eval $(docker-machine env "$2")
+        return
+    fi
+    docker $(docker-machine config $(docker-machine active)) "$@"
+}
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
