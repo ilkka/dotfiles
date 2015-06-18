@@ -1,5 +1,8 @@
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+
+;; path fix for homebrew
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
