@@ -10,3 +10,6 @@
 [submodule "bash_it"]
 	path = bash_it
 	url = https://github.com/revans/bash-it.git
+[submodule "smex-with-ivy"]
+	path = smex-with-ivy
+	url = https://github.com/abo-abo/smex
