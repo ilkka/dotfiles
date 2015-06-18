@@ -11,11 +11,12 @@
  ;; If there is more than one, they won't work right.
  '(magit-emacsclient-executable "/usr/local/bin/emacsclient")
  '(ns-right-alternate-modifier (quote none))
- '(package-archives
-   (quote
-    (("marmalade" . "https://marmalade-repo.org/packages/")
-     ("melpa" . "http://melpa.milkbox.net/packages/")
-     ("gnu" . "http://elpa.gnu.org/packages/")))))
+    '(package-archives
+         (quote
+             (("marmalade" . "https://marmalade-repo.org/packages/")
+                 ("melpa" . "http://melpa.milkbox.net/packages/")
+                 ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(smex-completion-method (quote ivy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -65,12 +66,14 @@
 
 ;; *******************************************
 ;; set up smex
+(add-to-list 'load-path "~/.emacs.d/smex")
+(require 'smex)
 (smex-initialize)
-;; no smex here because we have ivy-mode
-;(global-set-key (kbd "M-x") 'smex)
-;(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; we have ivy but we also have the fork of smex that supports that
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; to use normal M-x:
-;(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; *******************************************
 ;; set up ido-ubiquitous
