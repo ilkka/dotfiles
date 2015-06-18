@@ -10,7 +10,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(magit-emacsclient-executable "/usr/local/bin/emacsclient")
- '(ns-right-alternate-modifier (quote none)))
+ '(ns-right-alternate-modifier (quote none))
+ '(package-archives
+   (quote
+    (("marmalade" . "https://marmalade-repo.org/packages/")
+     ("melpa" . "http://melpa.milkbox.net/packages/")
+     ("gnu" . "http://elpa.gnu.org/packages/")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -30,11 +35,12 @@
 			ido-ubiquitous
 			find-file-in-project
 			magit
-			smex
                         swiper
                         multiple-cursors
                         expand-region
-                        editorconfig))
+                        editorconfig
+                        projectile
+                        ensime))
 
 (package-initialize)
 (dolist (p install-these)
@@ -42,29 +48,41 @@
     (package-install p)))
 
 ;; *******************************************
+;; ivy
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+
+;; *******************************************
 ;; set up magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 (setq magit-repo-dirs '("~/src"))
 (global-set-key (kbd "C-x g") 'magit-status)
+(setq magit-completing-read-function 'ivy-completing-read)
+
+;; *******************************************
+;; projectile
+(setq projectile-completion-system 'ivy)
 
 ;; *******************************************
 ;; set up smex
 (smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; no smex here because we have ivy-mode
+;(global-set-key (kbd "M-x") 'smex)
+;(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; to use normal M-x:
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; *******************************************
 ;; set up ido-ubiquitous
+; -> nuh uh, use ivy-mode
 ;; enable ido
-(ido-mode 1)
-(ido-everywhere 1)
+;(ido-mode 1)
+;(ido-everywhere 1)
 ;; ido for org-mode and magit
-(setq org-completion-use-ido t)
-(setq magit-completing-read-functon 'magit-ido-completing-read)
+;(setq org-completion-use-ido t)
+;(setq magit-completing-read-functon 'magit-ido-completing-read)
 ;; ido-ubiquitous itself
-(ido-ubiquitous-mode 1)
+;(ido-ubiquitous-mode 1)
 
 ;; *******************************************
 ;; basic paredit
@@ -84,8 +102,6 @@
 
 ;; *******************************************
 ;; swiper
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-r") 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
