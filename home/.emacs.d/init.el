@@ -16,6 +16,10 @@
  )
 
 ;; *******************************************
+;; other generic setup
+(global-set-key (kbd "C-x p") 'find-file-in-project)
+
+;; *******************************************
 ;; install packages
 (defvar install-these '(better-defaults
 			paredit
