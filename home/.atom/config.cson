@@ -1,61 +1,25 @@
 "*":
   "exception-reporting":
-    userId: "cc1c270b-056b-ef4c-728d-f6641e9c930d"
-  "release-notes":
-    viewedVersion: "0.94.0"
+    userId: "de14e889-9df6-63ad-4dcb-0aa60cbb9d48"
   welcome:
     showOnStartup: false
-  metrics:
-    userId: "958f5c2d9376d905cff49fae871192e0e5c1cf45"
-  editor:
-    fontFamily: "Input Mono"
-    fontSize: 14
-    showInvisibles: true
-    tabLength: 4
-    softWrap: true
-    invisibles:
-      {}
-  core:
-    ignoredNames: [
-      ".git"
-      ".svn"
-      ".DS_Store"
-    ]
-    disabledPackages: [
-      "atom-jshint"
-      "lambda-snippets"
-      "ide-haskell"
-      "es-navigation"
-      "linter-jshint"
-      "autocomplete"
-      "autocomplete-paths"
-    ]
-    projectHome: "/Users/ilau/src"
-    themes: [
-      "one-dark-ui"
-      "one-dark-syntax"
-    ]
-  "ide-haskell":
-    ghcModPath: "/Users/ilau/.cabal/bin/ghc-mod"
   linter:
-    showHighlighting: false
-    lintOnChangeInterval: 2000
-    showErrorInline: true
-    statusBar: "None"
-  "linter-hlint":
-    hlintExecutablePath: "/Users/ilau/.cabal/bin/hlint"
-  "linter-scalac":
-    scalacExecutablePath: "/usr/local/opt/scala210/bin/scalac"
-  react:
-    {}
-  "custom-invisibles":
-    {}
-  "autocomplete-plus":
-    autoActivationDelay: 500
-    enableBuiltinProvider: false
-  "git-plus":
-    {}
+    ignoredLinterErrors: [
+      "jscs"
+    ]
+  core: {}
+  editor:
+    invisibles: {}
+    fontSize: 13
+  "linter-tidy": {}
   "linter-jscs":
     harmony: true
-  "linter-jshint":
-    {}
+    onlyConfig: true
+  "linter-doiuse":
+    doiuseExecutablePath: "/Users/ilau/.nvm/versions/node/v0.12.4/bin/doiuse"
+  "language-babel":
+    babelStage: 0
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
+  "git-plus":
+    splitPane: "down"
