@@ -10,3 +10,6 @@ cache
 *.swp
 home/.vim/bundle/*
 !home/.vim/bundle/neobundle.vim
+home/.emacs.d/elpa
+home/.emacs.d/ido.last
+home/.emacs.d/places
