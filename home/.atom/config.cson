@@ -13,7 +13,8 @@
     showInvisibles: true
     tabLength: 4
     softWrap: true
-    invisibles: {}
+    invisibles:
+      {}
   core:
     ignoredNames: [
       ".git"
@@ -45,12 +46,16 @@
     hlintExecutablePath: "/Users/ilau/.cabal/bin/hlint"
   "linter-scalac":
     scalacExecutablePath: "/usr/local/opt/scala210/bin/scalac"
-  react: {}
-  "custom-invisibles": {}
+  react:
+    {}
+  "custom-invisibles":
+    {}
   "autocomplete-plus":
     autoActivationDelay: 500
     enableBuiltinProvider: false
-  "git-plus": {}
+  "git-plus":
+    {}
   "linter-jscs":
     harmony: true
-  "linter-jshint": {}
+  "linter-jshint":
+    {}
