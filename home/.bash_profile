@@ -84,3 +84,17 @@ dkr () {
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# add composer installed binaries to path
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/GHC.app"
+if [ -d "$GHC_DOT_APP" ]; then
+    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
+
+# add cabal dir to path
+if [[ -d "$HOME/.cabal/bin" ]]; then
+  export PATH="$HOME/.cabal/bin:$PATH"
+fi

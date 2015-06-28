@@ -1,28 +1,35 @@
+;;; init.el -- my emacs init script
+;;; Commentary:
+
+;;; Code:
 (require 'package)
 
-;; path fix for homebrew
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
+;; extra path settings
+(setenv "PATH" (concat "/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin:/usr/local/bin:" (getenv "PATH")))
+(setq exec-path (append '("/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin" "/usr/local/bin") exec-path))
+
+;; archives
+(defvar extra-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
+                            ("melpa" . "http://melpa.milkbox.net/packages/")))
+(dolist (a extra-archives)
+    (add-to-list 'package-archives a))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v0.12.4/bin/js-yaml")
  '(magit-emacsclient-executable "/usr/local/bin/emacsclient")
+ '(markdown-command "cmark")
  '(ns-right-alternate-modifier (quote none))
-    '(package-archives
-         (quote
-             (("marmalade" . "https://marmalade-repo.org/packages/")
-                 ("melpa" . "http://melpa.milkbox.net/packages/")
-                 ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(smex-completion-method (quote ivy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "White" :foreground "Black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "nil" :family "Input Mono")))))
 
 ;; *******************************************
 ;; other generic setup
@@ -31,17 +38,24 @@
 ;; *******************************************
 ;; install packages
 (defvar install-these '(better-defaults
-			paredit
-			idle-highlight-mode
-			ido-ubiquitous
-			find-file-in-project
-			magit
-                        swiper
-                        multiple-cursors
-                        expand-region
-                        editorconfig
-                        projectile
-                        ensime))
+                           paredit
+                           idle-highlight-mode
+                           find-file-in-project
+                           magit
+                           swiper
+                           multiple-cursors
+                           expand-region
+                           editorconfig
+                           projectile
+                           ensime
+                           cider
+                           markdown-mode
+                           company
+                           company-tern
+                           company-web
+                           company-jedi
+                           jedi-core
+                           tern))
 
 (package-initialize)
 (dolist (p install-these)
@@ -49,9 +63,23 @@
     (package-install p)))
 
 ;; *******************************************
+;; company-mode
+(global-company-mode)
+(add-to-list 'company-backends 'company-tern)
+(add-to-list 'company-backends 'company-web-html)
+(add-to-list 'company-backends 'company-web-jade)
+(add-to-list 'company-backends 'company-jedi)
+
+;; *******************************************
+;; cider
+(add-hook 'cider-repl-mode-hook #'company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
+
+;; *******************************************
 ;; ivy
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
+(global-set-key (kbd "C-c C-j") 'ivy-immediate-done)
 
 ;; *******************************************
 ;; set up magit
@@ -67,7 +95,7 @@
 
 ;; *******************************************
 ;; set up smex
-(add-to-list 'load-path "~/.emacs.d/smex")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/smex"))
 (require 'smex)
 (smex-initialize)
 ;; we have ivy but we also have the fork of smex that supports that
@@ -75,18 +103,6 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; to use normal M-x:
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; *******************************************
-;; set up ido-ubiquitous
-; -> nuh uh, use ivy-mode
-;; enable ido
-;(ido-mode 1)
-;(ido-everywhere 1)
-;; ido for org-mode and magit
-;(setq org-completion-use-ido t)
-;(setq magit-completing-read-functon 'magit-ido-completing-read)
-;; ido-ubiquitous itself
-;(ido-ubiquitous-mode 1)
 
 ;; *******************************************
 ;; basic paredit
@@ -132,3 +148,35 @@
 ;; ensime for scala
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+;; *******************************************
+;; jsx stuff (from http://codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html)
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+;; *******************************************
+;; forcibly turn off ido mode
+(ido-mode 0)
+
+;; *******************************************
+;; winner mode
+(winner-mode 1)
+
+;; *******************************************
+;; utilities
+
+(defun run-command-on-current-buffer-file (command)
+    "Run command on the file of the current buffer and revert the buffer"
+    (interactive)
+    (shell-command
+        (format "%s %s"
+            (shell-quote-argument command)
+            (shell-quote-argument (buffer-file-name))))
+    (revert-buffer t t t))
+
+(defun doctoc-current-buffer-file ()
+    "Run doctoc on the current file"
+    (interactive)
+    (run-command-on-current-buffer-file "doctoc"))

@@ -1,7 +1,7 @@
 # vim: sw=8 sts=8 noet
 [user]
-	name = "Ilkka Laukkanen"
-	email = ilkka.laukkanen@futurice.com
+	name = 
+	email = 
 	# set email per machine in $GIT_AUTHOR_EMAIL or per repo
 
 [color]
@@ -113,8 +113,8 @@ protocol = https
 
 [credential]
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
