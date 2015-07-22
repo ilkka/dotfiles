@@ -1,0 +1,7 @@
+*.cache
+ensime
+eshell
+recentf
+tramp
+.python-environments
+projectile-bookmarks.eld

@@ -5,8 +5,8 @@
 (require 'package)
 
 ;; extra path settings
-(setenv "PATH" (concat "/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin:/usr/local/bin:" (getenv "PATH")))
-(setq exec-path (append '("/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin" "/usr/local/bin") exec-path))
+(setenv "PATH" (concat "/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin:/usr/local/bin:" (getenv "PATH")))
+(setq exec-path (append '("/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin" "/usr/local/bin") exec-path))
 
 ;; archives
 (defvar extra-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
@@ -19,10 +19,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+  '(flycheck-mode-hook
+     (quote
+       (flycheck-mode-set-explicitly flycheck-haskell-setup)))
  '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v0.12.4/bin/js-yaml")
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote cabal-repl))
  '(magit-emacsclient-executable "/usr/local/bin/emacsclient")
  '(markdown-command "cmark")
  '(ns-right-alternate-modifier (quote none))
+  '(safe-local-variable-values
+     (quote
+       ((haskell-process-use-ghci . t)
+         (haskell-indent-spaces . 4))))
  '(smex-completion-method (quote ivy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -38,24 +49,24 @@
 ;; *******************************************
 ;; install packages
 (defvar install-these '(better-defaults
-                           paredit
-                           idle-highlight-mode
-                           find-file-in-project
-                           magit
-                           swiper
-                           multiple-cursors
-                           expand-region
-                           editorconfig
-                           projectile
-                           ensime
-                           cider
-                           markdown-mode
-                           company
-                           company-tern
-                           company-web
-                           company-jedi
-                           jedi-core
-                           tern))
+                         smartparens
+                         idle-highlight-mode
+                         find-file-in-project
+                         magit
+                         swiper
+                         multiple-cursors
+                         expand-region
+                         editorconfig
+                         projectile
+                         ensime
+                         cider
+                         markdown-mode
+                         company
+                         company-tern
+                         company-web
+                         company-jedi
+                         jedi-core
+                         tern))
 
 (package-initialize)
 (dolist (p install-these)
@@ -74,6 +85,7 @@
 ;; cider
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
+(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
 
 ;; *******************************************
 ;; ivy
@@ -105,20 +117,9 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; *******************************************
-;; basic paredit
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-;; Stop SLIME's REPL from grabbing DEL,
-;; which is annoying when backspacing over a '('
-(defun override-slime-repl-bindings-with-paredit ()
-  (define-key slime-repl-mode-map
-    (read-kbd-macro paredit-backward-delete-key) nil))
-(add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
+;; smartparens
+(require 'smartparens-config)
+(smartparens-global-mode 1)
 
 ;; *******************************************
 ;; swiper
@@ -165,6 +166,33 @@
 (winner-mode 1)
 
 ;; *******************************************
+;; haskell stuff
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+(define-key haskell-mode-map (kbd "C-'") 'haskell-interactive-bring)
+(define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+(define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+(define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
+(define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+
+(define-key haskell-cabal-mode-map (kbd "C-'") 'haskell-interactive-bring)
+(define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+(define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+(define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
+
+;; *******************************************
+;; electricity
+(electric-indent-mode)
+(electric-pair-mode)
+
+;; *******************************************
 ;; utilities
 
 (defun run-command-on-current-buffer-file (command)
@@ -180,3 +208,12 @@
     "Run doctoc on the current file"
     (interactive)
     (run-command-on-current-buffer-file "doctoc"))
+
+;; *******************************************
+;; rainbows!
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+
+;; *******************************************
+;; always start server
+(server-start)
