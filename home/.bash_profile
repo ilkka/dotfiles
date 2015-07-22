@@ -14,11 +14,17 @@ export BASH_IT_THEME='ilkka'
 export GIT_HOSTING='git@git.domain.com'
 
 # Set my editor and git editor
-export EDITOR="/usr/bin/subl -w"
-export GIT_EDITOR='vim'
+export EDITOR=emacsclient
+export GIT_EDITOR=emacsclient
+export SUDO_EDITOR=emacsclient
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
+
+# completions from brew too
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # Change this to your console based IRC client of choice.
 export IRC_CLIENT='irssi'
@@ -98,3 +104,6 @@ fi
 if [[ -d "$HOME/.cabal/bin" ]]; then
   export PATH="$HOME/.cabal/bin:$PATH"
 fi
+
+# add cask bin paths (for caskroom emacs-mac for example)
+export PATH="$(find /opt/homebrew-cask -type d -path '*/Contents/MacOS/bin'|tr '\n' :)$PATH"
