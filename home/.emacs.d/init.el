@@ -19,21 +19,25 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-  '(flycheck-mode-hook
-     (quote
-       (flycheck-mode-set-explicitly flycheck-haskell-setup)))
+ '(custom-safe-themes
+   (quote
+    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
+ '(flycheck-mode-hook
+   (quote
+    (flycheck-mode-set-explicitly flycheck-haskell-setup)))
  '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v0.12.4/bin/js-yaml")
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote cabal-repl))
  '(magit-emacsclient-executable "/usr/local/bin/emacsclient")
+ '(magit-push-always-verify nil)
  '(markdown-command "cmark")
  '(ns-right-alternate-modifier (quote none))
-  '(safe-local-variable-values
-     (quote
-       ((haskell-process-use-ghci . t)
-         (haskell-indent-spaces . 4))))
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4))))
  '(smex-completion-method (quote ivy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

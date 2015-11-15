@@ -10,4 +10,6 @@
 (setq mc/cmds-to-run-once
       '(
         ivy-done
+        markdown-exdent-or-delete
+        sp-remove-active-pair-overlay
         ))
