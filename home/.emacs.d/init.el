@@ -127,7 +127,6 @@
  '(js2-mode-show-strict-warnings nil)
  '(mac-function-modifier (quote (:ordinary hyper)))
  '(magit-emacsclient-executable "/usr/local/bin/emacsclient")
- )
  '(magit-fetch-arguments (quote ("--prune")))
  '(magit-pull-arguments (quote ("--rebase")))
  '(magit-push-always-verify nil)
