@@ -14,9 +14,11 @@ export BASH_IT_THEME='powerline'
 export GIT_HOSTING='git@git.domain.com'
 
 # Set my editor and git editor
-export EDITOR=emacsclient
-export GIT_EDITOR=emacsclient
-export SUDO_EDITOR=emacsclient
+export EDITOR='atom --new --wait'
+export GIT_EDITOR='vim'
+export SUDO_EDITOR='vim'
+#export GIT_EDITOR='atom --new --wait'
+#export SUDO_EDITOR='atom --new --wait'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -89,7 +91,11 @@ dkr () {
         eval $(docker-machine env "$2")
         return
     fi
-    docker $(docker-machine config $(docker-machine active)) "$@"
+    if [[ $# > 1 ]]; then
+      host=$1
+      shift
+      docker $(docker-machine config $host) "$@"
+    fi
 }
 
 ### Added by the Heroku Toolbelt
@@ -111,5 +117,26 @@ fi
 
 # add cask bin paths (for caskroom emacs-mac for example)
 if [[ -d /opt/homebrew-cask ]]; then
-    export PATH="$(find /opt/homebrew-cask -type d -path '*/Contents/MacOS/bin'|tr '\n' :)$PATH"
+    export PATH="$(find /opt/homebrew-cask -type d -path '*/Contents/MacOS/bin'|egrep -v emacs|tr '\n' :)$PATH"
 fi
+
+# Default docker machine
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/ilau/.docker/machine/machines/virtualbox"
+export DOCKER_MACHINE_NAME="virtualbox"
+
+# Android sdk location
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+
+# Go
+export GOPATH="$HOME/gocode"
+export PATH="$GOPATH/bin:$PATH"
+
+if [[ -f /usr/local/opt/autoenv/activate.sh ]]; then
+  source /usr/local/opt/autoenv/activate.sh
+fi
+
+# Heroku
+export HOMEBREW_GITHUB_API_TOKEN=221874d428a9ac335d921df669befcc1740169e0

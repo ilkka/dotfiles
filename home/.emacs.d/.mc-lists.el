@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        keyboard-escape-quit
+        kill-region
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         ))
@@ -11,5 +13,8 @@
       '(
         ivy-done
         markdown-exdent-or-delete
+        mac-mwheel-scroll
+        smex
         sp-remove-active-pair-overlay
+        swiper
         ))

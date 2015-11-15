@@ -20,6 +20,7 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " Configure bundles
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'clones/vim-taglist'
@@ -35,6 +36,7 @@ NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'nvie/vim-flake8'
 NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim'}
 NeoBundle 'scrooloose/nerdcommenter'
@@ -166,7 +168,7 @@ nnoremap L g$
 
 " Map ESC
 inoremap jk <ESC>
-inoremap <Esc> <nop>
+"inoremap <Esc> <nop>
 
 " Splits  ,v to open a new vertical split and switch to it
 nnoremap <leader>v <C-w>v<C-w>l
@@ -325,10 +327,10 @@ endif
 " colorscheme twilight
 " colorscheme mustang
 " colorscheme clouds_midnight
-colorscheme molokai
-" let g:solarized_termcolors=256
-" colorscheme solarized
-set background=dark " do I want to do this? dunno.
+" colorscheme molokai
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=light " do I want to do this? dunno.
 
 " NOW SERIOUSLY
 set nobackup
@@ -491,6 +493,19 @@ function! s:unite_settings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
+
+" flake8
+let g:flake8_show_in_file=1
+augroup flake8
+  autocmd!
+  autocmd BufWritePost *.py call Flake8()
+augroup END
+
+" yapf
+augroup yapf
+  autocmd!
+  autocmd FileType python nnoremap <leader>Y :0,$!yapf<cr>
+augroup END
 
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")

@@ -1,7 +1,7 @@
 # vim: sw=8 sts=8 noet
 [user]
-	name = 
-	email = 
+	name = Ilkka Laukkanen
+	email = ilkka.laukkanen@futurice.com
 	# set email per machine in $GIT_AUTHOR_EMAIL or per repo
 
 [color]
@@ -51,6 +51,7 @@
 	pager = less -FRSX
 	excludesfile = /Users/ilau/.gitignore_global
 	editor = vim
+	autocrlf = input
 
 [merge]
 	summary = true
@@ -95,6 +96,8 @@
 	sync = !legit sync \"$@\"
 	publish = !legit publish \"$@\"
 	graft = !legit graft \"$@\"
+	gfap = 
+	fap = fetch --all --prune
 [filter "media"]
 	required = true
 	clean = git media clean %f
