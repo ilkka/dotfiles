@@ -22,7 +22,7 @@ export SUDO_EDITOR=emacsclient
 unset MAILCHECK
 
 # completions from brew too
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [[ -x $(which brew) && -f $(brew --prefix)/etc/bash_completion ]]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
@@ -69,7 +69,7 @@ alias ls='ls -Gh'
 alias ll='ls -lGh'
 alias l='ls -1AGh'
 
-export NVM_DIR="/Users/ilau/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # rbenv
@@ -106,4 +106,6 @@ if [[ -d "$HOME/.cabal/bin" ]]; then
 fi
 
 # add cask bin paths (for caskroom emacs-mac for example)
-export PATH="$(find /opt/homebrew-cask -type d -path '*/Contents/MacOS/bin'|tr '\n' :)$PATH"
+if [[ -d /opt/homebrew-cask ]]; then
+    export PATH="$(find /opt/homebrew-cask -type d -path '*/Contents/MacOS/bin'|tr '\n' :)$PATH"
+fi
