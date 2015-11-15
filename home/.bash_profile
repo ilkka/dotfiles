@@ -21,6 +21,10 @@ export SUDO_EDITOR=emacsclient
 # Don't check mail when opening terminal.
 unset MAILCHECK
 
+if [[ -r /etc/bash_completion ]]; then
+    . /etc/bash_completion
+fi
+
 # completions from brew too
 if [[ -x $(which brew) && -f $(brew --prefix)/etc/bash_completion ]]; then
   . $(brew --prefix)/etc/bash_completion
