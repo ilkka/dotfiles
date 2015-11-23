@@ -99,10 +99,14 @@ dkr () {
 }
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+if [[ -d /usr/local/heroku/bin ]]; then
+  export PATH="/usr/local/heroku/bin:$PATH"
+fi
 
 # add composer installed binaries to path
-export PATH="$HOME/.composer/vendor/bin:$PATH"
+if [[ -d $HOME/.composer/vendor/bin ]]; then
+  export PATH="$HOME/.composer/vendor/bin:$PATH"
+fi
 
 # Add GHC 7.8.4 to the PATH, via http://ghcformacosx.github.io/
 export GHC_DOT_APP="/Applications/GHC.app"
@@ -120,15 +124,12 @@ if [[ -d /opt/homebrew-cask ]]; then
     export PATH="$(find /opt/homebrew-cask -type d -path '*/Contents/MacOS/bin'|egrep -v emacs|tr '\n' :)$PATH"
 fi
 
-# Default docker machine
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/ilau/.docker/machine/machines/virtualbox"
-export DOCKER_MACHINE_NAME="virtualbox"
-
 # Android sdk location
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+ANDROID_HOME="$HOME/Library/Android/sdk"
+if [[ -d $ANDROID_HOME ]]; then
+  export ANDROID_HOME
+  export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+fi
 
 # Go
 export GOPATH="$HOME/gocode"
