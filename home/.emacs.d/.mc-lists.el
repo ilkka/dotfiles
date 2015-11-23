@@ -11,9 +11,10 @@
 
 (setq mc/cmds-to-run-once
       '(
+        electric-pair-delete-pair
         ivy-done
-        markdown-exdent-or-delete
         mac-mwheel-scroll
+        markdown-exdent-or-delete
         smex
         sp-remove-active-pair-overlay
         swiper
