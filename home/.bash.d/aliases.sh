@@ -12,7 +12,7 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias ln="ln -i"
 
-alias vbox=VBoxManage
+alias vboxmanage=VBoxManage
 
 docker_machine_cmd () {
     if [[ "$1" == "which" ]]; then
