@@ -58,6 +58,10 @@ rbenv global $LATESTRUBY
 rbenv alias --auto
 rbenv rehash
 
+### nvm ###
+[ ! -e "$HOME/.nvm" ] && git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags` && cd ~
+
+### homebrew ###
 if [[ $platform == 'osx' ]]; then
     # Install homebrew if not installed
     if ! which brew; then
@@ -87,6 +91,9 @@ if [[ -n $installtool ]]; then
         $pfx make -C "$tmpdir"/fasd install
     fi
 fi
+
+### powerline ###
+command -v pip >/dev/null 2>&1 && pip install powerline-status
 
 ### Install homeshick ###
 HOMESHICK_DIR=$HOME/.homesick/repos/homeshick
