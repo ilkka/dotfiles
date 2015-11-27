@@ -98,9 +98,9 @@ __vboxmanage_default() {
     opts=$realopts$(vboxmanage | grep -i vboxmanage | cut -d' ' -f2 | grep -v '\[' | sort | uniq)
     pruned=""
 
-    # echo ""
-    # echo "DEBUG: cur: $cur, prev: $prev"
-    # echo "DEBUG: default: |$p1|$p2|$p3|$p4|"
+    echo ""
+    echo "DEBUG: cur: $cur, prev: $prev"
+    echo "DEBUG: default: |$p1|$p2|$p3|$p4|"
     case ${cur} in
  	-*)
 	    echo $opts
@@ -151,8 +151,8 @@ _vboxmanage() {
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-    # echo "cur: |$cur|"
-    # echo "prev: |$prev|"
+    echo "cur: |$cur|"
+    echo "prev: |$prev|"
 
     # In case current is complete command
     case $cur in
@@ -186,7 +186,7 @@ _vboxmanage() {
 	    return 0
 	    ;;
 	vboxmanage|-q|--nologo)
-	    # echo "Got vboxmanage"
+	    echo "Got vboxmanage"
 	    opts=$(__vboxmanage_default)
 	    COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
 	    return 0
@@ -201,7 +201,7 @@ _vboxmanage() {
     for VM in $(__vboxmanage_list_vms); do
 	if [ "$VM" == "$prev" ]; then
 	    pprev=${COMP_WORDS[COMP_CWORD-2]}
-	    # echo "previous: $pprev"
+	    echo "previous: $pprev"
 	    case $pprev in
 		startvm)
  		    opts="--type"
@@ -217,6 +217,6 @@ _vboxmanage() {
 	fi
     done
 
-    # echo "Got to end withoug completion"
+    echo "Got to end withoug completion"
 }
 complete -F _vboxmanage vboxmanage
