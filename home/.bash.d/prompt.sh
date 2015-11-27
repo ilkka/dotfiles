@@ -61,7 +61,7 @@ find_powerline_repo() {
 POWERLINE_REPO_ROOT=$(find_powerline_repo)
 POWERLINE=$POWERLINE_REPO_ROOT/powerline/bindings/bash/powerline.sh
 
-if [[ -z $POWERLINE_REPO_ROOT || ! -r $POWERLINE ]]; then
+if [[ -z $POWERLINE_REPO_ROOT || ! -r $POWERLINE ]]; then
   echo "No powerline, using fallback" >&2
 
   prompt_simple() {
