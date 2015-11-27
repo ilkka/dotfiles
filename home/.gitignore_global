@@ -2,9 +2,7 @@
 # projectwide, whatever the environment: for example, object files or
 # other build products.
 *~
-.*.swp
-.*.swo
-.swp
+*.sw?
 .DS_Store
 *.sublime-project
 *.sublime-workspace
@@ -17,3 +15,6 @@
 
 .ensime
 .ensime_cache
+
+\#*\#
+.\#*
