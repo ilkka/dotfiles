@@ -4,9 +4,6 @@
 [submodule "neobundle.vim"]
 	path = neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
-[submodule "prezto"]
-	path = prezto
-	url = https://github.com/sorin-ionescu/prezto.git
 [submodule "bash_it"]
 	path = bash_it
 	url = https://github.com/revans/bash-it.git
