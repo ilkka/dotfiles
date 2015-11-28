@@ -12,6 +12,8 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias ln="ln -i"
 
+alias gc="git commit"
+
 alias vboxmanage=VBoxManage
 
 docker_machine_cmd () {
@@ -31,7 +33,3 @@ docker_machine_cmd () {
 }
 
 alias dkr=docker_machine_cmd
-
-if cmd_exists hub; then
-  alias git=hub
-fi
