@@ -93,7 +93,7 @@ if [[ -n $installtool ]]; then
 fi
 
 ### powerline ###
-command -v pip >/dev/null 2>&1 && pip install powerline-status
+command -v pip >/dev/null 2>&1 && pip install powerline-status powerline-gitstatus
 
 ### Install homeshick ###
 HOMESHICK_DIR=$HOME/.homesick/repos/homeshick
