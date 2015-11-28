@@ -1,6 +1,3 @@
-[submodule "git-flow-completion"]
-	path = git-flow-completion
-	url = https://github.com/bobthecow/git-flow-completion.git
 [submodule "neobundle.vim"]
 	path = neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
