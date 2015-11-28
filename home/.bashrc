@@ -13,7 +13,7 @@ source $HOME/.bash.d/functions.sh
 # https://github.com/ches/dotfiles/blob/master/.bashrc
 
 # expand ! history expansions dynamically
-bind Space:magic-space
+bind space:magic-space
 # don't overwrite old history
 shopt -s histappend
 # combine multiline commands in history
@@ -79,7 +79,7 @@ fi
 [[ -r ~/.bash.d/extras.sh ]] && source ~/.bash.d/extras.sh
 
 # set up platform stuff
-if [[ $(uname -s) == "Darwin " && -r ~/.bash.d/platform-osx.sh ]]; then
+if [[ $(uname -s) == "Darwin" && -r ~/.bash.d/platform-osx.sh ]]; then
   source ~/.bash.d/platform-osx.sh
 elif [[ -r ~/.bash.d/platform-linux.sh ]]; then
   source ~/.bash.d/platform-linux.sh
