@@ -12,8 +12,6 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias ln="ln -i"
 
-alias gc="git commit"
-
 alias vboxmanage=VBoxManage
 
 docker_machine_cmd () {
