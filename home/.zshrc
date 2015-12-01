@@ -1,5 +1,54 @@
-# The following lines were added by compinstall
+# reasonable locale
+export LC_ALL=en_US.UTF-8
 
+###############################################################################
+# Antigen
+if [[ -f ~/.antigen/antigen.zsh ]]; then
+  source ~/.antigen/antigen.zsh
+fi
+
+# Antigen all the things
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle heroku
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+antigen bundle fcambus/ansiweather
+antigen bundle b4b4r07/enhancd
+antigen bundle unixorn/git-extra-commands
+
+# work it
+antigen apply
+
+###############################################################################
+# Editor wankery
+export GIT_EDITOR='vim'
+export SUDO_EDITOR='vim'
+export EDITOR='vim'
+if command -v atom >/dev/null 2>&1; then
+  export VISUAL='atom --new --wait'
+  export EDITOR='atom --new --wait'
+fi
+
+###############################################################################
+# Environment basics
+
+# set up color
+export CLICOLOR='true'
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+# set up less
+export PAGER='less'
+export LESS='-Ri'
+if command -v lesspipe.sh >/dev/null 2>&1; then
+  export LESSOPEN="|lesspipe.sh %s"
+fi
+
+###############################################################################
+# compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' expand prefix suffix
@@ -24,7 +73,8 @@ zstyle :compinstall filename '/Users/ilau/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+
+###############################################################################
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh-history
 HISTSIZE=5000
@@ -32,8 +82,9 @@ SAVEHIST=5000
 setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -e
-# End of lines configured by zsh-newuser-install
 
-if [[ -f ~/.zsh-custom/antigen.zsh ]]; then
-  source ~/.zsh-custom/antigen.zsh
+###############################################################################
+# now go powerline
+if [[ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+  source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
