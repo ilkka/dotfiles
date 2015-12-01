@@ -17,12 +17,18 @@
 				"priority": 50
 			},
 			{
-				"function": "powerline_gitstatus.gitstatus",
-				"priority": 40
-			},
-			{
 				"function": "powerline.segments.shell.cwd",
 				"priority": 50
+			},
+			{
+				"function": "powerline.segments.shell.last_pipe_status",
+				"priority": 10
+			}
+    ],
+    "right": [
+			{
+				"function": "powerline_gitstatus.gitstatus",
+				"priority": 40
 			},
       {
         "function": "powerline.segments.common.wthr.weather",
@@ -35,11 +41,7 @@
       {
         "function": "powerline.segments.common.bat.battery",
         "priority": 100
-      },
-			{
-				"function": "powerline.segments.shell.last_pipe_status",
-				"priority": 10
-			}
-		]
+      }
+    ]
 	}
 }
