@@ -4,3 +4,6 @@
 [submodule "smex-with-ivy"]
 	path = smex-with-ivy
 	url = https://github.com/abo-abo/smex
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen.git
