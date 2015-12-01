@@ -1,4 +1,9 @@
 {
   "common": {
+  },
+  "ext": {
+    "shell": {
+      "colorscheme": "default"
+    }
   }
 }
