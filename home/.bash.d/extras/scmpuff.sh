@@ -1,2 +1,2 @@
 # load scmpuff
-cmd_exists scmpuff && eval "$(scmpuff init -s)"
+cmd_exists scmpuff && eval "$(scmpuff init -s -a false)"
