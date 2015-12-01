@@ -20,6 +20,7 @@ antigen bundle fcambus/ansiweather
 antigen bundle b4b4r07/enhancd
 antigen bundle unixorn/git-extra-commands
 antigen bundle rimraf/k
+antigen bundle zsh-users/zsh-completions
 
 # work it
 antigen apply
