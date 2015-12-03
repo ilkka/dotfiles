@@ -95,6 +95,10 @@ fi
 ### powerline ###
 command -v pip >/dev/null 2>&1 && pip install powerline-status powerline-gitstatus
 
+### fzf ###
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 ### Install homeshick ###
 HOMESHICK_DIR=$HOME/.homesick/repos/homeshick
 if [[ ! -e $HOMESHICK_DIR ]]; then
