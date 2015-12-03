@@ -98,7 +98,7 @@ command -v pip >/dev/null 2>&1 && pip install powerline-status powerline-gitstat
 ### Install homeshick ###
 HOMESHICK_DIR=$HOME/.homesick/repos/homeshick
 if [[ ! -e $HOMESHICK_DIR ]]; then
-  git clone http://github.com/andsens/homeshick.git $HOMESHICK_DIR
+  git clone https://github.com/andsens/homeshick.git $HOMESHICK_DIR
 fi
 source $HOMESHICK_DIR/homeshick.sh
 
