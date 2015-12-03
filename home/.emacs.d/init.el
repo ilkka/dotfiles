@@ -16,87 +16,7 @@
 
 ;; *******************************************
 ;; install packages
-(defvar install-these '(alchemist
-                         ansible
-                         ansible-doc
-                         auto-complete
-                         better-defaults
-                         cider
-                         clojure-mode
-                         company
-                         company-ghc
-                         company-jedi
-                         company-tern
-                         company-web
-                         concurrent
-                         ctable
-                         dash
-                         dash-functional
-                         deferred
-                         docker
-                         dockerfile-mode
-                         editorconfig
-                         elixir-mode
-                         elm-mode
-                         ensime
-                         epc
-                         epl
-                         expand-region
-                         f
-                         flycheck
-                         flycheck-clojure
-                         flycheck-haskell
-                         flymake-easy
-                         flymake-elixir
-                         flymake-php
-                         ghc
-                         git-commit
-                         haskell-mode
-                         htmlize
-                         hydra
-                         idle-highlight-mode
-                         ido-completing-read+
-                         ido-ubiquitous
-                         jedi-core
-                         js2-mode
-                         json-mode
-                         json-reformat
-                         json-snatcher
-                         jsx-mode
-                         let-alist
-                         lua-mode
-                         magit
-                         magit-popup
-                         markdown-mode
-                         multiple-cursors
-                         names
-                         php-mode
-                         pkg-info
-                         popup
-                         projectile
-                         python-environment
-                         queue
-                         rainbow-delimiters
-                         rainbow-identifiers
-                         s
-                         sbt-mode
-                         scala-mode2
-                         scion
-                         scpaste
-                         scss-mode
-                         shell-switcher
-                         smartparens
-                         ssh
-                         ssh-config-mode
-                         ssh-tunnels
-                         sublimity
-                         swiper
-                         tern
-                         web-completion-data
-                         web-mode
-                         with-editor
-                         yaml-mode
-                         yasnippet))
+(defvar install-these '(alchemist ansible ansible-doc auto-complete better-defaults cider clojure-mode company company-ghc company-jedi company-tern company-web concurrent ctable dash dash-functional deferred docker dockerfile-mode editorconfig elixir-mode elm-mode ensime epc epl expand-region f flycheck flycheck-clojure flycheck-haskell flymake-easy flymake-elixir flymake-php ghc git-commit haskell-mode htmlize hydra idle-highlight-mode ido-completing-read+ ido-ubiquitous jedi-core js2-mode json-mode json-reformat json-snatcher jsx-mode let-alist lua-mode magit magit-popup markdown-mode multiple-cursors names php-mode pkg-info popup projectile python-environment queue rainbow-delimiters rainbow-identifiers s sbt-mode scala-mode2 scion scpaste scss-mode shell-switcher smartparens ssh ssh-config-mode ssh-tunnels sublimity swiper tern web-completion-data web-mode with-editor yaml-mode yasnippet color-theme-sanityinc-solarized guide-key use-package))
 
 (package-initialize)
 (dolist (p install-these)
@@ -112,9 +32,10 @@
  '(before-save-hook (quote (delete-trailing-whitespace)))
   '(custom-safe-themes
      (quote
-       ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+       ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(editorconfig-mode t)
  '(flycheck-disabled-checkers (quote (javascript-jshint json-jsonlist)))
+ '(flycheck-flake8-maximum-complexity 10)
   '(flycheck-mode-hook
      (quote
        (flycheck-mode-set-explicitly flycheck-haskell-setup)))
@@ -145,11 +66,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :foreground nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 130 :width normal :foundry "nil" :family "Input Mono")))))
+ '(default ((t (:weight thin :height 130 :family "Input Mono")))))
 
 ;; switch theme if gui
 (when (display-graphic-p)
-  (load-theme 'solarized-light))
+  (load-theme 'sanityinc-solarized-dark))
 
 ;; *******************************************
 ;; guide-key
@@ -412,6 +333,11 @@
 (global-set-key (kbd "<A-M-up>") 'windmove-up)
 (global-set-key (kbd "<A-M-right>") 'windmove-right)
 (global-set-key (kbd "<A-M-down>") 'windmove-down)
+
+
+;; *******************************************
+;; chain checkers for python
+(flycheck-add-next-checker 'python-flake8 'python-pylint)
 
 ;; *******************************************
 ;; always start server

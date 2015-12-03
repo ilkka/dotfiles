@@ -21,6 +21,7 @@ antigen bundle b4b4r07/enhancd
 antigen bundle unixorn/git-extra-commands
 antigen bundle rimraf/k
 antigen bundle zsh-users/zsh-completions
+antigen bundle ilkka/zsh-node-nvm
 
 # work it
 antigen apply
@@ -48,6 +49,8 @@ export LESS='-Ri'
 if command -v lesspipe.sh >/dev/null 2>&1; then
   export LESSOPEN="|lesspipe.sh %s"
 fi
+
+[[ -r /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
 ###############################################################################
 # compinstall
@@ -90,3 +93,6 @@ bindkey -e
 if [[ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
   source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
+
+export NVM_DIR="/Users/ilau/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

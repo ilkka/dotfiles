@@ -28,11 +28,11 @@
     "right": [
 			{
 				"function": "powerline_gitstatus.gitstatus",
-				"priority": 40
+				"priority": 60
 			},
       {
         "function": "powerline.segments.common.wthr.weather",
-        "priority": 40,
+        "priority": 10,
         "args": {
           "unit": "C",
           "location_query": "Tampere,FI"
@@ -40,7 +40,11 @@
       },
       {
         "function": "powerline.segments.common.bat.battery",
-        "priority": 100
+        "priority": 10,
+        "args": {
+          "offline": "🔋",
+          "online": "🔌"
+        }
       }
     ]
 	}
