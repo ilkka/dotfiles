@@ -50,7 +50,12 @@ if command -v lesspipe.sh >/dev/null 2>&1; then
   export LESSOPEN="|lesspipe.sh %s"
 fi
 
-[[ -r /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+for dir in /usr/local/bin /usr/share/virtualenvwrapper; do
+  if [[ -r ${dir}/virtualenvwrapper.sh ]]; then
+    source ${dir}/virtualenvwrapper.sh
+    break
+  fi
+done
 
 ###############################################################################
 # compinstall
@@ -74,7 +79,7 @@ zstyle ':completion:*' prompt '%e errors:'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' substitute 1
-zstyle :compinstall filename '/Users/ilau/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 compinit
@@ -90,9 +95,12 @@ bindkey -e
 
 ###############################################################################
 # now go powerline
-if [[ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-  source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-fi
+for dir in /usr/local/lib/python2.7/site-packages /usr/local/lib/python2.7/dist-packages; do
+  if [[ -f ${dir}/powerline/bindings/zsh/powerline.zsh ]]; then
+    source ${dir}/powerline/bindings/zsh/powerline.zsh
+    break
+  fi
+done
 
-export NVM_DIR="/Users/ilau/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
