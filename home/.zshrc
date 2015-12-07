@@ -102,5 +102,15 @@ for dir in /usr/local/lib/python2.7/site-packages /usr/local/lib/python2.7/dist-
   fi
 done
 
+###############################################################################
+# homeshick
+[ -s "$HOME/.homesick/repos/homeshick/homeshick.sh" ] && source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+###############################################################################
+# docker machine 'use' wrapper
+[ -s "$HOME/.zsh-custom/docker-machine.zsh" ] && source "$HOME/.zsh-custom/docker-machine.zsh"
+
+###############################################################################
+# node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

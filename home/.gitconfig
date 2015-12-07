@@ -98,6 +98,7 @@
 	graft = !legit graft \"$@\"
 	gfap = 
 	fap = fetch --all --prune
+	init-safe-commit = !~/.safe-commit-hook/install-for-project.sh
 [filter "media"]
 	required = true
 	clean = git media clean %f
