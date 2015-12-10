@@ -5,8 +5,8 @@
 (require 'package)
 
 ;; extra path settings
-(setenv "PATH" (concat "/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin:/usr/local/bin:" (getenv "PATH")))
-(setq exec-path (append '("/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v0.12.4/bin" "/usr/local/bin") exec-path))
+(setenv "PATH" (concat "/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v5.1.1/bin:/usr/local/bin:" (getenv "PATH")))
+(setq exec-path (append '("/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v5.1.1/bin" "/usr/local/bin") exec-path))
 
 ;; archives
 (defvar extra-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
@@ -39,7 +39,7 @@
   '(flycheck-mode-hook
      (quote
        (flycheck-mode-set-explicitly flycheck-haskell-setup)))
- '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v0.12.4/bin/js-yaml")
+ '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v5.1.1/bin/js-yaml")
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
