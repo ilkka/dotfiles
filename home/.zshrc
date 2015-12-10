@@ -114,3 +114,8 @@ done
 # node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+###############################################################################
+# rbenv
+[ -d $HOME/.rbenv/bin ] && PATH=$HOME/.rbenv/bin:$PATH
+whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
