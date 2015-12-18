@@ -123,5 +123,9 @@ export NVM_DIR="$HOME/.nvm"
 whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
 
 ###############################################################################
+# fzf if we manually installed it
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+###############################################################################
 # aliases
 alias vboxmanage=VBoxManage
