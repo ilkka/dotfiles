@@ -1,9 +1,6 @@
 [submodule "neobundle.vim"]
 	path = neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
-[submodule "smex-with-ivy"]
-	path = smex-with-ivy
-	url = https://github.com/abo-abo/smex
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git

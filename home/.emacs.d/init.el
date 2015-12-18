@@ -4,10 +4,6 @@
 ;;; Code:
 (require 'package)
 
-;; extra path settings
-(setenv "PATH" (concat "/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v5.1.1/bin:/usr/local/bin:" (getenv "PATH")))
-(setq exec-path (append '("/Applications/GHC.app/Contents/bin:/Users/ilau/.cabal/bin:/Users/ilau/.nvm/versions/node/v5.1.1/bin" "/usr/local/bin") exec-path))
-
 ;; archives
 (defvar extra-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
                             ("melpa" . "http://melpa.milkbox.net/packages/")))
@@ -16,7 +12,7 @@
 
 ;; *******************************************
 ;; install packages
-(defvar install-these '(alchemist ansible ansible-doc auto-complete better-defaults cider clojure-mode company company-ghc company-jedi company-tern company-web concurrent ctable dash dash-functional deferred docker dockerfile-mode editorconfig elixir-mode elm-mode ensime epc epl expand-region f flycheck flycheck-clojure flycheck-haskell flymake-easy flymake-elixir flymake-php ghc git-commit haskell-mode htmlize hydra idle-highlight-mode ido-completing-read+ ido-ubiquitous jedi-core js2-mode json-mode json-reformat json-snatcher jsx-mode let-alist lua-mode magit magit-popup markdown-mode multiple-cursors names php-mode pkg-info popup projectile python-environment queue rainbow-delimiters rainbow-identifiers s sbt-mode scala-mode2 scion scpaste scss-mode shell-switcher smartparens ssh ssh-config-mode ssh-tunnels sublimity swiper tern web-completion-data web-mode with-editor yaml-mode yasnippet color-theme-sanityinc-solarized guide-key use-package))
+(defvar install-these '(alchemist ansible ansible-doc auto-complete better-defaults cider clojure-mode company company-ghc company-jedi company-tern company-web concurrent counsel ctable dash dash-functional deferred docker dockerfile-mode editorconfig elixir-mode elm-mode ensime epc epl expand-region f flycheck flycheck-clojure flycheck-haskell flymake-easy flymake-elixir flymake-php ghc git-commit haskell-mode htmlize hydra idle-highlight-mode ido-completing-read+ ido-ubiquitous jedi-core js2-mode json-mode json-reformat json-snatcher jsx-mode let-alist lua-mode magit magit-popup markdown-mode multiple-cursors names php-mode pkg-info popup projectile python-environment queue rainbow-delimiters rainbow-identifiers s sbt-mode scala-mode2 scion scpaste scss-mode shell-switcher smartparens ssh ssh-config-mode ssh-tunnels sublimity swiper tern web-completion-data web-mode with-editor yaml-mode yasnippet color-theme-sanityinc-solarized guide-key use-package string-edit exec-path-from-shell))
 
 (package-initialize)
 (dolist (p install-these)
@@ -57,11 +53,11 @@
  '(magit-rebase-arguments (quote ("--autostash")))
  '(markdown-command "cmark")
  '(ns-right-alternate-modifier (quote none))
+ '(puml-plantuml-jar-path "/usr/local/Cellar/plantuml/8031/plantuml.8031.jar")
   '(safe-local-variable-values
      (quote
        ((haskell-process-use-ghci . t)
          (haskell-indent-spaces . 4))))
- '(smex-completion-method (quote ivy))
  '(split-height-threshold 85))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -96,10 +92,24 @@
 (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
 
 ;; *******************************************
-;; ivy
+;; swiper & ivy
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (global-set-key (kbd "C-c C-j") 'ivy-immediate-done)
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-c C-r") 'ivy-resume)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-load-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+(global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c k") 'counsel-ag)
+(global-set-key (kbd "C-x l") 'counsel-locate)
+(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 
 ;; *******************************************
 ;; set up magit
@@ -114,17 +124,6 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'ivy)
 (projectile-mode)
-
-;; *******************************************
-;; set up smex
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/smex"))
-(require 'smex)
-(smex-initialize)
-;; we have ivy but we also have the fork of smex that supports that
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; to use normal M-x:
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; *******************************************
 ;; smartparens
@@ -208,13 +207,6 @@
 (bind-key ";" 'sp-comment emacs-lisp-mode-map)
 
 (bind-key [remap c-electric-backspace] 'sp-backward-delete-char smartparens-strict-mode-map)
-
-
-;; *******************************************
-;; swiper
-(global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-r") 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
 
 ;; *******************************************
 ;; multiple cursors
@@ -338,6 +330,11 @@
 ;; *******************************************
 ;; chain checkers for python
 (flycheck-add-next-checker 'python-flake8 'python-pylint)
+
+;; *******************************************
+;; get exec path from shell on mac only
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; *******************************************
 ;; always start server

@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        c-electric-slash
+        electric-newline-and-maybe-indent
         keyboard-escape-quit
         kill-region
         yaml-electric-backspace
@@ -11,7 +13,9 @@
 
 (setq mc/cmds-to-run-once
       '(
+        counsel-M-x
         electric-pair-delete-pair
+        indent-for-tab-command
         ivy-done
         mac-mwheel-scroll
         markdown-exdent-or-delete
