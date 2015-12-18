@@ -31,14 +31,6 @@
 				"priority": 60
 			},
       {
-        "function": "powerline.segments.common.wthr.weather",
-        "priority": 10,
-        "args": {
-          "unit": "C",
-          "location_query": "Tampere,FI"
-        }
-      },
-      {
         "function": "powerline.segments.common.bat.battery",
         "priority": 10,
         "args": {

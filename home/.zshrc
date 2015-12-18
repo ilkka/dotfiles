@@ -22,6 +22,8 @@ antigen bundle unixorn/git-extra-commands
 antigen bundle rimraf/k
 antigen bundle zsh-users/zsh-completions
 antigen bundle ilkka/zsh-node-nvm
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
 # work it
 antigen apply
@@ -95,12 +97,12 @@ bindkey -e
 
 ###############################################################################
 # now go powerline
-for dir in /usr/local/lib/python2.7/site-packages /usr/local/lib/python2.7/dist-packages; do
-  if [[ -f ${dir}/powerline/bindings/zsh/powerline.zsh ]]; then
-    source ${dir}/powerline/bindings/zsh/powerline.zsh
-    break
-  fi
-done
+# for dir in /usr/local/lib/python2.7/site-packages /usr/local/lib/python2.7/dist-packages; do
+#   if [[ -f ${dir}/powerline/bindings/zsh/powerline.zsh ]]; then
+#     source ${dir}/powerline/bindings/zsh/powerline.zsh
+#     break
+#   fi
+# done
 
 ###############################################################################
 # homeshick
@@ -119,3 +121,7 @@ export NVM_DIR="$HOME/.nvm"
 # rbenv
 [ -d $HOME/.rbenv/bin ] && PATH=$HOME/.rbenv/bin:$PATH
 whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
+
+###############################################################################
+# aliases
+alias vboxmanage=VBoxManage
