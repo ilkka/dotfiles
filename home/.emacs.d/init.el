@@ -40,6 +40,8 @@
      (quote
        (flycheck-mode-set-explicitly flycheck-haskell-setup)))
  '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v5.1.1/bin/js-yaml")
+ '(global-company-mode t)
+ '(guide-key-mode t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
@@ -75,7 +77,6 @@
 ;; *******************************************
 ;; guide-key
 (setq guide-key/guide-key-sequence t)
-(guide-key-mode 1)
 
 ;; *******************************************
 ;; alchemist
@@ -83,7 +84,6 @@
 
 ;; *******************************************
 ;; company-mode
-(global-company-mode)
 (add-to-list 'company-backends 'company-tern)
 (add-to-list 'company-backends 'company-web-html)
 (add-to-list 'company-backends 'company-web-jade)
