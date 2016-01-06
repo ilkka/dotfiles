@@ -12,13 +12,15 @@
 
 ;; *******************************************
 ;; install packages
-(defvar install-these '(alchemist ansible ansible-doc auto-complete better-defaults cider clojure-mode company company-ghc company-jedi company-tern company-web concurrent counsel ctable dash dash-functional deferred docker dockerfile-mode editorconfig elixir-mode elm-mode ensime epc epl expand-region f flycheck flycheck-clojure flycheck-haskell flymake-easy flymake-elixir flymake-php ghc git-commit haskell-mode htmlize hydra idle-highlight-mode ido-completing-read+ ido-ubiquitous jedi-core js2-mode json-mode json-reformat json-snatcher jsx-mode let-alist lua-mode magit magit-popup markdown-mode multiple-cursors names php-mode pkg-info popup projectile python-environment queue rainbow-delimiters rainbow-identifiers s sbt-mode scala-mode2 scion scpaste scss-mode shell-switcher smartparens ssh ssh-config-mode ssh-tunnels sublimity swiper tern web-completion-data web-mode with-editor yaml-mode yasnippet color-theme-sanityinc-solarized guide-key use-package string-edit exec-path-from-shell))
+(defvar install-these '(alchemist auto-package-update ansible ansible-doc auto-complete better-defaults cider clojure-mode company company-ghc company-jedi company-tern company-web concurrent counsel ctable dash dash-functional deferred docker dockerfile-mode editorconfig elixir-mode elm-mode ensime epc epl expand-region f flycheck flycheck-clojure flycheck-haskell flymake-easy flymake-elixir flymake-php ghc git-commit haskell-mode htmlize hydra idle-highlight-mode ido-completing-read+ ido-ubiquitous jedi-core js2-mode json-mode json-reformat json-snatcher jsx-mode let-alist lua-mode magit magit-popup markdown-mode multiple-cursors names php-mode pkg-info popup projectile python-environment queue rainbow-delimiters rainbow-identifiers s sbt-mode scala-mode2 scion scpaste scss-mode shell-switcher smartparens ssh ssh-config-mode ssh-tunnels sublimity swiper tern web-completion-data web-mode with-editor yaml-mode yasnippet color-theme-sanityinc-solarized guide-key use-package string-edit exec-path-from-shell))
 
 (package-initialize)
+(package-refresh-contents)
 (dolist (p install-these)
   (when (not (package-installed-p p))
     (package-install p)))
 
+(auto-package-update-maybe)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
