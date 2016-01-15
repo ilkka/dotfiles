@@ -2,6 +2,10 @@
 export LC_ALL=en_US.UTF-8
 
 ###############################################################################
+# Bail early on a dumb terminal to make e.g. tramp work
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
+###############################################################################
 # Antigen
 if [[ -f ~/.antigen/antigen.zsh ]]; then
   source ~/.antigen/antigen.zsh
@@ -125,6 +129,10 @@ whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
 ###############################################################################
 # fzf if we manually installed it
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+###############################################################################
+# python stuffs
+[ -f ~/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
 
 ###############################################################################
 # aliases
