@@ -32,12 +32,14 @@
      (quote
        ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(editorconfig-mode t)
- '(flycheck-disabled-checkers (quote (javascript-jshint json-jsonlist)))
+ '(flycheck-disabled-checkers (quote (json-jsonlist)))
  '(flycheck-flake8-maximum-complexity 10)
+ '(flycheck-javascript-jshint-executable "/Users/ilau/.nvm/versions/node/v5.4.1/bin/jshint")
+ '(flycheck-json-jsonlint-executable "/Users/ilau/.nvm/versions/node/v5.4.1/bin/jsonlint")
   '(flycheck-mode-hook
      (quote
        (flycheck-mode-set-explicitly flycheck-haskell-setup)))
- '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v5.1.1/bin/js-yaml")
+ '(flycheck-yaml-jsyaml-executable "/Users/ilau/.nvm/versions/node/v5.4.1/bin/js-yaml")
  '(global-company-mode t)
  '(guide-key-mode t)
  '(haskell-process-auto-import-loaded-modules t)
