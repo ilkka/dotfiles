@@ -138,5 +138,14 @@ whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
 # aliases
 alias vboxmanage=VBoxManage
 
+###############################################################################
+# extra hstr config
+if whence hh >/dev/null 2>&1
+then
+  export HH_CONFIG=hicolor        # get more colors
+  bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+fi
+
+###############################################################################
 # local stuffs if exists
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
