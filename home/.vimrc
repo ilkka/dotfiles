@@ -28,6 +28,7 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'docker/docker', {'rtp': 'contrib/syntax/vim'}
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'godlygeek/tabular'
