@@ -137,3 +137,6 @@ whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
 ###############################################################################
 # aliases
 alias vboxmanage=VBoxManage
+
+# local stuffs if exists
+[ -f ~/.zshrc-local ] && source ~/.zshrc-local
