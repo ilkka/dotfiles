@@ -92,7 +92,7 @@ compinit
 
 ###############################################################################
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh-history
+export HISTFILE=~/.zsh-history
 HISTSIZE=5000
 SAVEHIST=5000
 setopt appendhistory autocd extendedglob nomatch notify
