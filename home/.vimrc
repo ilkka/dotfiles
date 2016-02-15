@@ -77,6 +77,7 @@ NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'lambdatoast/elm.vim.git'
 
 call neobundle#end()
 
@@ -508,6 +509,11 @@ augroup yapf
   autocmd!
   autocmd FileType python nnoremap <leader>Y :0,$!yapf<cr>
 augroup END
+
+" elm
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")
