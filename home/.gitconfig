@@ -48,7 +48,7 @@
 	relations = true
 
 [core]
-	pager = less -FRSX
+	pager = diff-so-fancy | less --tabs=1,5 -R
 	excludesfile = /Users/ilau/.gitignore_global
 	editor = vim
 	autocrlf = input
@@ -122,3 +122,8 @@ protocol = https
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
