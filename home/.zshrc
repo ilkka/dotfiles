@@ -147,5 +147,9 @@ then
 fi
 
 ###############################################################################
+# Use nvim if exists
+if whence nvim >/dev/null 2>&1; then alias vim=nvim; fi
+
+###############################################################################
 # local stuffs if exists
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
