@@ -1,0 +1,5 @@
+bind main B !git rebase -i %(commit)
+bind main C none
+bind status C none
+bind generic P !git cherry-pick %(commit)
+bind generic C !git commit -v
