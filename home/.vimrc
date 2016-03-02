@@ -100,17 +100,18 @@ if has("gui_running")
   set guioptions=aiA 
   set mouse=v
   set guifont=Inconsolata\ for\ Powerline:h12
- 
-  " colorscheme af
-  " colorscheme oceanblack
-  " colorscheme skittles_dark
-  " colorscheme twilight
-  " colorscheme mustang
-  " colorscheme clouds_midnight
-  " colorscheme molokai
-  let g:solarized_termcolors=256
-  colorscheme solarized
 endif
+ 
+" colorscheme af
+" colorscheme oceanblack
+" colorscheme skittles_dark
+" colorscheme twilight
+" colorscheme mustang
+" colorscheme clouds_midnight
+" colorscheme molokai
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=dark
 
 set modelines=5
 set modeline
@@ -335,7 +336,7 @@ if filereadable(my_home . '.vim/bundle/vim-autocorrect/autocorrect.vim')
 	noremap <Leader>ac :abc
 endif
 
-set background=light " do I want to do this? dunno.
+"set background=light " do I want to do this? dunno.
 
 " NOW SERIOUSLY
 set nobackup
