@@ -29,6 +29,7 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'docker/docker', {'rtp': 'contrib/syntax/vim'}
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'elmcast/elm-vim'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'godlygeek/tabular'
@@ -77,7 +78,7 @@ NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-scripts/YankRing.vim'
-NeoBundle 'lambdatoast/elm.vim.git'
+"NeoBundle 'lambdatoast/elm.vim.git'
 
 call neobundle#end()
 
