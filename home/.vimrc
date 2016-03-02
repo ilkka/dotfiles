@@ -365,13 +365,13 @@ set nowritebackup
 vnoremap <Leader>gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p<CR>
 
 " Tabularize
-if exists(":Tab")
-  nnoremap <leader>a\| :Tab /\|<CR>
-  vnoremap <leader>a\| :Tab /\|<CR>
-  nnoremap <leader>a= :Tab /=<CR>
-  vnoremap <leader>a= :Tab /=<CR>
-  nnoremap <leader>a: :Tab /:\zs<CR>
-  vnoremap <leader>a: :Tab /:\zs<CR>
+if exists(":Tabularize")
+  nnoremap <leader>a\| :Tabularize /\|<CR>
+  vnoremap <leader>a\| :Tabularize /\|<CR>
+  nnoremap <leader>a= :Tabularize /=<CR>
+  vnoremap <leader>a= :Tabularize /=<CR>
+  nnoremap <leader>a: :Tabularize /:\zs<CR>
+  vnoremap <leader>a: :Tabularize /:\zs<CR>
 endif
 
 let g:cssColorVimDoNotMessMyUpdatetime = 1
