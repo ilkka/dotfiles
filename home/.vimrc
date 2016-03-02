@@ -213,8 +213,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Switch between buffers
-noremap <tab> :bn<CR>
-noremap <S-tab> :bp<CR>
+"noremap <tab> :bn<CR>
+"noremap <S-tab> :bp<CR>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>D :bufdo bd<CR>
 
@@ -523,6 +523,22 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+nnoremap <leader>pp :CtrlPMenu<cr>
+nnoremap <leader>pf :CtrlP<cr>
+nnoremap <leader>py :CtrlPYankRing<cr>
+nnoremap <leader>pm :CtrlPMRUFiles<cr>
+"nnoremap <leader>pt :CtrlPTag<cr>
+nnoremap <leader>pt :CtrlPBufTag<cr>
+nnoremap <Leader>pu :CtrlPFunky<cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>pU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+map <Leader>pm :CtrlPModified<CR>
+map <Leader>pM :CtrlPBranch<CR>
+
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
+"nnoremap <tab> :CtrlPtjump<cr>
+"vnoremap <tab> :CtrlPtjumpVisual<cr>
 
 " flake8
 let g:flake8_show_in_file=1
