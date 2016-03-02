@@ -20,66 +20,85 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " Configure bundles
+
+" colors and theming
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'kien/rainbow_parentheses.vim'
+
+" widgets and utils
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'clones/vim-taglist'
+NeoBundle 'shemerey/vim-peepopen'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'sjl/splice.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'tpope/vim-classpath'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-rhubarb'
+NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
+
+" formatting and linting
+NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'nvie/vim-flake8'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'vim-scripts/paredit.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-scripts/JavaScript-Indent'
+
+" autocompletion
+NeoBundle 'marijnh/tern_for_vim'
+"NeoBundle 'Shougo/neocomplcache.vim'
+
+" programming language support
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'docker/docker', {'rtp': 'contrib/syntax/vim'}
-NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'elmcast/elm-vim'
 NeoBundle 'evidens/vim-twig'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'godlygeek/tabular'
 NeoBundle 'guns/vim-clojure-static'
 "NeoBundle 'mxw/vim-jsx'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'marijnh/tern_for_vim'
-NeoBundle 'nvie/vim-flake8'
-NeoBundle 'osyo-manga/unite-quickfix'
 NeoBundle 'rstacruz/sparkup', {'rtp': 'vim'}
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'shemerey/vim-peepopen'
-"NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-help'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'sjl/splice.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'tpope/vim-classpath'
 NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-leiningen'
-NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'vim-scripts/asciidoc.vim'
-NeoBundle 'vim-scripts/grep.vim'
-NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'vim-scripts/JSON.vim'
-NeoBundle 'vim-scripts/paredit.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'vim-scripts/YankRing.vim'
 "NeoBundle 'lambdatoast/elm.vim.git'
+
+" fuzzy file / other things finder
+"NeoBundle 'osyo-manga/unite-quickfix'
+"NeoBundle 'Shougo/unite-help'
+"NeoBundle 'Shougo/unite-outline'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'sgur/ctrlp-extensions.vim'
+NeoBundle 'ivalkeen/vim-ctrlp-tjump'
+NeoBundle 'tacahiroy/ctrlp-funky'
+NeoBundle 'jasoncodes/ctrlp-modified.vim'
 
 call neobundle#end()
 
@@ -477,28 +496,33 @@ set errorformat+=,%-G%.%#
 let g:airline_powerline_fonts = 1
 
 " unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>F :<C-u>Unite -buffer-name=files   -start-insert file_rec/async<cr>
-nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
-nnoremap <leader>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-nnoremap <leader>e :<C-u>Unite -buffer-name=buffer  buffer<cr>
-nnoremap <leader>/ :<C-u>Unite -buffer-name=grep grep:.<cr>
-nnoremap <leader>t :<C-u>Unite -buffer-name=tag -start-insert tag<cr>
-nnoremap <leader>h :<C-u>Unite -buffer-name=help -start-insert help<cr>
-nnoremap <leader>u :<C-u>Unite -buffer-name=quickfix -start-insert quickfix<cr>
+"let g:unite_source_history_yank_enable = 1
+""call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"nnoremap <leader>F :<C-u>Unite -buffer-name=files   -start-insert file_rec/async<cr>
+"nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
+"nnoremap <leader>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
+"nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
+"nnoremap <leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
+"nnoremap <leader>e :<C-u>Unite -buffer-name=buffer  buffer<cr>
+"nnoremap <leader>/ :<C-u>Unite -buffer-name=grep grep:.<cr>
+"nnoremap <leader>t :<C-u>Unite -buffer-name=tag -start-insert tag<cr>
+"nnoremap <leader>h :<C-u>Unite -buffer-name=help -start-insert help<cr>
+"nnoremap <leader>u :<C-u>Unite -buffer-name=quickfix -start-insert quickfix<cr>
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
+"" Custom mappings for the unite buffer
+"autocmd FileType unite call s:unite_settings()
+"function! s:unite_settings()
+  "" Play nice with supertab
+  "let b:SuperTabDisabled=1
+  "" Enable navigation with control-j and control-k in insert mode
+  "imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  "imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+"endfunction
+
+" ctrl-p
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " flake8
 let g:flake8_show_in_file=1
