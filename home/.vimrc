@@ -146,7 +146,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set visualbell
-set cursorline
+"set cursorline
 set ttyfast
 set ruler
 set backspace=2
@@ -383,11 +383,6 @@ noremap <C-i> <C-]>
 " Press F5 to toggle GUndo tree
 nnoremap <F5> :GundoToggle<CR>
 
-" Make ctrlp not manage the working directory
-let g:ctrlp_working_path_mode = 0
-" Make ctrlp not find dotfiles
-let g:ctrlp_dotfiles = 0
-
 " error format for sbt-quickfix plugin
 " (https://github.com/dscleaver/sbt-quickfix)
 set errorformat=%E\ %#[error]\ %#%f:%l:\ %m,%-Z\ %#[error]\ %p^,%-C\ %#[error]\ %m
@@ -523,17 +518,23 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_arg_map = 1
+
 nnoremap <leader>pp :CtrlPMenu<cr>
 nnoremap <leader>pf :CtrlP<cr>
 nnoremap <leader>py :CtrlPYankRing<cr>
-nnoremap <leader>pm :CtrlPMRUFiles<cr>
+nnoremap <leader>pr :CtrlPMRUFiles<cr>
 "nnoremap <leader>pt :CtrlPTag<cr>
 nnoremap <leader>pt :CtrlPBufTag<cr>
+nnoremap <leader>pb :CtrlPBuffer<cr>
 nnoremap <Leader>pu :CtrlPFunky<cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>pU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 map <Leader>pm :CtrlPModified<CR>
 map <Leader>pM :CtrlPBranch<CR>
+map <Leader>pd :CtrlPDir<CR>
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
@@ -551,6 +552,7 @@ augroup END
 augroup yapf
   autocmd!
   autocmd FileType python nnoremap <leader>Y :0,$!yapf<cr>
+  autocmd FileType python setlocal formatprg=yapf
 augroup END
 
 " elm
@@ -562,14 +564,14 @@ augroup elm
   au FileType elm nmap <leader>r <Plug>(elm-repl)
   au FileType elm nmap <leader>e <Plug>(elm-error-detail)
   au FileType elm nmap <leader>d <Plug>(elm-show-docs)
-  au FileType elm nmap <leader>w <Plug>(elm-browse-docs)
+  au FileType elm nmap <leader>D <Plug>(elm-browse-docs)
 augroup END
 let g:elm_jump_to_error = 1
 let g:elm_make_output_file = "elm.js"
-let g:elm_make_show_warnings = 0
+let g:elm_make_show_warnings = 1
 let g:elm_browser_command = ""
-let g:elm_detailed_complete = 0
-let g:elm_format_autosave = 0
+let g:elm_detailed_complete = 1
+let g:elm_format_autosave = 1
 
 "nnoremap <leader>el :ElmEvalLine<CR>
 "vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
