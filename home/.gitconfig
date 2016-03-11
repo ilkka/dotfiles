@@ -55,9 +55,10 @@
 
 [merge]
 	summary = true
+  tool = splice
 
 [mergetool "splice"]
-	cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
 	trustExitCode = true
 
 [rerere]
