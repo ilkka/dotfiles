@@ -490,7 +490,7 @@ set errorformat+=,%-G%.%#
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='wombat'
+let g:airline_theme='powerlineish'
 
 " unite
 "let g:unite_source_history_yank_enable = 1
