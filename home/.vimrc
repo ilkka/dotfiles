@@ -27,7 +27,8 @@ NeoBundle 'kien/rainbow_parentheses.vim'
 
 " widgets and utils
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'clones/vim-taglist'
 NeoBundle 'shemerey/vim-peepopen'
 NeoBundle 'Shougo/neomru.vim'
@@ -487,8 +488,9 @@ set errorformat+=,%-G%.%#
 " --- end neocomplcache setting block
 
 " airline
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='wombat'
 
 " unite
 "let g:unite_source_history_yank_enable = 1
@@ -535,6 +537,8 @@ nnoremap <Leader>pU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 map <Leader>pm :CtrlPModified<CR>
 map <Leader>pM :CtrlPBranch<CR>
 map <Leader>pd :CtrlPDir<CR>
+nnoremap <Leader>pc :CtrlPClearCache<cr>
+nnoremap <Leader>pC :CtrlPClearAllCaches<cr>
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
@@ -558,13 +562,15 @@ augroup END
 " elm
 augroup elm
   autocmd!
-  au FileType elm nmap <leader>b <Plug>(elm-make)
-  au FileType elm nmap <leader>m <Plug>(elm-make-main)
-  au FileType elm nmap <leader>t <Plug>(elm-test)
-  au FileType elm nmap <leader>r <Plug>(elm-repl)
-  au FileType elm nmap <leader>e <Plug>(elm-error-detail)
-  au FileType elm nmap <leader>d <Plug>(elm-show-docs)
-  au FileType elm nmap <leader>D <Plug>(elm-browse-docs)
+  au FileType elm nmap <leader>eb <Plug>(elm-make)
+  au FileType elm nmap <leader>em <Plug>(elm-make-main)
+  au FileType elm nmap <leader>et <Plug>(elm-test)
+  au FileType elm nmap <leader>er <Plug>(elm-repl)
+  au FileType elm nmap <leader>ee <Plug>(elm-error-detail)
+  au FileType elm nmap <leader>ed <Plug>(elm-show-docs)
+  au FileType elm nmap <leader>eD <Plug>(elm-browse-docs)
+  au FileType elm nmap <leader>ef :ElmFormat<cr>
+  au FileType elm setlocal formatprg=elm-format
 augroup END
 let g:elm_jump_to_error = 1
 let g:elm_make_output_file = "elm.js"
