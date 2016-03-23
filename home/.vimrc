@@ -279,15 +279,6 @@ noremap <Leader>se :setlocal spell spelllang=en_gb<CR>
 noremap <Leader>sf :setlocal spell spelllang=fi_fi<CR>
 noremap <Leader>sn :setlocal nospell<CR>
 
-" FuzzyFinder options
-"noremap <Leader>ff :FufFile<CR>
-"noremap <Leader>fb :FufBuffer<CR>
-"noremap <Leader>fd :FufDir<CR>
-"noremap <Leader>ft :FufTag<CR>
-"noremap <Leader>fl :FufLine<CR>
-"noremap <Leader>fq :FufQuickfix<CR>
-"noremap <Leader>fr :FufRenewCache<CR>
-
 if !exists("g:disable_fugitive")
   let g:lmap.g = { 'name' : 'Fugitive' }
   " Fugitive options
@@ -296,6 +287,9 @@ if !exists("g:disable_fugitive")
   noremap <Leader>gc :Gcommit -v<CR>
   noremap <Leader>gd :Gdiff<CR>
   noremap <Leader>gD :Gdiff!<CR>
+  noremap <leader>gb :Gblame<cr>
+  " blame by lines
+  vnoremap <Leader>gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p<CR>
 endif
 
 " NERDComment
@@ -359,19 +353,11 @@ let g:AutoCloseProtectedRegions = ["Character"]
 
 let my_home = expand("$HOME/")
 
-if filereadable(my_home . '.vim/bundle/vim-autocorrect/autocorrect.vim')
-	noremap <Leader>aa :source ~/.vim/bundle/vim-autocorrect/autocorrect.vim
-	noremap <Leader>ac :abc
-endif
-
 "set background=light " do I want to do this? dunno.
 
 " NOW SERIOUSLY
 set nobackup
 set nowritebackup
-
-" BLAAAME
-vnoremap <Leader>gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p<CR>
 
 " Tabularize
 if exists(":Tabularize")
@@ -500,30 +486,6 @@ set errorformat+=,%-G%.%#
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
-
-" unite
-"let g:unite_source_history_yank_enable = 1
-""call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"nnoremap <leader>F :<C-u>Unite -buffer-name=files   -start-insert file_rec/async<cr>
-"nnoremap <leader>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
-"nnoremap <leader>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-"nnoremap <leader>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
-"nnoremap <leader>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-"nnoremap <leader>e :<C-u>Unite -buffer-name=buffer  buffer<cr>
-"nnoremap <leader>/ :<C-u>Unite -buffer-name=grep grep:.<cr>
-"nnoremap <leader>t :<C-u>Unite -buffer-name=tag -start-insert tag<cr>
-"nnoremap <leader>h :<C-u>Unite -buffer-name=help -start-insert help<cr>
-"nnoremap <leader>u :<C-u>Unite -buffer-name=quickfix -start-insert quickfix<cr>
-
-"" Custom mappings for the unite buffer
-"autocmd FileType unite call s:unite_settings()
-"function! s:unite_settings()
-  "" Play nice with supertab
-  "let b:SuperTabDisabled=1
-  "" Enable navigation with control-j and control-k in insert mode
-  "imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  "imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-"endfunction
 
 " ctrl-p
 let g:ctrlp_map = '<c-p>'
