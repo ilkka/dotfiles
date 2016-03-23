@@ -560,6 +560,7 @@ let g:elm_format_autosave = 1
 let g:lmap.h = {'name' : 'GitGutter'}
 nnoremap <leader>hn :GitGutterNextHunk<cr>
 nnoremap <leader>hp :GitGutterPreviousHunk<cr>
+nnoremap <leader>hv :GitGutterPreviewHunk<cr>
 nnoremap <leader>hf gg:GitGutterNextHunk<cr>
 let g:lmap.h.f = ['', 'First Hunk']
 
