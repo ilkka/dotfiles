@@ -46,6 +46,7 @@ NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
+NeoBundle 'hecal3/vim-leader-guide'
 
 " formatting and linting
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -107,6 +108,9 @@ filetype plugin indent on
 
 " NeoBundle install check0
 NeoBundleCheck
+
+" Define Top Level Dictionary for leader guide
+let g:lmap =  {}
 
 syntax enable
 
@@ -270,6 +274,7 @@ noremap <leader>o <Plug>PeepOpen
 "set completeopt=menuone,preview,longest
 
 " spell settings
+let g:lmap.s = { 'name' : 'Spellcheck' }
 noremap <Leader>se :setlocal spell spelllang=en_gb<CR>
 noremap <Leader>sf :setlocal spell spelllang=fi_fi<CR>
 noremap <Leader>sn :setlocal nospell<CR>
@@ -284,6 +289,7 @@ noremap <Leader>sn :setlocal nospell<CR>
 "noremap <Leader>fr :FufRenewCache<CR>
 
 if !exists("g:disable_fugitive")
+  let g:lmap.g = { 'name' : 'Fugitive' }
   " Fugitive options
   noremap <Leader>gw :Gwrite<CR>
   noremap <Leader>gs :Gstatus<CR>
@@ -292,6 +298,8 @@ if !exists("g:disable_fugitive")
   noremap <Leader>gD :Gdiff!<CR>
 endif
 
+" NERDComment
+let g:lmap.c = { 'name' : 'Comments' }
 " Remap VCSCommand commands because nerdcomment uses <Leader>c
 let g:VCSCommandMapPrefix='<Leader>k'
 
@@ -367,6 +375,7 @@ vnoremap <Leader>gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=li
 
 " Tabularize
 if exists(":Tabularize")
+  let g:lmap.a = { 'name' : 'Tabularize' }
   nnoremap <leader>a\| :Tabularize /\|<CR>
   vnoremap <leader>a\| :Tabularize /\|<CR>
   nnoremap <leader>a= :Tabularize /=<CR>
@@ -524,6 +533,7 @@ let g:ctrlp_dotfiles = 0
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_arg_map = 1
 
+let g:lmap.p = { 'name' : 'Ctrl-P' }
 nnoremap <leader>pp :CtrlPMenu<cr>
 nnoremap <leader>pf :CtrlP<cr>
 nnoremap <leader>py :CtrlPYankRing<cr>
@@ -562,6 +572,7 @@ augroup END
 " elm
 augroup elm
   autocmd!
+  let g:lmap.e = { 'name' : 'Elm' }
   au FileType elm nmap <leader>eb <Plug>(elm-make)
   au FileType elm nmap <leader>em <Plug>(elm-make-main)
   au FileType elm nmap <leader>et <Plug>(elm-test)
@@ -582,6 +593,20 @@ let g:elm_format_autosave = 1
 "nnoremap <leader>el :ElmEvalLine<CR>
 "vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
 "nnoremap <leader>em :ElmMakeCurrentFile<CR>
+
+" gitgutter
+let g:lmap.h = {'name' : 'GitGutter'}
+nnoremap <leader>hn :GitGutterNextHunk<cr>
+nnoremap <leader>hp :GitGutterPreviousHunk<cr>
+nnoremap <leader>hf gg:GitGutterNextHunk<cr>
+let g:lmap.h.f = ['', 'First Hunk']
+
+" All maps have names, can go ahead and finish up leader guide registration
+" (ok so maybe they would update dynamically but mehhh)
+call leaderGuide#register_prefix_descriptions(",", "g:lmap")
+nnoremap <silent> <leader> :LeaderGuide ','<CR>
+vnoremap <silent> <leader> :LeaderGuideVisual ','<CR>
+
 
 " local defs, LEAVE THIS LAST
 if filereadable($HOME."/.vimrc-local")
