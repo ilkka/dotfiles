@@ -134,8 +134,8 @@ endif
 " colorscheme clouds_midnight
 " colorscheme molokai
 let g:solarized_termcolors=256
-colorscheme solarized
-set background=dark
+"colorscheme solarized
+"set background=dark
 
 set modelines=5
 set modeline

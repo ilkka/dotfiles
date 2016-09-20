@@ -1,6 +1,3 @@
-# reasonable locale
-export LC_ALL=en_US.UTF-8
-
 ###############################################################################
 # Bail early on a dumb terminal to make e.g. tramp work
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
@@ -13,19 +10,19 @@ fi
 
 # Antigen all the things
 antigen use oh-my-zsh
-antigen bundle git
+# Don't want the aliases so disable git
+#antigen bundle git
 antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
+#antigen bundle pip
+#antigen bundle lein
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle unixorn/autoupdate-antigen.zshplugin
-antigen bundle fcambus/ansiweather
 antigen bundle b4b4r07/enhancd
 antigen bundle unixorn/git-extra-commands
 antigen bundle rimraf/k
-antigen bundle zsh-users/zsh-completions
-antigen bundle ilkka/zsh-node-nvm
+#antigen bundle zsh-users/zsh-completions
+#antigen bundle ilkka/zsh-node-nvm
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 
@@ -33,29 +30,7 @@ antigen bundle sindresorhus/pure
 antigen apply
 
 ###############################################################################
-# Editor wankery
-export GIT_EDITOR='vim'
-export SUDO_EDITOR='vim'
-export EDITOR='vim'
-if command -v atom >/dev/null 2>&1; then
-  export VISUAL='atom --new --wait'
-  export EDITOR='atom --new --wait'
-fi
-
-###############################################################################
-# Environment basics
-
-# set up color
-export CLICOLOR='true'
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-
-# set up less
-export PAGER='less'
-export LESS='-Ri'
-if command -v lesspipe.sh >/dev/null 2>&1; then
-  export LESSOPEN="|lesspipe.sh %s"
-fi
-
+# Virtualenvwrapper
 for dir in /usr/local/bin /usr/share/virtualenvwrapper; do
   if [[ -r ${dir}/virtualenvwrapper.sh ]]; then
     source ${dir}/virtualenvwrapper.sh
@@ -135,10 +110,6 @@ whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
 [ -f ~/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
 
 ###############################################################################
-# aliases
-alias vboxmanage=VBoxManage
-
-###############################################################################
 # extra hstr config
 if whence hh >/dev/null 2>&1
 then
@@ -148,7 +119,7 @@ fi
 
 ###############################################################################
 # Use nvim if exists
-#if whence nvim >/dev/null 2>&1; then alias vim=nvim; fi
+#if whence nvim >/dev/null 2>&1; then alias emacsclient=nvim; fi
 
 ###############################################################################
 # local stuffs if exists

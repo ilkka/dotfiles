@@ -1,6 +1,7 @@
 [user]
-	name = Ilkka Laukkanen
+	name = 
   useconfigonly = true
+	email = 
 
 [color]
 	ui = auto
@@ -46,7 +47,7 @@
 	relations = true
 
 [core]
-	pager = diff-so-fancy | less --tabs=1,5 -R
+	pager = less -R
 	excludesfile = /Users/ilau/.gitignore_global
 	editor = vim
 	autocrlf = input
@@ -126,3 +127,7 @@ protocol = https
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[credential]
+	helper = osxkeychain
+[commit]
+	template = /Users/ilau/.stCommitMsg

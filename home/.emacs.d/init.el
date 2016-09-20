@@ -28,12 +28,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(before-save-hook (quote (delete-trailing-whitespace)))
+ '(custom-enabled-themes (quote (sanityinc-solarized-light)))
   '(custom-safe-themes
      (quote
        ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(editorconfig-mode t)
- '(flycheck-disabled-checkers (quote (json-jsonlist)))
+ '(elm-format-on-save t)
+  '(flycheck-disabled-checkers
+     (quote
+       (json-jsonlist javascript-jshint javascript-gjslint javascript-jscs)))
  '(flycheck-flake8-maximum-complexity 10)
+ '(flycheck-javascript-eslint-executable "/Users/ilau/.nvm/versions/node/v6.1.0/bin/eslint")
  '(flycheck-javascript-jshint-executable "/Users/ilau/.nvm/versions/node/v5.4.1/bin/jshint")
  '(flycheck-json-jsonlint-executable "/Users/ilau/.nvm/versions/node/v5.4.1/bin/jsonlint")
   '(flycheck-mode-hook
@@ -344,6 +349,14 @@
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.module$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.theme$" . php-mode))
+
+;; *******************************************
+;; Change active node version
+(require 'nvm)
+(defun do-nvm-use (version)
+  (interactive "sVersion: ")
+  (nvm-use version)
+  (exec-path-from-shell-copy-env "PATH"))
 
 ;; *******************************************
 ;; always start server
