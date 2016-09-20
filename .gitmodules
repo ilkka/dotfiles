@@ -1,9 +1,6 @@
 [submodule "neobundle.vim"]
 	path = neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim.git
-[submodule "antigen"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen.git
 [submodule "tpm"]
 	path = tpm
 	url = https://github.com/tmux-plugins/tpm
