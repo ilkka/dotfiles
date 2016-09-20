@@ -35,4 +35,9 @@ fi
 [ -d $HOME/.local/bin ] && PATH=$HOME/.local/bin:$PATH
 
 export DOCKER_CONTENT_TRUST=1
-export NPM_TOKEN=fd1e637e-7e0c-4a40-8680-35036298768b
+export ENHANCD_DISABLE_DOT=1
+
+if [ -f $HOME/.zshenv-local ]
+then
+  source $HOME/.zshenv-local
+fi

@@ -4,30 +4,34 @@
 
 ###############################################################################
 # Antigen
-if [[ -f ~/.antigen/antigen.zsh ]]; then
-  source ~/.antigen/antigen.zsh
+#if [[ -f ~/.antigen/antigen.zsh ]]; then
+  #source ~/.antigen/antigen.zsh
+#fi
+
+# zplug
+if [[ -f ~/.zplug/init.zsh ]]; then
+  source ~/.zplug/init.zsh
 fi
 
-# Antigen all the things
-antigen use oh-my-zsh
-# Don't want the aliases so disable git
-#antigen bundle git
-antigen bundle heroku
-#antigen bundle pip
-#antigen bundle lein
-antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle unixorn/autoupdate-antigen.zshplugin
-antigen bundle b4b4r07/enhancd
-antigen bundle unixorn/git-extra-commands
-antigen bundle rimraf/k
-#antigen bundle zsh-users/zsh-completions
-#antigen bundle ilkka/zsh-node-nvm
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+zplug "plugins/command-not-found", from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "unixorn/autoupdate-antigen.zshplugin"
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "unixorn/git-extra-commands"
+zplug "rimraf/k"
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure"
+zplug "zsh-users/zsh-autosuggestions"
 
-# work it
-antigen apply
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "zplug plugins missing, install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
 
 ###############################################################################
 # Virtualenvwrapper
