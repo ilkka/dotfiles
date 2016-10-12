@@ -34,7 +34,7 @@ if [ -d "$GHC_DOT_APP" ]; then
 fi 
 [ -d $HOME/.local/bin ] && PATH=$HOME/.local/bin:$PATH
 
-export DOCKER_CONTENT_TRUST=1
+#export DOCKER_CONTENT_TRUST=1
 export ENHANCD_DISABLE_DOT=1
 
 if [ -f $HOME/.zshenv-local ]
