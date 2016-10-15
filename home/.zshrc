@@ -13,6 +13,7 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   source ~/.zplug/init.zsh
 fi
 
+zplug "zplug/zplug"
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
