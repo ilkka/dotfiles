@@ -3,10 +3,17 @@ export LC_ALL=en_US.UTF-8
 
 ###############################################################################
 # Editor wankery
-export GIT_EDITOR='vim'
-export SUDO_EDITOR='vim'
-export EDITOR='emacsclient'
-export VISUAL='emacsclient'
+export EDITOR=vim
+if command -v nvim >/dev/null 2>&1; then
+  alias vim=nvim
+  EDITOR=nvim
+fi
+#export GIT_EDITOR='subl -n -w'
+#export SUDO_EDITOR='subl -n -w'
+#export EDITOR='subl -n -w'
+export SUDO_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
+export VISUAL='subl -n -w'
 # if command -v atom >/dev/null 2>&1; then
 #   export VISUAL='atom --new --wait'
 # fi

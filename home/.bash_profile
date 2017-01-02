@@ -17,3 +17,6 @@ esac
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
+
+# added by Anaconda3 4.2.0 installer
+export PATH="/Users/ilau/anaconda/bin:$PATH"

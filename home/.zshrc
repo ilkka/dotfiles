@@ -13,7 +13,7 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   source ~/.zplug/init.zsh
 fi
 
-zplug "zplug/zplug"
+zplug "zplug/zplug", as:command
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
@@ -22,6 +22,7 @@ zplug "rimraf/k"
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "bobthecow/git-flow-completion"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -32,15 +33,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load --verbose
-
-###############################################################################
-# Virtualenvwrapper
-for dir in /usr/local/bin /usr/share/virtualenvwrapper; do
-  if [[ -r ${dir}/virtualenvwrapper.sh ]]; then
-    source ${dir}/virtualenvwrapper.sh
-    break
-  fi
-done
 
 ###############################################################################
 # compinstall
@@ -96,9 +88,12 @@ bindkey -e
 [ -s "$HOME/.zsh-custom/docker-machine.zsh" ] && source "$HOME/.zsh-custom/docker-machine.zsh"
 
 ###############################################################################
-# node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# node version manager (if not loaded by zprofile)
+if [[ -z $NVM_DIR ]]
+then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
 
 ###############################################################################
 # rbenv
@@ -124,6 +119,11 @@ fi
 ###############################################################################
 # Use nvim if exists
 #if whence nvim >/dev/null 2>&1; then alias emacsclient=nvim; fi
+
+[ -n "$(command -v tig)" ] && alias ts='"tig" status' && alias tig='tig --all'
+
+# iterm2 v3 integrations!
+[ -f ~/.iterm2_shell_integration.`basename $SHELL` ] && source ~/.iterm2_shell_integration.`basename $SHELL`
 
 ###############################################################################
 # local stuffs if exists
