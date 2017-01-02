@@ -89,6 +89,14 @@ NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'vim-scripts/asciidoc.vim'
 NeoBundle 'vim-scripts/JSON.vim'
 "NeoBundle 'lambdatoast/elm.vim.git'
+NeoBundleLazy 'flowtype/vim-flow', {
+            \ 'autoload': {
+            \     'filetypes': 'javascript'
+            \ },
+            \ 'build': {
+            \     'mac': 'npm install -g flow-bin',
+            \     'unix': 'npm install -g flow-bin'
+            \ }}
 
 " fuzzy file / other things finder
 "NeoBundle 'osyo-manga/unite-quickfix'
