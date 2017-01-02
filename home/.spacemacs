@@ -269,8 +269,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setenv "PATH" (concat (getenv "PATH") ":/Users/ilau/.nvm/versions/node/v6.9.2/bin"))
-  (setq exec-path (append exec-path '("/Users/ilau/.nvm/versions/node/v6.9.2/bin")))
   (editorconfig-mode 1)
   )
 
@@ -284,7 +282,6 @@ you should place your code here."
  '(editorconfig-mode t)
  '(evil-want-Y-yank-to-eol t)
  '(flycheck-eslintrc ".eslintrc")
- '(flycheck-javascript-eslint-executable "/Users/ilau/.nvm/versions/node/v6.9.2/bin/eslint")
  '(js2-strict-trailing-comma-warning nil)
  '(magit-fetch-arguments (quote ("--prune")))
  '(magit-pull-arguments nil)
@@ -292,8 +289,7 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (tern company-quickhelp company-flow flycheck-flow pug-mode ob-elixir minitest insert-shebang hide-comnt yapfify yaml-mode which-key web-mode web-beautify use-package tide typescript-mode tagedit spaceline powerline smeargle rubocop rspec-mode restart-emacs rake pytest persp-mode paradox spinner orgit org org-projectile org-pomodoro org-plus-contrib org-download open-junk-file neotree markdown-toc magit-gh-pulls macrostep live-py-mode link-hint js2-refactor multiple-cursors intero info+ indent-guide hydra hungry-delete htmlize hl-todo highlight-indentation helm-projectile helm-make projectile helm-hoogle helm-company helm-ag google-translate git-timemachine git-link gist flycheck-pos-tip eyebrowse expand-region evil-unimpaired evil-surround evil-nerd-commenter evil-mc evil-matchit evil-magit emmet-mode elm-mode editorconfig dumb-jump diff-hl company-statistics column-enforce-mode coffee-mode bind-key alchemist aggressive-indent ace-window ace-link auto-complete anaconda-mode company anzu iedit smartparens bind-map highlight undo-tree elixir-mode flycheck haskell-mode git-gutter gh ht yasnippet request helm helm-core skewer-mode js2-mode magit magit-popup git-commit with-editor async dash inf-ruby pcre2el spacemacs-theme ws-butler window-numbering volatile-highlights vi-tilde-fringe uuidgen toc-org slim-mode simple-httpd scss-mode sass-mode rvm ruby-tools ruby-test-mode robe rbenv rainbow-delimiters quelpa pyvenv pyenv-mode py-isort pos-tip popwin pkg-info pip-requirements pcache org-present org-bullets move-text mmm-mode marshal markdown-mode magit-gitflow lorem-ipsum logito livid-mode linum-relative less-css-mode json-mode js-doc jade-mode ido-vertical-mode hy-mode hlint-refactor hindent highlight-parentheses highlight-numbers help-fns+ helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-c-yasnippet haskell-snippets golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-messenger git-gutter-fringe git-gutter-fringe+ gh-md flycheck-mix flycheck-haskell flycheck-elm flx-ido fish-mode fill-column-indicator fancy-battery exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-search-highlight-persist evil-numbers evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav diminish define-word cython-mode company-web company-tern company-shell company-ghci company-ghc company-cabal company-anaconda cmm-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-compile alert adaptive-wrap ace-jump-helm-line ac-ispell)))
- '(paradox-automatically-star t)
- '(paradox-github-token "0cc93b393a5a9f3de29e21074f17910d0849c4b6"))
+ '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
