@@ -1,7 +1,7 @@
 [user]
 	name = Ilkka Laukkanen
   useconfigonly = true
-	email = ilkka@ilkka.io
+	email =
 
 [color]
 	ui = auto
