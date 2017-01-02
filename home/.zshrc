@@ -19,8 +19,8 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "unixorn/git-extra-commands"
 zplug "rimraf/k"
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+zplug "mafredri/zsh-async", from:github, defer:0
+zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-autosuggestions"
 
 # Install plugins if there are plugins that have not been installed

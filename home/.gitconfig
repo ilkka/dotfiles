@@ -1,7 +1,7 @@
 [user]
-	name = 
+	name = Ilkka Laukkanen
   useconfigonly = true
-	email = 
+	email = ilkka@ilkka.io
 
 [color]
 	ui = auto
@@ -130,4 +130,3 @@ protocol = https
 [credential]
 	helper = osxkeychain
 [commit]
-	template = /Users/ilau/.stCommitMsg
