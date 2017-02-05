@@ -1,0 +1,15 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  { "key": "shift+cmd+b cmd+b", "command": "workbench.action.tasks.build" },
+  { "key": "shift+cmd+b cmd+r", "command": "workbench.action.tasks.runTask" },
+  { "key": "shift+cmd+b cmd+l", "command": "workbench.action.tasks.showLog" },
+  { "key": "shift+cmd+b cmd+k", "command": "workbench.action.tasks.terminate" },
+  { "key": "shift+cmd+b cmd+t", "command": "workbench.action.tasks.test" },
+  { "key": "cmd+-",                 "command": "workbench.action.zoomIn" },
+  { "key": "cmd+/",                 "command": "workbench.action.zoomOut" },
+  { "key": "cmd+`", "command": "workbench.action.terminal.focusNext" },
+  { "key": "shift+cmd+`", "command": "workbench.action.terminal.focusPrevious" },{
+    "key": "cmd+9",
+    "command": "workbench.action.focusPanel"
+  }
+]

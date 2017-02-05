@@ -1,0 +1,52 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.fontFamily": "'Fira Code', 'Input Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "files.trimTrailingWhitespace": true,
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/elm-stuff": true
+  },
+
+  "editor.wrappingColumn": 0,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderControlCharacters": true,
+
+  "diffEditor.renderSideBySide": false,
+
+  "window.reopenFolders": "all",
+
+  "python.pythonPath": "/usr/local/bin/python",
+  "python.linting.pylintPath": "/usr/local/bin/pylint",
+  "python.linting.enabled": true,
+  "python.linting.pep8Path": "/usr/local/bin/pep8",
+  "python.linting.pep8Enabled": true,
+  "python.linting.flake8Path": "/usr/local/bin/flake8",
+  "python.linting.flake8Enabled": true,
+  "python.formatting.yapfPath": "/usr/local/bin/yapf",
+
+  "gitProjectManager.baseProjectsFolders": [
+    "/Users/ilau/src",
+    "/Users/ilau/gocode"
+  ],
+
+  "gitProjectManager.storeRepositoriesBetweenSessions": true,
+  "gitProjectManager.openInNewWindow": true,
+
+  "files.associations": {"Bakefile":"Elixir","*.flow":"javascript","*.vue":"vue"},
+  "files.autoSave": "onFocusChange",
+
+  "gitlens.codeLens.visibility": "off",
+  "projectManager.showProjectNameInStatusBar": true,
+  "projectManager.vscode.baseFolders": [
+    "/Users/ilau/src",
+    "/Users/ilau/gocode"
+  ],
+
+  "gitlens.advanced.git": "/usr/local/bin/git",
+  "window.zoomLevel": 1,
+  "window.fullScreenZenMode": false,
+  "terminal.external.osxExec": "iTerm.app","terminal.integrated.shell.osx": "/usr/local/bin/fish"
+}
