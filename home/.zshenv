@@ -48,3 +48,6 @@ if [ -f $HOME/.zshenv-local ]
 then
   source $HOME/.zshenv-local
 fi
+
+# yarn
+export PATH="$HOME/.yarn/bin:$PATH"

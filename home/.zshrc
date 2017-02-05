@@ -88,14 +88,6 @@ bindkey -e
 [ -s "$HOME/.zsh-custom/docker-machine.zsh" ] && source "$HOME/.zsh-custom/docker-machine.zsh"
 
 ###############################################################################
-# node version manager (if not loaded by zprofile)
-if [[ -z $NVM_DIR ]]
-then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-fi
-
-###############################################################################
 # rbenv
 [ -d $HOME/.rbenv/bin ] && PATH=$HOME/.rbenv/bin:$PATH
 whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
