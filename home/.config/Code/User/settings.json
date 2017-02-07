@@ -29,13 +29,6 @@
   "python.linting.flake8Enabled": true,
   "python.formatting.yapfPath": "/usr/local/bin/yapf",
 
-  "gitProjectManager.baseProjectsFolders": [
-    "/Users/ilau/src",
-    "/Users/ilau/gocode"
-  ],
-
-  "gitProjectManager.storeRepositoriesBetweenSessions": true,
-  "gitProjectManager.openInNewWindow": true,
 
   "files.associations": {"Bakefile":"Elixir","*.flow":"javascript","*.vue":"vue"},
   "files.autoSave": "onFocusChange",
