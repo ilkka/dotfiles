@@ -36,6 +36,7 @@
   "gitlens.codeLens.visibility": "off",
   "projectManager.showProjectNameInStatusBar": true,
   "projectManager.vscode.baseFolders": [
+    "/home/ilkka/src",
     "/Users/ilau/src",
     "/Users/ilau/gocode"
   ],
