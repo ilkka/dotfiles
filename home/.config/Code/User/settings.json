@@ -2,6 +2,8 @@
 {
   "editor.fontFamily": "'Fira Code', 'Input Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "'Fira Code'",
+  "terminal.integrated.fontLigatures": true,
   "files.trimTrailingWhitespace": true,
 
   "search.exclude": {
