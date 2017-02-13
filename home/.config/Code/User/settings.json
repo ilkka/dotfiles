@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "editor.fontFamily": "'Fira Code', 'Input Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "Futurice, 'Fira Code', 'Input Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "terminal.integrated.fontFamily": "'Fira Code'",
   "terminal.integrated.fontLigatures": true,
@@ -44,5 +44,6 @@
   "gitlens.advanced.git": "/usr/local/bin/git",
   "window.zoomLevel": 1,
   "window.fullScreenZenMode": false,
-  "terminal.external.osxExec": "iTerm.app","terminal.integrated.shell.osx": "/usr/local/bin/fish"
+  "terminal.external.osxExec": "iTerm.app","terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "languageServerCredo.executablePath": "/usr/local/bin/mix"
 }
