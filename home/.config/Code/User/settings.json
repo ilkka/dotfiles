@@ -2,7 +2,7 @@
 {
   "editor.fontFamily": "Futurice, 'Fira Code', 'Input Mono', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "terminal.integrated.fontFamily": "'Fira Code'",
+  "terminal.integrated.fontFamily": "Futurice, 'Fira Code'",
   "terminal.integrated.fontLigatures": true,
   "files.trimTrailingWhitespace": true,
 
@@ -12,10 +12,9 @@
     "**/elm-stuff": true
   },
 
-  "editor.wrappingColumn": 0,
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
-
+  "editor.minimap.enabled": true,
   "diffEditor.renderSideBySide": false,
 
   "window.reopenFolders": "all",
@@ -33,7 +32,7 @@
   "files.associations": {"Bakefile":"Elixir","*.flow":"javascript","*.vue":"vue"},
   "files.autoSave": "onFocusChange",
 
-  "gitlens.codeLens.visibility": "off",
+  "gitlens.insiders": true,
   "projectManager.showProjectNameInStatusBar": true,
   "projectManager.vscode.baseFolders": [
     "/home/ilkka/src",
@@ -43,7 +42,11 @@
 
   "gitlens.advanced.git": "/usr/local/bin/git",
   "window.zoomLevel": 1,
-  "window.fullScreenZenMode": false,
-  "terminal.external.osxExec": "iTerm.app","terminal.integrated.shell.osx": "/usr/local/bin/fish",
-  "languageServerCredo.executablePath": "/usr/local/bin/mix"
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+  "languageServerCredo.executablePath": "/usr/local/bin/mix",
+  "workbench.colorTheme": "Kary Foundation － Light",
+  "workbench.iconTheme": "material-icon-theme",
+  "elm.formatOnSave": true,
+  "workbench.editor.showTabs": false
 }

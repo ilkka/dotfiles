@@ -11,5 +11,17 @@
   { "key": "shift+cmd+`", "command": "workbench.action.terminal.focusPrevious" },{
     "key": "cmd+9",
     "command": "workbench.action.focusPanel"
+  },
+  {
+    "key": "cmd+e cmd+l",
+    "command": "elm.replSendLine"
+  },
+  {
+    "key": "alt+[Equal]",
+    "command": "-elm.replSendLine"
+  },
+  {
+    "key": "shift+alt+7",
+    "command": "-elm.replSendLine"
   }
 ]
