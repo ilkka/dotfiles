@@ -120,3 +120,5 @@ fi
 ###############################################################################
 # local stuffs if exists
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
+
+export PATH="$HOME/.yarn/bin:$PATH"
