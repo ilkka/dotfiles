@@ -1,5 +1,6 @@
+# Defined in /var/folders/s7/2ypm2j2j7m1_71jb9wx02tsh0000gq/T//fish.7gktcp/fish_right_prompt.fish @ line 2
 function fish_right_prompt
-    set -l status_copy $status
+	set -l status_copy $status
     set -l status_code $status_copy
 
     set -l color_normal (set_color normal)
@@ -32,6 +33,11 @@ function fish_right_prompt
     if test "$CMD_DURATION" -gt 250
         set -l duration (echo $CMD_DURATION | humanize_duration)
         echo -sn "$color$duration$color_normal "
+		if test "$CMD_DURATION" -gt 2000
+	    	if which osascript >/dev/null
+	    		osascript -e 'display notification "Command '$history[1]' finished after '$duration'" with title "Command finished"'
+	    	end
+	    end
     else
         echo -sn "$color$venv$color_normal "
     end

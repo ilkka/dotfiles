@@ -1,3 +1,4 @@
+# Defined in /var/folders/s7/2ypm2j2j7m1_71jb9wx02tsh0000gq/T//fish.ml0WCs/fish_prompt.fish @ line 2
 function fish_prompt
 	if not set -q -g __fish_robbyrussell_functions_defined
     set -g __fish_robbyrussell_functions_defined
@@ -53,10 +54,10 @@ function fish_prompt
   set -l repo_type (_repo_type)
   if [ $repo_type ]
     set -l repo_branch $red(_repo_branch_name $repo_type)
-    set repo_info "$blue$repo_type:($repo_branch$blue)"
+    set repo_info "$blue$repo_type:($repo_branch$blue) "
 
     if [ (_is_repo_dirty $repo_type) ]
-      set -l dirty "$yellow ✗"
+      set -l dirty "$yellow✗"
       set repo_info "$repo_info$dirty "
     end
   end
