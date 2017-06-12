@@ -1,7 +1,6 @@
 [user]
 	name = Ilkka Poutanen
   useconfigonly = true
-	email =
 
 [color]
 	ui = auto
@@ -129,3 +128,7 @@ protocol = https
 	newHighlight = green bold 22
 [credential]
 [commit]
+[diff]
+	tool = opendiff
+[commit]
+	template = /Users/ilau/.stCommitMsg
