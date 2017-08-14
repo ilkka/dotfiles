@@ -18,7 +18,6 @@
   "editor.minimap.enabled": true,
   "diffEditor.renderSideBySide": false,
 
-  "window.reopenFolders": "all",
   "window.zoomLevel": 1,
 
   "files.associations": {"Bakefile":"Elixir","*.flow":"javascript","*.vue":"vue"},
@@ -46,10 +45,10 @@
   "javascript.implicitProjectConfig.checkJs": true,
 
   // elixir
-  "languageServerCredo.executablePath": "/usr/local/bin/mix",
+  //"languageServerCredo.executablePath": "/usr/local/bin/mix",
 
   // elm
-  "elm.formatOnSave": true,
+  //"elm.formatOnSave": true,
 
   // purescript
   "[purescript]": {

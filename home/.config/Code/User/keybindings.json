@@ -23,5 +23,149 @@
   {
     "key": "shift+alt+7",
     "command": "-elm.replSendLine"
+  },
+  {
+    "key": "cmd+g cmd+s",
+    "command": "gitlens.showCommitSearch",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "shift+alt+7",
+    "command": "-gitlens.showCommitSearch",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "cmd+g cmd+c",
+    "command": "gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && gitlens:enabled"
+  },
+  {
+    "key": "alt+c",
+    "command": "-gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && gitlens:enabled"
+  },
+  {
+    "key": "cmd+g cmd+b",
+    "command": "gitlens.toggleFileBlame",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "cmd+g shift+cmd+b",
+    "command": "gitlens.toggleCodeLens",
+    "when": "editorTextFocus && gitlens:canToggleCodeLens && gitlens:isTracked"
+  },
+  {
+    "key": "shift+alt+b",
+    "command": "-gitlens.toggleCodeLens",
+    "when": "editorTextFocus && gitlens:canToggleCodeLens && gitlens:isTracked"
+  },
+  {
+    "key": "cmd+g cmd+s",
+    "command": "gitlens.showQuickRepoStatus",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "alt+s",
+    "command": "-gitlens.showQuickRepoStatus",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "cmd+g cmd+q",
+    "command": "gitlens.showLastQuickPick",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "alt+-",
+    "command": "-gitlens.showLastQuickPick",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "cmd+g shift+cmd+h",
+    "command": "gitlens.showQuickRepoHistory",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "shift+alt+h",
+    "command": "-gitlens.showQuickRepoHistory",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "cmd+g cmd+h",
+    "command": "gitlens.showQuickFileHistory",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "alt+h",
+    "command": "-gitlens.showQuickFileHistory",
+    "when": "gitlens:enabled"
+  },
+  {
+    "key": "cmd+g cmd+w",
+    "command": "gitlens.diffLineWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+w",
+    "command": "-gitlens.diffLineWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "cmd+g shift+cmd+w",
+    "command": "gitlens.diffWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "-gitlens.diffWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "cmd+g cmd+[Period]",
+    "command": "gitlens.diffWithNext",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+[Period]",
+    "command": "-gitlens.diffWithNext",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "cmd+g cmd+[Comma]",
+    "command": "gitlens.diffWithPrevious",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+[Comma]",
+    "command": "-gitlens.diffWithPrevious",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "cmd+g shift+cmd+[Comma]",
+    "command": "gitlens.diffLineWithPrevious",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+[Backquote]",
+    "command": "-gitlens.diffLineWithPrevious",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+cmd+j",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "extension.caseSensitiveAddNext",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "-extension.caseSensitiveAddNext",
+    "when": "editorFocus"
   }
 ]
