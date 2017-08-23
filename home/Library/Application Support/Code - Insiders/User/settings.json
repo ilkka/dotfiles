@@ -1,0 +1,12 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    "editor.fontFamily": "Futurice",
+    "terminal.integrated.fontFamily": "Futurice",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontLigatures": true,
+    "python.venvPath": "~/.virtualenvs",
+    "files.autoSave": "onFocusChange",
+    "standard.enable": false,
+    "editor.renderControlCharacters": true
+}
