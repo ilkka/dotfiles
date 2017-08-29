@@ -474,6 +474,7 @@ call leaderGuide#register_prefix_descriptions(",", "g:lmap")
 nnoremap <silent> <leader> :LeaderGuide ','<CR>
 vnoremap <silent> <leader> :LeaderGuideVisual ','<CR>
 
+let g:python3_host_prog = "/usr/local/bin/python3"
 let g:deoplete#enable_at_startup = 1
 
 " local defs, LEAVE THIS LAST
