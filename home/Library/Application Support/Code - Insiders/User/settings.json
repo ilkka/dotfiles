@@ -7,6 +7,7 @@
     "terminal.integrated.fontLigatures": true,
     "python.venvPath": "~/.virtualenvs",
     "files.autoSave": "onFocusChange",
+    "files.trimTrailingWhitespace": true,
     "standard.enable": false,
     "editor.renderControlCharacters": true
 }
