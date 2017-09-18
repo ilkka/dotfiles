@@ -4,10 +4,12 @@
     "editor.fontFamily": "Futurice",
     "terminal.integrated.fontFamily": "Futurice",
     "editor.fontLigatures": true,
-    "terminal.integrated.fontLigatures": true,
     "python.venvPath": "~/.virtualenvs",
     "files.autoSave": "onFocusChange",
     "files.trimTrailingWhitespace": true,
     "standard.enable": false,
-    "editor.renderControlCharacters": true
+    "editor.renderControlCharacters": true,
+    "prettier.trailingComma": "es5",
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "Flat UI (+GUI)"
 }
