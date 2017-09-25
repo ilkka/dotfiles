@@ -1,4 +1,4 @@
-# Defined in /var/folders/s7/2ypm2j2j7m1_71jb9wx02tsh0000gq/T//fish.xvbCoe/fish_right_prompt.fish @ line 2
+# Defined in /var/folders/s7/2ypm2j2j7m1_71jb9wx02tsh0000gq/T//fish.XfGyml/fish_right_prompt.fish @ line 2
 function fish_right_prompt
 	set -l status_copy $status
     set -l status_code $status_copy
@@ -35,7 +35,7 @@ function fish_right_prompt
         echo -sn "$color$duration$color_normal "
 		if test "$CMD_DURATION" -gt 5000
 	    	if which osascript >/dev/null
-	    		osascript -e 'display notification "'$history[1]'" with title "Done in '$duration'"'
+			#osascript -e 'display notification "'$history[1]'" with title "Done in '$duration'"'
 	    	end
 	    end
     else
