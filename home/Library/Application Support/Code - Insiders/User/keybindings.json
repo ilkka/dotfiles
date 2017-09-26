@@ -68,5 +68,15 @@
   {
     "key": "shift+cmd+t",
     "command": "workbench.action.tasks.test"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "purescript.build",
+    "when": "editorTextFocus && editorLangId == 'purescript'"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-purescript.build",
+    "when": "editorTextFocus && editorLangId == 'purescript'"
   }
 ]
