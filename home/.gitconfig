@@ -137,5 +137,3 @@ protocol = https
 [commit]
 [diff]
 	tool = opendiff
-[commit]
-	template = /Users/ilau/.stCommitMsg
