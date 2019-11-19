@@ -1,1 +1,15 @@
-../../../../.config/Code/User/keybindings.json
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "cmd+[IntlBackslash]",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+[Equal]",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "shift+cmd+[IntlBackslash]",
+        "command": "workbench.action.terminal.new"
+    }
+]
