@@ -61,16 +61,17 @@
     "workbench.colorTheme": "Noctis Azureus",
     "workbench.iconTheme": "material-icon-theme",
     "cSpell.userWords": [
-        "Millis",
-        "Oatly",
-        "POSTGRES",
-        "browserslist",
-        "docgen",
-        "dropzone",
-        "entrypoint",
-        "foldl",
-        "graphql",
-        "pubsub"
+      "Millis",
+      "Oatly",
+      "POSTGRES",
+      "browserslist",
+      "docgen",
+      "dropzone",
+      "entrypoint",
+      "foldl",
+      "graphql",
+      "knexfile",
+      "pubsub"
     ],
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
