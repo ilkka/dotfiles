@@ -91,3 +91,5 @@ if [[ -d ~/.bash_local.d ]]; then
     source $f
   done
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
