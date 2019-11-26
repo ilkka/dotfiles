@@ -27,13 +27,13 @@ export PROMPT_COMMAND="history -a"
 
 ###############################################################################
 # Editor wankery
-export GIT_EDITOR='vim'
-export SUDO_EDITOR='vim'
-export EDITOR='vim'
-if cmd_exists atom; then
-  export VISUAL='atom --new --wait'
-  export EDITOR='atom --new --wait'
+export GIT_EDITOR='nvim'
+export SUDO_EDITOR='nvim'
+export EDITOR='nvim'
+if cmd_exists code; then
+  export VISUAL='code --new --wait'
 fi
+alias vim=nvim
 
 # Stop here if we aren't interactive
 [[ -z "$PS1" ]] && return
