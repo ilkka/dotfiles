@@ -2,12 +2,6 @@
 # Bail early on a dumb terminal to make e.g. tramp work
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-###############################################################################
-# Antigen
-#if [[ -f ~/.antigen/antigen.zsh ]]; then
-  #source ~/.antigen/antigen.zsh
-#fi
-
 # zplug
 if [[ -f ~/.zplug/init.zsh ]]; then
   source ~/.zplug/init.zsh
@@ -72,30 +66,14 @@ unsetopt beep
 bindkey -e
 
 ###############################################################################
-# now go powerline
-# for dir in /usr/local/lib/python2.7/site-packages /usr/local/lib/python2.7/dist-packages; do
-#   if [[ -f ${dir}/powerline/bindings/zsh/powerline.zsh ]]; then
-#     source ${dir}/powerline/bindings/zsh/powerline.zsh
-#     break
-#   fi
-# done
+# editor basics
+EDITOR=nvim
+GIT_EDITOR=nvim
+VISUAL="code --wait"
 
 ###############################################################################
 # homeshick
 [ -s "$HOME/.homesick/repos/homeshick/homeshick.sh" ] && source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-
-###############################################################################
-# docker machine 'use' wrapper
-[ -s "$HOME/.zsh-custom/docker-machine.zsh" ] && source "$HOME/.zsh-custom/docker-machine.zsh"
-
-###############################################################################
-# rbenv
-[ -d $HOME/.rbenv/bin ] && PATH=$HOME/.rbenv/bin:$PATH
-whence -p rbenv > /dev/null 2>&1 && eval "$(rbenv init -)"
-
-###############################################################################
-# fzf if we manually installed it
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###############################################################################
 # python stuffs
@@ -120,4 +98,3 @@ fi
 # local stuffs if exists
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 
-export PATH="$HOME/.yarn/bin:$PATH"
