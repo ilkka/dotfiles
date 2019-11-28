@@ -11,6 +11,7 @@ zplug "zplug/zplug", as:command
 # Way too slow and sees no use from me
 #zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "unixorn/git-extra-commands"
 zplug "rimraf/k"
@@ -93,6 +94,11 @@ fi
 
 # iterm2 v3 integrations!
 [ -f ~/.iterm2_shell_integration.`basename $SHELL` ] && source ~/.iterm2_shell_integration.`basename $SHELL`
+
+###############################################################################
+# zsh-history-substring-search keys
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 ###############################################################################
 # local stuffs if exists
