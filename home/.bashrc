@@ -33,7 +33,6 @@ export EDITOR='nvim'
 if cmd_exists code; then
   export VISUAL='code --new --wait'
 fi
-alias vim=nvim
 
 # Stop here if we aren't interactive
 [[ -z "$PS1" ]] && return
@@ -70,7 +69,7 @@ fi
 [[ -r ~/.bash.d/prompt.sh ]] && source ~/.bash.d/prompt.sh
 
 # set up aliases
-[[ -r ~/.bash.d/aliases.sh ]] && source ~/.bash.d/aliases.sh
+[[ -r ~/.aliases ]] && source ~/.aliases
 
 # set up completion
 [[ -r ~/.bash.d/completion.sh ]] && source ~/.bash.d/completion.sh

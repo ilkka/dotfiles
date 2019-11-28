@@ -14,7 +14,8 @@ if [[ -f ~/.zplug/init.zsh ]]; then
 fi
 
 zplug "zplug/zplug", as:command
-zplug "plugins/command-not-found", from:oh-my-zsh
+# Way too slow and sees no use from me
+#zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "unixorn/git-extra-commands"
@@ -109,10 +110,8 @@ then
 fi
 
 ###############################################################################
-# Use nvim if exists
-#if whence nvim >/dev/null 2>&1; then alias emacsclient=nvim; fi
-
-[ -n "$(command -v tig)" ] && alias ts='"tig" status' && alias tig='tig --all'
+# read aliases
+[ -f ~/.aliases ] && source ~/.aliases
 
 # iterm2 v3 integrations!
 [ -f ~/.iterm2_shell_integration.`basename $SHELL` ] && source ~/.iterm2_shell_integration.`basename $SHELL`
