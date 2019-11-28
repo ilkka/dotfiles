@@ -1,8 +1,7 @@
 alias vim=nvim
 
-alias ls='ls -Gh'
-alias ll='ls -lGh'
-alias l='ls -1AGh'
+alias ls='exa'
+alias ll='exa -l'
 
 alias mv="mv -i"
 alias cp="cp -i"
