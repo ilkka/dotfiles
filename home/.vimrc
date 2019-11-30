@@ -104,6 +104,8 @@ endif
 NeoBundle 'mhartington/nvim-typescript'
 " for typescript syntax
 NeoBundle 'HerringtonDarkholme/yats.vim'
+" I only just now understood why the one is called "handlebars"
+NeoBundle 'mustache/vim-mustache-handlebars'
 
 " fuzzy file / other things finder
 NeoBundle 'ctrlpvim/ctrlp.vim'
@@ -111,6 +113,15 @@ NeoBundle 'sgur/ctrlp-extensions.vim'
 NeoBundle 'ivalkeen/vim-ctrlp-tjump'
 NeoBundle 'tacahiroy/ctrlp-funky'
 NeoBundle 'jasoncodes/ctrlp-modified.vim'
+
+" snippets!
+NeoBundle 'SirVer/ultisnips'
+
+" kube stuffs
+NeoBundle 'andrewstuart/vim-kubernetes'
+
+" Other snippets
+NeoBundle 'honza/vim-snippets'
 
 call neobundle#end()
 
@@ -173,6 +184,14 @@ set number
 if !exists("g:disable_fugitive")
   set statusline=%F%m%r%h%w[%L]%y[%p%%][%04v][%{fugitive#statusline()}]
 endif
+
+" abbreviations e.g. having to type only the opening
+let g:mustache_abbreviations = 1
+
+" ultisnips config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " editing and sourcing vimrc
 "nnoremap <leader>ev :split $MYVIMRC<CR>
