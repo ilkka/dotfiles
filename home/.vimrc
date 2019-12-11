@@ -91,19 +91,6 @@ NeoBundle 'vim-scripts/JSON.vim'
             "\     'unix': 'npm install -g flow-bin'
             "\ }}
 " fish
-NeoBundle 'dag/vim-fish'
-" fancy completion used by nvim-typescript
-if has('nvim')
-  NeoBundle 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  NeoBundle 'Shougo/deoplete.nvim'
-  NeoBundle 'roxma/nvim-yarp'
-  NeoBundle 'roxma/vim-hug-neovim-rpc'
-endif
-" for typescript completion etc but not syntax
-NeoBundle 'mhartington/nvim-typescript'
-" for typescript syntax
-NeoBundle 'HerringtonDarkholme/yats.vim'
 " I only just now understood why the one is called "handlebars"
 NeoBundle 'mustache/vim-mustache-handlebars'
 

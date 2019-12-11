@@ -91,5 +91,9 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "team.showWelcomeMessage": false
+    "team.showWelcomeMessage": false,
+    "workbench.editor.showTabs": false,
+    "explorer.openEditors.visible": 0,
+    "files.autoSave": "onFocusChange",
+    "eslint.autoFixOnSave": true
 }
