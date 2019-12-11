@@ -23,7 +23,7 @@ NeoBundle 'Shougo/vimproc', {
 
 " colors and theming
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'kien/rainbow_parentheses.vim'
+"NeoBundle 'kien/rainbow_parentheses.vim'
 
 " widgets and utils
 NeoBundle 'airblade/vim-gitgutter'
@@ -354,13 +354,13 @@ augroup BWCCreateDir
 	autocmd BufWritePre * if expand("<afile>")!~#'^\w\+:/' && !isdirectory(expand("%:h")) | execute "silent! !mkdir -p %:h" | redraw! | endif
 augroup END
 
-augroup rainbow
-  au!
-  au VimEnter * RainbowParenthesesToggle
-  au Syntax * RainbowParenthesesLoadRound
-  au Syntax * RainbowParenthesesLoadSquare
-  au Syntax * RainbowParenthesesLoadBraces
-augroup END
+"augroup rainbow
+"  au!
+"  au VimEnter * RainbowParenthesesToggle
+"  au Syntax * RainbowParenthesesLoadRound
+"  au Syntax * RainbowParenthesesLoadSquare
+"  au Syntax * RainbowParenthesesLoadBraces
+"augroup END
 
 " this is for waf builds
 let &efm = "%-GBuild finished successfully %.%#," . &efm

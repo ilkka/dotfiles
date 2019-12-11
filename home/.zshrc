@@ -8,8 +8,8 @@ if [[ -f ~/.zplug/init.zsh ]]; then
 fi
 
 zplug "zplug/zplug", as:command
-# Way too slow and sees no use from me
-#zplug "plugins/command-not-found", from:oh-my-zsh
+# This needs to load after zsh-syntax-highlighting
+zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "unixorn/git-extra-commands"
@@ -17,7 +17,6 @@ zplug "mafredri/zsh-async", from:github, defer:0
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-autosuggestions"
 zplug "bobthecow/git-flow-completion"
-zplug "zsh-users/zsh-history-substring-search"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -83,8 +82,9 @@ VISUAL="code --wait"
 # extra hstr config
 if whence hh >/dev/null 2>&1
 then
-  export HH_CONFIG=hicolor        # get more colors
-  bindkey -s "\C-r" "\eqhh\n"     # bind hh to Ctrl-r (for Vi mode check doc)
+  alias hh=hstr                    # hh to be alias for hstr
+  export HSTR_CONFIG=hicolor        # get more colors
+  bindkey -s "\C-r" "\eqhstr\n"     # bind hstr to Ctrl-r (for Vi mode check doc)
 fi
 
 ###############################################################################
@@ -98,6 +98,11 @@ fi
 # zsh-history-substring-search keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+if whence scmpuff >/dev/null 2>&1
+then
+  eval "$(scmpuff init -s)"
+fi
 
 ###############################################################################
 # local stuffs if exists

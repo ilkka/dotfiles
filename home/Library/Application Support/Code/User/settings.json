@@ -61,17 +61,18 @@
     "workbench.colorTheme": "Noctis Azureus",
     "workbench.iconTheme": "material-icon-theme",
     "cSpell.userWords": [
-      "Millis",
-      "Oatly",
-      "POSTGRES",
-      "browserslist",
-      "docgen",
-      "dropzone",
-      "entrypoint",
-      "foldl",
-      "graphql",
-      "knexfile",
-      "pubsub"
+        "Millis",
+        "Oatly",
+        "POSTGRES",
+        "antialiased",
+        "browserslist",
+        "docgen",
+        "dropzone",
+        "entrypoint",
+        "foldl",
+        "graphql",
+        "knexfile",
+        "pubsub"
     ],
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -83,5 +84,12 @@
     },
     "rust-client.rustupPath": "/Users/ilau/.cargo/bin/rustup",
     "rust.clippy_preference": "on",
-    "diffEditor.renderSideBySide": false
+    "diffEditor.renderSideBySide": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "team.showWelcomeMessage": false
 }
