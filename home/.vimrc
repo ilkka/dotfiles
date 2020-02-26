@@ -90,9 +90,9 @@ NeoBundle 'vim-scripts/JSON.vim'
             "\     'mac': 'npm install -g flow-bin',
             "\     'unix': 'npm install -g flow-bin'
             "\ }}
-" fish
 " I only just now understood why the one is called "handlebars"
 NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle "google/vim-jsonnet"
 
 " fuzzy file / other things finder
 NeoBundle 'ctrlpvim/ctrlp.vim'
