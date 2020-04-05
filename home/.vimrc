@@ -29,6 +29,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'ayu-theme/ayu-vim'
 NeoBundle 'clones/vim-taglist'
 NeoBundle 'shemerey/vim-peepopen'
 NeoBundle 'Shougo/neomru.vim'
@@ -141,9 +142,12 @@ endif
 " colorscheme mustang
 " colorscheme clouds_midnight
 " colorscheme molokai
-let g:solarized_termcolors=256
-colorscheme solarized
-set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
+"set background=dark
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
 
 set modelines=5
 set modeline
