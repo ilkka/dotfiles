@@ -99,11 +99,6 @@ fi
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-if whence scmpuff >/dev/null 2>&1
-then
-  eval "$(scmpuff init -s)"
-fi
-
 ###############################################################################
 # is there go
 [ -d ~/go/bin ] && PATH=$PATH:~/go/bin
