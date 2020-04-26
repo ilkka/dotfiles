@@ -136,3 +136,6 @@ protocol = https
 [commit]
 [diff]
 	tool = opendiff
+
+[include]
+	path = ~/.gitconfig.local
