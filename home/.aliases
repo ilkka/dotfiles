@@ -1,11 +1,15 @@
 alias vim=nvim
 
-alias ls='exa'
-alias ll='exa -l'
+if [[ -x $(which exa) ]]; then
+alias ls='exa --git'
+alias ll='exa -l --git'
+fi
 
 alias mv="mv -i"
 alias cp="cp -i"
 alias rm="rm -i"
 alias ln="ln -i"
 
+if [[ -x $(which bat) ]]; then
 alias cat='bat'
+fi
