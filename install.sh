@@ -21,4 +21,17 @@ fi
 
 homeshick link --force
 
+# try to switch shells
+case "$SHELL" in
+  *zsh)
+    # golden
+    ;;
+  *)
+    if [ -n "$(which zsh)" ]; then
+      # just do it this dumb way for now
+      echo "exec $(which zsh) \"$@\"" > $HOME/.bashrc
+    fi
+    ;;
+esac
+
 #vim: sw=2 sts=2 et
