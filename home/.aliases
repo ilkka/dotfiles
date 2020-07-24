@@ -1,4 +1,6 @@
+if [[ -x $(which nvim) ]]; then
 alias vim=nvim
+fi
 
 if [[ -x $(which exa) ]]; then
 alias ls='exa --git'
