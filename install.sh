@@ -23,7 +23,7 @@ fi
 homeshick link --force
 
 # try to install exa
-if [ -z "$(which exa)" ] && [ -n "$(which curl)" ] && [ -n "$(which unzip)" ]
+if [ -z "$(which exa)" ] && [ -n "$(which curl)" ] && [ -n "$(which unzip)" ] && sudo true
 then
   if [ "Linux" = "$(uname -s)" ]; then
     EXA_OS=linux
@@ -33,21 +33,8 @@ then
   EXA_VARIANT="exa-${EXA_OS}-x86_64"
   curl -fsSLO https://github.com/ogham/exa/releases/download/v0.9.0/${EXA_VARIANT}-0.9.0.zip
   unzip ${EXA_VARIANT}-0.9.0.zip
-  mv ${EXA_VARIANT} /usr/local/bin/exa
+  sudo mv ${EXA_VARIANT} /usr/local/bin/exa
   rm -f ${EXA_VARIANT}-0.9.0.zip
 fi
-
-# try to switch shells
-case "$SHELL" in
-  *zsh)
-    # golden
-    ;;
-  *)
-    if [ -n "$(which zsh)" ]; then
-      # just do it this dumb way for now
-      echo "exec $(which zsh) \"\$@\"" > "$HOME/.bashrc"
-    fi
-    ;;
-esac
 
 #vim: sw=2 sts=2 et
