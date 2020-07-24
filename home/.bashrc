@@ -66,7 +66,8 @@ if cmd_exists lesspipe.sh; then
 fi
 
 # set up prompt
-[[ -r ~/.bash.d/prompt.sh ]] && source ~/.bash.d/prompt.sh
+# meh, can't be bothered to muck about with powerline
+#[[ -r ~/.bash.d/prompt.sh ]] && source ~/.bash.d/prompt.sh
 
 # set up aliases
 [[ -r ~/.aliases ]] && source ~/.aliases
