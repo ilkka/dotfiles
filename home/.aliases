@@ -3,8 +3,10 @@ alias vim=nvim
 fi
 
 if [[ -x $(which exa) ]]; then
-alias ls='exa --git'
-alias ll='exa -l --git'
+alias ls='exa'
+alias ll='exa -l'
+else
+alias ll='ls -l'
 fi
 
 alias mv="mv -i"
