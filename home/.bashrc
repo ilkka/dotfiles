@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 
 ###############################################################################
 # Includes
-source $HOME/.bash.d/functions.sh
+source "$HOME/.bash.d/functions.sh"
 
 ###############################################################################
 # History
@@ -27,9 +27,9 @@ export PROMPT_COMMAND="history -a"
 
 ###############################################################################
 # Editor wankery
-export GIT_EDITOR='nvim'
-export SUDO_EDITOR='nvim'
-export EDITOR='nvim'
+if [[ -x $(which nvim) ]]; then export EDITOR=nvim; else export EDITOR=vim; fi
+export GIT_EDITOR=$EDITOR
+export SUDO_EDITOR=$EDITOR
 if cmd_exists code; then
   export VISUAL='code --new --wait'
 fi
@@ -87,7 +87,7 @@ fi
 # set up unversioned stuff
 if [[ -d ~/.bash_local.d ]]; then
   for f in ~/.bash_local.d/*.sh; do
-    source $f
+    source "$f"
   done
 fi
 

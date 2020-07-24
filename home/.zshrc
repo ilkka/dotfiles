@@ -67,9 +67,9 @@ bindkey -e
 
 ###############################################################################
 # editor basics
-EDITOR=nvim
-GIT_EDITOR=nvim
-VISUAL="code --wait"
+if [[ -x $(which nvim) ]]; then EDITOR=nvim; else EDITOR=vim; fi
+GIT_EDITOR=$EDITOR
+if [[ -x $(which code) ]]; then VISUAL="code --wait"; fi
 
 ###############################################################################
 # homeshick
