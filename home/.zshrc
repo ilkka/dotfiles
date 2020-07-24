@@ -93,7 +93,7 @@ fi
 [ -f ~/.aliases ] && source ~/.aliases
 
 # iterm2 v3 integrations!
-[ -f ~/.iterm2_shell_integration.`basename $SHELL` ] && source ~/.iterm2_shell_integration.`basename $SHELL`
+[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
 
 ###############################################################################
 # zsh-history-substring-search keys
