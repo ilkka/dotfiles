@@ -8,6 +8,7 @@ if [[ -f ~/.zplug/init.zsh ]]; then
 fi
 
 zplug "zplug/zplug", as:command
+zplug "lukechilds/zsh-nvm"
 # This needs to load after zsh-syntax-highlighting
 zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zsh-users/zsh-syntax-highlighting"

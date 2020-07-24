@@ -7,6 +7,7 @@
 [user]
 	name = Ilkka Poutanen
 	email = ilkka.poutanen@futurice.com
+	signingkey = 924A3278F04CF18C
 
 [color]
 	ui = auto
@@ -54,7 +55,7 @@
 [core]
 	pager = less -R
 	excludesfile = /Users/ilau/.gitignore_global
-	editor = nvim
+	editor = vim
 	autocrlf = input
 
 [merge]
@@ -62,7 +63,7 @@
   tool = splice
 
 [mergetool "splice"]
-	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
 	trustExitCode = true
 
 [rerere]
@@ -82,7 +83,7 @@
 	prune-all = !git remote | xargs -n 1 git remote prune
 	#ll = log --graph --decorate --pretty=format:'%C(magenta)%h%C(reset)%C(bold yellow)%d%C(reset) %s %C(green)%an %C(white)%cr%C(reset)' --abbrev-commit --date=relative
 	#la = !git ll --all
-	#edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; nvim `f`"
+	#edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; vim `f`"
 	#add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u; }; git add `f`"
 	serve = daemon --reuseaddr --base-path=. --export-all --verbose
 	#br = branch -avv
@@ -139,3 +140,5 @@ protocol = https
 
 [include]
 	path = ~/.gitconfig.local
+[pull]
+	rebase = true
