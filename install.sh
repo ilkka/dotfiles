@@ -25,10 +25,16 @@ homeshick link --force
 # try to install exa
 if [ -z "$(which exa)" ] && [ -n "$(which curl)" ] && [ -n "$(which unzip)" ]
 then
-  curl -fsSLO https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
-  unzip exa-linux-x86_64-0.9.0.zip
-  mv exa-linux-x86_64 /usr/local/bin/exa
-  rm -f exa-linux-x86_64-0.9.0.zip
+  if [ "Linux" = "$(uname -s)" ]; then
+    EXA_OS=linux
+  else
+    EXA_OS=macos
+  fi
+  EXA_VARIANT="exa-${EXA_OS}-x86_64"
+  curl -fsSLO https://github.com/ogham/exa/releases/download/v0.9.0/${EXA_VARIANT}-0.9.0.zip
+  unzip ${EXA_VARIANT}-0.9.0.zip
+  mv ${EXA_VARIANT} /usr/local/bin/exa
+  rm -f ${EXA_VARIANT}-0.9.0.zip
 fi
 
 # try to switch shells
