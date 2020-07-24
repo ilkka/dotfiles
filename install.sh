@@ -29,7 +29,7 @@ case "$SHELL" in
   *)
     if [ -n "$(which zsh)" ]; then
       # just do it this dumb way for now
-      echo "exec $(which zsh) \"$@\"" > $HOME/.bashrc
+      echo "exec $(which zsh) \"\$@\"" > $HOME/.bashrc
     fi
     ;;
 esac
