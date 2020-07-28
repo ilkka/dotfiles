@@ -15,7 +15,6 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "unixorn/git-extra-commands"
 zplug "mafredri/zsh-async", from:github, defer:0
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-autosuggestions"
 zplug "bobthecow/git-flow-completion"
 
@@ -108,3 +107,6 @@ bindkey '^[[B' history-substring-search-down
 # local stuffs if exists
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 
+###############################################################################
+# prompty prompt
+eval $(starship init zsh)
