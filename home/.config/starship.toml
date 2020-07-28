@@ -1,0 +1,12 @@
+[docker_context]
+disabled = false
+only_with_files = true
+
+[hostname]
+ssh_only = false
+
+[kubernetes]
+disabled = false
+[kubernetes.context_aliases]
+docker-desktop = "🐳 "
+
