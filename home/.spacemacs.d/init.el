@@ -491,7 +491,7 @@ before packages are loaded."
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
   ;; Use latest LTS (12.x) node
-  (nvm-use (car (last (directory-files "~/.nvm/versions/node/" nil "^v12")))))
+  (when (not windows?) (nvm-use (car (last (directory-files "~/.nvm/versions/node/" nil "^v12"))))))
 
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
