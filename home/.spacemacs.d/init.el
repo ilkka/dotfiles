@@ -2,6 +2,11 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+;; Borrowed with love from https://github.com/ekaschalk/.spacemacs.d/blob/master/init.el
+(defconst linux?   (eq system-type 'gnu/linux) "Are we on a linux machine?")
+(defconst mac?     (eq system-type 'darwin)    "Are we on a macOS machine?")
+(defconst windows? (not (or linux? mac?))      "Are we on windows machine?")
+
 (defun dotspacemacs/layers ()
   "Layer configuration:
 This function should only modify configuration layer settings."
