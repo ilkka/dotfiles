@@ -31,6 +31,9 @@
     bootstrap_before = "myspacevim#before"
     bootstrap_after = "myspacevim#after"
 
+[[custom_plugins]]
+repo = "nathangrigg/vim-beancount"
+
 [[layers]]
 name = 'colorscheme'
 
