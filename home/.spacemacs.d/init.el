@@ -37,7 +37,11 @@ This function should only modify configuration layer settings."
     '((rust :variables rust-format-on-save t)
        (haskell :variables haskell-enable-hindent-style "fundamental")
        yaml
-       (javascript :variables node-add-modules-path t)
+       lsp
+       (javascript :variables javascript-fmt-tool 'prettier
+         javascript-fmt-on-save t
+         javascript-import-tool 'import-js
+         javascript-backend 'lsp)
        (typescript :variables typescript-indent-level 2 typescript-linter 'eslint)
        react
        prettier
