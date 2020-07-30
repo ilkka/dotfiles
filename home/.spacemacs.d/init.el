@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
        (javascript :variables node-add-modules-path t)
        (typescript :variables typescript-indent-level 2 typescript-linter 'eslint)
        react
+       prettier
        html
        elixir
        ;; ----------------------------------------------------------------
@@ -73,7 +74,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(prettier exec-path-from-shell nvm)
+   dotspacemacs-additional-packages '(exec-path-from-shell nvm)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -480,7 +481,6 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq ns-right-alternate-modifier (quote none))
-  (global-prettier-mode)
   (eval-after-load 'flyspell
     '(progn
        (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
