@@ -502,7 +502,8 @@ before packages are loaded."
     (require 'beancount)
     (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
     (add-hook 'beancount-mode-hook #'outline-minor-mode))
-  (setq-default scroll-margin 4))
+  (setq-default scroll-margin 4)
+  (when (file-exists-p "~/.spacemacs-local.el") (load "~/.spacemacs-local")))
 
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
