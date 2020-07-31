@@ -7,6 +7,8 @@
 (defconst mac?     (eq system-type 'darwin)    "Are we on a macOS machine?")
 (defconst windows? (not (or linux? mac?))      "Are we on windows machine?")
 
+(defconst beancount-path (cond (windows? "~/../../Code/beancount/") ("~/Code/beancount/")))
+
 (defun dotspacemacs/layers ()
   "Layer configuration:
 This function should only modify configuration layer settings."
@@ -497,8 +499,8 @@ before packages are loaded."
     (exec-path-from-shell-initialize))
   ;; Use latest LTS (12.x) node
   (when (not windows?) (nvm-use (car (last (directory-files "~/.nvm/versions/node/" nil "^v12")))))
-  (when (file-exists-p "~/Code/beancount/editors/emacs/beancount.el")
-    (add-to-list 'load-path "~/Code/beancount/editors/emacs")
+  (when (file-exists-p (concat beancount-path "editors/emacs/beancount.el"))
+    (add-to-list 'load-path (concat beancount-path "editors/emacs"))
     (require 'beancount)
     (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
     (add-hook 'beancount-mode-hook #'outline-minor-mode))
