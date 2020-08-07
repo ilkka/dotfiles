@@ -19,11 +19,17 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "bobthecow/git-flow-completion"
 
 # Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "zplug plugins missing, install? [y/N]: "
-    if read -q; then
-        echo; zplug install
+if ! zplug check; then
+  zplug install
+  date +%s > "$HOME/.zplug-last-checked"
+else
+  if [[ -f "$HOME/.zplug-last-checked" && -n "$(which dc)" ]]; then
+    if [[ $(echo "$(date +%s) $(cat .zplug-last-checked) - 24 60 60 * * - p"|dc) -gt 0 ]]; then
+      # more than 24h since last check -- check for updates
+      zplug update
+      date +%s > $HOME/.zplug-last-checked
     fi
+  fi
 fi
 
 zplug load --verbose
