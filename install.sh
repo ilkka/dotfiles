@@ -47,6 +47,6 @@ then
 fi
 
 # try to install starship
-curl -fsSL https://starship.rs/install.sh | bash
+curl -fsSL https://starship.rs/install.sh | bash -s -- -y
 
 #vim: sw=2 sts=2 et
