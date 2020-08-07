@@ -37,12 +37,12 @@ then
   rm -f ${EXA_VARIANT}-0.9.0.zip
   if [ -n "$(which man)" ]
   then
-    sudo mkdir -p /usr/local/share/man/man1 \
-      curl -fsSLO https://raw.githubusercontent.com/ogham/exa/master/contrib/man/exa.1 \
-      sudo mv exa.1 /usr/local/share/man/man1/ \
-      sudo mkdir -p /usr/local/share/zsh/site-functions \
-      curl -fsSLO https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.zsh \
-      sudo mv completions.zsh /usr/local/share/zsh/site-functions/
+    sudo mkdir -p /usr/local/share/man/man1 
+    curl -fsSLO https://raw.githubusercontent.com/ogham/exa/master/contrib/man/exa.1 
+    sudo mv exa.1 /usr/local/share/man/man1/ 
+    sudo mkdir -p /usr/local/share/zsh/site-functions 
+    curl -fsSLO https://raw.githubusercontent.com/ogham/exa/master/contrib/completions.zsh 
+    sudo mv completions.zsh /usr/local/share/zsh/site-functions/
   fi
 fi
 
