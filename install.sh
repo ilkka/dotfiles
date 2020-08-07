@@ -37,4 +37,7 @@ then
   rm -f ${EXA_VARIANT}-0.9.0.zip
 fi
 
+# try to install starship
+curl -fsSL https://starship.rs/install.sh | bash
+
 #vim: sw=2 sts=2 et
