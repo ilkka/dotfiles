@@ -115,4 +115,4 @@ bindkey '^[[B' history-substring-search-down
 
 ###############################################################################
 # prompty prompt
-[ -n "$(which starship &>/dev/null)" ] && eval $(starship init zsh)
+which starship &>/dev/null && eval $(starship init zsh)
