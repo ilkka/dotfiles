@@ -24,10 +24,10 @@ if ! zplug check; then
   date +%s > "$HOME/.zplug-last-checked"
 else
   if [[ -f "$HOME/.zplug-last-checked" && -n "$(which dc)" ]]; then
-    if [[ $(echo "$(date +%s) $(cat .zplug-last-checked) - 24 60 60 * * - p"|dc) -gt 0 ]]; then
+    if [[ $(echo "$(date +%s) $(cat "$HOME/.zplug-last-checked") - 24 60 60 * * - p"|dc) -gt 0 ]]; then
       # more than 24h since last check -- check for updates
       zplug update
-      date +%s > $HOME/.zplug-last-checked
+      date +%s > "$HOME/.zplug-last-checked"
     fi
   fi
 fi
