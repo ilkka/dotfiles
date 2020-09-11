@@ -7,6 +7,8 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   source ~/.zplug/init.zsh
 fi
 
+export NVM_LAZY_LOAD=true
+
 zplug "zplug/zplug", as:command
 zplug "lukechilds/zsh-nvm"
 # This needs to load after zsh-syntax-highlighting
