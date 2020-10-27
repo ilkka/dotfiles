@@ -118,3 +118,7 @@ bindkey '^[[B' history-substring-search-down
 ###############################################################################
 # prompty prompt
 which starship &>/dev/null && eval $(starship init zsh)
+
+###############################################################################
+# sdkman
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
