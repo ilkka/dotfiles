@@ -19,6 +19,8 @@ zplug "unixorn/git-extra-commands"
 zplug "mafredri/zsh-async", from:github, defer:0
 zplug "zsh-users/zsh-autosuggestions"
 zplug "bobthecow/git-flow-completion"
+zplug "bobsoppe/zsh-ssh-agent", use:ssh-agent.zsh, from:github
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
