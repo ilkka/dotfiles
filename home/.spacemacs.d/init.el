@@ -57,7 +57,7 @@ This function should only modify configuration layer settings."
        emacs-lisp
        git
        github
-       markdown
+       (markdown :variables markdown-command "pandoc")
        multiple-cursors
        org
        plantuml
