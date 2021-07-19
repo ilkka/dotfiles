@@ -1,5 +1,3 @@
-vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]])
-
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
@@ -13,7 +11,7 @@ return require('packer').startup(function()
                     calc = true,
                     nvim_lsp = true,
                     -- nvim_lua = true,
-                    -- vsnip = true,
+                    vsnip = true,
                     -- ultisnips = true,
                     -- luasnip = true,
                     neorg = true,
@@ -162,7 +160,7 @@ return require('packer').startup(function()
             vim.api.nvim_set_keymap('n', '<Leader>gs', [[<Cmd>Gina status --opener=split<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gS', [[<Cmd>Gina add %<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gU', [[<Cmd>Gina reset -q %<CR>]], { noremap = true, silent = true })
-            vim.api.nvim_set_keymap('n', '<Leader>gc', [[<Cmd>Gina commit<CR>]], { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<Leader>gc', [[<Cmd>Gina commit --restore<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gp', [[<Cmd>Gina push<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gd', [[<Cmd>Gina diff<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gA', [[<Cmd>Gina add .<CR>]], { noremap = true, silent = true })
@@ -177,6 +175,21 @@ return require('packer').startup(function()
     }
 
     use 'mg979/vim-visual-multi'
+
+    use {
+        'hrsh7th/vim-vsnip',
+        config = function()
+            vim.api.nvim_set_keymap('i', '<C-j>', [[vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>']], { expr = true })
+            vim.api.nvim_set_keymap('s', '<C-j>', [[vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>']], { expr = true })
+            vim.api.nvim_set_keymap('i', '<C-l>', [[vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']], { expr = true })
+            vim.api.nvim_set_keymap('s', '<C-l>', [[vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']], { expr = true })
+        end,
+        requires = {
+            "hrsh7th/vim-vsnip-integ"
+        }
+    }
+
+    use 'rafamadriz/friendly-snippets'
 
     use {
         'neovim/nvim-lspconfig',
@@ -201,24 +214,24 @@ return require('packer').startup(function()
                 buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
                 buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
                 buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-                buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-                buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-                buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-                buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-                buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-                buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+                buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+                buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+                buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+                buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+                buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+                buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
                 buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-                buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+                buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
                 buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
                 buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-                buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-                buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+                buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+                buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
             end
 
             -- Use a loop to conveniently call 'setup' on multiple servers and
             -- map buffer local keybindings when the language server attaches
-            local servers = { "tsserver" }
+            local servers = { "tsserver", "terraformls", "pylsp", "vimls" }
             for _, lsp in ipairs(servers) do
                 nvim_lsp[lsp].setup {
                     on_attach = on_attach,
@@ -227,6 +240,52 @@ return require('packer').startup(function()
                     }
                 }
             end
+
+            -- servers needing custom config:
+            nvim_lsp["jsonls"].setup {
+                on_attach = on_attach,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                cmd = { "vscode-json-language-server.cmd", "--stdio" }
+            }
+
+            nvim_lsp["html"].setup {
+                on_attach = on_attach,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                cmd = { "vscode-html-language-server.cmd", "--stdio" }
+            }
+
+            nvim_lsp["powershell_es"].setup {
+                bundle_path = "c:/Users/ilkka/scoop/apps/powershell-editor-services/current"
+            }
+
+            local runtime_path = vim.split(package.path, ';')
+            table.insert(runtime_path, "lua/?.lua")
+            table.insert(runtime_path, "lua/?/init.lua")
+
+            nvim_lsp["sumneko_lua"].setup {
+                cmd = { "c:/Users/ilkka/Code/lua-language-server/bin/Windows/lua-language-server.exe", "-E", "c:/Users/ilkka/Code/lua-language-server/main.lua" };
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
+                            path = runtime_path
+                        },
+                        diagnostics = {
+                            globals = {'vim'}
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true)
+                        },
+                        telemetry = {
+                            enable = false
+                        }
+                    }
+                }
+            }
         end
     }
 
