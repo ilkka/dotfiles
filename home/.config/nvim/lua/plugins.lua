@@ -232,7 +232,7 @@ return require('packer').startup(function()
 
     use 'leafgarland/typescript-vim'
     use 'peitalin/vim-jsx-typescript'
- .   use 'heavenshell/vim-jsdoc'
+    use 'heavenshell/vim-jsdoc'
 
     use 'editorconfig/editorconfig-vim'
 end)
