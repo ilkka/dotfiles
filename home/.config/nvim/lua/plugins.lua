@@ -279,6 +279,24 @@ return require('packer').startup(function(use)
                 cmd = { "vscode-html-language-server.cmd", "--stdio" }
             }
 
+            nvim_lsp["dockerls"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                cmd = { "docker-langserver.cmd", "--stdio" }
+            }
+
+            nvim_lsp["elixirls"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                cmd = { "c:/users/ilkka/code/elixir-ls/rel/language_server.bat" }
+            }
+
             nvim_lsp["powershell_es"].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
