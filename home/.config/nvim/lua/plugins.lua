@@ -15,6 +15,7 @@ return require('packer').startup(function()
                     -- ultisnips = true,
                     -- luasnip = true,
                     neorg = true,
+                    -- treesitter = true,
                 }
             }
             vim.api.nvim_set_keymap('i', '<C-Space>', [[compe#complete()]], { noremap = true, expr = true })
