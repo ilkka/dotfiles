@@ -279,6 +279,15 @@ return require('packer').startup(function(use)
                 cmd = { "vscode-html-language-server.cmd", "--stdio" }
             }
 
+            nvim_lsp["yamlls"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                cmd = { "yaml-language-server.cmd", "--stdio" }
+            }
+
             nvim_lsp["dockerls"].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
@@ -312,7 +321,11 @@ return require('packer').startup(function(use)
 
             nvim_lsp["sumneko_lua"].setup {
                 cmd = { "c:/Users/ilkka/Code/lua-language-server/bin/Windows/lua-language-server.exe", "-E", "c:/Users/ilkka/Code/lua-language-server/main.lua" };
+                on_attach = on_attach,
                 capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150
+                },
                 settings = {
                     Lua = {
                         runtime = {
@@ -330,6 +343,16 @@ return require('packer').startup(function(use)
                         }
                     }
                 }
+            }
+
+            nvim_lsp["efm"].setup {
+                init_options = { documentFormatting = true, hover = true, documentSymbol = true, codeAction = true, completion = true },
+                capabilities = capabilities,
+                on_attach = on_attach,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                filetypes = { "elixir" }
             }
         end
     }
