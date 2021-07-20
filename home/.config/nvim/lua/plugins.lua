@@ -158,10 +158,10 @@ return require('packer').startup(function()
     use {
         'lambdalisue/gina.vim',
         config = function()
-            vim.api.nvim_set_keymap('n', '<Leader>gs', [[<Cmd>Gina status --opener=split<CR>]], { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<Leader>gs', [[<Cmd>Gina status<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gS', [[<Cmd>Gina add %<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gU', [[<Cmd>Gina reset -q %<CR>]], { noremap = true, silent = true })
-            vim.api.nvim_set_keymap('n', '<Leader>gc', [[<Cmd>Gina commit --restore<CR>]], { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<Leader>gc', [[<Cmd>Gina commit --verbose --restore<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gp', [[<Cmd>Gina push<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gd', [[<Cmd>Gina diff<CR>]], { noremap = true, silent = true })
             vim.api.nvim_set_keymap('n', '<Leader>gA', [[<Cmd>Gina add .<CR>]], { noremap = true, silent = true })
