@@ -242,12 +242,16 @@ return require('packer').startup(function(use)
 
             end
 
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.completion.completionItem.snippetSupport = true
+
             -- Use a loop to conveniently call 'setup' on multiple servers and
             -- map buffer local keybindings when the language server attaches
             local servers = { "tsserver", "terraformls", "pylsp", "vimls" }
             for _, lsp in ipairs(servers) do
                 nvim_lsp[lsp].setup {
                     on_attach = on_attach,
+                    capabilities = capabilities,
                     flags = {
                         debounce_text_changes = 150,
                     }
@@ -257,6 +261,7 @@ return require('packer').startup(function(use)
             -- servers needing custom config:
             nvim_lsp["jsonls"].setup {
                 on_attach = on_attach,
+                capabilities = capabilities,
                 flags = {
                     debounce_text_changes = 150
                 },
@@ -265,6 +270,7 @@ return require('packer').startup(function(use)
 
             nvim_lsp["html"].setup {
                 on_attach = on_attach,
+                capabilities = capabilities,
                 flags = {
                     debounce_text_changes = 150
                 },
@@ -272,6 +278,11 @@ return require('packer').startup(function(use)
             }
 
             nvim_lsp["powershell_es"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150
+                },
                 bundle_path = "c:/Users/ilkka/scoop/apps/powershell-editor-services/current"
             }
 
@@ -281,6 +292,7 @@ return require('packer').startup(function(use)
 
             nvim_lsp["sumneko_lua"].setup {
                 cmd = { "c:/Users/ilkka/Code/lua-language-server/bin/Windows/lua-language-server.exe", "-E", "c:/Users/ilkka/Code/lua-language-server/main.lua" };
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = {
