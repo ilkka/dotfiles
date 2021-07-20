@@ -202,6 +202,8 @@ return require('packer').startup(function(use)
 
     use 'rafamadriz/friendly-snippets'
 
+    use { 'elixir-editors/vim-elixir' }
+
     use {
         'neovim/nvim-lspconfig',
         config = function()
