@@ -428,5 +428,7 @@ return require('packer').startup(function(use)
             },
         },
     }
+
+    use 'blackCauldron7/surround.nvim'
 end)
 
