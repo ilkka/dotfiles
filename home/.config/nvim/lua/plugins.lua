@@ -367,6 +367,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    use 'adelarsq/neofsharp.vim'
+
     use 'leafgarland/typescript-vim'
     use 'peitalin/vim-jsx-typescript'
     use 'heavenshell/vim-jsdoc'
