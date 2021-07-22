@@ -345,6 +345,16 @@ return require('packer').startup(function(use)
                 }
             }
 
+            nvim_lsp["omnisharp"].setup {
+                cmd = { "c:/users/ilkka/scoop/apps/omnisharp/current/omnisharp.exe", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) }
+            }
+
+            vim.api.nvim_command('autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp')
+
+            nvim_lsp["fsautocomplete"].setup {
+                cmd = { "dotnet", "fsautocomplete", "--background-service-enabled" },
+            }
+
             nvim_lsp["efm"].setup {
                 init_options = { documentFormatting = true, hover = true, documentSymbol = true, codeAction = true, completion = true },
                 capabilities = capabilities,
