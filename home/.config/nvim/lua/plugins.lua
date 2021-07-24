@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
         }
     }
 
-    use { 
+    use {
         'Shougo/defx.nvim',
         config = function()
             vim.api.nvim_command('autocmd FileType defx call defx_settings#keybinds()')
