@@ -432,5 +432,7 @@ return require('packer').startup(function(use)
     use 'blackCauldron7/surround.nvim'
 
     use 'tpope/vim-dadbod'
+
+    use 'lukas-reineke/indent-blankline.nvim'
 end)
 
