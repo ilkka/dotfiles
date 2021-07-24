@@ -434,5 +434,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-dadbod'
 
     use 'lukas-reineke/indent-blankline.nvim'
+
+    use 'kosayoda/nvim-lightbulb'
 end)
 
