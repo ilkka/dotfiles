@@ -249,7 +249,7 @@ return require('packer').startup(function(use)
 
             -- Use a loop to conveniently call 'setup' on multiple servers and
             -- map buffer local keybindings when the language server attaches
-            local servers = { "tsserver", "terraformls", "pylsp", "vimls" }
+            local servers = { "terraformls", "pylsp", "vimls" }
             for _, lsp in ipairs(servers) do
                 nvim_lsp[lsp].setup {
                     on_attach = on_attach,
@@ -260,7 +260,16 @@ return require('packer').startup(function(use)
                 }
             end
 
-            -- servers needing custom config:
+            -- servers needing custom config
+            nvim_lsp["tsserver"].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150
+                },
+                cmd = { vim.g.os == 'Windows' and "typescript-language-server.cmd" or 'typescript-language-server', "--stdio" }
+            }
+
             nvim_lsp["jsonls"].setup {
                 on_attach = on_attach,
                 capabilities = capabilities,
