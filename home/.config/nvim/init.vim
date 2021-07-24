@@ -1,4 +1,4 @@
-let completeopt = 'menuone,noinsert'
+let completeopt = 'menuone,noselect'
 " todo: make this better somehow
 " needs to be not a symlink tho, or at least :checkhealth on windows fails otherwise :(
 let g:python3_host_prog = 'C:/Program Files/WindowsApps/PythonSoftwareFoundation.Python.3.9_3.9.1776.0_x64__qbz5n2kfra8p0/python3.9.exe'
