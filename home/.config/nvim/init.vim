@@ -1,3 +1,6 @@
+" For tips on lua conversion see https://oroques.dev/notes/neovim-init/ and
+" https://github.com/mjlbach/defaults.nvim/blob/master/init.lua
+
 " courtesy of https://vi.stackexchange.com/a/2577
 if !exists('g:os')
     if has('win32')
