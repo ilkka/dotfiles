@@ -429,12 +429,26 @@ return require('packer').startup(function(use)
         },
     }
 
-    use 'blackCauldron7/surround.nvim'
+    use { 'blackCauldron7/surround.nvim',
+        config = function()
+            require('surround').setup {}
+        end
+    }
 
     use 'tpope/vim-dadbod'
 
     use 'lukas-reineke/indent-blankline.nvim'
 
     use 'kosayoda/nvim-lightbulb'
+
+    use 'tpope/vim-dotenv'
+
+    use {
+        'kristijanhusak/vim-dadbod-ui',
+        requires = {
+            'tpope/vim-dadbod',
+            'tpope/vim-dotenv'
+        }
+    }
 end)
 
