@@ -247,123 +247,101 @@ return require('packer').startup(function(use)
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+            -- defaults for all lsps
+            local defaultSettings = {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = {
+                    debounce_text_changes = 150,
+                }
+            }
+
+            -- I think this helps with lua lsp for this nvim stuff?
+            local luajit_runtime_path = vim.split(package.path, ';')
+            table.insert(luajit_runtime_path, "lua/?.lua")
+            table.insert(luajit_runtime_path, "lua/?/init.lua")
+
             -- Use a loop to conveniently call 'setup' on multiple servers and
             -- map buffer local keybindings when the language server attaches
-            local servers = { "tsserver", "terraformls", "pylsp", "vimls" }
-            for _, lsp in ipairs(servers) do
-                nvim_lsp[lsp].setup {
+            local servers = {
+                tsserver = {},
+                terraformls = {},
+                pylsp = {},
+                vimls = {},
+                jsonls = {},
+                html = {},
+                yamlls = {},
+                dockerls = {},
+                elixirls = { cmd = { "/Users/ilau/.local/share/elixir-ls/language_server.sh" } },
+                powershell_es = { bundle_path = "/Users/ilau/.local/share/PowerShellEditorServices" },
+                sumneko_lua = {
+                    cmd = { "/Users/ilau/Code/lua-language-server/bin/macOS/lua-language-server", "-E", "/Users/ilau/Code/lua-language-server/main.lua" },
                     on_attach = on_attach,
                     capabilities = capabilities,
                     flags = {
-                        debounce_text_changes = 150,
-                    }
-                }
-            end
-
-            -- servers needing custom config
-            nvim_lsp["jsonls"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                cmd = { "vscode-json-language-server.cmd", "--stdio" }
-            }
-
-            nvim_lsp["html"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                cmd = { "vscode-html-language-server.cmd", "--stdio" }
-            }
-
-            nvim_lsp["yamlls"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                cmd = { "yaml-language-server.cmd", "--stdio" }
-            }
-
-            nvim_lsp["dockerls"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                cmd = { "docker-langserver.cmd", "--stdio" }
-            }
-
-            nvim_lsp["elixirls"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                cmd = { "c:/users/ilkka/code/elixir-ls/rel/language_server.bat" }
-            }
-
-            nvim_lsp["powershell_es"].setup {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                bundle_path = "c:/Users/ilkka/scoop/apps/powershell-editor-services/current"
-            }
-
-            local runtime_path = vim.split(package.path, ';')
-            table.insert(runtime_path, "lua/?.lua")
-            table.insert(runtime_path, "lua/?/init.lua")
-
-            nvim_lsp["sumneko_lua"].setup {
-                cmd = { "c:/Users/ilkka/Code/lua-language-server/bin/Windows/lua-language-server.exe", "-E", "c:/Users/ilkka/Code/lua-language-server/main.lua" };
-                on_attach = on_attach,
-                capabilities = capabilities,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = 'LuaJIT',
-                            path = runtime_path
-                        },
-                        diagnostics = {
-                            globals = {'vim'}
-                        },
-                        workspace = {
-                            library = vim.api.nvim_get_runtime_file("", true)
-                        },
-                        telemetry = {
-                            enable = false
+                        debounce_text_changes = 150
+                    },
+                    settings = {
+                        Lua = {
+                            runtime = {
+                                version = 'LuaJIT',
+                                path = luajit_runtime_path
+                            },
+                            diagnostics = {
+                                globals = {'vim'}
+                            },
+                            workspace = {
+                                library = vim.api.nvim_get_runtime_file("", true)
+                            },
+                            telemetry = {
+                                enable = false
+                            }
                         }
                     }
+                },
+                fsautocomplete = {
+                    cmd = { "dotnet", "fsautocomplete", "--background-service-enabled" },
+                },
+                efm = {
+                    cmd = {"/Users/ilau/go/bin/efm-langserver", "--stdio"},
+                    init_options = { documentFormatting = true, hover = true, documentSymbol = true, codeAction = true, completion = true },
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    flags = {
+                        debounce_text_changes = 150
+                    },
+                    filetypes = { "elixir" }
+                },
+                sqls = {
+                    cmd = {"/Users/ilau/go/bin/sqls", "--stdio"}
                 }
             }
 
-            nvim_lsp["omnisharp"].setup {
-                cmd = { "c:/users/ilkka/scoop/apps/omnisharp/current/omnisharp.exe", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) }
-            }
+            -- on windows, some of these need the cmd changed
+            if (vim.g.os == 'Windows') then
+                servers['jsonls'][2]['cmd'] = { "vscode-json-language-server.cmd", "--stdio" }
+                servers['html'][2]['cmd'] = { "vscode-html-language-server.cmd", "--stdio" }
+                servers['yamlls'][2]['cmd'] = { "yaml-language-server.cmd", "--stdio" }
+                servers['dockerls'][2]['cmd'] = { "docker-langserver.cmd", "--stdio" }
+                servers['elixirls'][2]['cmd'] = { "c:/users/ilkka/code/elixir-ls/rel/language_server.bat" }
+                servers['powershell_es'][2]['bundle_path'] = "c:/Users/ilkka/scoop/apps/powershell-editor-services/current"
+                servers['sumneko_lua'][2]['cmd'] = { "c:/Users/ilkka/Code/lua-language-server/bin/Windows/lua-language-server.exe", "-E", "c:/Users/ilkka/Code/lua-language-server/main.lua" }
+                servers['omnisharp'] = { cmd = { "c:/users/ilkka/scoop/apps/omnisharp/current/omnisharp.exe", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) } }
+            end
 
+            for lsp,extraSettings  in pairs(servers) do
+                local settings = { unpack(defaultSettings) }
+                if (type(extraSettings) ~= 'table') then
+                    error('LSP extra setttings not a table')
+                end
+                for k,v in pairs(extraSettings) do
+                    settings[k] = v
+                end
+                nvim_lsp[lsp].setup(settings)
+            end
+
+            -- This opens fs files as F# and not ...something else
             vim.api.nvim_command('autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp')
-
-            nvim_lsp["fsautocomplete"].setup {
-                cmd = { "dotnet", "fsautocomplete", "--background-service-enabled" },
-            }
-
-            nvim_lsp["efm"].setup {
-                init_options = { documentFormatting = true, hover = true, documentSymbol = true, codeAction = true, completion = true },
-                capabilities = capabilities,
-                on_attach = on_attach,
-                flags = {
-                    debounce_text_changes = 150
-                },
-                filetypes = { "elixir" }
-            }
         end
     }
 
