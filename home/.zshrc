@@ -10,7 +10,7 @@ fi
 export NVM_LAZY_LOAD=true
 
 zplug "zplug/zplug", as:command
-zplug "lukechilds/zsh-nvm"
+zplug "nodenv/nodenv"
 # This needs to load after zsh-syntax-highlighting
 zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zsh-users/zsh-syntax-highlighting"
@@ -108,6 +108,20 @@ fi
 # zsh-history-substring-search keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+###############################################################################
+# nodenv init with node-build
+[ -d ~/.zplug/repos/nodenv/nodenv/bin ] && PATH=$PATH:~/.zplug/repos/nodenv/nodenv/bin
+eval "$(nodenv init -)" 
+nodenvPlugins=(nodenv/node-build nodenv/nodenv-aliases)
+for plugin in $nodenvPlugins
+do
+  if [ ! -d "$(nodenv root)/plugins/$(basename $plugin)" ]
+  then
+    mkdir -p "$(nodenv root)/plugins"
+    git clone https://github.com/$plugin.git "$(nodenv root)/plugins/$(basename $plugin)"
+  fi
+done
 
 ###############################################################################
 # is there go
