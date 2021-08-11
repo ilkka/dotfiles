@@ -428,5 +428,7 @@ return require('packer').startup(function(use)
             'tpope/vim-dotenv'
         }
     }
+
+    use 'sbdchd/neoformat'
 end)
 
