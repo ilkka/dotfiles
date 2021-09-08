@@ -110,9 +110,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 ###############################################################################
-# nodenv init with node-build
-[ -d ~/.zplug/repos/nodenv/nodenv/bin ] && PATH=$PATH:~/.zplug/repos/nodenv/nodenv/bin
-eval "$(nodenv init -)" 
+# Make sure nodenv has its plugins
 nodenvPlugins=(nodenv/node-build nodenv/nodenv-aliases)
 for plugin in $nodenvPlugins
 do
@@ -122,10 +120,6 @@ do
     git clone https://github.com/$plugin.git "$(nodenv root)/plugins/$(basename $plugin)"
   fi
 done
-
-###############################################################################
-# is there go
-[ -d ~/go/bin ] && PATH=$PATH:~/go/bin
 
 ###############################################################################
 # local stuffs if exists
