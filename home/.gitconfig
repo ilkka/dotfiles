@@ -63,7 +63,7 @@
   tool = splice
 
 [mergetool "splice"]
-	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED --cmd 'let g:disable_fugitive=1' -c 'SpliceInit'"
+	cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true
 
 [rerere]
