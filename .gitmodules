@@ -1,6 +1,0 @@
-[submodule "tpm"]
-	path = tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule "zplug"]
-	path = zplug
-	url = https://github.com/zplug/zplug.git
