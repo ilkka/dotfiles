@@ -1,26 +1,16 @@
-###############################################################################
-# Bail early on a dumb terminal to make e.g. tramp work
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-# zplug
 if [[ -f ~/.zplug/init.zsh ]]; then
-  source ~/.zplug/init.zsh
+    source ~/.zplug/init.zsh
 fi
 
-export NVM_LAZY_LOAD=true
-
+# plugins
 zplug "zplug/zplug", as:command
-zplug "nodenv/nodenv"
-# This needs to load after zsh-syntax-highlighting
 zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
-zplug "unixorn/git-extra-commands"
-zplug "mafredri/zsh-async", from:github, defer:0
 zplug "zsh-users/zsh-autosuggestions"
-zplug "bobthecow/git-flow-completion"
 zplug "bobsoppe/zsh-ssh-agent", use:ssh-agent.zsh, from:github
-
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
@@ -38,7 +28,6 @@ fi
 
 zplug load --verbose
 
-###############################################################################
 # compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' completions 1
@@ -65,8 +54,7 @@ zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
 
-###############################################################################
-# Lines configured by zsh-newuser-install
+# history
 export HISTFILE=~/.zsh-history
 HISTSIZE=5000
 SAVEHIST=5000
@@ -74,61 +62,24 @@ setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -e
 
-###############################################################################
-# editor basics
-if [[ -x $(which nvim) ]]; then EDITOR=nvim; else EDITOR=vim; fi
-GIT_EDITOR=$EDITOR
-if [[ -x $(which code) ]]; then VISUAL="code --wait"; fi
+# editor
+if [[ -x $(which nvim) ]]; then EDITOR=nvim; fi
 
-###############################################################################
-# homeshick
-[ -s "$HOME/.homesick/repos/homeshick/homeshick.sh" ] && source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-
-###############################################################################
-# python stuffs
-[ -f ~/.pystartup ] && export PYTHONSTARTUP=$HOME/.pystartup
-
-###############################################################################
-# extra hstr config
-if whence hh >/dev/null 2>&1
-then
-  alias hh=hstr                    # hh to be alias for hstr
-  export HSTR_CONFIG=hicolor        # get more colors
-  bindkey -s "\C-r" "\eqhstr\n"     # bind hstr to Ctrl-r (for Vi mode check doc)
-fi
-
-###############################################################################
-# read aliases
-[ -f ~/.aliases ] && source ~/.aliases
-
-# iterm2 v3 integrations!
-[ -f ~/.iterm2_shell_integration.zsh ] && source ~/.iterm2_shell_integration.zsh
-
-###############################################################################
-# zsh-history-substring-search keys
+# arrow keys up/down to search in history
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# bind ctrl-arrows l/r to word skip
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
-###############################################################################
-# Make sure nodenv has its plugins
-nodenvPlugins=(nodenv/node-build nodenv/nodenv-aliases)
-for plugin in $nodenvPlugins
-do
-  if [ ! -d "$(nodenv root)/plugins/$(basename $plugin)" ]
-  then
-    mkdir -p "$(nodenv root)/plugins"
-    git clone https://github.com/$plugin.git "$(nodenv root)/plugins/$(basename $plugin)"
-  fi
-done
+# prompt
+eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/unicorn.omp.json)"
 
-###############################################################################
-# local stuffs if exists
-[ -f ~/.zshrc-local ] && source ~/.zshrc-local
+# fnm
+export PATH=/home/ilkka/.fnm:$PATH
+eval "$(fnm env --use-on-cd)"
 
-###############################################################################
-# prompty prompt
-which starship &>/dev/null && eval $(starship init zsh)
-
-###############################################################################
-# sdkman
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# exa
+alias ls="exa --icons"
+alias ll="exa --long --header --icons --git"
+alias lt="exa --tree"
