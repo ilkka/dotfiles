@@ -11,4 +11,5 @@
 [".local/bin/oh-my-posh"]
   type = "file"
   url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64"
+  executable = true
   refreshPeriod = "168h"
