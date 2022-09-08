@@ -96,10 +96,6 @@ eval "`fnm env`"
 
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-# pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Set up ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -130,3 +126,10 @@ fi
 if [[ -d $HOME/go/bin ]]; then
     PATH=$HOME/go/bin:$PATH
 fi
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
