@@ -1,0 +1,12 @@
+[user]
+	email = ilkka.poutanen@futurice.com
+	name = Ilkka Poutanen
+[credential]
+	helper = store
+[core]
+	exludesfile = /home/ilkka/.gitignore
+	excludesfile = /home/ilkka/.gitignore
+[init]
+	defaultBranch = main
+[include]
+  path = ~/.gitconfig.local
