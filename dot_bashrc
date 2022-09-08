@@ -104,6 +104,7 @@ SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
     echo "Initializing new SSH agent..."
+    mkdir -p -m 0700 $(dirname "$SSH_ENV")
     touch $SSH_ENV
     chmod 600 "${SSH_ENV}"
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' >> "${SSH_ENV}"
