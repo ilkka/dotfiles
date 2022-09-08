@@ -93,6 +93,7 @@ eval "$(oh-my-posh --init --shell bash --config ~/.poshthemes/unicorn.omp.json)"
 # fnm
 export PATH=/home/ilkka/.fnm:$PATH
 eval "`fnm env`"
+
 . "$HOME/.cargo/env"
 
 # pyenv
