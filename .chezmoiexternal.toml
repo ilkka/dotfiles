@@ -2,3 +2,8 @@
   type = "git-repo"
   url = "https://github.com/AstroNvim/AstroNvim"
   refreshPeriod = "168h"
+
+[".local/bin/oh-my-posh"]
+  type = "file"
+  url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64"
+  refreshPeriod = "168h"
