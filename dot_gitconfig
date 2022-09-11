@@ -4,6 +4,7 @@
 [credential]
 	helper = store
 [core]
+	editor = nvim
 	exludesfile = /home/ilkka/.gitignore
 	excludesfile = /home/ilkka/.gitignore
 [init]
