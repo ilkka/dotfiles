@@ -7,3 +7,12 @@ fi
 if [[ -d "$HOME/go/bin" ]]; then
   PATH="$HOME/go/bin:$PATH"
 fi
+
+if command -v nvim &>/dev/null; then
+  export EDITOR=nvim
+fi
+
+if command -v direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
