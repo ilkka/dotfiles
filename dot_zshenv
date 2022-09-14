@@ -1,1 +1,9 @@
 . "$HOME/.cargo/env"
+
+if [[ -d "$HOME/.fnm" ]]; then
+  PATH="$HOME/.fnm:$PATH"
+fi
+
+if [[ -d "$HOME/go/bin" ]]; then
+  PATH="$HOME/go/bin:$PATH"
+fi
