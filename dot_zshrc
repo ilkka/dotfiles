@@ -76,10 +76,15 @@ bindkey "^[[1;5D" backward-word
 eval "$(oh-my-posh --init --shell zsh --config ~/.poshthemes/unicorn.omp.json)"
 
 # fnm
-export PATH=/home/ilkka/.fnm:$PATH
-eval "$(fnm env --use-on-cd)"
+if [[ -d $HOME/.fnm ]]; then
+    export PATH=/home/ilkka/.fnm:$PATH
+    eval "$(fnm env --use-on-cd)"
+fi
 
 # exa
-alias ls="exa --icons"
-alias ll="exa --long --header --icons --git"
-alias lt="exa --tree"
+if command -v exa &>/dev/null; then
+    alias ls="exa --icons"
+    alias ll="exa --long --header --icons --git"
+    alias lt="exa --tree"
+fi
+
