@@ -10,7 +10,7 @@ zplug "zsh-users/zsh-history-substring-search", defer:2
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-autosuggestions"
-zplug "bobsoppe/zsh-ssh-agent", use:ssh-agent.zsh, from:github
+# zplug "bobsoppe/zsh-ssh-agent", use:ssh-agent.zsh, from:github
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
