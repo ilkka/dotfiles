@@ -134,3 +134,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# 1password ssh agent?
+if [[ -r "$HOME/.1password/agent.sock" ]]; then
+  SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
