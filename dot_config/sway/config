@@ -6,6 +6,8 @@
 
 # start mako notification daemon
 exec mako
+# start auth agent
+exec /usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit
 
 ### Variables
 #
