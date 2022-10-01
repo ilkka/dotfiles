@@ -592,7 +592,7 @@ before packages are loaded."
   ;; (when (memq window-system '(mac ns x))
   ;;   (exec-path-from-shell-initialize))
   ;; Use latest LTS node
-  (when (not windows?) (nvm-use (car (last (directory-files "~/.nvm/versions/node/" nil "^v1[24]")))))
+  ;;(when (not windows?) (nvm-use (car (last (directory-files "~/.nvm/versions/node/" nil "^v1[24]")))))
   (when (file-exists-p (concat beancount-path "editors/emacs/beancount.el"))
     (add-to-list 'load-path (concat beancount-path "editors/emacs"))
     (require 'beancount)
