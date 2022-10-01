@@ -8,6 +8,13 @@
 exec mako
 # start auth agent
 exec /usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit
+# start bluetooth tray thingy
+exec blueman-applet
+# start idle watcher
+exec swayidle -w \
+	timeout 300 'swaylock -f' \
+	timeout 600 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
 
 ### Variables
 #
