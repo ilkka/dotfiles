@@ -10,11 +10,6 @@ exec mako
 exec /usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit
 # start bluetooth tray thingy
 exec blueman-applet
-# start idle watcher
-exec swayidle -w \
-	timeout 300 'swaylock -f' \
-	timeout 600 'swaymsg "output * dpms off"' \
-	resume 'swaymsg "output * dpms on"'
 
 ### Variables
 #
@@ -57,10 +52,10 @@ output DP-1 resolution 2560x1440 position 0,0 scale 1.0
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
