@@ -95,3 +95,8 @@ fi
 if command -v most &>/dev/null; then
     export PAGER=most
 fi
+
+if command -v wikiman &>/dev/null; then
+    alias man=wikiman
+fi
+
