@@ -10,6 +10,8 @@ exec mako
 exec /usr/lib/policykit-1-pantheon/io.elementary.desktop.agent-polkit
 # start bluetooth tray thingy
 exec blueman-applet
+# start 1password tray thingy
+exec 1password --silent
 
 ### Variables
 #
