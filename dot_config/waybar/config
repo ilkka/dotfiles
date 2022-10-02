@@ -31,7 +31,7 @@
         "cpu",
         "temperature",
         //"custom/keyboard-layout",
-        "bluetooth",
+        //"bluetooth",
         "battery",
         "tray",
         "clock#date",
