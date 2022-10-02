@@ -28,6 +28,17 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# Cursor stuff
+set $xcursor_theme Breeze
+set $xcursor_size 36
+
+### Xcursor configuration
+seat seat0 xcursor_theme $xcursor_theme $xcursor_size
+exec_always {
+    gsettings set $gnome_schema icon-theme $xcursor_theme
+    gsettings set $gnome_schema cursor-theme $xcursor_theme
+    gsettings set $gnome_schema cursor-size $xcursor_size
+}
 
 # launcher stuff
 for_window [title="^sway-launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
