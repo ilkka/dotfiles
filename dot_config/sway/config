@@ -51,6 +51,12 @@ exec_always {
 for_window [title="^sway-launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 set $menu exec $term --title="sway-launcher" /usr/bin/sway-launcher-desktop
 
+# make pavucontrol float
+for_window [app_id="^pavucontrol$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+# make blueman-manager float
+for_window [app_id="^blueman-manager$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+
+
 # font stuff
 font pango:NotoSansMono Nerd Font 10
 
