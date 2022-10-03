@@ -276,6 +276,11 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
 
+# screenshot whole screen
+bindsym Print exec grim ~/Kuvat/screenshots/$(date -Iseconds).png
+# screenshot region
+bindsym $mod+Print exec grim -g "$(slurp)" ~/Kuvat/screenshots/$(date -Iseconds).png
+
 #
 # Status Bar:
 #
