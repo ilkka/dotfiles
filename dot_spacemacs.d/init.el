@@ -616,6 +616,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
+ '(ispell-dictionary "en_US-large")
  '(ns-right-alternate-modifier 'none)
  '(org-agenda-files '("~/org/notes.org"))
  '(package-selected-packages
