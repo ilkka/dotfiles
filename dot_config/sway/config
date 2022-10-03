@@ -198,10 +198,10 @@ input type:touchpad {
     # We just use 1-10 as the default.
 
     # move workspaces around
-    bindsym $mod+Control+Shift+Right move workspace to output right
-    bindsym $mod+Control+Shift+Left move workspace to output left
-    bindsym $mod+Control+Shift+Up move workspace to output up
-    bindsym $mod+Control+Shift+Down move workspace to output down
+    bindsym $mod+Control+$right move workspace to output right
+    bindsym $mod+Control+$left move workspace to output left
+    bindsym $mod+Control+$up move workspace to output up
+    bindsym $mod+Control+$down move workspace to output down
 #
 # Layout stuff:
 #
