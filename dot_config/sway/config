@@ -281,6 +281,9 @@ bindsym Print exec grim ~/Kuvat/screenshots/$(date -Iseconds).png
 # screenshot region
 bindsym $mod+Print exec grim -g "$(slurp)" ~/Kuvat/screenshots/$(date -Iseconds).png
 
+# immediately lock
+bindsym $mod+Control+Shift+l exec swaylock -f -c $lockbg
+
 #
 # Status Bar:
 #
