@@ -138,23 +138,6 @@
         }
     },
 
-    //"pulseaudio": {
-    //    //"scroll-step": 1,
-    //    "format": "{icon}  {volume}%",
-    //    "format-bluetooth": "{icon}  {volume}%",
-    //    "format-muted": "",
-    //    "format-icons": {
-    //        "headphones": "",
-    //        "handsfree": "",
-    //        "headset": "",
-    //        "phone": "",
-    //        "portable": "",
-    //        "car": "",
-    //        "default": ["", ""]
-    //    },
-    //    "on-click": "pavucontrol"
-    //},
-
     "temperature": {
       "critical-threshold": 80,
       "interval": 5,
