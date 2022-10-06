@@ -111,6 +111,34 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+### Keyboard controllable swaynag
+# nag
+set {
+  $nag         exec swaynagmode
+  $nag_exit    $nag --exit
+  $nag_confirm $nag --confirm
+  $nag_select  $nag --select
+}
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+
+    Ctrl+c    $nag_exit
+    q         $nag_exit
+    Escape    $nag_exit
+
+    Return    $nag_confirm
+
+    Tab       $nag_select prev
+    Shift+Tab $nag_select next
+
+    $left     $nag_select next
+    $right    $nag_select prev
+    $up       $nag_select next
+    $down     $nag_select prev
+  }
+}
+
 ### Key bindings
 #
 # Basics:
@@ -137,7 +165,7 @@ input type:touchpad {
     bindsym $mod+Control+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec $nag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
