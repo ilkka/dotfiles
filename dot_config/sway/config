@@ -19,6 +19,8 @@ exec rm -f $sovsock && mkfifo $sovsock && tail -f $sovsock | sov
 # start wob bar indicator for volume etc
 set $wobsock $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $wobsock && mkfifo $wobsock && tail -f $wobsock | wob
+# start network manager applet
+exec nm-applet --indicator
 
 ### Variables
 #
