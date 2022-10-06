@@ -74,6 +74,7 @@ output * bg /home/ilkka/Kuvat/loch.jpg fill
 output eDP-1 resolution 3840x2400 position 0,0 scale 2.0
 output DP-1 resolution 2560x1440 position 1920,0 scale 1.0
 output "Samsung Electric Company LS27A800U H4ZT300865" resolution 3840x2160 position 1920,0 scale 1.5
+output 'Samsung Electric Company LS27A800U H4ZT100540' resolution 3840x2160 position 1920,0 scale 1.5
 
 ### Idle configuration
 #
