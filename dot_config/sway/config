@@ -21,6 +21,8 @@ set $wobsock $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $wobsock && mkfifo $wobsock && tail -f $wobsock | wob
 # start network manager applet
 exec nm-applet --indicator
+# ?!?!?
+exec /usr/lib/gsd-xsettings
 
 ### Variables
 #
