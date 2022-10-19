@@ -1,5 +1,5 @@
 [user]
-	email = ilkka.poutanen@futurice.com
+	email = ilkka@ilkka.dev
 	name = Ilkka Poutanen
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzWl92gN8WPQyz5rOvWmtV5u5faH/1VGmgy+SUhH4cn
 [credential]
