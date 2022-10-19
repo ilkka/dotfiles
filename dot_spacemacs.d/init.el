@@ -547,7 +547,7 @@ It should only modify the values of Spacemacs settings."
   ;; Font family name is different on windows
   (when windows? (setq-default
 		  dotspacemacs-default-font '("FiraCode NF"
-					      :size 12.0
+					      :size 10.0
 					      :weight normal
 					      :width normal)
 		  )))
