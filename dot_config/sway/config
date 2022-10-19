@@ -23,6 +23,8 @@ exec rm -f $wobsock && mkfifo $wobsock && tail -f $wobsock | wob
 exec nm-applet --indicator
 # ?!?!?
 exec /usr/lib/gsd-xsettings
+# nextcloud thingy
+exec setsid nextcloud --background
 
 ### Variables
 #
