@@ -53,6 +53,9 @@ This function should only modify configuration layer settings."
        html
        elixir
        java
+       (groovy :variables
+               groovy-backend 'lsp
+               groovy-lsp-jar-path "/usr/share/java/groovy-language-server/groovy-language-server-all.jar")
        helm
        auto-completion
        ;; better-defaults
