@@ -8,8 +8,25 @@
 
 [core]
 	editor = nvim
+	pager = delta
 	exludesfile = /home/ilkka/.gitignore
 	excludesfile = /home/ilkka/.gitignore
+
+[interactive]
+  diffFilter = delta --color-only
+
+[add.interactive]
+  useBuiltin = false
+
+[delta]
+  navigate = true
+  light = false
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
 
 [init]
 	defaultBranch = main

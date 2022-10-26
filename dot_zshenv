@@ -10,6 +10,9 @@ if [[ -d "$HOME/go/bin" ]]; then
   PATH="$HOME/go/bin:$PATH"
 fi
 
+# moar and most are nice but they clash with colors from e.g. git-delta
+export PAGER=less
+
 if command -v nvim &>/dev/null; then
   export EDITOR=nvim
 fi
