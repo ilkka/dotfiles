@@ -2,25 +2,34 @@
 	email = ilkka@ilkka.dev
 	name = Ilkka Poutanen
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzWl92gN8WPQyz5rOvWmtV5u5faH/1VGmgy+SUhH4cn
+
 [credential]
 	helper = store
+
 [core]
 	editor = hx
 	exludesfile = /home/ilkka/.gitignore
 	excludesfile = /home/ilkka/.gitignore
+
 [init]
 	defaultBranch = main
+
 [gpg]
   format = ssh
+
 [gpg "ssh"]
   program = "/opt/1Password/op-ssh-sign"
+
 [commit]
   gpgsign = true
+
 [include]
   path = ~/.gitconfig.local
+
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
