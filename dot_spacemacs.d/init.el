@@ -71,7 +71,7 @@ This function should only modify configuration layer settings."
             org-enforce-todo-checkbox-dependencies t
             org-enforce-todo-dependencies t
             org-export-backends '(ascii beamer html md odt confluence)
-            org-refile-targets '(("~/Nextcloud/Documents/org/notes.org" . (:maxlevel . 4))(org-agenda-files . (:maxlevel . 4)) (nil . (:maxlevel . 4)))
+            org-refile-targets '(("~/Nextcloud/Documents/org/notes.org" . (:maxlevel . 6))(org-agenda-files . (:maxlevel . 4)) (nil . (:maxlevel . 4)))
             org-modules '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus org-habit ol-info ol-irc ol-mhe ol-rmail ol-w3m org-choose org-screenshot org-toc)
             org-capture-templates
              '(
