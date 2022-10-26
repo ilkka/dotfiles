@@ -93,7 +93,7 @@ This function should only modify configuration layer settings."
          shell-enable-smart-eshell t)
        spell-checking
        syntax-checking
-       ;; version-control
+       version-control
        (treemacs :variables treemacs-user-filewatch-mode t treemacs-use-git-mode 'deferred)
        )
    ;; List of additional packages that will be installed without being
