@@ -8,7 +8,7 @@
 
 [core]
 	editor = nvim
-	pager = delta
+	pager = "PAGER=less delta"
 	exludesfile = /home/ilkka/.gitignore
 	excludesfile = /home/ilkka/.gitignore
 
