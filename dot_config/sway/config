@@ -321,7 +321,8 @@ bindsym $mod+Print exec grim -g "$(slurp)" ~/Kuvat/screenshots/$(date -Iseconds)
 # immediately lock
 bindsym $mod+Control+Shift+l exec swaylock -f -c $lockbg
 
-bindsym $mod+Period exec wofi-emoji
+# emoji picker
+bindsym $mod+Period exec wofi-emoji &>/dev/null
 
 #
 # Status Bar:
