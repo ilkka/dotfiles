@@ -68,6 +68,10 @@ This function should only modify configuration layer settings."
             org-directory "~/Nextcloud/Documents/org"
             org-projectile-file "~/Nextcloud/Documents/org/TODO.org"
             org-agenda-files '("~/Nextcloud/Documents/org/")
+            org-enable-roam-support t
+            org-enable-roam-ui t
+            org-roam-directory "~/Nextcloud/Documents/org/roam"
+            org-roam-db-autosync-mode t
             org-enforce-todo-checkbox-dependencies t
             org-enforce-todo-dependencies t
             org-export-backends '(ascii beamer html md odt confluence)
