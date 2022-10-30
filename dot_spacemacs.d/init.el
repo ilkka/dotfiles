@@ -95,7 +95,7 @@ This function should only modify configuration layer settings."
          shell-default-position 'bottom
          shell-default-shell 'eshell
          shell-enable-smart-eshell t)
-       spell-checking
+       ;; spell-checking
        syntax-checking
        version-control
        (treemacs :variables treemacs-user-filewatch-mode t treemacs-use-git-mode 'deferred)
