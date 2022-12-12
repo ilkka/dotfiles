@@ -1,6 +1,6 @@
 #!/bin/bash
 {{ if eq .chezmoi.os "linux" -}}
-if [[ ! (command -v curl && command -v unzip) &>/dev/null ]]; then 
+if ! command -v curl &>/dev/null || ! command -v unzip &>/dev/null; then 
   if command -v apt &>/dev/null; then
     sudo apt install curl unzip
   elif command -v pacman &>/dev/null; then
