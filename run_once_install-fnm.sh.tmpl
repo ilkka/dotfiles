@@ -12,5 +12,5 @@ if ! command -v curl &>/dev/null || ! command -v unzip &>/dev/null; then
 fi
 {{ end -}}
 if ! command -v fnm &>/dev/null; then
-  curl -fsSL https://fnm.vercel.app/install | bash
+  curl -fsSL https://fnm.vercel.app/install | bash -- --skip-shell
 fi
