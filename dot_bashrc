@@ -91,7 +91,7 @@ fi
 eval "$($HOME/.local/bin/oh-my-posh --init --shell bash)"
 
 # fnm
-if -d "$HOME/.local/share/fnm"; then
+if [[ -d "$HOME/.local/share/fnm" ]]; then
   export PATH="$HOME/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
@@ -144,5 +144,5 @@ fi
 
 # if local file exists, source that
 if [[ -r "$HOME/.bashrc.local" ]]; then
-  source "$HOME/.bashrc.local
+  source "$HOME/.bashrc.local"
 fi
