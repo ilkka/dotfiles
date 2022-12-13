@@ -1,0 +1,9 @@
+# ls aliases
+if command -v exa &>/dev/null; then
+   alias ls='exa --classify --icons'
+   alias ll='exa --classify --icons --long --header --time-style long-iso'
+fi
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
