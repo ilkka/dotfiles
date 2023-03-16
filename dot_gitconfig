@@ -35,7 +35,7 @@
   format = ssh
 
 [gpg "ssh"]
-  program = "/opt/1Password/op-ssh-sign"
+  program = "~/.local/share/1Password/op-ssh-sign"
 
 [commit]
   gpgsign = true

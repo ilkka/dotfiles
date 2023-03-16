@@ -45,3 +45,4 @@
   type = "git-repo"
   url = "https://github.com/syl20bnr/spacemacs"
   refreshPeriod = "168h"
+

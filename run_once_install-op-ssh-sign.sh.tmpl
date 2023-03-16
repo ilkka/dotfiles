@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "linux" -}}
+if ! command -v op-ssh-sign &>/dev/null; then
+  echo "downloading 1password"
+  url="https://downloads.1password.com/linux/tar/stable/x86_64/1password-latest.tar.gz"
+  path=$(mktemp -d)/$(basename $url)
+  curl -fLo "$path" $url
+  mkdir -p "$HOME/.local/bin"
+  tar xzf "$path" -C "$HOME/.local/bin" --strip-components=1 --wildcards '*/op-ssh-sign'
+  rm "$path"
+else
+  echo "op-ssh-sign already in PATH"
+fi
+{{ end -}}
