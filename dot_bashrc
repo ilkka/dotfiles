@@ -73,15 +73,20 @@ if [[ -d "$HOME/.local/share/fnm" ]]; then
   eval "`fnm env`"
 fi
 
+# user local bindir
+if [[ -d $HOME/.local/bin ]]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # cargo
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 if [[ -d /usr/local/go/bin ]]; then
-    PATH=/usr/local/go/bin:$PATH
+    PATH="/usr/local/go/bin:$PATH"
 fi
 
 if [[ -d $HOME/go/bin ]]; then
-    PATH=$HOME/go/bin:$PATH
+    PATH="$HOME/go/bin:$PATH"
 fi
 
 # pyenv
