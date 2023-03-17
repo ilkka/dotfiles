@@ -57,7 +57,7 @@ fi
     . /usr/share/bash-completion/bash_completion
 
 # prompty prompt
-eval "$($HOME/.local/bin/oh-my-posh --init --shell bash)"
+eval "$($HOME/.local/bin/oh-my-posh --init --shell bash --config $HOME/.poshthemes/catppuccin.omp.json)"
 
 # fnm
 if [[ -d "$HOME/.local/share/fnm" ]]; then
