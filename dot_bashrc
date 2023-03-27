@@ -88,6 +88,9 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # 1password ssh agent?
+if [[ -f "$HOME/.1password/agent-bridge.sh" ]]; then
+    . "$HOME/.1password/agent-bridge.sh"
+fi
 if [[ -e "$HOME/.1password/agent.sock" ]]; then
   export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
