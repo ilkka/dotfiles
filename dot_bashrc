@@ -95,6 +95,11 @@ if [[ -e "$HOME/.1password/agent.sock" ]]; then
   export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
 
+# alias fdfind back to fd on e.g. ubuntu
+if [[ command -v fdfind &>/dev/null ]]; then
+    alias fd=fdfind
+fi
+
 # if local file exists, source that
 if [[ -r "$HOME/.bashrc.local" ]]; then
   source "$HOME/.bashrc.local"
