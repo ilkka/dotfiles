@@ -6,5 +6,5 @@ if [[ $ALREADY_RUNNING != "0" ]]; then
     rm $SSH_AUTH_SOCK
   fi
   echo "starting SSH agent relay..."
-  (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+  (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/mnt/c/Windows/System32/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
 fi
