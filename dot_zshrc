@@ -73,7 +73,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # prompt
-eval "$(oh-my-posh --init --shell zsh)"
+eval "$(oh-my-posh init shell zsh --config $HOME/.poshthemes/blueish.omp.json)"
 
 # fnm
 if [[ -d $HOME/.fnm ]]; then
