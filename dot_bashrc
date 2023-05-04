@@ -59,12 +59,6 @@ fi
 # prompty prompt
 eval "$($HOME/.local/bin/oh-my-posh init bash --config $HOME/.poshthemes/blueish.omp.json)"
 
-# fnm
-if [[ -d "$HOME/.local/share/fnm" ]]; then
-  export PATH="$HOME/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
-
 # user local bindir
 if [[ -d $HOME/.local/bin ]]; then
     PATH="$HOME/.local/bin:$PATH"

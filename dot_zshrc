@@ -75,12 +75,6 @@ bindkey "^[[1;5D" backward-word
 # prompt
 eval "$(oh-my-posh init shell zsh --config $HOME/.poshthemes/blueish.omp.json)"
 
-# fnm
-if [[ -d $HOME/.fnm ]]; then
-    export PATH=/home/ilkka/.fnm:$PATH
-    eval "$(fnm env --use-on-cd)"
-fi
-
 # exa
 if command -v exa &>/dev/null; then
     alias ls="exa --icons"
