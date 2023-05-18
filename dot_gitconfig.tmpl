@@ -53,7 +53,19 @@
 
 [credential "https://github.com"]
 	helper = 
+{{- if eq .chezmoi.os "windows" }}
+	helper = !'C:\\Users\\{{ .username }}\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
+{{- else }}
 	helper = !/usr/bin/gh auth git-credential
+{{- end }}
+
+[credential "https://gist.github.com"]
+	helper = 
+{{- if eq .chezmoi.os "windows" }}
+	helper = !'C:\\Users\\{{ .username }}\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
+{{- else }}
+	helper = !/usr/bin/gh auth git-credential
+{{- end }}
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
