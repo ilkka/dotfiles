@@ -1,7 +1,11 @@
 [user]
-	email = ilkka@ilkka.dev
+	email = {{ .email | quote }}
 	name = Ilkka Poutanen
+{{- if eq .environment "home" }}
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIENiEdoqpHJmKzDuSdpzM3Uq1VKpcYZE/jgWslk3ajHT
+{{- else }}
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOzWl92gN8WPQyz5rOvWmtV5u5faH/1VGmgy+SUhH4cn
+{{- end }}
 
 [credential]
 	helper = store
@@ -9,8 +13,8 @@
 [core]
 	editor = nvim
 	pager = "PAGER=less delta"
-	exludesfile = /home/ilkka/.gitignore
-	excludesfile = /home/ilkka/.gitignore
+	exludesfile = %(prefix)/home/{{ .username }}/.gitignore
+	excludesfile = %(prefix)/home/{{ .username }}/.gitignore
 
 [interactive]
   diffFilter = delta --color-only
@@ -35,7 +39,11 @@
   format = ssh
 
 [gpg "ssh"]
+{{- if eq .chezmoi.os "windows" }}
+  program = "C:/Users/{{ .username }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+{{- else }}
   program = op-ssh-sign
+{{- end }}
 
 [commit]
   gpgsign = true
