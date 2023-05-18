@@ -1,17 +1,28 @@
+{{- if eq .chezmoi.os "windows" }}
+["AppData/Local/nvim"]
+{{- else }}
 [".config/nvim"]
+{{- end }}
   type = "git-repo"
   url = "https://github.com/AstroNvim/AstroNvim"
+  refreshPeriod = "168h"
 
+{{- if eq .chezmoi.os "windows" }}
+["AppData/Local/nvim/lua/user"]
+{{- else }}
 [".config/nvim/lua/user"]
+{{- end }}
   type = "git-repo"
   url = "https://github.com/ilkka/astronvim-config.git"
   refreshPeriod = "168h"
 
+{{- if ne .chezmoi.os "windows" }}
 [".local/bin/oh-my-posh"]
   type = "file"
   url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64"
   executable = true
   refreshPeriod = "168h"
+{{- end }}
 
 [".poshthemes"]
   type = "archive"
@@ -19,6 +30,7 @@
   refreshPeriod = "168h"
   exact = true
 
+{{- if ne .chezmoi.os "windows" }}
 [".pyenv"]
   type = "git-repo"
   url = "https://github.com/pyenv/pyenv.git"
@@ -29,19 +41,13 @@
   url = "https://github.com/pyenv/pyenv-virtualenv.git"
   refreshPeriod = "168h"
 
-[".local/bin/nvim"]
-  type = "file"
-  url = "https://github.com/neovim/neovim/releases/download/v0.8.3/nvim.appimage"
-  executable = true
-  refreshPeriod = "168h"
-
 [".tmux/plugins/tpm"]
   type = "git-repo"
   url = "https://github.com/tmux-plugins/tpm"
   refreshPeriod = "168h"
+{{ end }}
 
 [".emacs.d"]
   type = "git-repo"
   url = "https://github.com/syl20bnr/spacemacs"
   refreshPeriod = "168h"
-

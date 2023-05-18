@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
 {{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
 if ! command -v op-ssh-sign &>/dev/null; then
   echo "downloading 1password"
   url="https://downloads.1password.com/linux/tar/stable/x86_64/1password-latest.tar.gz"

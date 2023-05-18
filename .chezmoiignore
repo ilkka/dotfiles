@@ -1,1 +1,15 @@
 README.md
+{{- if eq .chezmoi.os "windows" }}
+.bash_aliases
+.bashrc
+.profile
+.pystartup
+.tmux.conf
+.zshenv
+.zshrc
+.1password
+.compleat
+.config
+.doom.d
+.spacemacs.d
+{{- end }}

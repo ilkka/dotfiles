@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
 {{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
 if command -v dpkg &>/dev/null; then
   sudo --prompt "sudoing as %u@%h to install curl, password:" apt-get install -qq -y curl
   url=$(curl -s https://api.github.com/repos/dandavison/delta/releases/latest|grep browser_download_url|grep \.deb|grep -v musl|grep {{ .chezmoi.arch }}|sed 's/^.*": "\(.*\)"$/\1/')
@@ -10,4 +10,4 @@ if command -v dpkg &>/dev/null; then
 else
   echo "No dpkg, don't know how to install delta" >&2
 fi
-{{ end -}}
+{{ end }}

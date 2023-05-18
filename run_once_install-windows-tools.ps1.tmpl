@@ -1,0 +1,33 @@
+{{ if eq .chezmoi.os "windows" }}
+if (-Not (gcm scoop)) {
+  iwr -useb get.scoop.sh | iex
+  # re-run now that we have scoop
+  $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+  Start-Process -Wait -FilePath PowerShell.exe -ArgumentList $CommandLine
+}
+scoop bucket add extras https://github.com/ScoopInstaller/Extras
+scoop bucket add github-gh https://github.com/cli/scoop-gh.git
+scoop bucket add ilkka https://github.com/ilkka/scoop-bucket
+scoop bucket add java https://github.com/ScoopInstaller/Java
+scoop install \
+  1password-cli \
+  7zip \
+  efm-langserver \
+  elixir \
+  erlang \
+  fd \
+  gh \
+  git \
+  go \
+  helm \
+  k9s \
+  lazygit \
+  legit \
+  neovim \
+  ripgrep \
+  rustup-msvc \
+  task \
+  terraform \
+  terraform-ls
+scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
+{{ end }}

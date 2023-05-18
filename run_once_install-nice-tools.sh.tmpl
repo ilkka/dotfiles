@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 if command -v apt &>/dev/null; then
   # fuse2 is needed for the neovim appimage
@@ -9,3 +10,4 @@ elif command -v pacman &>/dev/null; then
 else
   echo "Don't know how to install things on this platform" >&2
 fi
+{{ end }}
