@@ -90,3 +90,5 @@ if command -v wikiman &>/dev/null; then
     alias man=wikiman
 fi
 
+
+eval "$(atuin init zsh)"
