@@ -9,7 +9,7 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
 
 if command -v apt-get &>/dev/null; then
   echo "Installing dependencies for erlang builds"
-  sudo apt-get -y install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libwxgtk-webview3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk
+  sudo apt-get -y install build-essential autoconf m4 libncurses5-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev
 else
   echo "WARN: don't know how to install dependencies for erlang builds" >&2
 fi
