@@ -94,10 +94,17 @@ if [[ -d "$HOME/.volta" ]]; then
     export PATH="$VOLTA_HOME/bin:$PATH"
 fi
 
+if [[ -d "$HOME/.asdf" ]]; then
+    . "$HOME/.asdf/asdf.sh"
+    . "$HOME/.asdf/completions/asdf.bash"
+fi
+
+if command -v atuin &>/dev/null; then
+    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+    eval "$(atuin init bash)"
+fi
+
 # if local file exists, source that
 if [[ -r "$HOME/.bashrc.local" ]]; then
   source "$HOME/.bashrc.local"
 fi
-
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
