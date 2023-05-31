@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-if [[-d $HOME/.asdf ]]; then
-  echo "asdf already installed"
+if [[ -d $HOME/.asdf ]]; then
+  # asdf already installed
   exit 0
 fi
 
