@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
 set -euo pipefail
 if command -v apt-get &>/dev/null; then
@@ -6,3 +7,4 @@ if command -v apt-get &>/dev/null; then
 else
   echo "uh-oh, don't know how to install erlang :(" >&2
 fi
+{{ end }}
