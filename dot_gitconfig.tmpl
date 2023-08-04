@@ -75,3 +75,12 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+
+{{- if eq .chezmoi.os "windows" }}
+[alias]
+  sync = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe sync
+  publish = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe publish
+  unpublish = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe unpublish
+  undo = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe undo
+  branches = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe branches
+{{- end }}
