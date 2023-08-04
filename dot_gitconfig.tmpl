@@ -39,7 +39,11 @@
 
 [gpg "ssh"]
 {{- if eq .chezmoi.os "windows" }}
+{{- if eq .environment "home" }}
   program = "C:/Users/{{ .username }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+{{- else }}
+  program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
+{{- end }}
 {{- else }}
   program = op-ssh-sign
 {{- end }}
