@@ -73,7 +73,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # prompt
-eval "$(oh-my-posh init shell zsh --config $HOME/.poshthemes/blueish.omp.json)"
+eval "$(oh-my-posh init shell zsh --config $HOME/.poshthemes/agnoster.minimal.omp.json)"
 
 # exa
 if command -v exa &>/dev/null; then

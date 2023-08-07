@@ -57,7 +57,7 @@ fi
     . /usr/share/bash-completion/bash_completion
 
 # prompty prompt
-eval "$($HOME/.local/bin/oh-my-posh init bash --config $HOME/.poshthemes/blueish.omp.json)"
+eval "$($HOME/.local/bin/oh-my-posh init bash --config $HOME/.poshthemes/agnoster.minimal.omp.json)"
 
 # user local bindir
 if [[ -d $HOME/.local/bin ]]; then
