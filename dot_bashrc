@@ -99,6 +99,11 @@ if command -v atuin &>/dev/null; then
     eval "$(atuin init bash)"
 fi
 
+if [[ -d "$HOME/.deno" ]]; then
+  export DENO_INSTALL="$HOME/.deno"
+  export PATH="$DENO_INSTALL/bin:$PATH"
+fi
+
 # if local file exists, source that
 if [[ -r "$HOME/.bashrc.local" ]]; then
   source "$HOME/.bashrc.local"

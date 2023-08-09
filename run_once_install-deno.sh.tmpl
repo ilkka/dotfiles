@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+if [[ ! -f $HOME/.deno/bin/deno ]]; then
+  echo "Installing deno"
+  bash <(curl -fsSL https://deno.land/x/install/install.sh)
+fi
+{{- end }}
