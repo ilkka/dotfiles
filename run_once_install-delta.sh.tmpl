@@ -7,6 +7,8 @@ if command -v dpkg &>/dev/null; then
   curl -fLo "$path" $url
   sudo dpkg -i "$path"
   rm "$path"
+elif command -v pacman &>/dev/null; then
+  sudo pacman -Syu git-delta
 else
   echo "No dpkg, don't know how to install delta" >&2
 fi
