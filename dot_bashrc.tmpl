@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -32,16 +32,16 @@ shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+  debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
 *)
-    ;;
+  ;;
 esac
 
 # Alias definitions.
@@ -50,29 +50,29 @@ esac
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
+  . /usr/share/bash-completion/bash_completion
 
 # prompty prompt
-eval "$($HOME/.local/bin/oh-my-posh init bash --config $HOME/.poshthemes/agnoster.minimal.omp.json)"
+eval "$($HOME/.local/bin/oh-my-posh init bash --config $HOME/.poshthemes/agnosterplus.omp.json)"
 
 # user local bindir
 if [[ -d $HOME/.local/bin ]]; then
-    PATH="$HOME/.local/bin:$PATH"
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
 # cargo
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 if [[ -d /usr/local/go/bin ]]; then
-    PATH="/usr/local/go/bin:$PATH"
+  PATH="/usr/local/go/bin:$PATH"
 fi
 
 if [[ -d $HOME/go/bin ]]; then
-    PATH="$HOME/go/bin:$PATH"
+  PATH="$HOME/go/bin:$PATH"
 fi
 
 # pyenv
@@ -84,7 +84,7 @@ eval "$(pyenv virtualenv-init -)"
 # 1password ssh agent?
 {{ if eq .environment "home" -}}
 if [[ -f "$HOME/.1password/agent-bridge.sh" ]]; then
-    . "$HOME/.1password/agent-bridge.sh"
+  . "$HOME/.1password/agent-bridge.sh"
 fi
 {{- end }}
 if [[ -e "$HOME/.1password/agent.sock" ]]; then
@@ -92,13 +92,13 @@ if [[ -e "$HOME/.1password/agent.sock" ]]; then
 fi
 
 if [[ -d "$HOME/.volta" ]]; then
-    export VOLTA_HOME="$HOME/.volta"
-    export PATH="$VOLTA_HOME/bin:$PATH"
+  export VOLTA_HOME="$HOME/.volta"
+  export PATH="$VOLTA_HOME/bin:$PATH"
 fi
 
 if command -v atuin &>/dev/null; then
-    [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-    eval "$(atuin init bash)"
+  [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+  eval "$(atuin init bash)"
 fi
 
 if [[ -d "$HOME/.deno" ]]; then
