@@ -1,0 +1,13 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/bin/bash
+if ! command -v git &>/dev/null; then
+  echo "Git required to install asdf" >&2
+  exit 1
+fi
+if ! command -v curl &>/dev/null; then
+  echo "Curl required to install asdf" >&2
+  exit 1
+fi
+ADSF_VERSION=0.13.1
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v${ADSF_VERSION}
+{{ end }}
