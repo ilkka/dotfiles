@@ -10,4 +10,9 @@ if ! command -v curl &>/dev/null; then
 fi
 ADSF_VERSION=0.13.1
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v${ADSF_VERSION}
+. "$HOME/.asdf/asdf.sh"
+asdf plugin add bun https://github.com/cometkim/asdf-bun.git
+asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 {{ end }}
