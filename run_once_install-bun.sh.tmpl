@@ -1,0 +1,17 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/bin/bash
+if ! command -v curl &>/dev/null; then
+  echo "curl required to install bun" >&2
+  exit 1
+fi
+if ! command -v unzip &>/dev/null; then
+  echo "unzip required to install bun" >&2
+  exit 1
+fi
+BUN_VERSION=1.0.2
+TMPDIR=$(mktemp -d)
+cd $TMPDIR
+curl -fLO https://github.com/oven-sh/bun/releases/download/bun-v1.0.2/bun-linux-x64.zip
+unzip bun-linux-x64.zip
+install -D --mode=0755 bun-linux-x64/bun "$HOME/.bun/bin/bun"
+{{ end }}
