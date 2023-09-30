@@ -114,6 +114,8 @@ fi
 
 # asdf
 if [[ -d "$HOME/.asdf" ]]; then
+	# make asdf-erlang do things
+	export KERL_BUILD_DOCS="yes"
   . "$HOME/.asdf/asdf.sh"
   . "$HOME/.asdf/completions/asdf.bash"
 fi
