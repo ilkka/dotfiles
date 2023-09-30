@@ -73,13 +73,20 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # prompt
-eval "$(oh-my-posh init shell zsh --config $HOME/.poshthemes/agnoster.minimal.omp.json)"
+eval "$($HOME/.local/bin/oh-my-posh prompt init zsh --config $HOME/.poshthemes/agnosterplus.omp.json)"
 
 # exa
 if command -v exa &>/dev/null; then
     alias ls="exa --icons"
     alias ll="exa --long --header --icons --git"
     alias lt="exa --tree"
+fi
+
+# walk
+if command -v walk &>/dev/null; then
+  function lk {
+    cd "$(walk --icons "$@")"
+  }
 fi
 
 if command -v bat &>/dev/null; then
@@ -90,5 +97,7 @@ if command -v wikiman &>/dev/null; then
     alias man=wikiman
 fi
 
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init zsh)"
+fi
 
-eval "$(atuin init zsh)"

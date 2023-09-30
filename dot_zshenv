@@ -2,11 +2,21 @@ if [[ -r "$HOME/.cargo/.env" ]]; then
   . "$HOME/.cargo/env"
 fi
 
+if [[ -d $HOME/.local/bin ]]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [[ -d /usr/local/go/bin ]]; then
+  PATH="/usr/local/go/bin:$PATH"
+fi
+
 if [[ -d "$HOME/go/bin" ]]; then
   PATH="$HOME/go/bin:$PATH"
 fi
 
-export PAGER=most
+if command -v most &>/dev/null; then
+  export PAGER=most
+fi
 
 if command -v nvim &>/dev/null; then
   export EDITOR=nvim
@@ -20,11 +30,17 @@ if [[ -e "$HOME/.1password/agent.sock" ]]; then
   export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 fi
 
-if [[ -d "$HOME/.local/share/JetBrains/Toolbox/scripts" ]]; then
-  PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
+# escripts
+if [[ -d "$HOME/.mix/escripts" ]]; then
+  PATH="$HOME/.mix/escripts:$PATH"
 fi
 
-if [[ -d "$HOME/.volta" ]]; then
-    export VOLTA_HOME="$HOME/.volta"
-    PATH="$VOLTA_HOME/bin:$PATH"
+# asdf
+if [[ -d "$HOME/.asdf" ]]; then
+	# make asdf-erlang do things
+	export KERL_BUILD_DOCS="yes"
+  . "$HOME/.asdf/asdf.sh"
+  fpath=(${ASDF_DIR}/completions $fpath)
+  autoload -Uz compinit && compinit
 fi
+
