@@ -3,42 +3,51 @@
 {{- else }}
 [".config/nvim"]
 {{- end }}
-  type = "git-repo"
-  url = "https://github.com/ilkka/nvim-config"
-  refreshPeriod = "168h"
+
 
 {{- if ne .chezmoi.os "windows" }}
+type = "git-repo"
+url = "https://github.com/ilkka/nvim-config"
+refreshPeriod = "168h"
 [".local/bin/oh-my-posh"]
-  type = "file"
-  url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64"
-  executable = true
-  refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64"
+executable = true
+refreshPeriod = "168h"
+
+[".zplug"]
+
 {{- end }}
 
+type = "git-repo"
+url = "https://github.com/zplug/zplug"
+refreshPeriod = "168h"
 [".poshthemes"]
-  type = "archive"
-  url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip"
-  refreshPeriod = "168h"
-  exact = true
+
 
 {{- if ne .chezmoi.os "windows" }}
+type = "archive"
+url = "https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip"
+refreshPeriod = "168h"
+exact = true
 [".pyenv"]
-  type = "git-repo"
-  url = "https://github.com/pyenv/pyenv.git"
-  refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/pyenv/pyenv.git"
+refreshPeriod = "168h"
 
 [".pyenv/plugins/pyenv-virtualenv"]
-  type = "git-repo"
-  url = "https://github.com/pyenv/pyenv-virtualenv.git"
-  refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/pyenv/pyenv-virtualenv.git"
+refreshPeriod = "168h"
 
 [".tmux/plugins/tpm"]
-  type = "git-repo"
-  url = "https://github.com/tmux-plugins/tpm"
-  refreshPeriod = "168h"
+
 {{ end }}
 
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tpm"
+refreshPeriod = "168h"
 [".emacs.d"]
-  type = "git-repo"
-  url = "https://github.com/syl20bnr/spacemacs"
-  refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/syl20bnr/spacemacs"
+refreshPeriod = "168h"
