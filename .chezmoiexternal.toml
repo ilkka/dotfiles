@@ -23,7 +23,15 @@ type = "git-repo"
 url = "https://github.com/zplug/zplug"
 refreshPeriod = "168h"
 [".poshthemes"]
+[".zplug".pull]
+args = ["--depth", "1"]
 
+[".config/kitty/kitty-themes"]
+type = "git-repo"
+url = "https://github.com/dexpota/kitty-themes.git"
+refreshPeriod = "168h"
+[".config/kitty/kitty-themes".pull]
+args = ["--depth", "1"]
 
 {{- if ne .chezmoi.os "windows" }}
 type = "archive"
@@ -51,3 +59,5 @@ refreshPeriod = "168h"
 type = "git-repo"
 url = "https://github.com/syl20bnr/spacemacs"
 refreshPeriod = "168h"
+[".emacs.d".pull]
+args = ["--depth", "1"]
