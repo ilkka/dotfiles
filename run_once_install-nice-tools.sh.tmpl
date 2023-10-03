@@ -4,7 +4,7 @@ echo "Installing a bunch of nice tools"
 if command -v apt &>/dev/null; then
   # fuse2 is needed for the neovim appimage
   sudo apt update
-  sudo apt install -y exa fd-find libfuse2 fzf bat fish
+  sudo apt install -y exa fd-find libfuse2 fzf bat fish direnv
   # on ubuntu the 'fd' binary got renamed to fdfind
   if [[ ! -e "$HOME/.local/bin/fd" ]]; then
     ln -s $(which fdfind) "$HOME/.local/bin/fd"
