@@ -1,8 +1,14 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
+echo "Installing a bunch of nice tools"
 if command -v apt &>/dev/null; then
   # fuse2 is needed for the neovim appimage
-  sudo apt install exa fd-find libfuse2
+  sudo apt update
+  sudo apt install -y exa fd-find libfuse2 fzf bat fish
+  # on ubuntu the 'fd' binary got renamed to fdfind
+  if [[ ! -e "$HOME/.local/bin/fd" ]]; then
+    ln -s $(which fdfind) "$HOME/.local/bin/fd"
+  fi
 elif command -v pacman &>/dev/null; then
   sudo pacman -S yay
   # fuse2 is needed for the neovim appimage
