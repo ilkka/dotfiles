@@ -13,7 +13,7 @@
 [core]
 	editor = nvim
 	pager = "PAGER=less delta"
-	excludesfile = /home/{{ .username }}/.gitignore
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
 
 [interactive]
   diffFilter = delta --color-only
@@ -45,7 +45,7 @@
   program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
 {{- end }}
 {{- else }}
-  program = op-ssh-sign
+  program = {{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign
 {{- end }}
 
 [commit]
