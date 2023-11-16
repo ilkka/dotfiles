@@ -1,3 +1,3 @@
-if test -d $HOME/.asdf
-    source $HOME/.asdf/asdf.fish
+if test -d /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.fish
+    source /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.fish
 end

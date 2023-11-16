@@ -54,14 +54,16 @@ declare -a asdf_plugins=( \
 info "Installing homebrew packages"
 brew install "${brew_packages[@]}"
 
+. /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+
 # install asdf plugins
 for plugin in "${asdf_plugins[@]}"
 do
-  asdf plugin install "$plugin"
+  asdf plugin add "$plugin"
 done
 
 {{ if eq .chezmoi.osRelease.idLike "debian" -}}
-# seems this is debian or ubuntu:
+# seems this is debian or ubuntu
 
 # repos to add, defined as strings with the following format:
 # "reponame%%signing-key%%apt-definition"
