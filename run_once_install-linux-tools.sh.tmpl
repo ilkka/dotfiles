@@ -1,0 +1,92 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+function info() {
+  starline=$(printf '%*s' "${#1}"|sed 's/ /*/g')'****'
+  echo "$starline"
+  echo "* ${1} *"
+  echo "$starline"
+  echo
+}
+
+# first of all install homebrew if not found
+if ! command -v brew &>/dev/null; then
+  info "Installing homebrew, this might prompt for sudo"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Do homebrew installs
+declare -a brew_packages=( \
+  "asdf"                   \
+  "atuin"                  \
+  "bat"                    \
+  "bottom"                 \
+  "btop"                   \
+  "direnv"                 \
+  "exa"                    \
+  "fd"                     \
+  "fzf"                    \
+  "gdu"                    \
+  "git-delta"              \
+  "go-task"                \
+  "helm"                   \
+  "htop"                   \
+  "k9s"                    \
+  "kubernetes-cli"         \
+  "lazydocker"             \
+  "lazygit"                \
+  "neovim"                 \
+  "rustup"                 \
+  "walk"                   \
+)
+
+# asdf plugins
+declare -a asdf_plugins=( \
+  elixir                  \
+  erlang                  \
+  golang                  \
+  nodejs                  \
+)
+
+info "Installing homebrew packages"
+brew install "${brew_packages[@]}"
+
+# install asdf plugins
+for plugin in "${asdf_plugins[@]}"
+do
+  asdf plugin install "$plugin"
+done
+
+{{ if eq .chezmoi.osRelease.idLike "debian" -}}
+# seems this is debian or ubuntu:
+
+# repos to add, defined as strings with the following format:
+# "reponame%%signing-key%%apt-definition"
+# repos are saved using the reponame, signing keys are downloaded
+# and saved as their basename in /usr/share/keyrings
+declare -a repos=( \
+  "1password%%https://downloads.1password.com/linux/keys/1password.asc%%deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" \
+)
+
+# tools to install
+declare -a apt_packages=( \
+  1password-cli           \
+  build-essential         \
+  fish                    \
+)
+
+# add repos
+
+
+# install packages
+{{ else -}}
+if command -v pacman &>/dev/null; then
+  # seems like this is an arch-like distro
+  info "Sudoing to install tools"
+  sudo pacman -S yay
+fi
+{{ end -}}
+{{ end -}}

@@ -1,8 +1,0 @@
-{{ if eq .chezmoi.os "linux" -}}
-#!/bin/bash
-if command -v snap &>/dev/null; then
-  snap install walk
-else
-  echo "don't know how to install walk without snap" >&2
-fi
-{{ end }}

@@ -1,9 +1,0 @@
-{{ if eq .chezmoi.os "linux" -}}
-#!/bin/bash
-GOVERSION=1.21.1
-curl -fsSLo /tmp/golang.tar.gz https://go.dev/dl/go${GOVERSION}.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go
-sudo mkdir /usr/local/go
-sudo tar -C /usr/local -xf /tmp/golang.tar.gz
-rm -f /tmp/golang.tar.gz
-{{ end }}
