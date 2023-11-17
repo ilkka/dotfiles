@@ -83,7 +83,9 @@ declare -a apt_packages=( \
 
 if [[ "${#repos[@]}" -gt 0 ]]; then
   # need curl and gpg
-  sudo -p "sudo as %u@%h to install curl and gpg: " apt-get update && sudo apt-get install -y --no-install-recommends curl gpg
+  if ! command -v curl &>/dev/null || ! command -v gpg &>/dev/null; then
+    sudo -p "sudo as %u@%h to install curl and gpg: " apt-get update && sudo apt-get install -y --no-install-recommends curl gpg
+  fi
 
   # add repos
   for repo in "${repos[@]}"; do
