@@ -80,15 +80,39 @@ declare -a apt_packages=( \
   fish                    \
 )
 
-# add repos
+if [[ "${#repos[@]}" -gt 0 ]]; then
+  # need curl and gpg
+  sudo -p "sudo as %u@%h to install curl and gpg: " apt-get update && sudo apt-get install -y --no-install-recommends curl gpg
 
+  # add repos
+  for repo in "${repos[@]}"; do
+    name=$(echo $repo|awk 'BEGIN { FS="%%" }; { print $1 }')
+    keyurl=$(echo $repo|awk 'BEGIN { FS="%%" }; { print $2 }')
+    config=$(echo $repo|awk 'BEGIN { FS="%%" }; { print $3 }')
+
+    echo "Configuring repo for $name"
+    listfile="/etc/apt/sources.list.d/${name}.list"
+    if [[ -f "$listfile" ]]; then
+      echo "${listfile} exists, not doing anything"
+    else
+      if [[ -n "$keyurl" ]]; then
+        echo "Getting key"
+        curl -sS "$keyurl" | sudo -p "sudo as %u@%h to install repo signing key: " gpg --dearmor --output /usr/share/keyrings/$(basename $keyurl | sed -E 's/\.[^.]*/-keyring.gpg')
+      fi
+      echo "Adding repo config"
+      echo $config | sudo -p "sudo as %u@%h to install repo config: " tee "$listfile"
+    fi
+  done
+  sudo -p "sudo as %u@%h to update sources: " apt-get update
+fi
 
 # install packages
+sudo -p "sudo as %u@%h to install packages: " apt-get install -y --no-install-recommends "${apt_packages[@]}"
 {{ else -}}
 if command -v pacman &>/dev/null; then
   # seems like this is an arch-like distro
   info "Sudoing to install tools"
-  sudo pacman -S yay
+  sudo -p "sudo as %u@%h to install yay: " pacman -S yay
 fi
 {{ end -}}
 {{ end -}}
