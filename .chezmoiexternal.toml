@@ -1,9 +1,8 @@
+{{- if eq .chezmoi.os "windows" -}}
 ["AppData/Local/nvim"]
-type = "git-repo"
-url = "https://github.com/ilkka/nvim-config"
-refreshPeriod = "168h"
-
+{{- else -}}
 [".config/nvim"]
+{{- end -}}
 type = "git-repo"
 url = "https://github.com/ilkka/nvim-config"
 refreshPeriod = "168h"
