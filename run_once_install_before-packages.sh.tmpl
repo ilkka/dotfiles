@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" -}}
+{{ if or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -16,33 +16,53 @@ if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  brewdir="/opt/homebrew"
+elif [[ -d /usr/local/bin/brew ]]; then
+  brewdir="/usr/local"
+else
+  brewdir="/home/linuxbrew/.linuxbrew"
+fi
+eval "$(${brewdir}/bin/brew shellenv)"
 
-# Do homebrew installs
-declare -a brew_packages=( \
-  "asdf"                   \
-  "atuin"                  \
-  "bat"                    \
-  "bottom"                 \
-  "btop"                   \
-  "direnv"                 \
-  "exa"                    \
-  "fd"                     \
-  "fzf"                    \
-  "gdu"                    \
-  "git-delta"              \
-  "go-task"                \
-  "helm"                   \
-  "htop"                   \
-  "k9s"                    \
-  "kubernetes-cli"         \
-  "lazydocker"             \
-  "lazygit"                \
-  "neovim"                 \
-  "oh-my-posh"             \
-  "rustup"                 \
-  "walk"                   \
-)
+info "Installing homebrew packages"
+brew bundle --no-lock --file=/dev/stdin <<EOF
+brew "asdf"
+brew "atuin"
+brew "bat"
+brew "bottom"
+brew "btop"
+brew "direnv"
+brew "exa"
+brew "fd"
+brew "fzf"
+brew "gdu"
+brew "git-delta"
+brew "go-task"
+brew "helm"
+brew "htop"
+brew "k9s"
+brew "kubernetes-cli"
+brew "lazydocker"
+brew "lazygit"
+brew "neovim"
+brew "oh-my-posh"
+brew "rustup"
+brew "walk"
+EOF
+
+{{ if eq .chezmoi.os "darwin" -}}
+info "Installing casks"
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "homebrew/cask"
+cask_args appdir: "~/Applications", require_sha: true
+cask "firefox"
+tap "homebrew/cask-fonts"
+cask "font-fira-code"
+cask "font-intone-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+EOF
+{{ end -}}
 
 # asdf plugins
 declare -a asdf_plugins=( \
@@ -52,10 +72,7 @@ declare -a asdf_plugins=( \
   nodejs                  \
 )
 
-info "Installing homebrew packages"
-brew install "${brew_packages[@]}"
-
-. /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+. ${brewdir}/opt/asdf/libexec/asdf.sh
 
 # install asdf plugins
 for plugin in "${asdf_plugins[@]}"
@@ -63,6 +80,7 @@ do
   asdf plugin add "$plugin"
 done
 
+{{ if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.idLike "debian" -}}
 # seems this is debian or ubuntu
 
@@ -117,5 +135,6 @@ if command -v pacman &>/dev/null; then
   info "Sudoing to install tools"
   sudo -p "sudo as %u@%h to install yay: " pacman -S yay
 fi
+{{ end -}}
 {{ end -}}
 {{ end -}}
