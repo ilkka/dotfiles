@@ -116,8 +116,8 @@ fi
 if [[ -d "$HOME/.asdf" ]]; then
 	# make asdf-erlang do things
 	export KERL_BUILD_DOCS="yes"
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
+  . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+  . /home/linuxbrew/.linuxbrew/etc/bash_completion.d/asdf.bash
 fi
 
 # if local file exists, source that
