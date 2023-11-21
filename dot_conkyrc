@@ -72,7 +72,7 @@ ${voffset 5}
 ${alignr}${font Ubuntu:style=Medium:pixelsize=13}${time %A %d %B %Y}${font}
 
 
-${voffset 150}
+${voffset 50}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font} ${alignr}${if_match "${addr eth0}"!="No Address"} [wired] ${addr eth0}${endif}${if_match "${addr wlp0s20f3}"!="No Address"}[wifi] ${addr wlp0s20f3}${endif}
 ${hr}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font} ${alignr}${exec curl ipinfo.io/ip}
@@ -85,10 +85,13 @@ ${font Font Awesome 6 Free:style=Solid:size=10}${font}  northbridge ${alignr}
 ${hr}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  cpu fan ${alignr}${hwmon 7 fan 2} rpm
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  gpu fan ${alignr}${hwmon 7 fan 1} rpm
-${color3}${cpugraph cpu1 50,133 5e7b7b d8deeb -t} ${cpugraph cpu2 50,133 5e7b7b d8deeb -t}
-${cpugraph cpu3 50,133 5e7b7b d8deeb -t} ${cpugraph cpu4 50,133 5e7b7b d8deeb -t}
-${cpugraph cpu5 50,133 5e7b7b d8deeb -t} ${cpugraph cpu6 50,133 5e7b7b d8deeb -t}
-${cpugraph cpu7 50,133 5e7b7b d8deeb -t} ${cpugraph cpu8 50,133 5e7b7b d8deeb -t}
+${color3}${cpugraph cpu1 25,133 5e7b7b d8deeb -t} ${cpugraph cpu2 25,133 5e7b7b d8deeb -t}
+${cpugraph cpu3 25,133 5e7b7b d8deeb -t} ${cpugraph cpu4 25,133 5e7b7b d8deeb -t}
+${cpugraph cpu5 25,133 5e7b7b d8deeb -t} ${cpugraph cpu6 25,133 5e7b7b d8deeb -t}
+${cpugraph cpu7 25,133 5e7b7b d8deeb -t} ${cpugraph cpu8 25,133 5e7b7b d8deeb -t}
+
+${diskiograph /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R 50,269 5e7b7b d8deeb -t}
+${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  disk io ${alignr}${diskio /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R}/s
 
 ${if_match "${addr eth0}"!="No Address"}
 ${color3}${downspeedgraph eth0 50,269 5e7b7b d8deeb}
