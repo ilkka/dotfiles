@@ -2,7 +2,7 @@
 ["AppData/Local/nvim"]
 {{- else -}}
 [".config/nvim"]
-{{- end -}}
+{{- end }}
 type = "git-repo"
 url = "https://github.com/ilkka/nvim-config"
 refreshPeriod = "168h"
