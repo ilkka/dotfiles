@@ -37,7 +37,8 @@ conky.config = {
 	gap_x = 60,
 	gap_y = 60,
 	minimum_height = 5,
-	minimum_width = 5,
+	minimum_width = 300,
+	maximum_width = 300,
 	stippled_borders = 0,
 
 	net_avg_samples = 2,
@@ -70,41 +71,40 @@ ${color1}
 ${alignr}${font Ubuntu:style=Medium:pixelsize=50}${time %H:%M}${font}
 ${voffset 5}
 ${alignr}${font Ubuntu:style=Medium:pixelsize=13}${time %A %d %B %Y}${font}
-
-
-${voffset 50}
+${voffset 80}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font} ${alignr}${if_match "${addr eth0}"!="No Address"} [wired] ${addr eth0}${endif}${if_match "${addr wlp0s20f3}"!="No Address"}[wifi] ${addr wlp0s20f3}${endif}
 ${hr}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font} ${alignr}${exec curl ipinfo.io/ip}
-
-
+${voffset 30}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  disk ${alignr}${hwmon 2 temp 1}°
-${font Font Awesome 6 Free:style=Solid:size=10}${font}  cpu ${alignr}${hwmon 7 temp 1}°
-${font Font Awesome 6 Free:style=Solid:size=10}${font}  gpu ${alignr}${hwmon 7 temp 9}°
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  cpu @ ${freq} MHz${alignr}${hwmon 7 temp 1}°
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  gpu @ ${texeci 5 nvidia-smi --query-gpu clocks.current.graphics --format csv,noheader}${alignr}${hwmon 7 temp 9}°
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  northbridge ${alignr}${hwmon 7 temp 2}°
 ${hr}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  cpu fan ${alignr}${hwmon 7 fan 2} rpm
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  gpu fan ${alignr}${hwmon 7 fan 1} rpm
-${color3}${cpugraph cpu1 25,133 5e7b7b d8deeb -t} ${cpugraph cpu2 25,133 5e7b7b d8deeb -t}
-${cpugraph cpu3 25,133 5e7b7b d8deeb -t} ${cpugraph cpu4 25,133 5e7b7b d8deeb -t}
-${cpugraph cpu5 25,133 5e7b7b d8deeb -t} ${cpugraph cpu6 25,133 5e7b7b d8deeb -t}
-${cpugraph cpu7 25,133 5e7b7b d8deeb -t} ${cpugraph cpu8 25,133 5e7b7b d8deeb -t}
-
-${diskiograph /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R 50,269 5e7b7b d8deeb -t}
+${voffset 10}
+${color1}cpu1 ${color3}${cpubar cpu1 12,100}${goto 100}${color1}${cpu 1}%${goto 170}cpu2 ${color3}${cpubar cpu2 12,100}${goto 267}${color1}${cpu 2}%
+${color1}cpu3 ${color3}${cpubar cpu3 12,100}${goto 100}${color1}${cpu 3}%${goto 170}cpu4 ${color3}${cpubar cpu4 12,100}${goto 267}${color1}${cpu 4}%
+${color1}cpu5 ${color3}${cpubar cpu5 12,100}${goto 100}${color1}${cpu 5}%${goto 170}cpu6 ${color3}${cpubar cpu6 12,100}${goto 267}${color1}${cpu 6}%
+${color1}cpu7 ${color3}${cpubar cpu7 12,100}${goto 100}${color1}${cpu 7}%${goto 170}cpu8 ${color3}${cpubar cpu8 12,100}${goto 267}${color1}${cpu 8}%
+${voffset 30}
+${color3}${memgraph 50,299 5e7b7b d8deeb -t -l}
+${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  memory ${alignr}${mem} / ${memavail}
+${color3}${diskiograph /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R 50,299 5e7b7b d8deeb -t -l}
 ${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  disk io ${alignr}${diskio /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R}/s
-
 ${if_match "${addr eth0}"!="No Address"}
-${color3}${downspeedgraph eth0 50,269 5e7b7b d8deeb}
+${color3}${downspeedgraph eth0 50,299 5e7b7b d8deeb -t -l}
 ${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  download ${alignr}${downspeedf eth0}k/s (${totaldown eth0})
 ${hr}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  upload ${alignr}${upspeedf eth0}k/s (${totalup eth0})
-${color3}${upspeedgraph eth0 50,269 99c8e8 618094}
+${color3}${upspeedgraph eth0 50,299 99c8e8 618094 -t -l}
 ${endif}
 ${if_match "${addr wlp0s20f3}"!="No Address"}
-${color3}${downspeedgraph wlp0s20f3 50,269 5e7b7b d8deeb}
+${color3}${downspeedgraph wlp0s20f3 50,299 5e7b7b d8deeb -t -l}
 ${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  download ${alignr}${downspeedf wlp0s20f3}k/s (${totaldown wlp0s20f3})
 ${hr}
 ${font Font Awesome 6 Free:style=Solid:size=10}${font}  upload ${alignr}${upspeedf wlp0s20f3}k/s (${totalup wlp0s20f3})
-${color3}${upspeedgraph wlp0s20f3 50,269 99c8e8 618094}
+${color3}${upspeedgraph wlp0s20f3 50,299 99c8e8 618094 -t -l}
 ${endif}
 ]]
