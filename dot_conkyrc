@@ -89,7 +89,7 @@ ${color1}cpu3 ${color3}${cpubar cpu3 12,100}${goto 100}${color1}${cpu 3}%${goto 
 ${color1}cpu5 ${color3}${cpubar cpu5 12,100}${goto 100}${color1}${cpu 5}%${goto 170}cpu6 ${color3}${cpubar cpu6 12,100}${goto 267}${color1}${cpu 6}%
 ${color1}cpu7 ${color3}${cpubar cpu7 12,100}${goto 100}${color1}${cpu 7}%${goto 170}cpu8 ${color3}${cpubar cpu8 12,100}${goto 267}${color1}${cpu 8}%
 ${voffset 30}
-${color3}${memgraph 50,299 5e7b7b d8deeb -t -l}
+${color3}${memgraph 50,299 5e7b7b d8deeb -t}
 ${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  memory ${alignr}${mem} / ${memavail}
 ${color3}${diskiograph /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R 50,299 5e7b7b d8deeb -t -l}
 ${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  disk io ${alignr}${diskio /dev/disk/by-id/nvme-PC711_NVMe_SK_hynix_1TB____KSA9N532110309J4R}/s
