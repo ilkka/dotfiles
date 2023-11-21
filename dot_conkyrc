@@ -1,0 +1,107 @@
+-- vim: ft=lua
+-- Conky, a system monitor https://github.com/brndnmtthws/conky
+--
+-- This configuration file is Lua code. You can write code in here, and it will
+-- execute when Conky loads. You can use it to generate your own advanced
+-- configurations.
+--
+-- Try this (remove the `--`):
+--
+--   print("Loading Conky config")
+--
+-- For more on Lua, see:
+-- https://www.lua.org/pil/contents.html
+
+conky.config = {
+	alignment = "top_right",
+	background = false,
+	border_width = 1,
+
+	default_color = "white",
+	default_outline_color = "black",
+	default_shade_color = "333333",
+	color1 = "a9a9a9",
+	color3 = "616161",
+
+	double_buffer = true,
+
+	draw_borders = false,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = false,
+
+	extra_newline = false,
+	font = "Ubuntu:style=medium:size=10",
+	uppercase = false,
+
+	gap_x = 60,
+	gap_y = 60,
+	minimum_height = 5,
+	minimum_width = 5,
+	stippled_borders = 0,
+
+	net_avg_samples = 2,
+	cpu_avg_samples = 4,
+	show_graph_range = false,
+	show_graph_scale = false,
+
+	no_buffers = true,
+
+	out_to_console = false,
+	out_to_ncurses = false,
+	out_to_stderr = false,
+	out_to_x = true,
+
+	own_window = true,
+	own_window_class = "Conky",
+	own_window_type = "desktop",
+	own_window_transparent = true,
+	own_window_color = "000000",
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+
+	update_interval = 1.0,
+	use_spacer = "none",
+	use_xft = true,
+}
+
+conky.text = [[
+${color1}
+${alignr}${font Ubuntu:style=Medium:pixelsize=50}${time %H:%M}${font}
+${voffset 5}
+${alignr}${font Ubuntu:style=Medium:pixelsize=13}${time %A %d %B %Y}${font}
+
+
+${voffset 150}
+${font Font Awesome 6 Free:style=Solid:size=10}${font} ${alignr}${if_match "${addr eth0}"!="No Address"} [wired] ${addr eth0}${endif}${if_match "${addr wlp0s20f3}"!="No Address"}[wifi] ${addr wlp0s20f3}${endif}
+${hr}
+${font Font Awesome 6 Free:style=Solid:size=10}${font} ${alignr}${exec curl ipinfo.io/ip}
+
+
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  disk ${alignr}${hwmon 2 temp 1}°
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  cpu ${alignr}${hwmon 8 temp 1}°
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  cpu fan ${alignr}${hwmon 7 fan 2} rpm
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  gpu fan ${alignr}${hwmon 7 fan 1} rpm
+${hr}
+${font Font Awesome 6 Free:style=Solid:size=10} ${font}  core 0-3 ${alignr}${hwmon 8 temp 2}° ${hwmon 8 temp 3}° ${hwmon 8 temp 4}° ${hwmon 8 temp 5}°
+${font Font Awesome 6 Free:style=Solid:size=10} ${font}  core 4-7 ${alignr}${hwmon 8 temp 6}° ${hwmon 8 temp 7}° ${hwmon 8 temp 8}° ${hwmon 8 temp 9}°
+${color3}${cpugraph cpu1 50,133 5e7b7b d8deeb -t} ${cpugraph cpu2 50,133 5e7b7b d8deeb -t}
+${cpugraph cpu3 50,133 5e7b7b d8deeb -t} ${cpugraph cpu4 50,133 5e7b7b d8deeb -t}
+${cpugraph cpu5 50,133 5e7b7b d8deeb -t} ${cpugraph cpu6 50,133 5e7b7b d8deeb -t}
+${cpugraph cpu7 50,133 5e7b7b d8deeb -t} ${cpugraph cpu8 50,133 5e7b7b d8deeb -t}
+
+${if_match "${addr eth0}"!="No Address"}
+${color3}${downspeedgraph eth0 50,269 5e7b7b d8deeb}
+${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  download ${alignr}${downspeedf eth0}k/s (${totaldown eth0})
+${hr}
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  upload ${alignr}${upspeedf eth0}k/s (${totalup eth0})
+${color3}${upspeedgraph eth0 50,269 99c8e8 618094}
+${endif}
+${if_match "${addr wlp0s20f3}"!="No Address"}
+${color3}${downspeedgraph wlp0s20f3 50,269 5e7b7b d8deeb}
+${color1}${font Font Awesome 6 Free:style=Solid:size=10}${font}  download ${alignr}${downspeedf wlp0s20f3}k/s (${totaldown wlp0s20f3})
+${hr}
+${font Font Awesome 6 Free:style=Solid:size=10}${font}  upload ${alignr}${upspeedf wlp0s20f3}k/s (${totalup wlp0s20f3})
+${color3}${upspeedgraph wlp0s20f3 50,269 99c8e8 618094}
+${endif}
+]]
