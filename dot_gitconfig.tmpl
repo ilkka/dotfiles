@@ -44,8 +44,12 @@
 {{- else }}
   program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
 {{- end }}
-{{- else }}
+{{- end }}
+{{- if eq .chezmoi.os "linux" }}
   program = {{ .chezmoi.homeDir }}/.local/bin/op-ssh-sign
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 {{- end }}
 
 [commit]
