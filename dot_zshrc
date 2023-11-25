@@ -101,3 +101,7 @@ if command -v atuin &>/dev/null; then
   eval "$(atuin init zsh)"
 fi
 
+if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]; then
+  source "$HOME/.config/broot/launcher/bash/br"
+fi
+

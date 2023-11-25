@@ -120,6 +120,11 @@ if [[ -d "$HOME/.asdf" ]]; then
   . /home/linuxbrew/.linuxbrew/etc/bash_completion.d/asdf.bash
 fi
 
+# broot
+if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]; then
+  source "$HOME/.config/broot/launcher/bash/br"
+fi
+
 # if local file exists, source that
 if [[ -r "$HOME/.bashrc.local" ]]; then
   source "$HOME/.bashrc.local"
