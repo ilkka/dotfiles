@@ -27,6 +27,7 @@ eval "$(${brewdir}/bin/brew shellenv)"
 
 info "Installing homebrew packages"
 brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "hashicorp/tap"
 brew "asdf"
 brew "atuin"
 brew "bat"
@@ -54,6 +55,8 @@ brew "ripgrep"
 brew "rustup"
 brew "skaffold"
 brew "walk"
+brew "hashicorp/tap/terraform"
+brew "cdktf"
 EOF
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -85,10 +88,6 @@ declare -a asdf_plugins=( \
   erlang                  \
   golang                  \
   nodejs                  \
-  nomad                   \
-  packer                  \
-  terraform               \
-  waypoint                \
 )
 
 . ${brewdir}/opt/asdf/libexec/asdf.sh
