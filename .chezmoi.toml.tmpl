@@ -1,0 +1,6 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $choices := list "home" "work" "other" -}}
+{{- $environment := promptChoiceOnce . "environment" "What environment is this" $choices -}}
+[data]
+    email = {{ $email | quote }}
+    environment = {{ $environment | quote }}
