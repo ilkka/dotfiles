@@ -139,7 +139,7 @@ if [[ "${#repos[@]}" -gt 0 ]]; then
     else
       if [[ -n "$keyurl" ]]; then
         echo "Getting key"
-        curl -sS "$keyurl" | sudo -p "sudo as %u@%h to install repo signing key: " gpg --dearmor --output /usr/share/keyrings/$(basename $keyurl | sed -E 's/\.[^.]*/-keyring.gpg')
+        curl -sS "$keyurl" | sudo -p "sudo as %u@%h to install repo signing key: " gpg --dearmor --output /usr/share/keyrings/$(basename $keyurl | sed -E 's/\.[^.]*/-keyring.gpg/')
       fi
       echo "Adding repo config"
       echo $config | sudo -p "sudo as %u@%h to install repo config: " tee "$listfile"
