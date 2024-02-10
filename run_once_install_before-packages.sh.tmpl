@@ -110,7 +110,7 @@ done
 # repos are saved using the reponame, signing keys are downloaded
 # and saved as their basename in /usr/share/keyrings
 declare -a repos=( \
-  "1password%%https://downloads.1password.com/linux/keys/1password.asc%%deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" \
+  "1password%%https://downloads.1password.com/linux/keys/1password.asc%%deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" \
 )
 
 # tools to install
