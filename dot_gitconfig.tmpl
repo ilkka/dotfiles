@@ -14,6 +14,7 @@
 	editor = nvim
 	pager = "PAGER=less delta"
 	excludesfile = {{ .chezmoi.homeDir }}/.gitignore
+	fsmonitor = true
 
 [interactive]
   diffFilter = delta --color-only
@@ -23,7 +24,7 @@
 
 [delta]
   navigate = true
-  light = true
+  light = false
 
 [merge]
   conflictstyle = diff3
@@ -34,6 +35,12 @@
 [init]
 	defaultBranch = main
 
+[branch]
+    sort = -committerdate
+
+[column]
+    ui = auto
+	
 [gpg]
   format = ssh
 
@@ -90,3 +97,5 @@
   undo = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe undo
   branches = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe branches
 {{- end }}
+  bra = branch -avv
+  fpush = push --force-with-lese
