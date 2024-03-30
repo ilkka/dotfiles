@@ -2,11 +2,14 @@ README.md
 {{- if eq .chezmoi.os "windows" }}
 .bash_aliases
 .bashrc
+.bash-preexec.sh
+.conkyrc
 .profile
 .pystartup
 .tmux.conf
 .zshenv
 .zshrc
+.zprofile
 .1password
 .compleat
 .config
