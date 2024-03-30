@@ -18,4 +18,5 @@ README.md
 {{- end }}
 {{- if ne .chezmoi.os "windows" }}
 scoop
+AppData
 {{- end }}
