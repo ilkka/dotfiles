@@ -1,0 +1,34 @@
+theme = "dracula"
+
+[editor]
+line-number = "relative"
+auto-completion = true
+auto-format = true
+auto-save = true
+true-color = true
+undercurl = true
+rulers = [80, 120]
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-type", "version-control", "read-only-indicator", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "selections", "register", "position", "total-line-numbers", "file-encoding", "file-line-ending"]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+tabpad = "·"
+
+[editor.indent-guides]
+render = true

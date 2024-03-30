@@ -16,3 +16,6 @@ README.md
 .doom.d
 .spacemacs.d
 {{- end }}
+{{- if ne .chezmoi.os "windows" }}
+scoop
+{{- end }}
