@@ -96,6 +96,14 @@ command = "clippy"
 name = "vue"
 formatter = { command = "prettier", args = ["--parser", "vue"] }
 
+#############################
+# TYPESCRIPT (for prettier) #
+#############################
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+
 ########
 # YAML #
 ########
