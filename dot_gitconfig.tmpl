@@ -41,8 +41,10 @@
 [column]
     ui = auto
 	
+{{- if ne .environment "server" }}
 [gpg]
   format = ssh
+{{- end }}
 
 [gpg "ssh"]
 {{- if eq .chezmoi.os "windows" }}
@@ -57,8 +59,10 @@
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 {{- end }}
 
+{{- if ne .environment "server" }}
 [commit]
   gpgsign = true
+{{- end }}
 
 [include]
   path = ~/.gitconfig.local
@@ -68,7 +72,7 @@
 {{- if eq .chezmoi.os "windows" }}
 	helper = !'C:\\Users\\{{ .username }}\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
 {{- else if eq .chezmoi.os "linux" }}
-	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+	helper = !gh auth git-credential
 {{- else }}
 	helper = !/opt/homebrew/bin/gh auth git-credential
 {{- end }}
@@ -78,7 +82,7 @@
 {{- if eq .chezmoi.os "windows" }}
 	helper = !'C:\\Users\\{{ .username }}\\scoop\\apps\\gh\\current\\bin\\gh.exe' auth git-credential
 {{- else if eq .chezmoi.os "linux" }}
-	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+	helper = !gh auth git-credential
 {{- else }}
 	helper = !/opt/homebrew/bin/gh auth git-credential
 {{- end }}
