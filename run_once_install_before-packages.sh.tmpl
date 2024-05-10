@@ -2,6 +2,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [[ $(uname -m) == "aarch64" ]]; then
+  echo "no linuxbrew on aarch64, skipping all this"
+  exit 0
+fi
+
 function info() {
   starline=$(printf '%*s' "${#1}"|sed 's/ /*/g')'****'
   echo "$starline"
