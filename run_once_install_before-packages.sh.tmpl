@@ -68,7 +68,6 @@ EOF
 {{ if eq .chezmoi.os "darwin" -}}
 info "Installing casks"
 brew bundle --no-lock --file=/dev/stdin <<EOF
-tap "homebrew/cask"
 cask_args appdir: "~/Applications", require_sha: true
 cask "alfred"
 cask "docker"
