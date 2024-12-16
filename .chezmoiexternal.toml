@@ -38,16 +38,15 @@ url = "https://github.com/pyenv/pyenv-virtualenv.git"
 refreshPeriod = "168h"
 
 [".tmux/plugins/tpm"]
-
-
-{{- if eq .chezmoi.os "windows" -}}
 type = "git-repo"
 url = "https://github.com/tmux-plugins/tpm"
 refreshPeriod = "168h"
+
+{{- if eq .chezmoi.os "windows" -}}
 ["AppData/Roaming/.emacs.d"]
 {{- else -}}
 [".emacs.d"]
-{{- end -}}
+{{-end -}}
 type = "git-repo"
 url = "https://github.com/syl20bnr/spacemacs"
 refreshPeriod = "168h"
