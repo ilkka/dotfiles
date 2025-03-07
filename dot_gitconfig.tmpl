@@ -37,6 +37,7 @@
 
 [branch]
     sort = -committerdate
+	autosetuprebase = always
 
 [column]
     ui = auto
@@ -104,8 +105,8 @@
   bra = branch -avv
   fpush = push --force-with-lese
 
-[pull]
-  rebase = true
-
 [rebase]
   autostash = true
+
+[fetch]
+  prune = true
