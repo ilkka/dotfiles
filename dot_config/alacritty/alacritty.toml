@@ -1,0 +1,10 @@
+[general]
+import = [
+  "alacritty-theme/themes/dracula_plus.toml"
+]
+
+[window]
+option_as_alt = "OnlyLeft"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
