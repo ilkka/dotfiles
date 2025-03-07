@@ -14,12 +14,14 @@ refreshPeriod = "168h"
 [".zplug".pull]
 args = ["--depth", "1"]
 
-[".config/kitty/kitty-themes"]
+{{ if ne .chezmoi.os "windows" -}}
+[".config/alacritty/alacritty-theme"]
 type = "git-repo"
-url = "https://github.com/dexpota/kitty-themes.git"
+url = "https://github.com/alacritty/alacritty-theme"
 refreshPeriod = "168h"
-[".config/kitty/kitty-themes".pull]
+[".config/alacritty/alacritty-theme".pull]
 args = ["--depth", "1"]
+{{- end }}
 
 [".poshthemes"]
 type = "archive"
