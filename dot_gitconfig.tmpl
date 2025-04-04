@@ -103,7 +103,10 @@
   branches = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe branches
 {{- end }}
   bra = branch -avv
-  fpush = push --force-with-lese
+  ff = fetch --ff-only
+  puf = push --force-with-lese
+  lg = log --graph --oneline
+  lga = log --graph --oneline --all
 
 [rebase]
   autostash = true
