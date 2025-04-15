@@ -95,8 +95,8 @@
 	required = true
 	clean = git-lfs clean -- %f
 
-{{- if eq .chezmoi.os "windows" }}
 [alias]
+{{- if eq .chezmoi.os "windows" }}
   sync = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe sync
   publish = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe publish
   unpublish = !C:/Users/ilkka/scoop/apps/legit/current/legit.exe unpublish
