@@ -1,3 +1,4 @@
 .vscode
 .DS_Store
 kls_database.db
+.kotlin/sessions/*.salive
