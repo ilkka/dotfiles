@@ -130,6 +130,12 @@ if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]; then
   source "$HOME/.config/broot/launcher/bash/br"
 fi
 
+# jbang
+if command -v jbang &>/dev/null; then
+  alias j!=jbang
+  export PATH="$HOME/.jbang/bin:$PATH"
+fi
+
 # if local file exists, source that
 if [[ -r "$HOME/.bashrc.local" ]]; then
   source "$HOME/.bashrc.local"

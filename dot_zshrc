@@ -105,3 +105,7 @@ if [[ -f "$HOME/.config/broot/launcher/bash/br" ]]; then
   source "$HOME/.config/broot/launcher/bash/br"
 fi
 
+if command -v jbang &>/dev/null; then
+  alias j!=jbang
+  export PATH="$HOME/.jbang/bin:$PATH"
+fi
