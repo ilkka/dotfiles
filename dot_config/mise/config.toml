@@ -1,0 +1,6 @@
+[tools]
+node = "24"
+gleam = "1"
+erlang = "28"
+elixir = "1"
+golang = "1"

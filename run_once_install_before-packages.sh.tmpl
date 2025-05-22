@@ -33,7 +33,6 @@ eval "$(${brewdir}/bin/brew shellenv)"
 info "Installing homebrew packages"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "hashicorp/tap"
-brew "asdf"
 brew "atuin"
 brew "bat"
 brew "bottom"
@@ -55,6 +54,7 @@ brew "k9s"
 brew "kubernetes-cli"
 brew "lazydocker"
 brew "lazygit"
+brew "mise"
 brew "neovim"
 brew "oh-my-posh"
 brew "ripgrep"
@@ -88,22 +88,6 @@ cask "font-intone-mono-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 EOF
 {{ end -}}
-
-# asdf plugins
-declare -a asdf_plugins=( \
-  elixir                  \
-  erlang                  \
-  golang                  \
-  nodejs                  \
-)
-
-. ${brewdir}/opt/asdf/libexec/asdf.sh
-
-# install asdf plugins
-for plugin in "${asdf_plugins[@]}"
-do
-  asdf plugin add "$plugin"
-done
 
 {{ if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.osRelease.idLike "debian" -}}

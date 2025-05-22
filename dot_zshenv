@@ -34,13 +34,3 @@ fi
 if [[ -d "$HOME/.mix/escripts" ]]; then
   PATH="$HOME/.mix/escripts:$PATH"
 fi
-
-# asdf
-if [[ -d "$HOME/.asdf" ]]; then
-	# make asdf-erlang do things
-	export KERL_BUILD_DOCS="yes"
-  . "$HOME/.asdf/asdf.sh"
-  fpath=(${ASDF_DIR}/completions $fpath)
-  autoload -Uz compinit && compinit
-fi
-
