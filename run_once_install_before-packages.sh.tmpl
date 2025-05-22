@@ -31,7 +31,7 @@ fi
 eval "$(${brewdir}/bin/brew shellenv)"
 
 info "Installing homebrew packages"
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 tap "hashicorp/tap"
 brew "atuin"
 brew "bat"
@@ -67,19 +67,17 @@ EOF
 
 {{ if eq .chezmoi.os "darwin" -}}
 info "Installing casks"
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 cask_args appdir: "~/Applications", require_sha: true
 cask "alfred"
 cask "docker"
 cask "firefox"
 cask "gitkraken"
 cask "karabiner-elements"
-cask "kitty"
-#cask "rancher"
+cask "alacritty"
 cask "rectangle"
 cask "signal"
 cask "slack"
-cask "telegram"
 cask "todoist"
 cask "visual-studio-code"
 tap "homebrew/cask-fonts"
