@@ -1,6 +1,7 @@
 [tools]
-node = "24"
-gleam = "1"
-erlang = "28"
-elixir = "1"
-golang = "1"
+node = "latest"
+gleam = "latest"
+erlang = "latest"
+elixir = "latest"
+rebar = "latest"
+go = "latest"
