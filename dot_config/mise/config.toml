@@ -5,3 +5,14 @@ erlang = "latest"
 elixir = "latest"
 rebar = "latest"
 go = "latest"
+gradle = "latest"
+pnpm = "latest"
+ktlint = "latest"
+kotlin = "latest"
+ninja = "latest"
+pipx = "latest"
+ansible = "latest"
+
+[settings]
+lockfile = true
+experimental = true
