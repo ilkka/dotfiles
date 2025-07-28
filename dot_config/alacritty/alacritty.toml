@@ -1,7 +1,5 @@
 [general]
-import = [
-  "alacritty-theme/themes/dracula_plus.toml"
-]
+import = ["alacritty-theme/themes/dawnfox.toml"]
 
 [window]
 option_as_alt = "OnlyLeft"
